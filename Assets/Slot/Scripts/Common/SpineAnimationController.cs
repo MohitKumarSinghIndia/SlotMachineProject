@@ -1,30 +1,31 @@
-﻿using UnityEngine;
 using Spine;
 using Spine.Unity;
+using UnityEngine;
 
 public class SpineAnimationController : MonoBehaviour
 {
-    public enum OnEnableAction
+    public enum EnableBehaviour
     {
-        DoNothing,
+        None,
         Reset,
         Play
     }
 
     [Header("Reference")]
-    public SkeletonAnimation skeletonAnimation;
+    [SerializeField] private SkeletonAnimation skeletonAnimation;
 
     [Header("Animation")]
-    [SpineAnimation(dataField: "skeletonAnimation")]
-    public string animationName;
-
-    public bool loop = true;
-
-    [Tooltip("-1 = original duration, otherwise force animation to fit given time")]
-    public float customDuration = -1f;
+    [SpineAnimation(dataField: nameof(skeletonAnimation))]
+    [SerializeField] private string animationName;
+    [SerializeField] private bool loop = true;
+    [SerializeField, Min(0f)] private float playbackSpeed = 1f;
+    [SerializeField, Tooltip("-1 keeps the source duration. Positive values rescale the animation to fit this duration.")]
+    private float customDuration = -1f;
 
     [Header("On Enable")]
-    public OnEnableAction onEnableAction = OnEnableAction.Play;
+    [SerializeField] private EnableBehaviour onEnableBehaviour = EnableBehaviour.Play;
+
+    public string AnimationName => animationName;
 
     private void Reset()
     {
@@ -33,73 +34,66 @@ public class SpineAnimationController : MonoBehaviour
 
     private void OnEnable()
     {
-        switch (onEnableAction)
+        switch (onEnableBehaviour)
         {
-            case OnEnableAction.DoNothing:
-                break;
-
-            case OnEnableAction.Reset:
+            case EnableBehaviour.Reset:
                 ResetAnimation();
                 break;
-
-            case OnEnableAction.Play:
+            case EnableBehaviour.Play:
                 PlayAnimation();
                 break;
         }
     }
 
-    // 🔥 MAIN PLAY FUNCTION
     public void PlayAnimation()
     {
-        if (skeletonAnimation == null || string.IsNullOrEmpty(animationName))
+        if (skeletonAnimation == null || string.IsNullOrWhiteSpace(animationName))
+        {
             return;
+        }
 
         var state = skeletonAnimation.AnimationState;
         var skeletonData = skeletonAnimation.Skeleton.Data;
+        var animation = skeletonData.FindAnimation(animationName);
 
-        var anim = skeletonData.FindAnimation(animationName);
-        if (anim == null)
+        if (animation == null)
         {
-            Debug.LogError($"Animation {animationName} not found!");
+            Debug.LogWarning($"Spine animation '{animationName}' was not found on {name}.", this);
             return;
         }
 
         TrackEntry entry = state.SetAnimation(0, animationName, loop);
-
-        // 🔥 Apply custom timing
-        if (customDuration > 0)
-        {
-            float originalDuration = anim.Duration;
-
-            if (originalDuration > 0)
-            {
-                entry.TimeScale = originalDuration / customDuration;
-            }
-        }
-        else
-        {
-            entry.TimeScale = 1f; // normal speed
-        }
+        entry.TimeScale = ResolveTimeScale(animation);
     }
 
-    // 🔄 RESET
+    public void Play(string targetAnimation, bool shouldLoop = false, float speed = 1f, float targetDuration = -1f)
+    {
+        animationName = targetAnimation;
+        loop = shouldLoop;
+        playbackSpeed = Mathf.Max(0f, speed);
+        customDuration = targetDuration;
+        PlayAnimation();
+    }
+
     public void ResetAnimation()
     {
         if (skeletonAnimation == null)
+        {
             return;
+        }
 
         skeletonAnimation.AnimationState.ClearTracks();
         skeletonAnimation.Skeleton.SetToSetupPose();
-        skeletonAnimation.Update(0);
+        skeletonAnimation.Update(0f);
     }
 
-    // 🎮 Manual Controls (for code use)
-    public void Play(string anim, bool loopAnim = false, float duration = -1f)
+    private float ResolveTimeScale(Spine.Animation animation)
     {
-        animationName = anim;
-        loop = loopAnim;
-        customDuration = duration;
+        if (customDuration > 0f && animation.Duration > 0f)
+        {
+            return animation.Duration / customDuration;
+        }
 
-        PlayAnimation();
+        return Mathf.Max(0.01f, playbackSpeed);
     }
 }
