@@ -52,8 +52,6 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private SymbolManager symbolManager;
         [SerializeField] private List<ReelController> reels = new List<ReelController>();
         [SerializeField] private SpinResultGenerator spinResultGenerator;
-        [SerializeField] private SpinSessionLogger spinSessionLogger;
-        [SerializeField] private SpinReplaySource spinReplaySource;
 
         [Header("Spin Settings")]
         [SerializeField] private ReelSequenceSettings sequenceSettings = new ReelSequenceSettings();
@@ -71,13 +69,13 @@ namespace SlotMachine.Reels.Runtime
 
         private void Awake()
         {
-            CacheLocalPipelineReferences();
+            CacheLocalReferences();
             ApplySharedSettingsToReels();
         }
 
         private void OnValidate()
         {
-            CacheLocalPipelineReferences();
+            CacheLocalReferences();
             sequenceSettings?.Clamp();
             sharedSpinSettings?.Clamp();
             sharedLayoutSettings?.Clamp();
@@ -92,7 +90,7 @@ namespace SlotMachine.Reels.Runtime
                 return;
             }
 
-            CacheLocalPipelineReferences();
+            CacheLocalReferences();
             isSpinInProgress = false;
             KillScheduledStarts();
             StopAllReels();
@@ -116,7 +114,6 @@ namespace SlotMachine.Reels.Runtime
             ApplySharedSettingsToReels();
             _remainingReels = commands.Count;
             isSpinInProgress = true;
-            spinSessionLogger?.Log(outcome);
             ScheduleSpinCommands(commands);
         }
 
@@ -199,11 +196,6 @@ namespace SlotMachine.Reels.Runtime
 
         private SpinOutcome ResolveNextOutcome()
         {
-            if (spinReplaySource != null && spinReplaySource.TryDequeueOutcome(out SpinOutcome replayOutcome))
-            {
-                return replayOutcome;
-            }
-
             if (spinResultGenerator == null)
             {
                 Debug.LogError($"[{name}] SpinResultGenerator reference is missing.");
@@ -213,21 +205,11 @@ namespace SlotMachine.Reels.Runtime
             return spinResultGenerator.GenerateOutcome(reels);
         }
 
-        private void CacheLocalPipelineReferences()
+        private void CacheLocalReferences()
         {
             if (spinResultGenerator == null)
             {
                 spinResultGenerator = GetComponent<SpinResultGenerator>();
-            }
-
-            if (spinSessionLogger == null)
-            {
-                spinSessionLogger = GetComponent<SpinSessionLogger>();
-            }
-
-            if (spinReplaySource == null)
-            {
-                spinReplaySource = GetComponent<SpinReplaySource>();
             }
         }
 

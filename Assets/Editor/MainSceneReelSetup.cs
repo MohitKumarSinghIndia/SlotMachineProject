@@ -60,9 +60,7 @@ public static class MainSceneReelSetup
 
         ReelManager reelManager = GetOrAddComponent<ReelManager>(FindOrCreateChild(systemRoot.transform, "ReelManager"));
         SpinResultGenerator spinResultGenerator = GetOrAddComponent<SpinResultGenerator>(reelManager.gameObject);
-        SpinSessionLogger spinSessionLogger = GetOrAddComponent<SpinSessionLogger>(reelManager.gameObject);
-        SpinReplaySource spinReplaySource = GetOrAddComponent<SpinReplaySource>(reelManager.gameObject);
-        AssignReelManager(symbolManager, reelManager, spinResultGenerator, spinSessionLogger, spinReplaySource);
+        AssignReelManager(symbolManager, reelManager, spinResultGenerator);
 
         List<ReelController> sceneReels = new List<ReelController>();
         for (int reelNumber = 1; reelNumber <= 5; reelNumber++)
@@ -195,13 +193,11 @@ public static class MainSceneReelSetup
         EditorUtility.SetDirty(symbolManager);
     }
 
-    private static void AssignReelManager(SymbolManager symbolManager, ReelManager reelManager, SpinResultGenerator spinResultGenerator, SpinSessionLogger spinSessionLogger, SpinReplaySource spinReplaySource)
+    private static void AssignReelManager(SymbolManager symbolManager, ReelManager reelManager, SpinResultGenerator spinResultGenerator)
     {
         SerializedObject serialized = new SerializedObject(reelManager);
         serialized.FindProperty("symbolManager").objectReferenceValue = symbolManager;
         serialized.FindProperty("spinResultGenerator").objectReferenceValue = spinResultGenerator;
-        serialized.FindProperty("spinSessionLogger").objectReferenceValue = spinSessionLogger;
-        serialized.FindProperty("spinReplaySource").objectReferenceValue = spinReplaySource;
         serialized.ApplyModifiedPropertiesWithoutUndo();
         EditorUtility.SetDirty(reelManager);
     }
