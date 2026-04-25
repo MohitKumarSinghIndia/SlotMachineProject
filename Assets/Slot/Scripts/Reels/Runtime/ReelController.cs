@@ -289,10 +289,34 @@ namespace SlotMachine.Reels.Runtime
         {
             float spinDistance = totalSteps * activeSymbolHeight;
             float travelledDistance = 0f;
+            float anticipationOffset = 0f;
+            float landingOffset = 0f;
 
-            _spinSequence = DOTween.Sequence();
-            _spinSequence.Append(stripRoot.DOAnchorPosY(spinSettings.AnticipationLift, spinSettings.AnticipationDuration)
+            _spinSequence = DOTween.Sequence()
+                .SetAutoKill(true);
+
+            _spinSequence.Append(DOTween.To(
+                    () => anticipationOffset,
+                    value =>
+                    {
+                        anticipationOffset = value;
+                        if (stripRoot != null)
+                        {
+                            stripRoot.anchoredPosition = new Vector2(0f, anticipationOffset);
+                        }
+                    },
+                    spinSettings.AnticipationLift,
+                    spinSettings.AnticipationDuration)
                 .SetEase(spinSettings.AnticipationEase));
+
+            _spinSequence.AppendCallback(() =>
+            {
+                anticipationOffset = 0f;
+                if (stripRoot != null)
+                {
+                    stripRoot.anchoredPosition = Vector2.zero;
+                }
+            });
 
             _spinSequence.Append(DOTween.To(
                     () => travelledDistance,
@@ -312,10 +336,34 @@ namespace SlotMachine.Reels.Runtime
                 RefreshVisibleSymbols();
             });
 
-            _spinSequence.Append(stripRoot.DOAnchorPosY(-spinSettings.LandingOvershoot, spinSettings.LandingDownDuration)
+            _spinSequence.Append(DOTween.To(
+                    () => landingOffset,
+                    value =>
+                    {
+                        landingOffset = value;
+                        if (stripRoot != null)
+                        {
+                            stripRoot.anchoredPosition = new Vector2(0f, landingOffset);
+                        }
+                    },
+                    -spinSettings.LandingOvershoot,
+                    spinSettings.LandingDownDuration)
                 .SetEase(spinSettings.LandingDownEase));
-            _spinSequence.Append(stripRoot.DOAnchorPosY(0f, spinSettings.LandingReturnDuration)
+
+            _spinSequence.Append(DOTween.To(
+                    () => landingOffset,
+                    value =>
+                    {
+                        landingOffset = value;
+                        if (stripRoot != null)
+                        {
+                            stripRoot.anchoredPosition = new Vector2(0f, landingOffset);
+                        }
+                    },
+                    0f,
+                    spinSettings.LandingReturnDuration)
                 .SetEase(spinSettings.LandingReturnEase));
+
             _spinSequence.OnComplete(() => FinishSpin(targetTopIndex, onComplete));
         }
     }

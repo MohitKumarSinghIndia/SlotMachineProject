@@ -59,7 +59,10 @@ public static class MainSceneReelSetup
         AssignSymbols(symbolManager, symbols);
 
         ReelManager reelManager = GetOrAddComponent<ReelManager>(FindOrCreateChild(systemRoot.transform, "ReelManager"));
-        AssignReelManager(symbolManager, reelManager);
+        SpinResultGenerator spinResultGenerator = GetOrAddComponent<SpinResultGenerator>(reelManager.gameObject);
+        SpinSessionLogger spinSessionLogger = GetOrAddComponent<SpinSessionLogger>(reelManager.gameObject);
+        SpinReplaySource spinReplaySource = GetOrAddComponent<SpinReplaySource>(reelManager.gameObject);
+        AssignReelManager(symbolManager, reelManager, spinResultGenerator, spinSessionLogger, spinReplaySource);
 
         List<ReelController> sceneReels = new List<ReelController>();
         for (int reelNumber = 1; reelNumber <= 5; reelNumber++)
@@ -163,15 +166,9 @@ public static class MainSceneReelSetup
 
             AssignObjectList(serialized.FindProperty("symbolViews"), symbolViews);
             int topBufferRows = Mathf.Max(0, (symbolViews.Count - 3) / 2);
-            serialized.FindProperty("topBufferRows").intValue = topBufferRows;
-
             float symbolHeight = InferSymbolHeight(reel.transform as RectTransform, symbolViews);
-            serialized.FindProperty("symbolHeight").floatValue = symbolHeight;
-
             LayoutSymbols(symbolViews, topBufferRows, symbolHeight);
         }
-
-        serialized.FindProperty("visibleRowCount").intValue = 3;
         serialized.ApplyModifiedPropertiesWithoutUndo();
         EditorUtility.SetDirty(reel);
 
@@ -198,10 +195,13 @@ public static class MainSceneReelSetup
         EditorUtility.SetDirty(symbolManager);
     }
 
-    private static void AssignReelManager(SymbolManager symbolManager, ReelManager reelManager)
+    private static void AssignReelManager(SymbolManager symbolManager, ReelManager reelManager, SpinResultGenerator spinResultGenerator, SpinSessionLogger spinSessionLogger, SpinReplaySource spinReplaySource)
     {
         SerializedObject serialized = new SerializedObject(reelManager);
         serialized.FindProperty("symbolManager").objectReferenceValue = symbolManager;
+        serialized.FindProperty("spinResultGenerator").objectReferenceValue = spinResultGenerator;
+        serialized.FindProperty("spinSessionLogger").objectReferenceValue = spinSessionLogger;
+        serialized.FindProperty("spinReplaySource").objectReferenceValue = spinReplaySource;
         serialized.ApplyModifiedPropertiesWithoutUndo();
         EditorUtility.SetDirty(reelManager);
     }
