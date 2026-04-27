@@ -19,7 +19,7 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private List<int> forcedStopIndices = new List<int>();
 
         [Header("Feature Markers")]
-        [SerializeField] private int scatterSymbolId = 2;
+        [SerializeField] private int scatterSymbolId = 0;
         [SerializeField] private int freeSpinScatterThreshold = 3;
 
         [Header("Placeholder Win Meta")]
