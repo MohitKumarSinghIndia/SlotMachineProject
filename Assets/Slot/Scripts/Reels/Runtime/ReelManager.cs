@@ -1,186 +1,104 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
-using DG.Tweening;
-using SlotMachine.Reels.Data;
 using UnityEngine;
 
 namespace SlotMachine.Reels.Runtime
 {
-    [Serializable]
-    public class ReelLayoutSettings
-    {
-        [Min(1)]
-        [SerializeField] private int visibleRowCount = 3;
-
-        [Min(0)]
-        [SerializeField] private int topBufferRows = 2;
-
-        [Tooltip("Use 0 to auto-calculate from the reel viewport height.")]
-        [Min(0f)]
-        [SerializeField] private float symbolHeight = 0f;
-
-        public int VisibleRowCount => visibleRowCount;
-        public int TopBufferRows => topBufferRows;
-        public float SymbolHeight => symbolHeight;
-
-        public void Clamp()
-        {
-            visibleRowCount = Mathf.Max(1, visibleRowCount);
-            topBufferRows = Mathf.Max(0, topBufferRows);
-            symbolHeight = Mathf.Max(0f, symbolHeight);
-        }
-
-        public float ResolveSymbolHeight(RectTransform reelViewport)
-        {
-            if (symbolHeight > 0f)
-            {
-                return symbolHeight;
-            }
-
-            if (reelViewport != null && reelViewport.rect.height > 0f)
-            {
-                return reelViewport.rect.height / visibleRowCount;
-            }
-
-            return 164f;
-        }
-    }
-
     public class ReelManager : MonoBehaviour
     {
         [Header("References")]
-        [SerializeField] private SymbolManager symbolManager;
         [SerializeField] private List<ReelController> reels = new List<ReelController>();
         [SerializeField] private SpinResultGenerator spinResultGenerator;
 
-        [Header("Spin Settings")]
-        [SerializeField] private ReelSequenceSettings sequenceSettings = new ReelSequenceSettings();
-        [SerializeField] private ReelSpinSettings sharedSpinSettings = new ReelSpinSettings();
-        [SerializeField] private ReelLayoutSettings sharedLayoutSettings = new ReelLayoutSettings();
+        [Header("Spin Flow")]
+        [Min(0f)]
+        [SerializeField] private float reelStartDelay = 0.08f;
+        [Min(0f)]
+        [SerializeField] private float loopHoldDuration = 0.8f;
+        [Min(0f)]
+        [SerializeField] private float reelStopDelay = 0.14f;
 
         [Header("Debug State")]
         [SerializeField] private bool isSpinInProgress;
         [SerializeField] private SpinOutcome lastOutcome;
 
         private int _remainingReels;
-        private readonly List<Tween> _scheduledStarts = new List<Tween>();
+        private Coroutine _spinRoutine;
 
         public bool IsSpinInProgress => isSpinInProgress;
 
         private void Awake()
         {
             CacheLocalReferences();
-            ApplySharedSettingsToReels();
-        }
-
-        private void OnValidate()
-        {
-            CacheLocalReferences();
-            sequenceSettings?.Clamp();
-            sharedSpinSettings?.Clamp();
-            sharedLayoutSettings?.Clamp();
-            ApplySharedSettingsToReels();
         }
 
         [ContextMenu("Spin All Reels")]
         public void SpinAll()
         {
-            if (reels.Count == 0)
+            if (isSpinInProgress)
             {
                 return;
             }
 
             CacheLocalReferences();
-            isSpinInProgress = false;
-            KillScheduledStarts();
             StopAllReels();
-            _remainingReels = 0;
 
             SpinOutcome outcome = ResolveNextOutcome();
             if (outcome == null)
             {
-                isSpinInProgress = false;
                 return;
             }
 
             lastOutcome = outcome;
-            List<SpinCommand> commands = BuildSpinCommands(outcome);
+            _spinRoutine = StartCoroutine(SpinRoutine(outcome));
+        }
+
+        private IEnumerator SpinRoutine(SpinOutcome outcome)
+        {
+            isSpinInProgress = true;
+            _remainingReels = 0;
+
+            List<SpinCommand> commands = BuildCommands(outcome);
             if (commands.Count == 0)
             {
                 isSpinInProgress = false;
-                return;
+                yield break;
             }
 
-            ApplySharedSettingsToReels();
-            _remainingReels = commands.Count;
-            isSpinInProgress = true;
-            ScheduleSpinCommands(commands);
-        }
-
-        private void HandleReelCompleted(ReelController reel)
-        {
-            _remainingReels = Math.Max(0, _remainingReels - 1);
-            if (_remainingReels == 0)
-            {
-                isSpinInProgress = false;
-                KillScheduledStarts();
-            }
-        }
-
-        private List<SpinCommand> BuildSpinCommands(SpinOutcome outcome)
-        {
-            List<SpinCommand> commands = new List<SpinCommand>();
-            if (outcome == null)
-            {
-                return commands;
-            }
-
-            for (int i = 0; i < reels.Count; i++)
-            {
-                ReelController reel = reels[i];
-                if (reel == null || reel.ReelStrip == null)
-                {
-                    continue;
-                }
-
-                if (!outcome.TryGetStopIndex(reel.ReelIndex, out int stopIndex))
-                {
-                    continue;
-                }
-
-                commands.Add(new SpinCommand(reel, stopIndex));
-            }
-
-            return commands;
-        }
-
-        private void ScheduleSpinCommands(List<SpinCommand> commands)
-        {
             for (int i = 0; i < commands.Count; i++)
             {
                 SpinCommand command = commands[i];
-                float delay = Mathf.Max(0f, i * sequenceSettings.ReelStartDelay);
-                if (delay <= 0f)
+                command.Reel.PrepareStopResult(command.StopIndex, command.VisibleSymbolIds);
+                command.Reel.StartSpin(command.Reel.ReelIndex, OnReelStopped);
+                _remainingReels++;
+
+                if (i < commands.Count - 1 && reelStartDelay > 0f)
                 {
-                    command.Reel.SpinToIndex(command.StopIndex, sharedSpinSettings, HandleReelCompleted);
-                    continue;
+                    yield return new WaitForSeconds(reelStartDelay);
                 }
+            }
 
-                Tween delayedStart = DOVirtual.DelayedCall(delay, () =>
+            if (loopHoldDuration > 0f)
+            {
+                yield return new WaitForSeconds(loopHoldDuration);
+            }
+
+            for (int i = 0; i < commands.Count; i++)
+            {
+                SpinCommand command = commands[i];
+                command.Reel.StopSpin(command.Reel.ReelIndex, command.StopIndex, command.VisibleSymbolIds);
+
+                if (i < commands.Count - 1 && reelStopDelay > 0f)
                 {
-                    if (command.Reel != null)
-                    {
-                        command.Reel.SpinToIndex(command.StopIndex, sharedSpinSettings, HandleReelCompleted);
-                    }
-                }).SetUpdate(false);
-
-                _scheduledStarts.Add(delayedStart);
+                    yield return new WaitForSeconds(reelStopDelay);
+                }
             }
         }
 
-        [ContextMenu("Refresh Reel Layout")]
-        public void ApplySharedSettingsToReels()
+        private List<SpinCommand> BuildCommands(SpinOutcome outcome)
         {
+            List<SpinCommand> commands = new List<SpinCommand>();
+
             for (int i = 0; i < reels.Count; i++)
             {
                 ReelController reel = reels[i];
@@ -189,8 +107,30 @@ namespace SlotMachine.Reels.Runtime
                     continue;
                 }
 
-                reel.ApplySharedLayout(sharedLayoutSettings);
-                reel.RefreshImmediate(reel.CurrentTopIndex);
+                if (!TryGetReelOutcome(outcome, reel.ReelIndex, out ReelOutcome reelOutcome))
+                {
+                    continue;
+                }
+
+                commands.Add(new SpinCommand(reel, reelOutcome.StopIndex, reelOutcome.VisibleSymbolIds));
+            }
+
+            return commands;
+        }
+
+        private void OnReelStopped(ReelController reel)
+        {
+            _remainingReels = Mathf.Max(0, _remainingReels - 1);
+            if (_remainingReels > 0)
+            {
+                return;
+            }
+
+            isSpinInProgress = false;
+            if (_spinRoutine != null)
+            {
+                StopCoroutine(_spinRoutine);
+                _spinRoutine = null;
             }
         }
 
@@ -213,55 +153,57 @@ namespace SlotMachine.Reels.Runtime
             }
         }
 
-        private void KillScheduledStarts()
+        private void StopAllReels()
         {
-            for (int i = 0; i < _scheduledStarts.Count; i++)
+            if (_spinRoutine != null)
             {
-                _scheduledStarts[i]?.Kill();
+                StopCoroutine(_spinRoutine);
+                _spinRoutine = null;
             }
 
-            _scheduledStarts.Clear();
-        }
-
-        private bool HasActiveSpinWork()
-        {
-            if (_scheduledStarts.Count > 0)
-            {
-                return true;
-            }
+            isSpinInProgress = false;
+            _remainingReels = 0;
 
             for (int i = 0; i < reels.Count; i++)
             {
-                if (reels[i] != null && reels[i].IsSpinning)
+                ReelController reel = reels[i];
+                if (reel == null)
                 {
+                    continue;
+                }
+
+                reel.ResetReel(reel.ReelIndex);
+            }
+        }
+
+        private static bool TryGetReelOutcome(SpinOutcome outcome, int reelIndex, out ReelOutcome reelOutcome)
+        {
+            for (int i = 0; i < outcome.Reels.Count; i++)
+            {
+                ReelOutcome candidate = outcome.Reels[i];
+                if (candidate != null && candidate.ReelIndex == reelIndex)
+                {
+                    reelOutcome = candidate;
                     return true;
                 }
             }
 
+            reelOutcome = null;
             return false;
-        }
-
-        private void StopAllReels()
-        {
-            for (int i = 0; i < reels.Count; i++)
-            {
-                if (reels[i] != null)
-                {
-                    reels[i].StopSpin();
-                }
-            }
         }
 
         private readonly struct SpinCommand
         {
-            public SpinCommand(ReelController reel, int stopIndex)
+            public SpinCommand(ReelController reel, int stopIndex, IReadOnlyList<int> visibleSymbolIds)
             {
                 Reel = reel;
                 StopIndex = stopIndex;
+                VisibleSymbolIds = visibleSymbolIds;
             }
 
             public ReelController Reel { get; }
             public int StopIndex { get; }
+            public IReadOnlyList<int> VisibleSymbolIds { get; }
         }
     }
 }
