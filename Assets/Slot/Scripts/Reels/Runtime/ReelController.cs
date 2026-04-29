@@ -10,36 +10,64 @@ namespace SlotMachine.Reels.Runtime
     public class ReelTimingProfile
     {
         [Header("Start")]
+        [Tooltip("How far the actual symbols move upward before the spin launches.")]
         [Min(0f)]
         [SerializeField] private float anticipationLift = 18f;
+        [Tooltip("How long the upward anticipation takes.")]
         [Min(0.01f)]
         [SerializeField] private float anticipationDuration = 0.12f;
+        [Tooltip("How far the actual symbols drop downward before the looper takes over.")]
         [Min(0f)]
         [SerializeField] private float startDropDistance = 140f;
+        [Tooltip("How long the accelerating downward launch takes before the looper phase begins.")]
         [Min(0.01f)]
         [SerializeField] private float startDropDuration = 0.22f;
 
         [Header("Loop")]
+        [Tooltip("How long one looper step takes while the reel is in its continuous spin phase.")]
         [Min(0.01f)]
         [SerializeField] private float loopStepDuration = 0.075f;
 
         [Header("Stop")]
+        [Tooltip("How far above the final position the actual symbols start when the stop phase begins.")]
         [Min(0f)]
         [SerializeField] private float stopEntryOffset = 150f;
+        [Tooltip("How far the reel moves slightly past the final stop position before settling back.")]
         [Min(0f)]
         [SerializeField] private float stopOvershoot = 18f;
+        [Tooltip("How long the downward deceleration into the stop takes.")]
         [Min(0.01f)]
         [SerializeField] private float stopDuration = 0.24f;
+        [Tooltip("How long the final bounce-back settle takes after overshooting.")]
         [Min(0.01f)]
         [SerializeField] private float settleDuration = 0.12f;
 
-        [Header("Easing")]
+        [Header("Timing Graphs")]
+        [Tooltip("Enable custom AnimationCurve graphs for reel motion timing. Disable to use DOTween Ease presets instead.")]
+        [SerializeField] private bool useAnimationCurves = true;
+        [SerializeField] private AnimationCurve anticipationCurve = new AnimationCurve(
+            new Keyframe(0f, 0f, 0f, 2.2f),
+            new Keyframe(1f, 1f, 0.2f, 0f));
+        [SerializeField] private AnimationCurve startDropCurve = new AnimationCurve(
+            new Keyframe(0f, 0f, 0f, 0.8f),
+            new Keyframe(1f, 1f, 3f, 0f));
+        [SerializeField] private AnimationCurve loopCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
+        [SerializeField] private AnimationCurve stopCurve = new AnimationCurve(
+            new Keyframe(0f, 0f, 0f, 1.8f),
+            new Keyframe(1f, 1f, 0.2f, 0f));
+        [SerializeField] private AnimationCurve settleCurve = new AnimationCurve(
+            new Keyframe(0f, 0f, 0f, 2.5f),
+            new Keyframe(0.7f, 1.08f, 0f, -0.6f),
+            new Keyframe(1f, 1f, 0f, 0f));
+
+        [Header("Ease Fallback")]
         [SerializeField] private Ease anticipationEase = Ease.OutSine;
         [SerializeField] private Ease startDropEase = Ease.InQuad;
         [SerializeField] private Ease loopEase = Ease.Linear;
         [SerializeField] private Ease stopEase = Ease.OutCubic;
         [SerializeField] private Ease settleEase = Ease.OutBack;
 
+        public bool UseAnimationCurves => useAnimationCurves;
         public float AnticipationLift => anticipationLift;
         public float AnticipationDuration => anticipationDuration;
         public float StartDropDistance => startDropDistance;
@@ -49,11 +77,73 @@ namespace SlotMachine.Reels.Runtime
         public float StopOvershoot => stopOvershoot;
         public float StopDuration => stopDuration;
         public float SettleDuration => settleDuration;
+        public AnimationCurve AnticipationCurve => anticipationCurve;
+        public AnimationCurve StartDropCurve => startDropCurve;
+        public AnimationCurve LoopCurve => loopCurve;
+        public AnimationCurve StopCurve => stopCurve;
+        public AnimationCurve SettleCurve => settleCurve;
         public Ease AnticipationEase => anticipationEase;
         public Ease StartDropEase => startDropEase;
         public Ease LoopEase => loopEase;
         public Ease StopEase => stopEase;
         public Ease SettleEase => settleEase;
+
+        public void Clamp()
+        {
+            anticipationLift = Mathf.Max(0f, anticipationLift);
+            anticipationDuration = Mathf.Max(0.01f, anticipationDuration);
+            startDropDistance = Mathf.Max(0f, startDropDistance);
+            startDropDuration = Mathf.Max(0.01f, startDropDuration);
+            loopStepDuration = Mathf.Max(0.01f, loopStepDuration);
+            stopEntryOffset = Mathf.Max(0f, stopEntryOffset);
+            stopOvershoot = Mathf.Max(0f, stopOvershoot);
+            stopDuration = Mathf.Max(0.01f, stopDuration);
+            settleDuration = Mathf.Max(0.01f, settleDuration);
+
+            anticipationCurve ??= AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
+            startDropCurve ??= AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
+            loopCurve ??= AnimationCurve.Linear(0f, 0f, 1f, 1f);
+            stopCurve ??= AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
+            settleCurve ??= AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
+        }
+
+        public ReelTimingProfile Clone()
+        {
+            ReelTimingProfile copy = new ReelTimingProfile();
+            copy.CopyFrom(this);
+            return copy;
+        }
+
+        public void CopyFrom(ReelTimingProfile source)
+        {
+            if (source == null)
+            {
+                return;
+            }
+
+            anticipationLift = source.anticipationLift;
+            anticipationDuration = source.anticipationDuration;
+            startDropDistance = source.startDropDistance;
+            startDropDuration = source.startDropDuration;
+            loopStepDuration = source.loopStepDuration;
+            stopEntryOffset = source.stopEntryOffset;
+            stopOvershoot = source.stopOvershoot;
+            stopDuration = source.stopDuration;
+            settleDuration = source.settleDuration;
+            useAnimationCurves = source.useAnimationCurves;
+            anticipationCurve = new AnimationCurve(source.anticipationCurve.keys);
+            startDropCurve = new AnimationCurve(source.startDropCurve.keys);
+            loopCurve = new AnimationCurve(source.loopCurve.keys);
+            stopCurve = new AnimationCurve(source.stopCurve.keys);
+            settleCurve = new AnimationCurve(source.settleCurve.keys);
+            anticipationEase = source.anticipationEase;
+            startDropEase = source.startDropEase;
+            loopEase = source.loopEase;
+            stopEase = source.stopEase;
+            settleEase = source.settleEase;
+
+            Clamp();
+        }
     }
 
     public enum ReelSpinPhase
@@ -95,6 +185,7 @@ namespace SlotMachine.Reels.Runtime
 
         public ReelSpinPhase CurrentPhase => currentPhase;
         public bool IsSpinning => currentPhase != ReelSpinPhase.Idle;
+        public ReelTimingProfile TimingProfile => timingProfile;
 
         private void Awake()
         {
@@ -107,6 +198,7 @@ namespace SlotMachine.Reels.Runtime
             visibleRowCount = Mathf.Max(1, visibleRowCount);
             looperBufferRows = Mathf.Max(0, looperBufferRows);
             symbolStepHeight = Mathf.Max(1f, symbolStepHeight);
+            timingProfile?.Clamp();
 
             if (!Application.isPlaying)
             {
@@ -181,10 +273,14 @@ namespace SlotMachine.Reels.Runtime
             }
 
             Sequence sequence = DOTween.Sequence();
-            sequence.Append(actualSymbolsRoot.DOAnchorPosY(timingProfile.AnticipationLift, timingProfile.AnticipationDuration)
-                .SetEase(timingProfile.AnticipationEase));
-            sequence.Append(actualSymbolsRoot.DOAnchorPosY(-timingProfile.StartDropDistance, timingProfile.StartDropDuration)
-                .SetEase(timingProfile.StartDropEase));
+            sequence.Append(ApplyConfiguredEase(
+                actualSymbolsRoot.DOAnchorPosY(timingProfile.AnticipationLift, timingProfile.AnticipationDuration),
+                timingProfile.AnticipationCurve,
+                timingProfile.AnticipationEase));
+            sequence.Append(ApplyConfiguredEase(
+                actualSymbolsRoot.DOAnchorPosY(-timingProfile.StartDropDistance, timingProfile.StartDropDuration),
+                timingProfile.StartDropCurve,
+                timingProfile.StartDropEase));
             sequence.OnComplete(() =>
             {
                 SetRootPosition(actualSymbolsRoot, Vector2.zero);
@@ -251,6 +347,16 @@ namespace SlotMachine.Reels.Runtime
             RestoreIdlePresentation();
         }
 
+        public void ApplyTimingProfile(ReelTimingProfile sharedProfile)
+        {
+            if (sharedProfile == null)
+            {
+                return;
+            }
+
+            timingProfile.CopyFrom(sharedProfile);
+        }
+
         private void PlayLoopStep()
         {
             if (currentPhase != ReelSpinPhase.Loop)
@@ -259,8 +365,10 @@ namespace SlotMachine.Reels.Runtime
             }
 
             SetRootPosition(looperRoot, Vector2.zero);
-            _activeTween = looperRoot.DOAnchorPosY(-symbolStepHeight, timingProfile.LoopStepDuration)
-                .SetEase(timingProfile.LoopEase)
+            _activeTween = ApplyConfiguredEase(
+                looperRoot.DOAnchorPosY(-symbolStepHeight, timingProfile.LoopStepDuration),
+                timingProfile.LoopCurve,
+                timingProfile.LoopEase)
                 .OnComplete(() =>
                 {
                     currentTopIndex = Wrap(currentTopIndex - 1, ReelStrip.Length);
@@ -305,10 +413,14 @@ namespace SlotMachine.Reels.Runtime
             }
 
             Sequence sequence = DOTween.Sequence();
-            sequence.Append(actualSymbolsRoot.DOAnchorPosY(-timingProfile.StopOvershoot, timingProfile.StopDuration)
-                .SetEase(timingProfile.StopEase));
-            sequence.Append(actualSymbolsRoot.DOAnchorPosY(0f, timingProfile.SettleDuration)
-                .SetEase(timingProfile.SettleEase));
+            sequence.Append(ApplyConfiguredEase(
+                actualSymbolsRoot.DOAnchorPosY(-timingProfile.StopOvershoot, timingProfile.StopDuration),
+                timingProfile.StopCurve,
+                timingProfile.StopEase));
+            sequence.Append(ApplyConfiguredEase(
+                actualSymbolsRoot.DOAnchorPosY(0f, timingProfile.SettleDuration),
+                timingProfile.SettleCurve,
+                timingProfile.SettleEase));
             sequence.OnComplete(() =>
             {
                 currentPhase = ReelSpinPhase.Idle;
@@ -521,6 +633,16 @@ namespace SlotMachine.Reels.Runtime
         {
             _activeTween?.Kill();
             _activeTween = null;
+        }
+
+        private T ApplyConfiguredEase<T>(T tween, AnimationCurve curve, Ease fallbackEase) where T : Tween
+        {
+            if (timingProfile != null && timingProfile.UseAnimationCurves && curve != null)
+            {
+                return tween.SetEase(curve);
+            }
+
+            return tween.SetEase(fallbackEase);
         }
 
         private static int Wrap(int value, int length)
