@@ -7,7 +7,7 @@ namespace Mohit
     {
         [Header("Rows Container")]
         [SerializeField]
-        private RectTransform[] rowPositions;
+        private Transform[] rowPositions;
 
         private readonly List<SymbolView> activeSymbols = new List<SymbolView>();
 
@@ -21,19 +21,19 @@ namespace Mohit
         {
             ClearSymbols();
 
-            for (int i = 0;i < visibleSymbolIds.Count;i++)
+            for (int i = 0; i < visibleSymbolIds.Count; i++)
             {
-                SymbolType type =SymbolMapper.GetSymbolType(visibleSymbolIds[i]);
+                SymbolType type = SymbolMapper.GetSymbolType(visibleSymbolIds[i]);
 
                 SymbolView symbol = PoolManager.Instance.GetSymbol(type);
 
-                SpawnSymbol(symbol,rowPositions[i]);
+                SpawnSymbol(symbol, rowPositions[i]);
 
                 activeSymbols.Add(symbol);
             }
         }
 
-        private void SpawnSymbol(SymbolView symbol,RectTransform row)
+        private void SpawnSymbol(SymbolView symbol, Transform row)
         {
             if (symbol == null)
             {
@@ -42,28 +42,22 @@ namespace Mohit
                 return;
             }
 
-            RectTransform rect = symbol.RectTransform;
+            Transform t = symbol.CachedTransform;
 
-            rect.SetParent(row,false);
+            t.SetParent(row, false);
 
-            rect.anchorMin = new Vector2(0.5f, 0.5f);
+            t.localScale = Vector3.one;
 
-            rect.anchorMax = new Vector2(0.5f, 0.5f);
+            t.localRotation = Quaternion.identity;
 
-            rect.pivot = new Vector2(0.5f, 0.5f);
-
-            rect.localScale = Vector3.one;
-
-            rect.localRotation = Quaternion.identity;
-
-            rect.anchoredPosition = Vector3.zero;
+            t.localPosition = Vector3.zero;
 
             symbol.gameObject.SetActive(true);
         }
 
         public void ClearSymbols()
         {
-            for (int i = 0;i < activeSymbols.Count;i++)
+            for (int i = 0; i < activeSymbols.Count; i++)
             {
                 PoolManager.Instance.ReturnSymbol(activeSymbols[i]);
             }
@@ -84,21 +78,15 @@ namespace Mohit
             {
                 GameObject looper = PoolManager.Instance.GetLooper();
 
-                RectTransform rect = looper.GetComponent<RectTransform>();
+                Transform t = looper.transform;
 
-                rect.SetParent( rowPositions[i],false);
+                t.SetParent(rowPositions[i], false);
 
-                rect.anchorMin = new Vector2(0.5f, 0.5f);
+                t.localScale = Vector3.one;
 
-                rect.anchorMax = new Vector2(0.5f, 0.5f);
+                t.localRotation = Quaternion.identity;
 
-                rect.pivot = new Vector2(0.5f, 0.5f);
-
-                rect.localScale = Vector3.one;
-
-                rect.localRotation = Quaternion.identity;
-
-                rect.anchoredPosition = Vector2.zero;
+                t.localPosition = Vector3.zero;
 
                 looper.SetActive(true);
 
@@ -108,7 +96,7 @@ namespace Mohit
 
         public void ClearLoopers()
         {
-            for (int i = 0;i < activeLoopers.Count;i++)
+            for (int i = 0; i < activeLoopers.Count; i++)
             {
                 PoolManager.Instance.ReturnLooper(activeLoopers[i]);
             }

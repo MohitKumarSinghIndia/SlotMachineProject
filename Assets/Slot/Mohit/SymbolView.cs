@@ -8,35 +8,28 @@ public class SymbolView : MonoBehaviour
 
     public SymbolType SymbolType => symbolType;
 
-    private RectTransform rectTransform;
-    private TMP_Text symbolName;
+    private Transform cachedTransform;
 
-    private void Start()
-    {
-        symbolName = GetComponentInChildren<TMP_Text>();
-
-        symbolName.text = symbolType.ToString();
-    }
-    public RectTransform RectTransform
+    public Transform CachedTransform
     {
         get
         {
-            if (rectTransform == null)
+            if (cachedTransform == null)
             {
-                rectTransform = GetComponent<RectTransform>();
+                cachedTransform = transform;
             }
 
-            return rectTransform;
+            return cachedTransform;
         }
     }
 
     public void ResetState()
     {
-        RectTransform.localScale = Vector3.one;
+        CachedTransform.localScale = Vector3.one;
 
-        RectTransform.localRotation = Quaternion.identity;
+        CachedTransform.localRotation = Quaternion.identity;
 
-        RectTransform.anchoredPosition = Vector2.zero;
+        CachedTransform.localPosition = Vector3.zero;
 
         gameObject.SetActive(false);
     }
