@@ -11,6 +11,7 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private List<ReelController> reels = new List<ReelController>();
         [SerializeField] private SpinResultGenerator spinResultGenerator;
         [SerializeField] private SlotFlowController slotFlowController;
+        [SerializeField] private FreeSpinManager freeSpinManager;
 
         [Header("Shared Reel Settings")]
         [SerializeField] private bool useSharedReelTimingProfile = true;
@@ -79,6 +80,7 @@ namespace SlotMachine.Reels.Runtime
             CacheLocalReferences();
             ApplySharedReelSettings();
             StopAllReels();
+            freeSpinManager?.NotifySpinStarted();
 
             SpinOutcome outcome = ResolveNextOutcome();
             if (outcome == null)
@@ -89,6 +91,7 @@ namespace SlotMachine.Reels.Runtime
             lastOutcome = outcome;
             BuildAndRunSpinFlow(outcome);
         }
+        public void StartSpin() { }
 
         private void BuildAndRunSpinFlow(SpinOutcome outcome)
         {
@@ -165,11 +168,18 @@ namespace SlotMachine.Reels.Runtime
                     yield return new WaitForSeconds(reelStartDelay);
                 }
             }
+
+            // The start queue should not complete until every started reel has
+            // finished its start animation and reached the looping state.
+            while (!HaveAllReelsReachedLoopPhase(commands))
+            {
+                yield return null;
+            }
         }
 
         private IEnumerator RunSpinStopPhase(IReadOnlyList<SpinCommand> commands)
         {
-            onSpinStopPhase?.Invoke();
+
 
             if (loopHoldDuration > 0f)
             {
@@ -191,6 +201,7 @@ namespace SlotMachine.Reels.Runtime
             {
                 yield return null;
             }
+            onSpinStopPhase?.Invoke();
         }
 
         private IEnumerator RunResultDisplayPhase()
@@ -206,7 +217,6 @@ namespace SlotMachine.Reels.Runtime
         private IEnumerator RunBigWinPhase()
         {
             onBigWinPhase?.Invoke();
-
             if (bigWinDisplayDuration > 0f)
             {
                 yield return new WaitForSeconds(bigWinDisplayDuration);
@@ -215,8 +225,10 @@ namespace SlotMachine.Reels.Runtime
 
         private IEnumerator RunFreeGamePhase()
         {
+            // Activate free-spin state before the phase event so UI/transition listeners
+            // can read the awarded count and remaining spins immediately.
+            freeSpinManager?.HandleCompletedSpin(lastOutcome);
             onFreeGamePhase?.Invoke();
-
             if (freeGameDisplayDuration > 0f)
             {
                 yield return new WaitForSeconds(freeGameDisplayDuration);
@@ -225,6 +237,11 @@ namespace SlotMachine.Reels.Runtime
 
         private IEnumerator FinalizeSpinFlow()
         {
+            if (lastOutcome == null || !lastOutcome.TriggersFreeSpins)
+            {
+                freeSpinManager?.HandleCompletedSpin(lastOutcome);
+            }
+
             isSpinInProgress = false;
             onSpinFlowComplete?.Invoke();
             yield break;
@@ -256,6 +273,11 @@ namespace SlotMachine.Reels.Runtime
             if (slotFlowController == null)
             {
                 slotFlowController = GetComponent<SlotFlowController>();
+            }
+
+            if (freeSpinManager == null)
+            {
+                freeSpinManager = GetComponent<FreeSpinManager>();
             }
         }
 
@@ -309,6 +331,25 @@ namespace SlotMachine.Reels.Runtime
 
             reelOutcome = null;
             return false;
+        }
+
+        private static bool HaveAllReelsReachedLoopPhase(IReadOnlyList<SpinCommand> commands)
+        {
+            for (int i = 0; i < commands.Count; i++)
+            {
+                ReelController reel = commands[i].Reel;
+                if (reel == null)
+                {
+                    continue;
+                }
+
+                if (reel.CurrentPhase == ReelSpinPhase.Start)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         private readonly struct SpinCommand

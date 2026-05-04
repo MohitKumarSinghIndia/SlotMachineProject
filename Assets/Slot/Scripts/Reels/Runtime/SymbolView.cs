@@ -1,4 +1,5 @@
 using TMPro;
+using SlotMachine.Reels.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -45,6 +46,13 @@ namespace SlotMachine.Reels.Runtime
 
         public int CurrentSymbolId => currentSymbolId;
 
+        public void ConfigureVisualReferences(Image icon, Image background, TMP_Text label)
+        {
+            iconImage = icon;
+            backgroundImage = background;
+            labelText = label;
+        }
+
         public void ApplySymbolId(int symbolId)
         {
             currentSymbolId = symbolId;
@@ -61,7 +69,45 @@ namespace SlotMachine.Reels.Runtime
                 labelText.text = style.Label;
                 labelText.color = style.Text;
             }
-        
+
+            if (iconImage != null)
+            {
+                iconImage.sprite = null;
+                iconImage.enabled = false;
+            }
+        }
+
+        public void ApplyDefinition(SymbolDefinition definition)
+        {
+            if (definition == null)
+            {
+                return;
+            }
+
+            currentSymbolId = definition.SymbolId;
+
+            if (!definition.HasCustomPresentation)
+            {
+                ApplySymbolId(definition.SymbolId);
+                return;
+            }
+
+            if (backgroundImage != null)
+            {
+                backgroundImage.color = definition.BackgroundColor;
+            }
+
+            if (labelText != null)
+            {
+                labelText.text = definition.ShortCode;
+                labelText.color = definition.LabelColor;
+            }
+
+            if (iconImage != null)
+            {
+                iconImage.sprite = definition.Icon;
+                iconImage.enabled = definition.Icon != null;
+            }
         }
 
         private static SymbolStyle ResolveStyle(int symbolId)
