@@ -17,8 +17,11 @@ namespace SlotMachine.Reels.Runtime
         public string SpinId;
         public string TimestampUtc;
         public bool FromReplay;
+        public bool IsFreeSpinSpin;
         public bool HasWin;
         public bool TriggersFreeSpins;
+        public bool AwardsFreeSpins;
+        public int AwardedFreeSpinCount;
         public bool IsBigWin;
         public int TotalWin;
         public int ScatterCount;
