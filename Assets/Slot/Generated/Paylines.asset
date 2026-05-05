@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aab7efb98abd724385812a32452260d, type: 3}
+  m_Name: Paylines
+  m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.PaylineConfig
+  paylines:
+  - lineId: 1
+    lineName: Middle
+    rows: 0100000001000000010000000100000001000000
+  - lineId: 2
+    lineName: Top
+    rows: 0000000000000000000000000000000000000000
+  - lineId: 3
+    lineName: Bottom
+    rows: 0200000002000000020000000200000002000000
+  - lineId: 4
+    lineName: V Down
+    rows: 0000000001000000020000000100000000000000
+  - lineId: 5
+    lineName: V Up
+    rows: 0200000001000000000000000100000002000000
+  - lineId: 6
+    lineName: Top Small V
+    rows: 0000000000000000010000000000000000000000
+  - lineId: 7
+    lineName: Bottom Small V
+    rows: 0200000002000000010000000200000002000000
+  - lineId: 8
+    lineName: Mid Top Arc
+    rows: 0100000000000000000000000000000001000000
+  - lineId: 9
+    lineName: Mid Bottom Arc
+    rows: 0100000002000000020000000200000001000000
+  - lineId: 10
+    lineName: Top Mid Arc
+    rows: 0000000001000000010000000100000000000000
+  - lineId: 11
+    lineName: Bottom Mid Arc
+    rows: 0200000001000000010000000100000002000000
+  - lineId: 12
+    lineName: Step Down
+    rows: 0000000001000000010000000100000002000000
+  - lineId: 13
+    lineName: Step Up
+    rows: 0200000001000000010000000100000000000000
+  - lineId: 14
+    lineName: Zig Top
+    rows: 0000000001000000000000000100000000000000
+  - lineId: 15
+    lineName: Zig Bottom
+    rows: 0200000001000000020000000100000002000000
+  - lineId: 16
+    lineName: W Top
+    rows: 0000000002000000000000000200000000000000
+  - lineId: 17
+    lineName: W Bottom
+    rows: 0200000000000000020000000000000002000000
+  - lineId: 18
+    lineName: Small Down
+    rows: 0100000000000000010000000200000001000000
+  - lineId: 19
+    lineName: Small Up
+    rows: 0100000002000000010000000000000001000000
+  - lineId: 20
+    lineName: Mixed
+    rows: 0000000002000000010000000000000002000000
