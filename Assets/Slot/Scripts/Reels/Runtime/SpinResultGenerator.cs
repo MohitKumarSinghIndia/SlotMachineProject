@@ -77,16 +77,14 @@ namespace SlotMachine.Reels.Runtime
             EnsureRandom();
 
             bool isFreeSpinSpin = freeSpinManager != null && freeSpinManager.CurrentSpinUsesFreeSpin;
-            SpinOutcome outcome = new SpinOutcome
-            {
-                SpinId = $"SPIN_{_nextSpinNumber:000000}",
-                TimestampUtc = DateTime.UtcNow.ToString("O"),
-                IsFreeSpinSpin = isFreeSpinSpin
-            };
+
+            string spinId = $"SPIN_{_nextSpinNumber:000000}";
+            string timestampUtc = DateTime.UtcNow.ToString("O");
 
             _nextSpinNumber++;
 
             int scatterCount = 0;
+            List<ReelOutcome> reelOutcomes = new List<ReelOutcome>();
 
             for (int i = 0; i < reels.Count; i++)
             {
@@ -99,33 +97,50 @@ namespace SlotMachine.Reels.Runtime
                 int stopIndex = ResolveStopIndex(i, reel.ReelStrip, isFreeSpinSpin);
                 int[] visibleWindow = reel.ReelStrip.GetVisibleWindow(stopIndex, visibleRowCount);
 
-                ReelOutcome reelOutcome = new ReelOutcome
-                {
-                    ReelIndex = reel.ReelIndex,
-                    StopIndex = stopIndex
-                };
+                List<int> visibleSymbolIds = new List<int>();
 
                 for (int row = 0; row < visibleWindow.Length; row++)
                 {
                     int symbolId = visibleWindow[row];
-                    reelOutcome.VisibleSymbolIds.Add(symbolId);
+                    visibleSymbolIds.Add(symbolId);
+
                     if (symbolId == scatterSymbolId)
                     {
                         scatterCount++;
                     }
                 }
 
-                outcome.Reels.Add(reelOutcome);
+                ReelOutcome reelOutcome = new ReelOutcome(
+                    reel.ReelIndex,
+                    stopIndex,
+                    visibleSymbolIds
+                );
+
+                reelOutcomes.Add(reelOutcome);
             }
 
-            outcome.ScatterCount = scatterCount;
-            outcome.AwardsFreeSpins = !isFreeSpinSpin && scatterCount >= freeSpinScatterThreshold;
-            outcome.AwardedFreeSpinCount = outcome.AwardsFreeSpins ? ResolveFreeSpinAwardCount(scatterCount) : 0;
-            outcome.TriggersFreeSpins = outcome.AwardsFreeSpins;
-            outcome.TotalWin = GenerateWinAmount(outcome.AwardsFreeSpins);
-            outcome.HasWin = outcome.TotalWin > 0;
-            outcome.IsBigWin = outcome.TotalWin >= bigWinThreshold;
-            return outcome;
+            bool awardsFreeSpins = !isFreeSpinSpin && scatterCount >= freeSpinScatterThreshold;
+            int awardedFreeSpinCount = awardsFreeSpins ? ResolveFreeSpinAwardCount(scatterCount) : 0;
+            bool triggersFreeSpins = awardsFreeSpins;
+
+            int totalWin = GenerateWinAmount(awardsFreeSpins);
+            bool hasWin = totalWin > 0;
+            bool isBigWin = totalWin >= bigWinThreshold;
+
+            return new SpinOutcome(
+                spinId: spinId,
+                timestampUtc: timestampUtc,
+                fromReplay: false,
+                isFreeSpinSpin: isFreeSpinSpin,
+                hasWin: hasWin,
+                triggersFreeSpins: triggersFreeSpins,
+                awardsFreeSpins: awardsFreeSpins,
+                awardedFreeSpinCount: awardedFreeSpinCount,
+                isBigWin: isBigWin,
+                totalWin: totalWin,
+                scatterCount: scatterCount,
+                reels: reelOutcomes
+            );
         }
 
         private int ResolveStopIndex(int reelListIndex, ReelStripDefinition strip, bool isFreeSpinSpin)

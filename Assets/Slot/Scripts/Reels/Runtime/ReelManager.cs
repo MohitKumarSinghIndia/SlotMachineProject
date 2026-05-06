@@ -12,6 +12,7 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private SpinResultGenerator spinResultGenerator;
         [SerializeField] private SlotFlowController slotFlowController;
         [SerializeField] private FreeSpinManager freeSpinManager;
+        [SerializeField] private PaylineEvaluator paylineEvaluator;
 
         [Header("Shared Reel Settings")]
         [SerializeField] private bool useSharedReelTimingProfile = true;
@@ -20,21 +21,33 @@ namespace SlotMachine.Reels.Runtime
         [Header("Spin Flow")]
         [Min(0f)]
         [SerializeField] private float reelStartDelay = 0.08f;
+
         [Min(0f)]
         [SerializeField] private float loopHoldDuration = 0.8f;
+
         [Min(0f)]
         [SerializeField] private float reelStopDelay = 0.14f;
+
         [Min(0f)]
         [SerializeField] private float resultDisplayDuration = 0f;
+
+        [Min(0f)]
+        [SerializeField] private float paylineDisplayDuration = 0.45f;
+
         [Min(0f)]
         [SerializeField] private float freeGameDisplayDuration = 0f;
+
         [Min(0f)]
         [SerializeField] private float bigWinDisplayDuration = 0f;
+
+        [Min(0)]
+        [SerializeField] private int bigWinThreshold = 80;
 
         [Header("Phase Events")]
         [SerializeField] private UnityEvent onSpinStartPhase;
         [SerializeField] private UnityEvent onSpinStopPhase;
         [SerializeField] private UnityEvent onResultDisplayPhase;
+        [SerializeField] private UnityEvent onPaylinePhase;
         [SerializeField] private UnityEvent onFreeGamePhase;
         [SerializeField] private UnityEvent onBigWinPhase;
         [SerializeField] private UnityEvent onSpinFlowComplete;
@@ -43,9 +56,12 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private bool isSpinInProgress;
         [SerializeField] private SpinOutcome lastOutcome;
 
+        private PaylineEvaluationResult lastPaylineEvaluation;
         private int _remainingReels;
 
         public bool IsSpinInProgress => isSpinInProgress;
+        public SpinOutcome LastOutcome => lastOutcome;
+        public PaylineEvaluationResult LastPaylineEvaluation => lastPaylineEvaluation;
 
         private void Awake()
         {
@@ -59,8 +75,11 @@ namespace SlotMachine.Reels.Runtime
             loopHoldDuration = Mathf.Max(0f, loopHoldDuration);
             reelStopDelay = Mathf.Max(0f, reelStopDelay);
             resultDisplayDuration = Mathf.Max(0f, resultDisplayDuration);
+            paylineDisplayDuration = Mathf.Max(0f, paylineDisplayDuration);
             freeGameDisplayDuration = Mathf.Max(0f, freeGameDisplayDuration);
             bigWinDisplayDuration = Mathf.Max(0f, bigWinDisplayDuration);
+            bigWinThreshold = Mathf.Max(0, bigWinThreshold);
+
             sharedReelTimingProfile?.Clamp();
 
             if (!Application.isPlaying)
@@ -70,7 +89,7 @@ namespace SlotMachine.Reels.Runtime
         }
 
         [ContextMenu("Spin All Reels")]
-        public void SpinAll()
+        public void StartSpin()
         {
             if (isSpinInProgress || (slotFlowController != null && slotFlowController.IsRunning))
             {
@@ -80,6 +99,7 @@ namespace SlotMachine.Reels.Runtime
             CacheLocalReferences();
             ApplySharedReelSettings();
             StopAllReels();
+
             freeSpinManager?.NotifySpinStarted();
 
             SpinOutcome outcome = ResolveNextOutcome();
@@ -89,9 +109,56 @@ namespace SlotMachine.Reels.Runtime
             }
 
             lastOutcome = outcome;
+            ValidateOutcomeAgainstReels(outcome);
+
+            lastPaylineEvaluation = paylineEvaluator != null
+                ? paylineEvaluator.Evaluate(outcome)
+                : null;
+
+            if (paylineEvaluator == null)
+            {
+                Debug.LogError("[ReelManager] PaylineEvaluator reference is missing.");
+            }
+            else if (lastPaylineEvaluation == null)
+            {
+                Debug.LogError("[ReelManager] PaylineEvaluator returned null.");
+            }
+            else
+            {
+                Debug.Log($"[ReelManager] Paylines evaluated. Win Count: {lastPaylineEvaluation.PaylineWins.Count}, Total Win: {lastPaylineEvaluation.TotalWin}");
+            }
+
             BuildAndRunSpinFlow(outcome);
         }
-        public void StartSpin() { }
+
+        private void ValidateOutcomeAgainstReels(SpinOutcome outcome)
+        {
+            if (outcome == null)
+            {
+                Debug.LogError($"[{name}] SpinOutcome is null.");
+                return;
+            }
+
+            if (outcome.Reels == null || outcome.Reels.Count == 0)
+            {
+                Debug.LogError($"[{name}] SpinOutcome has no reel outcomes.");
+                return;
+            }
+
+            foreach (ReelOutcome reelOutcome in outcome.Reels)
+            {
+                if (reelOutcome == null)
+                {
+                    Debug.LogError($"[{name}] SpinOutcome contains a null ReelOutcome.");
+                    continue;
+                }
+
+                if (reelOutcome.VisibleSymbolIds == null || reelOutcome.VisibleSymbolIds.Count == 0)
+                {
+                    Debug.LogError($"[{name}] Reel {reelOutcome.ReelIndex} has no visible symbols.");
+                }
+            }
+        }
 
         private void BuildAndRunSpinFlow(SpinOutcome outcome)
         {
@@ -105,33 +172,43 @@ namespace SlotMachine.Reels.Runtime
             List<SpinCommand> commands = BuildCommands(outcome);
             if (commands.Count == 0)
             {
+                Debug.LogError($"[{name}] No spin commands were built from the outcome.");
+                isSpinInProgress = false;
                 return;
             }
 
             isSpinInProgress = true;
             _remainingReels = 0;
+
             slotFlowController.ClearAllQueues();
+
             slotFlowController.AddSpinStartStep(() => RunSpinStartPhase(commands));
             slotFlowController.AddSpinStopStep(() => RunSpinStopPhase(commands));
             slotFlowController.AddResultDisplayStep(RunResultDisplayPhase);
+            slotFlowController.AddLineWinStep(RunPaylinePhase);
+
+            if (ShouldPlayBigWin(outcome))
+            {
+                slotFlowController.AddBigWinStep(RunBigWinPhase);
+            }
 
             if (outcome.TriggersFreeSpins)
             {
                 slotFlowController.AddFreeGameStep(RunFreeGamePhase);
             }
 
-            if (outcome.IsBigWin)
-            {
-                slotFlowController.AddBigWinStep(RunBigWinPhase);
-            }
-
-            slotFlowController.AddBigWinStep(FinalizeSpinFlow);
+            slotFlowController.AddCompleteStep(FinalizeSpinFlow);
             slotFlowController.StartSpinFlow();
         }
 
         private List<SpinCommand> BuildCommands(SpinOutcome outcome)
         {
             List<SpinCommand> commands = new List<SpinCommand>();
+
+            if (outcome == null)
+            {
+                return commands;
+            }
 
             for (int i = 0; i < reels.Count; i++)
             {
@@ -143,10 +220,15 @@ namespace SlotMachine.Reels.Runtime
 
                 if (!TryGetReelOutcome(outcome, reel.ReelIndex, out ReelOutcome reelOutcome))
                 {
+                    Debug.LogWarning($"[{name}] No ReelOutcome found for reel index {reel.ReelIndex}.");
                     continue;
                 }
 
-                commands.Add(new SpinCommand(reel, reelOutcome.StopIndex, reelOutcome.VisibleSymbolIds));
+                commands.Add(new SpinCommand(
+                    reel,
+                    reelOutcome.StopIndex,
+                    reelOutcome.VisibleSymbolIds
+                ));
             }
 
             return commands;
@@ -159,8 +241,10 @@ namespace SlotMachine.Reels.Runtime
             for (int i = 0; i < commands.Count; i++)
             {
                 SpinCommand command = commands[i];
+
                 command.Reel.PrepareStopResult(command.StopIndex, command.VisibleSymbolIds);
                 command.Reel.StartSpin(command.Reel.ReelIndex, OnReelStopped);
+
                 _remainingReels++;
 
                 if (i < commands.Count - 1 && reelStartDelay > 0f)
@@ -169,8 +253,6 @@ namespace SlotMachine.Reels.Runtime
                 }
             }
 
-            // The start queue should not complete until every started reel has
-            // finished its start animation and reached the looping state.
             while (!HaveAllReelsReachedLoopPhase(commands))
             {
                 yield return null;
@@ -179,8 +261,6 @@ namespace SlotMachine.Reels.Runtime
 
         private IEnumerator RunSpinStopPhase(IReadOnlyList<SpinCommand> commands)
         {
-
-
             if (loopHoldDuration > 0f)
             {
                 yield return new WaitForSeconds(loopHoldDuration);
@@ -189,7 +269,12 @@ namespace SlotMachine.Reels.Runtime
             for (int i = 0; i < commands.Count; i++)
             {
                 SpinCommand command = commands[i];
-                command.Reel.StopSpin(command.Reel.ReelIndex, command.StopIndex, command.VisibleSymbolIds);
+
+                command.Reel.StopSpin(
+                    command.Reel.ReelIndex,
+                    command.StopIndex,
+                    command.VisibleSymbolIds
+                );
 
                 if (i < commands.Count - 1 && reelStopDelay > 0f)
                 {
@@ -201,6 +286,7 @@ namespace SlotMachine.Reels.Runtime
             {
                 yield return null;
             }
+
             onSpinStopPhase?.Invoke();
         }
 
@@ -214,9 +300,49 @@ namespace SlotMachine.Reels.Runtime
             }
         }
 
+        private IEnumerator RunPaylinePhase()
+        {
+            Debug.Log("[ReelManager] RunPaylinePhase started.");
+
+            if (lastPaylineEvaluation == null)
+            {
+                Debug.LogWarning("[ReelManager] Payline evaluation is NULL. Check PaylineEvaluator reference.");
+                yield break;
+            }
+
+            Debug.Log($"[ReelManager] Payline evaluation complete. Total Win: {lastPaylineEvaluation.TotalWin}, Win Count: {lastPaylineEvaluation.PaylineWins.Count}");
+
+            if (!lastPaylineEvaluation.HasAnyWin)
+            {
+                Debug.Log("[ReelManager] No payline wins in this spin.");
+                yield break;
+            }
+
+            onPaylinePhase?.Invoke();
+
+            for (int i = 0; i < lastPaylineEvaluation.PaylineWins.Count; i++)
+            {
+                PaylineWinResult win = lastPaylineEvaluation.PaylineWins[i];
+
+                Debug.Log(
+                    $"PAYLINE WIN | Line {win.LineId} {win.LineName} | " +
+                    $"Symbol {win.SymbolId} | Match {win.MatchCount} | Win {win.WinAmount}"
+                );
+
+                if (paylineDisplayDuration > 0f)
+                {
+                    yield return new WaitForSeconds(paylineDisplayDuration);
+                }
+            }
+        }
+
         private IEnumerator RunBigWinPhase()
         {
             onBigWinPhase?.Invoke();
+
+            float totalWin = GetCurrentTotalWin();
+            Debug.Log($"BIG WIN PHASE | Total Win: {totalWin}");
+
             if (bigWinDisplayDuration > 0f)
             {
                 yield return new WaitForSeconds(bigWinDisplayDuration);
@@ -225,10 +351,10 @@ namespace SlotMachine.Reels.Runtime
 
         private IEnumerator RunFreeGamePhase()
         {
-            // Activate free-spin state before the phase event so UI/transition listeners
-            // can read the awarded count and remaining spins immediately.
             freeSpinManager?.HandleCompletedSpin(lastOutcome);
+
             onFreeGamePhase?.Invoke();
+
             if (freeGameDisplayDuration > 0f)
             {
                 yield return new WaitForSeconds(freeGameDisplayDuration);
@@ -244,7 +370,30 @@ namespace SlotMachine.Reels.Runtime
 
             isSpinInProgress = false;
             onSpinFlowComplete?.Invoke();
+
             yield break;
+        }
+
+        private bool ShouldPlayBigWin(SpinOutcome outcome)
+        {
+            float totalWin = GetCurrentTotalWin();
+
+            if (totalWin > 0)
+            {
+                return totalWin >= bigWinThreshold;
+            }
+
+            return outcome != null && outcome.IsBigWin;
+        }
+
+        private float GetCurrentTotalWin()
+        {
+            if (lastPaylineEvaluation != null)
+            {
+                return lastPaylineEvaluation.TotalWin;
+            }
+
+            return lastOutcome != null ? lastOutcome.TotalWin : 0;
         }
 
         private void OnReelStopped(ReelController reel)
@@ -278,6 +427,11 @@ namespace SlotMachine.Reels.Runtime
             if (freeSpinManager == null)
             {
                 freeSpinManager = GetComponent<FreeSpinManager>();
+            }
+
+            if (paylineEvaluator == null)
+            {
+                paylineEvaluator = GetComponent<PaylineEvaluator>();
             }
         }
 
@@ -317,11 +471,21 @@ namespace SlotMachine.Reels.Runtime
             }
         }
 
-        private static bool TryGetReelOutcome(SpinOutcome outcome, int reelIndex, out ReelOutcome reelOutcome)
+        private static bool TryGetReelOutcome(
+            SpinOutcome outcome,
+            int reelIndex,
+            out ReelOutcome reelOutcome)
         {
+            if (outcome == null || outcome.Reels == null)
+            {
+                reelOutcome = null;
+                return false;
+            }
+
             for (int i = 0; i < outcome.Reels.Count; i++)
             {
                 ReelOutcome candidate = outcome.Reels[i];
+
                 if (candidate != null && candidate.ReelIndex == reelIndex)
                 {
                     reelOutcome = candidate;
@@ -338,12 +502,13 @@ namespace SlotMachine.Reels.Runtime
             for (int i = 0; i < commands.Count; i++)
             {
                 ReelController reel = commands[i].Reel;
+
                 if (reel == null)
                 {
-                    continue;
+                    return false;
                 }
 
-                if (reel.CurrentPhase == ReelSpinPhase.Start)
+                if (reel.CurrentPhase != ReelSpinPhase.Loop)
                 {
                     return false;
                 }
@@ -354,7 +519,10 @@ namespace SlotMachine.Reels.Runtime
 
         private readonly struct SpinCommand
         {
-            public SpinCommand(ReelController reel, int stopIndex, IReadOnlyList<int> visibleSymbolIds)
+            public SpinCommand(
+                ReelController reel,
+                int stopIndex,
+                IReadOnlyList<int> visibleSymbolIds)
             {
                 Reel = reel;
                 StopIndex = stopIndex;

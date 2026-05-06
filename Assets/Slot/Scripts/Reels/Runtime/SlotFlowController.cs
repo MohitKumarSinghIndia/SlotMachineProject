@@ -10,12 +10,23 @@ namespace SlotMachine.Reels.Runtime
         private readonly Queue<Func<IEnumerator>> spinStartQueue = new();
         private readonly Queue<Func<IEnumerator>> spinStopQueue = new();
         private readonly Queue<Func<IEnumerator>> resultDisplayQueue = new();
-        private readonly Queue<Func<IEnumerator>> freeGameQueue = new();
+        private readonly Queue<Func<IEnumerator>> paylineQueue = new();
         private readonly Queue<Func<IEnumerator>> bigWinQueue = new();
+        private readonly Queue<Func<IEnumerator>> freeGameQueue = new();
+        private readonly Queue<Func<IEnumerator>> completeQueue = new();
 
         private bool isRunning;
 
         public bool IsRunning => isRunning;
+
+        public event Action SpinFlowStarted;
+        public event Action SpinStartPhaseStarted;
+        public event Action SpinStopPhaseStarted;
+        public event Action ResultDisplayPhaseStarted;
+        public event Action LineWinPhaseStarted;
+        public event Action BigWinPhaseStarted;
+        public event Action FreeGamePhaseStarted;
+        public event Action SpinFlowCompleted;
 
         public void StartSpinFlow()
         {
@@ -27,30 +38,16 @@ namespace SlotMachine.Reels.Runtime
             StartCoroutine(RunSpinFlow());
         }
 
-        public void AddSpinStartStep(Func<IEnumerator> step)
-        {
-            AddStep(spinStartQueue, step);
-        }
+        public void AddSpinStartStep(Func<IEnumerator> step) => AddStep(spinStartQueue, step);
+        public void AddSpinStopStep(Func<IEnumerator> step) => AddStep(spinStopQueue, step);
+        public void AddResultDisplayStep(Func<IEnumerator> step) => AddStep(resultDisplayQueue, step);
+        public void AddLineWinStep(Func<IEnumerator> step) => AddStep(paylineQueue, step);
+        public void AddBigWinStep(Func<IEnumerator> step) => AddStep(bigWinQueue, step);
+        public void AddFreeGameStep(Func<IEnumerator> step) => AddStep(freeGameQueue, step);
+        public void AddCompleteStep(Func<IEnumerator> step) => AddStep(completeQueue, step);
 
-        public void AddSpinStopStep(Func<IEnumerator> step)
-        {
-            AddStep(spinStopQueue, step);
-        }
 
-        public void AddResultDisplayStep(Func<IEnumerator> step)
-        {
-            AddStep(resultDisplayQueue, step);
-        }
-
-        public void AddBigWinStep(Func<IEnumerator> step)
-        {
-            AddStep(bigWinQueue, step);
-        }
-
-        public void AddFreeGameStep(Func<IEnumerator> step)
-        {
-            AddStep(freeGameQueue, step);
-        }
+        
 
         public void ClearAllQueues()
         {
@@ -62,8 +59,10 @@ namespace SlotMachine.Reels.Runtime
             spinStartQueue.Clear();
             spinStopQueue.Clear();
             resultDisplayQueue.Clear();
-            freeGameQueue.Clear();
+            paylineQueue.Clear();
             bigWinQueue.Clear();
+            freeGameQueue.Clear();
+            completeQueue.Clear();
         }
 
         private void AddStep(Queue<Func<IEnumerator>> queue, Func<IEnumerator> step)
@@ -79,19 +78,29 @@ namespace SlotMachine.Reels.Runtime
         private IEnumerator RunSpinFlow()
         {
             isRunning = true;
+            SpinFlowStarted?.Invoke();
 
-            try
+            yield return RunNamedQueue(SpinStartPhaseStarted, spinStartQueue);
+            yield return RunNamedQueue(SpinStopPhaseStarted, spinStopQueue);
+            yield return RunNamedQueue(ResultDisplayPhaseStarted, resultDisplayQueue);
+            yield return RunNamedQueue(LineWinPhaseStarted, paylineQueue);
+            yield return RunNamedQueue(BigWinPhaseStarted, bigWinQueue);
+            yield return RunNamedQueue(FreeGamePhaseStarted, freeGameQueue);
+            yield return RunQueue(completeQueue);
+
+            isRunning = false;
+            SpinFlowCompleted?.Invoke();
+        }
+
+        private IEnumerator RunNamedQueue(Action phaseStarted, Queue<Func<IEnumerator>> queue)
+        {
+            if (queue.Count <= 0)
             {
-                yield return RunQueue(spinStartQueue);
-                yield return RunQueue(spinStopQueue);
-                yield return RunQueue(resultDisplayQueue);
-                yield return RunQueue(freeGameQueue);
-                yield return RunQueue(bigWinQueue);
+                yield break;
             }
-            finally
-            {
-                isRunning = false;
-            }
+
+            phaseStarted?.Invoke();
+            yield return RunQueue(queue);
         }
 
         private IEnumerator RunQueue(Queue<Func<IEnumerator>> queue)
