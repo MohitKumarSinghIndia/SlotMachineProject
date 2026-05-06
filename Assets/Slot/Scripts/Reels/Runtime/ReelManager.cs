@@ -13,6 +13,7 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private SlotFlowController slotFlowController;
         [SerializeField] private FreeSpinManager freeSpinManager;
         [SerializeField] private PaylineEvaluator paylineEvaluator;
+        [SerializeField] private BetManager betManager;
 
         [Header("Shared Reel Settings")]
         [SerializeField] private bool useSharedReelTimingProfile = true;
@@ -99,6 +100,12 @@ namespace SlotMachine.Reels.Runtime
             CacheLocalReferences();
             ApplySharedReelSettings();
             StopAllReels();
+
+            if (betManager != null && !betManager.TrySpendCurrentBet())
+            {
+                isSpinInProgress = false;
+                return;
+            }
 
             freeSpinManager?.NotifySpinStarted();
 
@@ -368,6 +375,13 @@ namespace SlotMachine.Reels.Runtime
                 freeSpinManager?.HandleCompletedSpin(lastOutcome);
             }
 
+            float totalWin = lastPaylineEvaluation != null ? lastPaylineEvaluation.TotalWin : 0f;
+
+            if (betManager != null && totalWin > 0f)
+            {
+                betManager.AddWin(totalWin);
+            }
+
             isSpinInProgress = false;
             onSpinFlowComplete?.Invoke();
 
@@ -414,6 +428,11 @@ namespace SlotMachine.Reels.Runtime
 
         private void CacheLocalReferences()
         {
+            if (betManager == null)
+            {
+                betManager = GetComponent<BetManager>();
+            }
+
             if (spinResultGenerator == null)
             {
                 spinResultGenerator = GetComponent<SpinResultGenerator>();
