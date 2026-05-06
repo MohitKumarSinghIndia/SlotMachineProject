@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using System.Collections;
 
 namespace SlotMachine.Reels.Runtime
 {
@@ -9,8 +10,10 @@ namespace SlotMachine.Reels.Runtime
         [Header("Award Rules")]
         [Min(0)]
         [SerializeField] private int freeSpinsForThreeScatters = 10;
+
         [Min(0)]
         [SerializeField] private int freeSpinsForFourScatters = 15;
+
         [Min(0)]
         [SerializeField] private int freeSpinsForFiveOrMoreScatters = 20;
 
@@ -19,9 +22,18 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private UnityEvent onFreeSpinsUpdated;
         [SerializeField] private UnityEvent onFreeSpinsEnded;
 
+        [Header("Auto Free Spin")]
+        [SerializeField] private bool autoFreeSpin = true;
+        [SerializeField] private float autoSpinDelay = 1f;
+
+        [Tooltip("Assign your spin button event here")]
+        [SerializeField] private UnityEvent onAutoFreeSpin;
+
         [Header("Debug State")]
         [SerializeField] private FreeSpinState state = new FreeSpinState();
         [SerializeField] private bool currentSpinUsesFreeSpin;
+
+        private Coroutine autoSpinRoutine;
 
         public event Action<FreeSpinState> FreeSpinsStarted;
         public event Action<FreeSpinState> FreeSpinsUpdated;
@@ -43,18 +55,21 @@ namespace SlotMachine.Reels.Runtime
             freeSpinsForThreeScatters = Mathf.Max(0, freeSpinsForThreeScatters);
             freeSpinsForFourScatters = Mathf.Max(0, freeSpinsForFourScatters);
             freeSpinsForFiveOrMoreScatters = Mathf.Max(0, freeSpinsForFiveOrMoreScatters);
+
             EnsureState();
         }
 
         public void NotifySpinStarted()
         {
             EnsureState();
+
             currentSpinUsesFreeSpin = state.IsActive;
         }
 
         public void HandleCompletedSpin(SpinOutcome outcome)
         {
             EnsureState();
+
             if (outcome == null)
             {
                 currentSpinUsesFreeSpin = false;
@@ -64,11 +79,14 @@ namespace SlotMachine.Reels.Runtime
             if (currentSpinUsesFreeSpin)
             {
                 state.ConsumeSpin();
+
                 onFreeSpinsUpdated?.Invoke();
                 FreeSpinsUpdated?.Invoke(state);
 
                 if (!state.IsActive)
                 {
+                    StopAutoFreeSpin();
+
                     onFreeSpinsEnded?.Invoke();
                     FreeSpinsEnded?.Invoke();
                 }
@@ -82,10 +100,14 @@ namespace SlotMachine.Reels.Runtime
                 if (awarded > 0)
                 {
                     state.BeginSession(awarded, outcome.ScatterCount);
+
                     onFreeSpinsStarted?.Invoke();
                     onFreeSpinsUpdated?.Invoke();
+
                     FreeSpinsStarted?.Invoke(state);
                     FreeSpinsUpdated?.Invoke(state);
+
+                    StartAutoFreeSpin();
                 }
             }
 
@@ -96,20 +118,31 @@ namespace SlotMachine.Reels.Runtime
         public void ForceStartTenFreeSpins()
         {
             EnsureState();
+
             state.BeginSession(10, 3);
+
             onFreeSpinsStarted?.Invoke();
             onFreeSpinsUpdated?.Invoke();
+
             FreeSpinsStarted?.Invoke(state);
             FreeSpinsUpdated?.Invoke(state);
+
+            StartAutoFreeSpin();
         }
 
         [ContextMenu("End Free Spins")]
         public void ForceEndFreeSpins()
         {
             EnsureState();
+
             bool wasActive = state.IsActive;
+
             state.EndSession();
+
             currentSpinUsesFreeSpin = false;
+
+            StopAutoFreeSpin();
+
             onFreeSpinsUpdated?.Invoke();
             FreeSpinsUpdated?.Invoke(state);
 
@@ -143,6 +176,44 @@ namespace SlotMachine.Reels.Runtime
         private void EnsureState()
         {
             state ??= new FreeSpinState();
+        }
+
+        private void StartAutoFreeSpin()
+        {
+            if (!autoFreeSpin)
+            {
+                return;
+            }
+
+            if (autoSpinRoutine != null)
+            {
+                StopCoroutine(autoSpinRoutine);
+            }
+
+            autoSpinRoutine = StartCoroutine(AutoFreeSpinRoutine());
+        }
+
+        private void StopAutoFreeSpin()
+        {
+            if (autoSpinRoutine != null)
+            {
+                StopCoroutine(autoSpinRoutine);
+                autoSpinRoutine = null;
+            }
+        }
+
+        private IEnumerator AutoFreeSpinRoutine()
+        {
+            yield return null;
+
+            while (IsFreeSpinActive)
+            {
+                onAutoFreeSpin?.Invoke();
+
+                yield return new WaitForSeconds(autoSpinDelay);
+            }
+
+            autoSpinRoutine = null;
         }
     }
 }
