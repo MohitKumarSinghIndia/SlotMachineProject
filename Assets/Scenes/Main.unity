@@ -588,11 +588,11 @@ MonoBehaviour:
   initialPoolCount: 6
   paytable:
   - matchCount: 3
-    multiplier: 0
+    multiplier: 1
   - matchCount: 3
-    multiplier: 0
+    multiplier: 2
   - matchCount: 3
-    multiplier: 0
+    multiplier: 3
 --- !u!114 &35509406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2202,11 +2202,11 @@ MonoBehaviour:
   initialPoolCount: 6
   paytable:
   - matchCount: 3
-    multiplier: 0
+    multiplier: 1
   - matchCount: 3
-    multiplier: 0
+    multiplier: 2
   - matchCount: 3
-    multiplier: 0
+    multiplier: 3
 --- !u!114 &178250458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2961,11 +2961,11 @@ MonoBehaviour:
   initialPoolCount: 6
   paytable:
   - matchCount: 3
-    multiplier: 0
+    multiplier: 1
   - matchCount: 3
-    multiplier: 0
+    multiplier: 2
   - matchCount: 3
-    multiplier: 0
+    multiplier: 3
 --- !u!114 &240676272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5509,11 +5509,11 @@ MonoBehaviour:
   initialPoolCount: 6
   paytable:
   - matchCount: 3
-    multiplier: 0
+    multiplier: 1
   - matchCount: 3
-    multiplier: 0
+    multiplier: 2
   - matchCount: 3
-    multiplier: 0
+    multiplier: 3
 --- !u!114 &451688905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5750,11 +5750,11 @@ MonoBehaviour:
   initialPoolCount: 6
   paytable:
   - matchCount: 3
-    multiplier: 0
+    multiplier: 1
   - matchCount: 3
-    multiplier: 0
+    multiplier: 2
   - matchCount: 3
-    multiplier: 0
+    multiplier: 3
 --- !u!114 &482855477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5854,11 +5854,11 @@ MonoBehaviour:
   initialPoolCount: 6
   paytable:
   - matchCount: 3
-    multiplier: 0
+    multiplier: 1
   - matchCount: 3
-    multiplier: 0
+    multiplier: 2
   - matchCount: 3
-    multiplier: 0
+    multiplier: 3
 --- !u!114 &485004159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8710,11 +8710,11 @@ MonoBehaviour:
   initialPoolCount: 6
   paytable:
   - matchCount: 3
-    multiplier: 0
+    multiplier: 1
   - matchCount: 3
-    multiplier: 0
+    multiplier: 2
   - matchCount: 3
-    multiplier: 0
+    multiplier: 3
 --- !u!114 &680418484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9560,11 +9560,11 @@ MonoBehaviour:
   initialPoolCount: 6
   paytable:
   - matchCount: 3
-    multiplier: 0.1
+    multiplier: 1
   - matchCount: 3
-    multiplier: 0.2
+    multiplier: 2
   - matchCount: 3
-    multiplier: 0.3
+    multiplier: 3
 --- !u!114 &724724343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13212,7 +13212,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.78}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 84, y: -27.999237}
+  m_AnchoredPosition: {x: 84, y: -27.999138}
   m_SizeDelta: {x: 140, y: 28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &931668391
@@ -20252,11 +20252,11 @@ MonoBehaviour:
   initialPoolCount: 6
   paytable:
   - matchCount: 3
-    multiplier: 0
+    multiplier: 1
   - matchCount: 3
-    multiplier: 0
+    multiplier: 2
   - matchCount: 3
-    multiplier: 0
+    multiplier: 3
 --- !u!114 &1418249557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20724,7 +20724,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.56, y: 0.78}
   m_AnchorMax: {x: 0.56, y: 1}
-  m_AnchoredPosition: {x: 12, y: -27.999237}
+  m_AnchoredPosition: {x: 12, y: -27.999138}
   m_SizeDelta: {x: 180, y: 28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1449980096
@@ -23202,11 +23202,11 @@ MonoBehaviour:
   initialPoolCount: 6
   paytable:
   - matchCount: 3
-    multiplier: 0
+    multiplier: 1
   - matchCount: 3
-    multiplier: 0
+    multiplier: 2
   - matchCount: 3
-    multiplier: 0
+    multiplier: 3
 --- !u!114 &1660077310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23387,6 +23387,136 @@ MonoBehaviour:
   currentTopIndex: 0
   pendingStopIndex: 0
   stopRequested: 0
+--- !u!1 &1678014875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1678014876}
+  - component: {fileID: 1678014878}
+  - component: {fileID: 1678014879}
+  - component: {fileID: 1678014877}
+  m_Layer: 0
+  m_Name: Dragon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1678014876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678014875}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1678014877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678014875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9c31e9eeaa6c5f4c887fd9c7c9bfda5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DragonReactionController
+  dragonAnimator: {fileID: 1678014879}
+  mediumWinThreshold: 40
+  bigWinThreshold: 100
+--- !u!212 &1678014878
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678014875}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -8667586382756489276, guid: 585efbb6c5d59e84b860386b84ab42cd, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2.18, y: 4.75}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!95 &1678014879
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678014875}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 24361cbbe3c99c244ac79f4e44eca020, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1686272172
 GameObject:
   m_ObjectHideFlags: 0
@@ -23722,11 +23852,11 @@ MonoBehaviour:
   initialPoolCount: 6
   paytable:
   - matchCount: 3
-    multiplier: 0
+    multiplier: 1
   - matchCount: 3
-    multiplier: 0
+    multiplier: 2
   - matchCount: 3
-    multiplier: 0
+    multiplier: 3
 --- !u!114 &1712146585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23826,11 +23956,11 @@ MonoBehaviour:
   initialPoolCount: 6
   paytable:
   - matchCount: 3
-    multiplier: 0.1
+    multiplier: 1
   - matchCount: 3
-    multiplier: 0.2
+    multiplier: 2
   - matchCount: 3
-    multiplier: 0.3
+    multiplier: 3
 --- !u!114 &1716149791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28240,11 +28370,11 @@ MonoBehaviour:
   initialPoolCount: 6
   paytable:
   - matchCount: 3
-    multiplier: 0
+    multiplier: 1
   - matchCount: 3
-    multiplier: 0
+    multiplier: 2
   - matchCount: 3
-    multiplier: 0
+    multiplier: 3
 --- !u!114 &1983650743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29127,6 +29257,7 @@ MonoBehaviour:
   freeSpinManager: {fileID: 2037349851}
   paylineEvaluator: {fileID: 2037349852}
   betManager: {fileID: 1737421989}
+  dragonReactionController: {fileID: 1678014877}
   useSharedReelTimingProfile: 1
   sharedReelTimingProfile:
     anticipationLift: 50
@@ -29329,7 +29460,7 @@ MonoBehaviour:
   freeSpinsForFourScatters: 15
   freeSpinsForFiveOrMoreScatters: 20
   simulateWins: 1
-  winChancePercent: 35
+  winChancePercent: 50
   minWinAmount: 50
   maxWinAmount: 120
   bigWinThreshold: 40
@@ -29386,6 +29517,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  multiplierSteps: 01000000020000000300000005000000080000000a0000000f00000014000000
+  currentMultiplier: 1
+  winningSpinCount: 0
+  totalFeatureWin: 0
+  wishGrantedTriggered: 0
+  dragonBlessingActive: 0
+  onMultiplierChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onFeatureWinChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onWishGranted:
+    m_PersistentCalls:
+      m_Calls: []
   state:
     isActive: 0
     totalAwardedSpins: 0
@@ -29408,7 +29554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.PaylineEvaluator
   paylineConfig: {fileID: 11400000, guid: 6ce03ed8fba59bb40952662ffe24c96f, type: 2}
   symbolDatabase: {fileID: 1409241461}
-  betManager: {fileID: 0}
+  betManager: {fileID: 1737421989}
   minimumMatchCount: 3
   wildSubstitutes: 1
   allowAllWildLinePay: 1
@@ -30226,7 +30372,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.78}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 410, y: -27.999237}
+  m_AnchoredPosition: {x: 410, y: -27.999138}
   m_SizeDelta: {x: 180, y: 28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2116805143
@@ -31848,3 +31994,4 @@ SceneRoots:
   - {fileID: 244138517}
   - {fileID: 1299957539}
   - {fileID: 1875295056}
+  - {fileID: 1678014876}

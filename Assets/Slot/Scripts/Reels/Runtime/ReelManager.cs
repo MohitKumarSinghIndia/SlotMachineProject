@@ -14,6 +14,7 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private FreeSpinManager freeSpinManager;
         [SerializeField] private PaylineEvaluator paylineEvaluator;
         [SerializeField] private BetManager betManager;
+        [SerializeField] private DragonReactionController dragonReactionController;
 
         [Header("Shared Reel Settings")]
         [SerializeField] private bool useSharedReelTimingProfile = true;
@@ -114,6 +115,11 @@ namespace SlotMachine.Reels.Runtime
             {
                 return;
             }
+
+            // DragonReactionController
+
+            dragonReactionController.ReactToSpin(outcome.TotalWin, outcome.ScatterCount, false, outcome.IsFreeSpinSpin);
+
 
             lastOutcome = outcome;
             ValidateOutcomeAgainstReels(outcome);

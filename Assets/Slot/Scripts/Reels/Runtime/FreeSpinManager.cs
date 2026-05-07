@@ -24,26 +24,105 @@ namespace SlotMachine.Reels.Runtime
 
         [Header("Auto Free Spin")]
         [SerializeField] private bool autoFreeSpin = true;
+
         [SerializeField] private float autoSpinDelay = 1f;
 
         [Tooltip("Assign your spin button event here")]
         [SerializeField] private UnityEvent onAutoFreeSpin;
 
+        // =====================================================
+        // DRAGON BLESSING
+        // =====================================================
+
+        [Header("Dragon Blessing")]
+
+        [SerializeField]
+        private int[] multiplierSteps =
+        {
+            1,
+            2,
+            3,
+            5,
+            8,
+            10,
+            15,
+            20
+        };
+
+        [SerializeField] private int currentMultiplier = 1;
+
+        [SerializeField] private int winningSpinCount;
+
+        [SerializeField] private float totalFeatureWin;
+
+        [SerializeField] private bool wishGrantedTriggered;
+
+        [SerializeField] private bool dragonBlessingActive;
+
+        [Header("Dragon Blessing Events")]
+
+        [SerializeField]
+        private UnityEvent<int> onMultiplierChanged;
+
+        [SerializeField]
+        private UnityEvent<float> onFeatureWinChanged;
+
+        [SerializeField]
+        private UnityEvent onWishGranted;
+
+        // =====================================================
+        // DEBUG
+        // =====================================================
+
         [Header("Debug State")]
-        [SerializeField] private FreeSpinState state = new FreeSpinState();
-        [SerializeField] private bool currentSpinUsesFreeSpin;
+
+        [SerializeField]
+        private FreeSpinState state = new FreeSpinState();
+
+        [SerializeField]
+        private bool currentSpinUsesFreeSpin;
 
         private Coroutine autoSpinRoutine;
 
+        // =====================================================
+        // EVENTS
+        // =====================================================
+
         public event Action<FreeSpinState> FreeSpinsStarted;
+
         public event Action<FreeSpinState> FreeSpinsUpdated;
+
         public event Action FreeSpinsEnded;
 
+        // =====================================================
+        // PUBLIC PROPERTIES
+        // =====================================================
+
         public FreeSpinState State => state;
-        public bool IsFreeSpinActive => state != null && state.IsActive;
-        public bool CurrentSpinUsesFreeSpin => currentSpinUsesFreeSpin;
-        public int RemainingSpins => state != null ? state.RemainingSpins : 0;
-        public int CurrentMultiplier => 1;
+
+        public bool IsFreeSpinActive =>
+            state != null && state.IsActive;
+
+        public bool CurrentSpinUsesFreeSpin =>
+            currentSpinUsesFreeSpin;
+
+        public int RemainingSpins =>
+            state != null ? state.RemainingSpins : 0;
+
+        public int CurrentMultiplier =>
+            dragonBlessingActive
+                ? currentMultiplier
+                : 1;
+
+        public bool IsDragonBlessingActive =>
+            dragonBlessingActive;
+
+        public float TotalFeatureWin =>
+            totalFeatureWin;
+
+        // =====================================================
+        // UNITY
+        // =====================================================
 
         private void Awake()
         {
@@ -52,12 +131,21 @@ namespace SlotMachine.Reels.Runtime
 
         private void OnValidate()
         {
-            freeSpinsForThreeScatters = Mathf.Max(0, freeSpinsForThreeScatters);
-            freeSpinsForFourScatters = Mathf.Max(0, freeSpinsForFourScatters);
-            freeSpinsForFiveOrMoreScatters = Mathf.Max(0, freeSpinsForFiveOrMoreScatters);
+            freeSpinsForThreeScatters =
+                Mathf.Max(0, freeSpinsForThreeScatters);
+
+            freeSpinsForFourScatters =
+                Mathf.Max(0, freeSpinsForFourScatters);
+
+            freeSpinsForFiveOrMoreScatters =
+                Mathf.Max(0, freeSpinsForFiveOrMoreScatters);
 
             EnsureState();
         }
+
+        // =====================================================
+        // SPIN START
+        // =====================================================
 
         public void NotifySpinStarted()
         {
@@ -65,6 +153,10 @@ namespace SlotMachine.Reels.Runtime
 
             currentSpinUsesFreeSpin = state.IsActive;
         }
+
+        // =====================================================
+        // HANDLE COMPLETED SPIN
+        // =====================================================
 
         public void HandleCompletedSpin(SpinOutcome outcome)
         {
@@ -76,35 +168,101 @@ namespace SlotMachine.Reels.Runtime
                 return;
             }
 
+            // =================================================
+            // FREE SPIN ACTIVE
+            // =================================================
+
             if (currentSpinUsesFreeSpin)
             {
+                // ---------------------------------------------
+                // DRAGON BLESSING PROCESS
+                // ---------------------------------------------
+
+                ProcessDragonBlessingSpin(outcome);
+
+                // ---------------------------------------------
+                // CONSUME SPIN
+                // ---------------------------------------------
+
                 state.ConsumeSpin();
 
                 onFreeSpinsUpdated?.Invoke();
+
                 FreeSpinsUpdated?.Invoke(state);
+
+                // ---------------------------------------------
+                // FEATURE END
+                // ---------------------------------------------
 
                 if (!state.IsActive)
                 {
+                    dragonBlessingActive = false;
+
+                    Debug.Log(
+                        $"DRAGON BLESSING ENDED | " +
+                        $"Total Feature Win = {totalFeatureWin}"
+                    );
+
                     StopAutoFreeSpin();
 
                     onFreeSpinsEnded?.Invoke();
+
                     FreeSpinsEnded?.Invoke();
                 }
             }
-            else if (outcome.AwardsFreeSpins || outcome.TriggersFreeSpins)
+
+            // =================================================
+            // START FREE SPINS
+            // =================================================
+
+            else if (
+                outcome.AwardsFreeSpins ||
+                outcome.TriggersFreeSpins)
             {
-                int awarded = outcome.AwardedFreeSpinCount > 0
+                int awarded =
+                    outcome.AwardedFreeSpinCount > 0
                     ? outcome.AwardedFreeSpinCount
                     : ResolveAwardCount(outcome.ScatterCount);
 
                 if (awarded > 0)
                 {
-                    state.BeginSession(awarded, outcome.ScatterCount);
+                    state.BeginSession(
+                        awarded,
+                        outcome.ScatterCount
+                    );
+
+                    // -----------------------------------------
+                    // START DRAGON BLESSING
+                    // -----------------------------------------
+
+                    dragonBlessingActive = true;
+
+                    currentMultiplier = 1;
+
+                    winningSpinCount = 0;
+
+                    totalFeatureWin = 0;
+
+                    wishGrantedTriggered = false;
+
+                    Debug.Log(
+                        "DRAGON BLESSING STARTED"
+                    );
+
+                    onMultiplierChanged?.Invoke(
+                        currentMultiplier
+                    );
+
+                    // -----------------------------------------
+                    // EVENTS
+                    // -----------------------------------------
 
                     onFreeSpinsStarted?.Invoke();
+
                     onFreeSpinsUpdated?.Invoke();
 
                     FreeSpinsStarted?.Invoke(state);
+
                     FreeSpinsUpdated?.Invoke(state);
 
                     StartAutoFreeSpin();
@@ -114,23 +272,159 @@ namespace SlotMachine.Reels.Runtime
             currentSpinUsesFreeSpin = false;
         }
 
+        // =====================================================
+        // DRAGON BLESSING SPIN
+        // =====================================================
+
+        private void ProcessDragonBlessingSpin(
+            SpinOutcome outcome)
+        {
+            if (!dragonBlessingActive)
+                return;
+
+            if (outcome == null)
+                return;
+
+            float baseWin = outcome.TotalWin;
+
+            bool hasWin = baseWin > 0;
+
+            // ---------------------------------------------
+            // APPLY CURRENT MULTIPLIER
+            // ---------------------------------------------
+
+            float finalWin =
+                baseWin * currentMultiplier;
+
+            totalFeatureWin += finalWin;
+
+            Debug.Log(
+                $"Dragon Blessing Spin | " +
+                $"Base Win = {baseWin} | " +
+                $"Multiplier = {currentMultiplier}x | " +
+                $"Final Win = {finalWin}"
+            );
+
+            onFeatureWinChanged?.Invoke(
+                totalFeatureWin
+            );
+
+            // ---------------------------------------------
+            // INCREASE MULTIPLIER AFTER WIN
+            // ---------------------------------------------
+
+            if (hasWin)
+            {
+                IncreaseMultiplier();
+            }
+
+            // ---------------------------------------------
+            // WISH GRANTED
+            // ---------------------------------------------
+
+            CheckWishGranted(hasWin);
+        }
+
+        // =====================================================
+        // MULTIPLIER
+        // =====================================================
+
+        private void IncreaseMultiplier()
+        {
+            winningSpinCount++;
+
+            int index = Mathf.Clamp(
+                winningSpinCount,
+                0,
+                multiplierSteps.Length - 1
+            );
+
+            int newMultiplier =
+                multiplierSteps[index];
+
+            if (newMultiplier != currentMultiplier)
+            {
+                currentMultiplier = newMultiplier;
+
+                Debug.Log(
+                    $"Multiplier Increased → " +
+                    $"{currentMultiplier}x"
+                );
+
+                onMultiplierChanged?.Invoke(
+                    currentMultiplier
+                );
+            }
+        }
+
+        // =====================================================
+        // WISH GRANTED
+        // =====================================================
+
+        private void CheckWishGranted(
+            bool hasWinningSpin)
+        {
+            if (wishGrantedTriggered)
+                return;
+
+            bool maxMultiplierReached =
+                currentMultiplier >= 20;
+
+            if (
+                maxMultiplierReached &&
+                hasWinningSpin)
+            {
+                wishGrantedTriggered = true;
+
+                Debug.Log("WISH GRANTED!");
+
+                onWishGranted?.Invoke();
+            }
+        }
+
+        // =====================================================
+        // FORCE START
+        // =====================================================
+
         [ContextMenu("Force Start 10 Free Spins")]
+
         public void ForceStartTenFreeSpins()
         {
             EnsureState();
 
             state.BeginSession(10, 3);
 
+            dragonBlessingActive = true;
+
+            currentMultiplier = 1;
+
+            winningSpinCount = 0;
+
+            totalFeatureWin = 0;
+
+            wishGrantedTriggered = false;
+
+            onMultiplierChanged?.Invoke(
+                currentMultiplier
+            );
+
             onFreeSpinsStarted?.Invoke();
+
             onFreeSpinsUpdated?.Invoke();
 
             FreeSpinsStarted?.Invoke(state);
+
             FreeSpinsUpdated?.Invoke(state);
 
             StartAutoFreeSpin();
         }
 
+        // =====================================================
+        // FORCE END
+        // =====================================================
+
         [ContextMenu("End Free Spins")]
+
         public void ForceEndFreeSpins()
         {
             EnsureState();
@@ -139,21 +433,30 @@ namespace SlotMachine.Reels.Runtime
 
             state.EndSession();
 
+            dragonBlessingActive = false;
+
             currentSpinUsesFreeSpin = false;
 
             StopAutoFreeSpin();
 
             onFreeSpinsUpdated?.Invoke();
+
             FreeSpinsUpdated?.Invoke(state);
 
             if (wasActive)
             {
                 onFreeSpinsEnded?.Invoke();
+
                 FreeSpinsEnded?.Invoke();
             }
         }
 
-        private int ResolveAwardCount(int scatterCount)
+        // =====================================================
+        // RESOLVE AWARD COUNT
+        // =====================================================
+
+        private int ResolveAwardCount(
+            int scatterCount)
         {
             if (scatterCount >= 5)
             {
@@ -173,10 +476,18 @@ namespace SlotMachine.Reels.Runtime
             return 0;
         }
 
+        // =====================================================
+        // ENSURE STATE
+        // =====================================================
+
         private void EnsureState()
         {
             state ??= new FreeSpinState();
         }
+
+        // =====================================================
+        // AUTO SPIN
+        // =====================================================
 
         private void StartAutoFreeSpin()
         {
@@ -190,7 +501,10 @@ namespace SlotMachine.Reels.Runtime
                 StopCoroutine(autoSpinRoutine);
             }
 
-            autoSpinRoutine = StartCoroutine(AutoFreeSpinRoutine());
+            autoSpinRoutine =
+                StartCoroutine(
+                    AutoFreeSpinRoutine()
+                );
         }
 
         private void StopAutoFreeSpin()
@@ -198,6 +512,7 @@ namespace SlotMachine.Reels.Runtime
             if (autoSpinRoutine != null)
             {
                 StopCoroutine(autoSpinRoutine);
+
                 autoSpinRoutine = null;
             }
         }
@@ -210,7 +525,9 @@ namespace SlotMachine.Reels.Runtime
             {
                 onAutoFreeSpin?.Invoke();
 
-                yield return new WaitForSeconds(autoSpinDelay);
+                yield return new WaitForSeconds(
+                    autoSpinDelay
+                );
             }
 
             autoSpinRoutine = null;
