@@ -25,27 +25,19 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private int scatterSymbolId = 0;
         [SerializeField] private int freeSpinScatterThreshold = 3;
         [SerializeField] private bool allowScatterDuringFreeSpins = false;
+
         [Min(1)]
         [SerializeField] private int maxFreeSpinStopSearchAttempts = 200;
 
         [Header("Free Spin Awards")]
         [Min(0)]
         [SerializeField] private int freeSpinsForThreeScatters = 10;
+
         [Min(0)]
         [SerializeField] private int freeSpinsForFourScatters = 15;
+
         [Min(0)]
         [SerializeField] private int freeSpinsForFiveOrMoreScatters = 20;
-
-        [Header("Placeholder Win Meta")]
-        [SerializeField] private bool simulateWins = true;
-        [Range(0, 100)]
-        [SerializeField] private int winChancePercent = 35;
-        [Min(0)]
-        [SerializeField] private int minWinAmount = 5;
-        [Min(0)]
-        [SerializeField] private int maxWinAmount = 120;
-        [Min(0)]
-        [SerializeField] private int bigWinThreshold = 80;
 
         private Random _random;
         private int _nextSpinNumber = 1;
@@ -59,16 +51,14 @@ namespace SlotMachine.Reels.Runtime
         private void OnValidate()
         {
             CacheLocalReferences();
+
             visibleRowCount = Mathf.Max(1, visibleRowCount);
             freeSpinScatterThreshold = Mathf.Max(1, freeSpinScatterThreshold);
             maxFreeSpinStopSearchAttempts = Mathf.Max(1, maxFreeSpinStopSearchAttempts);
+
             freeSpinsForThreeScatters = Mathf.Max(0, freeSpinsForThreeScatters);
             freeSpinsForFourScatters = Mathf.Max(0, freeSpinsForFourScatters);
             freeSpinsForFiveOrMoreScatters = Mathf.Max(0, freeSpinsForFiveOrMoreScatters);
-            winChancePercent = Mathf.Clamp(winChancePercent, 0, 100);
-            minWinAmount = Mathf.Max(0, minWinAmount);
-            maxWinAmount = Mathf.Max(minWinAmount, maxWinAmount);
-            bigWinThreshold = Mathf.Max(0, bigWinThreshold);
         }
 
         public SpinOutcome GenerateOutcome(IReadOnlyList<ReelController> reels)
@@ -89,6 +79,7 @@ namespace SlotMachine.Reels.Runtime
             for (int i = 0; i < reels.Count; i++)
             {
                 ReelController reel = reels[i];
+
                 if (reel == null || reel.ReelStrip == null || reel.ReelStrip.Length == 0)
                 {
                     continue;
@@ -123,9 +114,11 @@ namespace SlotMachine.Reels.Runtime
             int awardedFreeSpinCount = awardsFreeSpins ? ResolveFreeSpinAwardCount(scatterCount) : 0;
             bool triggersFreeSpins = awardsFreeSpins;
 
-            int totalWin = GenerateWinAmount(awardsFreeSpins);
-            bool hasWin = totalWin > 0;
-            bool isBigWin = totalWin >= bigWinThreshold;
+            // Normal wins are no longer generated here.
+            // PaylineEvaluator is now the only source of normal win amount.
+            bool hasWin = false;
+            bool isBigWin = false;
+            int totalWin = 0;
 
             return new SpinOutcome(
                 spinId: spinId,
@@ -155,6 +148,7 @@ namespace SlotMachine.Reels.Runtime
                 for (int attempt = 0; attempt < maxFreeSpinStopSearchAttempts; attempt++)
                 {
                     int candidate = _random.Next(0, strip.Length);
+
                     if (!WindowContainsSymbol(strip.GetVisibleWindow(candidate, visibleRowCount), scatterSymbolId))
                     {
                         return candidate;
@@ -171,22 +165,6 @@ namespace SlotMachine.Reels.Runtime
             }
 
             return _random.Next(0, strip.Length);
-        }
-
-        private int GenerateWinAmount(bool featureTriggered)
-        {
-            if (!simulateWins)
-            {
-                return 0;
-            }
-
-            int roll = _random.Next(0, 100);
-            if (roll >= winChancePercent && !featureTriggered)
-            {
-                return 0;
-            }
-
-            return _random.Next(minWinAmount, maxWinAmount + 1);
         }
 
         private void EnsureRandom()

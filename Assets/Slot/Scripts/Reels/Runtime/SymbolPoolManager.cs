@@ -1,22 +1,23 @@
 using System.Collections.Generic;
 using SlotMachine.Reels.Data;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace SlotMachine.Reels.Runtime
 {
     public class SymbolPoolManager : MonoBehaviour
     {
-        [Header("Library")]
-        [SerializeField] private bool autoCollectDefinitions = true;
+        [Header("Symbol Definitions")]
+        [Tooltip("Assign all SymbolDefinition objects here. SymbolDefinition.SymbolId is used as the lookup key.")]
         [SerializeField] private List<SymbolDefinition> symbolDefinitions = new List<SymbolDefinition>();
 
         [Header("Pooling")]
         [SerializeField] private Transform poolRoot;
 
-        private readonly Dictionary<int, SymbolDefinition> _definitionById = new Dictionary<int, SymbolDefinition>();
-        private readonly Dictionary<int, Queue<SymbolView>> _poolById = new Dictionary<int, Queue<SymbolView>>();
+        [Min(0)]
+        [SerializeField] private int initialPoolCountPerSymbol = 5;
+
+        private readonly Dictionary<int, SymbolDefinition> definitionById = new Dictionary<int, SymbolDefinition>();
+        private readonly Dictionary<int, Queue<SymbolView>> poolById = new Dictionary<int, Queue<SymbolView>>();
 
         private void Awake()
         {
@@ -35,13 +36,20 @@ namespace SlotMachine.Reels.Runtime
             EnsurePoolRoot();
             CacheDefinitions();
 
-            if (!_poolById.TryGetValue(symbolId, out Queue<SymbolView> queue))
+            if (!definitionById.ContainsKey(symbolId))
+            {
+                Debug.LogError($"[{name}] No SymbolDefinition assigned for symbol id {symbolId}.");
+                return null;
+            }
+
+            if (!poolById.TryGetValue(symbolId, out Queue<SymbolView> queue))
             {
                 queue = new Queue<SymbolView>();
-                _poolById[symbolId] = queue;
+                poolById[symbolId] = queue;
             }
 
             SymbolView instance = null;
+
             while (queue.Count > 0 && instance == null)
             {
                 instance = queue.Dequeue();
@@ -49,18 +57,21 @@ namespace SlotMachine.Reels.Runtime
 
             if (instance == null)
             {
-                instance = CreatePooledSymbol(symbolId, parent);
+                instance = CreateClone(symbolId, parent);
             }
-            else if (parent != null)
+            else
             {
-                instance.transform.SetParent(parent, false);
+                Transform targetParent = parent != null ? parent : poolRoot;
+                instance.transform.SetParent(targetParent, false);
             }
 
-            if (instance != null)
+            if (instance == null)
             {
-                ApplySymbol(instance, symbolId);
-                instance.gameObject.SetActive(true);
+                return null;
             }
+
+            instance.SetSymbolIdOnly(symbolId);
+            instance.gameObject.SetActive(true);
 
             return instance;
         }
@@ -75,10 +86,11 @@ namespace SlotMachine.Reels.Runtime
             EnsurePoolRoot();
 
             int symbolId = instance.CurrentSymbolId;
-            if (!_poolById.TryGetValue(symbolId, out Queue<SymbolView> queue))
+
+            if (!poolById.TryGetValue(symbolId, out Queue<SymbolView> queue))
             {
                 queue = new Queue<SymbolView>();
-                _poolById[symbolId] = queue;
+                poolById[symbolId] = queue;
             }
 
             instance.gameObject.SetActive(false);
@@ -88,130 +100,85 @@ namespace SlotMachine.Reels.Runtime
 
         private void CacheDefinitions()
         {
-            if (autoCollectDefinitions || symbolDefinitions.Count == 0)
-            {
-                symbolDefinitions.Clear();
-                SymbolDefinition[] foundDefinitions = GetComponentsInChildren<SymbolDefinition>(true);
-                for (int i = 0; i < foundDefinitions.Length; i++)
-                {
-                    SymbolDefinition definition = foundDefinitions[i];
-                    if (definition != null && !symbolDefinitions.Contains(definition))
-                    {
-                        symbolDefinitions.Add(definition);
-                    }
-                }
-            }
+            definitionById.Clear();
 
-            _definitionById.Clear();
             for (int i = 0; i < symbolDefinitions.Count; i++)
             {
                 SymbolDefinition definition = symbolDefinitions[i];
+
                 if (definition == null)
                 {
+                    Debug.LogError($"[{name}] SymbolDefinitions element {i} is NULL.");
                     continue;
                 }
 
-                if (!_definitionById.ContainsKey(definition.SymbolId))
+                int symbolId = definition.SymbolId;
+
+                if (definitionById.ContainsKey(symbolId))
                 {
-                    _definitionById.Add(definition.SymbolId, definition);
+                    Debug.LogWarning(
+                        $"[{name}] Duplicate SymbolDefinition for symbol id {symbolId}. " +
+                        $"Only the first one will be used."
+                    );
+
+                    continue;
                 }
+
+                definitionById.Add(symbolId, definition);
             }
         }
 
         private void PrewarmPools()
         {
-            foreach (KeyValuePair<int, SymbolDefinition> pair in _definitionById)
+            foreach (KeyValuePair<int, SymbolDefinition> pair in definitionById)
             {
-                if (!_poolById.TryGetValue(pair.Key, out Queue<SymbolView> queue))
+                int symbolId = pair.Key;
+
+                if (!poolById.TryGetValue(symbolId, out Queue<SymbolView> queue))
                 {
                     queue = new Queue<SymbolView>();
-                    _poolById[pair.Key] = queue;
+                    poolById[symbolId] = queue;
                 }
 
-                int targetCount = pair.Value != null ? pair.Value.InitialPoolCount : 1;
-                while (queue.Count < targetCount)
+                while (queue.Count < initialPoolCountPerSymbol)
                 {
-                    SymbolView pooled = CreatePooledSymbol(pair.Key, poolRoot);
-                    if (pooled == null)
+                    SymbolView clone = CreateClone(symbolId, poolRoot);
+
+                    if (clone == null)
                     {
                         break;
                     }
 
-                    pooled.gameObject.SetActive(false);
-                    queue.Enqueue(pooled);
+                    clone.gameObject.SetActive(false);
+                    clone.transform.SetParent(poolRoot, false);
+                    queue.Enqueue(clone);
                 }
             }
         }
 
-        private SymbolView CreatePooledSymbol(int symbolId, Transform parent)
+        private SymbolView CreateClone(int symbolId, Transform parent)
         {
-            GameObject root = new GameObject($"Symbol_{symbolId}_Pooled", typeof(RectTransform), typeof(CanvasGroup));
-            RectTransform rootRect = root.GetComponent<RectTransform>();
-            if (parent != null)
+            if (!definitionById.TryGetValue(symbolId, out SymbolDefinition definition) || definition == null)
             {
-                rootRect.SetParent(parent, false);
-            }
-            else
-            {
-                rootRect.SetParent(poolRoot, false);
+                Debug.LogError($"[{name}] Missing SymbolDefinition for symbol id {symbolId}.");
+                return null;
             }
 
-            GameObject backgroundObject = new GameObject("Background", typeof(RectTransform), typeof(Image));
-            RectTransform backgroundRect = backgroundObject.GetComponent<RectTransform>();
-            backgroundRect.SetParent(rootRect, false);
-            backgroundRect.anchorMin = Vector2.zero;
-            backgroundRect.anchorMax = Vector2.one;
-            backgroundRect.offsetMin = Vector2.zero;
-            backgroundRect.offsetMax = Vector2.zero;
-            Image backgroundImage = backgroundObject.GetComponent<Image>();
+            Transform targetParent = parent != null ? parent : poolRoot;
 
-            GameObject iconObject = new GameObject("Icon", typeof(RectTransform), typeof(Image));
-            RectTransform iconRect = iconObject.GetComponent<RectTransform>();
-            iconRect.SetParent(rootRect, false);
-            iconRect.anchorMin = new Vector2(0.5f, 0.66f);
-            iconRect.anchorMax = new Vector2(0.5f, 0.66f);
-            iconRect.pivot = new Vector2(0.5f, 0.5f);
-            iconRect.sizeDelta = new Vector2(72f, 72f);
-            Image iconImage = iconObject.GetComponent<Image>();
-            iconImage.color = new Color(1f, 1f, 1f, 0.18f);
-            iconImage.raycastTarget = false;
+            GameObject cloneObject = Instantiate(definition.gameObject, targetParent, false);
+            cloneObject.name = $"{definition.name}_Clone_ID_{symbolId}";
 
-            GameObject labelObject = new GameObject("Label", typeof(RectTransform), typeof(TextMeshProUGUI));
-            RectTransform labelRect = labelObject.GetComponent<RectTransform>();
-            labelRect.SetParent(rootRect, false);
-            labelRect.anchorMin = new Vector2(0f, 0.18f);
-            labelRect.anchorMax = new Vector2(1f, 0.48f);
-            labelRect.offsetMin = new Vector2(8f, 0f);
-            labelRect.offsetMax = new Vector2(-8f, 0f);
-            TextMeshProUGUI labelText = labelObject.GetComponent<TextMeshProUGUI>();
-            labelText.raycastTarget = false;
-            labelText.alignment = TextAlignmentOptions.Center;
-            labelText.fontSize = 20f;
-            labelText.fontStyle = FontStyles.Bold;
-            labelText.textWrappingMode = TextWrappingModes.NoWrap;
-            labelText.overflowMode = TextOverflowModes.Ellipsis;
+            SymbolView symbolView = cloneObject.GetComponent<SymbolView>();
 
-            SymbolView symbolView = root.AddComponent<SymbolView>();
-            symbolView.ConfigureVisualReferences(iconImage, backgroundImage, labelText);
-            ApplySymbol(symbolView, symbolId);
+            if (symbolView == null)
+            {
+                symbolView = cloneObject.AddComponent<SymbolView>();
+            }
+
+            symbolView.SetSymbolIdOnly(symbolId);
+
             return symbolView;
-        }
-
-        private void ApplySymbol(SymbolView instance, int symbolId)
-        {
-            if (instance == null)
-            {
-                return;
-            }
-
-            if (_definitionById.TryGetValue(symbolId, out SymbolDefinition definition) && definition != null)
-            {
-                instance.ApplyDefinition(definition);
-                return;
-            }
-
-            Debug.LogWarning($"[{name}] No SymbolDefinition found for id {symbolId}. Using fallback symbol styling.");
-            instance.ApplySymbolId(symbolId);
         }
 
         private void EnsurePoolRoot()
