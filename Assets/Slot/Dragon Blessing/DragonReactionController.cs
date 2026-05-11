@@ -4,33 +4,12 @@ namespace SlotMachine.Reels.Runtime
 {
     public class DragonReactionController : MonoBehaviour
     {
-        [Header("Animator")]
-        [SerializeField] private Animator dragonAnimator;
+        [SerializeField] private EventSequencePlayer eventSequencePlayer;
 
         [Header("Win Thresholds")]
         [SerializeField] private float mediumWinThreshold = 40f;
 
         [SerializeField] private float bigWinThreshold = 100f;
-
-        // =========================
-        // ANIMATION NAMES
-        // =========================
-
-        private const string NO_WIN = "NoWin";
-
-        private const string SMALL_WIN = "SmallWin";
-
-        private const string MEDIUM_WIN = "MediumWin";
-
-        private const string BIG_WIN = "BigWin";
-
-        private const string SCATTER_LOOK = "ScatterLook";
-
-        private const string FEATURE_TRIGGER = "FeatureTrigger";
-
-        private const string WILD_TEASE = "WildTease";
-
-        private const string MAX_MULTIPLIER = "MaxMultiplier";
 
         // =========================
         // SPIN REACTION
@@ -47,8 +26,6 @@ namespace SlotMachine.Reels.Runtime
 
             if (featureTriggered)
             {
-                Play(FEATURE_TRIGGER);
-
                 Debug.Log("Dragon Feature Trigger");
 
                 return;
@@ -60,7 +37,7 @@ namespace SlotMachine.Reels.Runtime
 
             if (scatterCount >= 1 && scatterCount <= 2)
             {
-                Play(SCATTER_LOOK);
+                eventSequencePlayer.PlaySequenceById(0);
 
                 Debug.Log("Dragon Scatter Look");
 
@@ -73,8 +50,6 @@ namespace SlotMachine.Reels.Runtime
 
             if (hasWild && totalWin <= 0)
             {
-                Play(WILD_TEASE);
-
                 Debug.Log("Dragon Wild Tease");
 
                 return;
@@ -86,9 +61,8 @@ namespace SlotMachine.Reels.Runtime
 
             if (totalWin <= 0)
             {
-                Play(NO_WIN);
-
                 Debug.Log("NO WIN");
+                eventSequencePlayer.PlaySequenceById(1);
 
                 return;
             }
@@ -99,8 +73,6 @@ namespace SlotMachine.Reels.Runtime
 
             if (totalWin < mediumWinThreshold)
             {
-                Play(SMALL_WIN);
-
                 Debug.Log("SMALL WIN");
 
                 return;
@@ -112,8 +84,6 @@ namespace SlotMachine.Reels.Runtime
 
             if (totalWin < bigWinThreshold)
             {
-                Play(MEDIUM_WIN);
-
                 Debug.Log("MEDIUM WIN");
 
                 return;
@@ -123,7 +93,6 @@ namespace SlotMachine.Reels.Runtime
             // BIG WIN
             // --------------------------------
 
-            Play(BIG_WIN);
 
             Debug.Log("BIG WIN");
 
@@ -135,19 +104,7 @@ namespace SlotMachine.Reels.Runtime
 
         public void PlayMaxMultiplierReaction()
         {
-            Play(MAX_MULTIPLIER);
-        }
 
-        // =========================
-        // PLAY
-        // =========================
-
-        private void Play(string stateName)
-        {
-            if (dragonAnimator == null)
-                return;
-
-            dragonAnimator.Play(stateName);
         }
     }
 }
