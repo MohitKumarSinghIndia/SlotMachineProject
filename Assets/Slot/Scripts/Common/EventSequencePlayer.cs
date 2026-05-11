@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Spine.Unity;
+using DG.Tweening; // NEW: Added DOTween for smooth transform animations
 
 public enum EventType
 {
@@ -12,7 +13,9 @@ public enum EventType
     PlaySpineAnimation,
     EnableObject,
     DisableObject,
-    Delay
+    PlayAudio,
+    PlaySequence,
+    ModifyTransform // NEW
 }
 
 public enum ConditionType
@@ -24,144 +27,218 @@ public enum ConditionType
 [Serializable]
 public class SequenceEvent
 {
-    public string eventName;
+    [HideInInspector] public bool isExpanded = false;
+
+    public string eventName = "New Event";
     public EventType eventType;
+    public float eventDelay;
+    public bool waitForCompletion;
 
     public GameObject target;
+    public string animationName;
+    public bool loop;
+    public bool playOnEnable;
+
+    public AudioClip audioClip;
+    public AudioSource audioSource;
+
+    public EventSequencePlayer sequencePlayerTarget;
+    public int targetSequenceId;
+
+    // NEW: Transform Modification Data
+    public bool modifyPosition;
+    public Vector3 targetPosition;
+    public bool modifyRotation;
+    public Vector3 targetRotation;
+    public bool modifyScale;
+    public Vector3 targetScale = Vector3.one;
+    public float tweenDuration;
+    public Ease easeType = Ease.OutQuad;
 
     public UnityEvent unityEvent;
-
-    public string animationName;
-    public float delay;
-
-    // Clean condition
     public ConditionType conditionType;
     public bool conditionValue;
 }
 
+[Serializable]
+public class EventSequence
+{
+    public string sequenceName;
+    public int sequenceId;
+    public List<SequenceEvent> events = new List<SequenceEvent>();
+}
+
 public class EventSequencePlayer : MonoBehaviour
 {
-    public List<SequenceEvent> events = new List<SequenceEvent>();
-
-    public bool playOnStart = false;
-    public bool loop = false;
-
-    public UnityEvent onComplete;
-
+    public List<EventSequence> sequences = new List<EventSequence>();
     private Coroutine runningCoroutine;
 
-    private void Start()
-    {
-        if (playOnStart)
-            Play();
-    }
+    public bool IsPlaying => runningCoroutine != null;
 
     public void Play()
     {
-        if (runningCoroutine != null)
-            StopCoroutine(runningCoroutine);
-
-        runningCoroutine = StartCoroutine(RunSequence());
+        if (sequences.Count == 0) return;
+        PlaySequence(sequences[0]);
     }
 
     public void Stop()
     {
         if (runningCoroutine != null)
+        {
             StopCoroutine(runningCoroutine);
+            runningCoroutine = null;
+        }
     }
 
-    public void PlayEventByName(string eventName)
+    public void PlaySequence(string sequenceName)
     {
-        var e = events.Find(x => x.eventName == eventName);
+        EventSequence sequence = sequences.Find(x => x.sequenceName == sequenceName);
+        if (sequence != null) PlaySequence(sequence);
+    }
 
-        if (e == null)
+    public void PlaySequenceById(int id)
+    {
+        EventSequence sequence = sequences.Find(x => x.sequenceId == id);
+        if (sequence != null) PlaySequence(sequence);
+    }
+
+    private void PlaySequence(EventSequence sequence)
+    {
+        if (!gameObject.activeInHierarchy)
         {
-            Debug.LogWarning($"Event not found: {eventName}");
             return;
         }
 
-        if (!CheckCondition(e))
-            return;
-
-        if (runningCoroutine != null)
-            StopCoroutine(runningCoroutine);
-
-        runningCoroutine = StartCoroutine(ExecuteEvent(e));
+        if (runningCoroutine != null) StopCoroutine(runningCoroutine);
+        runningCoroutine = StartCoroutine(RunSequence(sequence));
     }
 
-    private IEnumerator RunSequence()
+    private IEnumerator RunSequence(EventSequence sequence)
     {
-        do
+        foreach (SequenceEvent e in sequence.events)
         {
-            foreach (var e in events)
-            {
-                if (!CheckCondition(e))
-                    continue;
-
-                yield return ExecuteEvent(e);
-            }
-
-            onComplete?.Invoke();
-
-        } while (loop);
+            if (!CheckCondition(e)) continue;
+            yield return ExecuteEvent(e);
+        }
+        runningCoroutine = null;
     }
 
     private IEnumerator ExecuteEvent(SequenceEvent e)
     {
+        if (e.eventDelay > 0) yield return new WaitForSeconds(e.eventDelay);
+
+        Coroutine waitCoroutine = null;
+
         switch (e.eventType)
         {
-            case EventType.UnityEvent:
-                e.unityEvent?.Invoke();
-                break;
-
-            case EventType.PlayAnimation:
-                if (e.target != null)
-                {
-                    Animator anim = e.target.GetComponent<Animator>();
-                    if (anim != null)
-                        anim.Play(e.animationName);
-                }
-                break;
-
-            case EventType.PlaySpineAnimation:
-                if (e.target != null)
-                {
-                    SkeletonAnimation spine = e.target.GetComponent<SkeletonAnimation>();
-                    if (spine != null)
-                        spine.AnimationState.SetAnimation(0, e.animationName, false);
-                }
-                break;
-
+            case EventType.UnityEvent: e.unityEvent?.Invoke(); break;
+            case EventType.PlayAnimation: waitCoroutine = StartCoroutine(PlayAnimator(e)); break;
+            case EventType.PlaySpineAnimation: waitCoroutine = StartCoroutine(PlaySpine(e)); break;
             case EventType.EnableObject:
                 if (e.target != null)
+                {
                     e.target.SetActive(true);
+                    if (e.playOnEnable) { StartCoroutine(PlayAnimator(e)); StartCoroutine(PlaySpine(e)); }
+                }
                 break;
-
-            case EventType.DisableObject:
-                if (e.target != null)
-                    e.target.SetActive(false);
-                break;
-
-            case EventType.Delay:
-                yield return new WaitForSeconds(e.delay);
-                break;
+            case EventType.DisableObject: if (e.target != null) e.target.SetActive(false); break;
+            case EventType.PlayAudio: waitCoroutine = StartCoroutine(PlayAudio(e)); break;
+            case EventType.PlaySequence: waitCoroutine = StartCoroutine(PlayExternalSequence(e)); break;
+            case EventType.ModifyTransform: waitCoroutine = StartCoroutine(ModifyTransformCoroutine(e)); break; // NEW
         }
 
-        yield return null;
+        if (e.waitForCompletion && waitCoroutine != null) yield return waitCoroutine;
+    }
+
+    // NEW: Coroutine to handle Transform modifications
+    private IEnumerator ModifyTransformCoroutine(SequenceEvent e)
+    {
+        if (e.target == null) yield break;
+
+        Transform t = e.target.transform;
+
+        // If a duration is set, smoothly animate it using DOTween
+        if (e.tweenDuration > 0f)
+        {
+            Sequence seq = DOTween.Sequence();
+
+            if (e.modifyPosition) seq.Join(t.DOLocalMove(e.targetPosition, e.tweenDuration).SetEase(e.easeType));
+            if (e.modifyRotation) seq.Join(t.DOLocalRotate(e.targetRotation, e.tweenDuration).SetEase(e.easeType));
+            if (e.modifyScale) seq.Join(t.DOScale(e.targetScale, e.tweenDuration).SetEase(e.easeType));
+
+            if (e.waitForCompletion) yield return seq.WaitForCompletion();
+        }
+        else // Otherwise, snap it instantly
+        {
+            if (e.modifyPosition) t.localPosition = e.targetPosition;
+            if (e.modifyRotation) t.localEulerAngles = e.targetRotation;
+            if (e.modifyScale) t.localScale = e.targetScale;
+        }
+    }
+
+    private IEnumerator PlayExternalSequence(SequenceEvent e)
+    {
+        if (e.sequencePlayerTarget != null)
+        {
+            e.sequencePlayerTarget.PlaySequenceById(e.targetSequenceId);
+            if (e.waitForCompletion)
+            {
+                yield return null;
+                while (e.sequencePlayerTarget.IsPlaying) yield return null;
+            }
+        }
+    }
+
+    private IEnumerator PlayAnimator(SequenceEvent e)
+    {
+        if (e.target == null) yield break;
+        Animator anim = e.target.GetComponent<Animator>();
+        if (anim != null && !string.IsNullOrEmpty(e.animationName))
+        {
+            anim.Play(e.animationName);
+            yield return null;
+            if (e.waitForCompletion && !e.loop)
+            {
+                while (anim.GetCurrentAnimatorStateInfo(0).IsName(e.animationName) &&
+                       anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f) yield return null;
+            }
+        }
+    }
+
+    private IEnumerator PlaySpine(SequenceEvent e)
+    {
+        if (e.target == null) yield break;
+        Spine.AnimationState animState = null;
+
+        SkeletonAnimation meshSpine = e.target.GetComponent<SkeletonAnimation>();
+        if (meshSpine != null) animState = meshSpine.AnimationState;
+        else
+        {
+            SkeletonGraphic uiSpine = e.target.GetComponent<SkeletonGraphic>();
+            if (uiSpine != null) animState = uiSpine.AnimationState;
+        }
+
+        if (animState != null && !string.IsNullOrEmpty(e.animationName))
+        {
+            Spine.TrackEntry track = animState.SetAnimation(0, e.animationName, e.loop);
+            if (e.waitForCompletion && !e.loop && track != null) yield return new WaitForSeconds(track.Animation.Duration);
+        }
+    }
+
+    private IEnumerator PlayAudio(SequenceEvent e)
+    {
+        if (e.audioSource != null && e.audioClip != null)
+        {
+            e.audioSource.clip = e.audioClip;
+            e.audioSource.loop = e.loop;
+            e.audioSource.Play();
+            if (e.waitForCompletion && !e.loop) yield return new WaitForSeconds(e.audioClip.length);
+        }
     }
 
     private bool CheckCondition(SequenceEvent e)
     {
-        switch (e.conditionType)
-        {
-            case ConditionType.None:
-                return true;
-
-            case ConditionType.Custom:
-                return e.conditionValue;
-
-            default:
-                return true;
-        }
+        if (e.conditionType == ConditionType.Custom) return e.conditionValue;
+        return true;
     }
 }
