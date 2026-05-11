@@ -102,13 +102,15 @@ namespace SlotMachine.Reels.Runtime
             ApplySharedReelSettings();
             StopAllReels();
 
-            if (betManager != null && !betManager.TrySpendCurrentBet())
+            freeSpinManager?.NotifySpinStarted();
+
+            bool isFreeSpinSpin = freeSpinManager != null && freeSpinManager.CurrentSpinUsesFreeSpin;
+
+            if (!isFreeSpinSpin && betManager != null && !betManager.TrySpendCurrentBet())
             {
                 isSpinInProgress = false;
                 return;
             }
-
-            freeSpinManager?.NotifySpinStarted();
 
             SpinOutcome outcome = ResolveNextOutcome();
             if (outcome == null)
@@ -138,7 +140,11 @@ namespace SlotMachine.Reels.Runtime
             }
             else
             {
-                Debug.Log($"[ReelManager] Paylines evaluated. Win Count: {lastPaylineEvaluation.PaylineWins.Count}, Total Win: {lastPaylineEvaluation.TotalWin}");
+                Debug.Log(
+                    $"[ReelManager] Paylines evaluated. " +
+                    $"Win Count: {lastPaylineEvaluation.PaylineWins.Count}, " +
+                    $"Total Win: {lastPaylineEvaluation.TotalWin:0.##}"
+                );
             }
 
             BuildAndRunSpinFlow(outcome);
@@ -397,23 +403,12 @@ namespace SlotMachine.Reels.Runtime
         private bool ShouldPlayBigWin(SpinOutcome outcome)
         {
             float totalWin = GetCurrentTotalWin();
-
-            if (totalWin > 0)
-            {
-                return totalWin >= bigWinThreshold;
-            }
-
-            return outcome != null && outcome.IsBigWin;
+            return totalWin > 0f && totalWin >= bigWinThreshold;
         }
 
         private float GetCurrentTotalWin()
         {
-            if (lastPaylineEvaluation != null)
-            {
-                return lastPaylineEvaluation.TotalWin;
-            }
-
-            return lastOutcome != null ? lastOutcome.TotalWin : 0;
+            return lastPaylineEvaluation != null ? lastPaylineEvaluation.TotalWin : 0f;
         }
 
         private void OnReelStopped(ReelController reel)

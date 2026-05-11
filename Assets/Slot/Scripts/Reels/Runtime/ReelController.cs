@@ -10,52 +10,57 @@ namespace SlotMachine.Reels.Runtime
     public class ReelTimingProfile
     {
         [Header("Start")]
-        [Tooltip("How far the actual symbols move upward before the spin launches.")]
         [Min(0f)]
         [SerializeField] private float anticipationLift = 18f;
-        [Tooltip("How long the upward anticipation takes.")]
+
         [Min(0.01f)]
         [SerializeField] private float anticipationDuration = 0.12f;
-        [Tooltip("How far the actual symbols drop downward before the looper takes over.")]
+
         [Min(0f)]
         [SerializeField] private float startDropDistance = 140f;
-        [Tooltip("How long the accelerating downward launch takes before the looper phase begins.")]
+
         [Min(0.01f)]
         [SerializeField] private float startDropDuration = 0.22f;
 
         [Header("Loop")]
-        [Tooltip("How long one looper step takes while the reel is in its continuous spin phase.")]
         [Min(0.01f)]
         [SerializeField] private float loopStepDuration = 0.075f;
 
         [Header("Stop")]
-        [Tooltip("How far above the final position the actual symbols start when the stop phase begins.")]
         [Min(0f)]
         [SerializeField] private float stopEntryOffset = 150f;
-        [Tooltip("How far the reel moves slightly past the final stop position before settling back.")]
+
         [Min(0f)]
         [SerializeField] private float stopOvershoot = 18f;
-        [Tooltip("How long the downward deceleration into the stop takes.")]
+
         [Min(0.01f)]
         [SerializeField] private float stopDuration = 0.24f;
-        [Tooltip("How long the final bounce-back settle takes after overshooting.")]
+
         [Min(0.01f)]
         [SerializeField] private float settleDuration = 0.12f;
 
         [Header("Timing Graphs")]
-        [Tooltip("Enable custom AnimationCurve graphs for reel motion timing. Disable to use DOTween Ease presets instead.")]
         [SerializeField] private bool useAnimationCurves = true;
-        [SerializeField] private AnimationCurve anticipationCurve = new AnimationCurve(
+
+        [SerializeField]
+        private AnimationCurve anticipationCurve = new AnimationCurve(
             new Keyframe(0f, 0f, 0f, 2.2f),
             new Keyframe(1f, 1f, 0.2f, 0f));
-        [SerializeField] private AnimationCurve startDropCurve = new AnimationCurve(
+
+        [SerializeField]
+        private AnimationCurve startDropCurve = new AnimationCurve(
             new Keyframe(0f, 0f, 0f, 0.8f),
             new Keyframe(1f, 1f, 3f, 0f));
+
         [SerializeField] private AnimationCurve loopCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
-        [SerializeField] private AnimationCurve stopCurve = new AnimationCurve(
+
+        [SerializeField]
+        private AnimationCurve stopCurve = new AnimationCurve(
             new Keyframe(0f, 0f, 0f, 1.8f),
             new Keyframe(1f, 1f, 0.2f, 0f));
-        [SerializeField] private AnimationCurve settleCurve = new AnimationCurve(
+
+        [SerializeField]
+        private AnimationCurve settleCurve = new AnimationCurve(
             new Keyframe(0f, 0f, 0f, 2.5f),
             new Keyframe(0.7f, 1.08f, 0f, -0.6f),
             new Keyframe(1f, 1f, 0f, 0f));
@@ -107,13 +112,6 @@ namespace SlotMachine.Reels.Runtime
             settleCurve ??= AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
         }
 
-        public ReelTimingProfile Clone()
-        {
-            ReelTimingProfile copy = new ReelTimingProfile();
-            copy.CopyFrom(this);
-            return copy;
-        }
-
         public void CopyFrom(ReelTimingProfile source)
         {
             if (source == null)
@@ -130,12 +128,29 @@ namespace SlotMachine.Reels.Runtime
             stopOvershoot = source.stopOvershoot;
             stopDuration = source.stopDuration;
             settleDuration = source.settleDuration;
+
             useAnimationCurves = source.useAnimationCurves;
-            anticipationCurve = new AnimationCurve(source.anticipationCurve.keys);
-            startDropCurve = new AnimationCurve(source.startDropCurve.keys);
-            loopCurve = new AnimationCurve(source.loopCurve.keys);
-            stopCurve = new AnimationCurve(source.stopCurve.keys);
-            settleCurve = new AnimationCurve(source.settleCurve.keys);
+
+            anticipationCurve = source.anticipationCurve != null
+                ? new AnimationCurve(source.anticipationCurve.keys)
+                : AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
+
+            startDropCurve = source.startDropCurve != null
+                ? new AnimationCurve(source.startDropCurve.keys)
+                : AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
+
+            loopCurve = source.loopCurve != null
+                ? new AnimationCurve(source.loopCurve.keys)
+                : AnimationCurve.Linear(0f, 0f, 1f, 1f);
+
+            stopCurve = source.stopCurve != null
+                ? new AnimationCurve(source.stopCurve.keys)
+                : AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
+
+            settleCurve = source.settleCurve != null
+                ? new AnimationCurve(source.settleCurve.keys)
+                : AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
+
             anticipationEase = source.anticipationEase;
             startDropEase = source.startDropEase;
             loopEase = source.loopEase;
@@ -165,8 +180,13 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private SymbolPoolManager symbolPoolManager;
         [SerializeField] private RectTransform actualSymbolsRoot;
         [SerializeField] private RectTransform looperRoot;
-        [SerializeField] private List<SymbolView> actualSymbolViews = new List<SymbolView>();
-        [SerializeField] private List<SymbolView> looperSymbolViews = new List<SymbolView>();
+
+        [Header("Symbol Slots")]
+        [Tooltip("Top, Middle, Bottom slots for final visible symbols.")]
+        [SerializeField] private List<Transform> actualSymbolSlots = new List<Transform>();
+
+        [Tooltip("Looper slots. Can include buffer slots.")]
+        [SerializeField] private List<Transform> looperSymbolSlots = new List<Transform>();
 
         [Header("Spin Settings")]
         [SerializeField] private int visibleRowCount = 3;
@@ -182,7 +202,9 @@ namespace SlotMachine.Reels.Runtime
         private readonly List<int> _pendingFinalSymbols = new List<int>();
         private readonly List<SymbolView> _pooledActualSymbols = new List<SymbolView>();
         private readonly List<SymbolView> _pooledLooperSymbols = new List<SymbolView>();
+
         [NonSerialized] private ReelTimingProfile timingProfile = new ReelTimingProfile();
+
         private Tween _activeTween;
         private Action<ReelController> _onStopped;
 
@@ -202,6 +224,7 @@ namespace SlotMachine.Reels.Runtime
             visibleRowCount = Mathf.Max(1, visibleRowCount);
             looperBufferRows = Mathf.Max(0, looperBufferRows);
             symbolStepHeight = Mathf.Max(1f, symbolStepHeight);
+
             EnsureTimingProfile();
             timingProfile.Clamp();
 
@@ -255,9 +278,9 @@ namespace SlotMachine.Reels.Runtime
                 return;
             }
 
-            if (actualSymbolViews.Count == 0 && looperSymbolViews.Count == 0)
+            if (actualSymbolSlots.Count == 0 && looperSymbolSlots.Count == 0)
             {
-                Debug.LogError($"[{name}] Reel has no SymbolView components to animate.");
+                Debug.LogError($"[{name}] Reel has no symbol slots assigned.");
                 return;
             }
 
@@ -265,7 +288,6 @@ namespace SlotMachine.Reels.Runtime
             stopRequested = false;
             currentPhase = ReelSpinPhase.Start;
 
-            // Start phase always belongs to the Actual Symbols layer.
             ApplyActualWindow(currentTopIndex);
             SetRootPosition(actualSymbolsRoot, Vector2.zero);
             SetLayerVisibility(actualSymbolsRoot, true);
@@ -276,9 +298,6 @@ namespace SlotMachine.Reels.Runtime
                 ReleasePooledSymbols(_pooledLooperSymbols);
             }
 
-            // Preload the Looper layer before the handoff only when it is a separate root.
-            // When both layers share the same root, we keep the actual-symbol presentation
-            // untouched until the start anticipation is finished.
             if (HasSeparateLayers())
             {
                 ApplyLooperWindow(currentTopIndex - looperBufferRows);
@@ -286,23 +305,25 @@ namespace SlotMachine.Reels.Runtime
             }
 
             Sequence sequence = DOTween.Sequence();
+
             sequence.Append(ApplyConfiguredEase(
                 actualSymbolsRoot.DOAnchorPosY(timingProfile.AnticipationLift, timingProfile.AnticipationDuration),
                 timingProfile.AnticipationCurve,
                 timingProfile.AnticipationEase));
+
             sequence.Append(ApplyConfiguredEase(
                 actualSymbolsRoot.DOAnchorPosY(-timingProfile.StartDropDistance, timingProfile.StartDropDuration),
                 timingProfile.StartDropCurve,
                 timingProfile.StartDropEase));
+
             sequence.OnComplete(() =>
             {
                 SetRootPosition(actualSymbolsRoot, Vector2.zero);
 
-            // Handoff point: Actual Symbols hide, Looper becomes the only active layer.
-            if (HasSeparateLayers())
-            {
-                SetLayerVisibility(actualSymbolsRoot, false);
-                SetLayerVisibility(looperRoot, true);
+                if (HasSeparateLayers())
+                {
+                    SetLayerVisibility(actualSymbolsRoot, false);
+                    SetLayerVisibility(looperRoot, true);
                 }
                 else
                 {
@@ -356,8 +377,10 @@ namespace SlotMachine.Reels.Runtime
 
             EnsureTimingProfile();
             KillActiveTween();
+
             stopRequested = false;
             currentPhase = ReelSpinPhase.Idle;
+
             RestoreIdlePresentation();
         }
 
@@ -381,6 +404,7 @@ namespace SlotMachine.Reels.Runtime
             }
 
             SetRootPosition(looperRoot, Vector2.zero);
+
             _activeTween = ApplyConfiguredEase(
                 looperRoot.DOAnchorPosY(-symbolStepHeight, timingProfile.LoopStepDuration),
                 timingProfile.LoopCurve,
@@ -388,6 +412,7 @@ namespace SlotMachine.Reels.Runtime
                 .OnComplete(() =>
                 {
                     currentTopIndex = Wrap(currentTopIndex - 1, ReelStrip.Length);
+
                     ApplyLooperWindow(currentTopIndex - looperBufferRows);
                     SetRootPosition(looperRoot, Vector2.zero);
 
@@ -404,13 +429,16 @@ namespace SlotMachine.Reels.Runtime
         private void PlayStopPhase()
         {
             KillActiveTween();
+
             currentPhase = ReelSpinPhase.Stop;
             currentTopIndex = Wrap(pendingStopIndex, ReelStrip.Length);
 
             if (_pendingFinalSymbols.Count == 0)
             {
                 int[] window = ReelStrip.GetVisibleWindow(currentTopIndex, visibleRowCount);
+
                 _pendingFinalSymbols.Clear();
+
                 for (int i = 0; i < window.Length; i++)
                 {
                     _pendingFinalSymbols.Add(window[i]);
@@ -419,10 +447,8 @@ namespace SlotMachine.Reels.Runtime
 
             ApplyActualSymbols(_pendingFinalSymbols);
             SetRootPosition(actualSymbolsRoot, new Vector2(0f, timingProfile.StopEntryOffset));
-
             SetLayerVisibility(actualSymbolsRoot, true);
 
-            // Stop transition: Looper turns off, Actual Symbols return with the final result.
             if (HasSeparateLayers())
             {
                 SetLayerVisibility(looperRoot, false);
@@ -430,20 +456,26 @@ namespace SlotMachine.Reels.Runtime
             }
 
             Sequence sequence = DOTween.Sequence();
+
             sequence.Append(ApplyConfiguredEase(
                 actualSymbolsRoot.DOAnchorPosY(-timingProfile.StopOvershoot, timingProfile.StopDuration),
                 timingProfile.StopCurve,
                 timingProfile.StopEase));
+
             sequence.Append(ApplyConfiguredEase(
                 actualSymbolsRoot.DOAnchorPosY(0f, timingProfile.SettleDuration),
                 timingProfile.SettleCurve,
                 timingProfile.SettleEase));
+
             sequence.OnComplete(() =>
             {
                 currentPhase = ReelSpinPhase.Idle;
                 stopRequested = false;
+
                 SetRootPosition(actualSymbolsRoot, Vector2.zero);
+
                 _pendingFinalSymbols.Clear();
+
                 _onStopped?.Invoke(this);
             });
 
@@ -453,7 +485,9 @@ namespace SlotMachine.Reels.Runtime
         private void RestoreIdlePresentation()
         {
             CacheLayerReferences();
+
             ApplyActualWindow(currentTopIndex);
+
             SetRootPosition(actualSymbolsRoot, Vector2.zero);
             SetRootPosition(looperRoot, Vector2.zero);
             SetLayerVisibility(actualSymbolsRoot, true);
@@ -492,14 +526,14 @@ namespace SlotMachine.Reels.Runtime
                     ?? actualSymbolsRoot;
             }
 
-            if (actualSymbolViews.Count == 0 && actualSymbolsRoot != null)
+            if (actualSymbolSlots.Count == 0 && actualSymbolsRoot != null)
             {
-                actualSymbolViews = CollectOrderedViews(actualSymbolsRoot);
+                actualSymbolSlots = CollectOrderedSlots(actualSymbolsRoot);
             }
 
-            if (looperSymbolViews.Count == 0 && looperRoot != null)
+            if (looperSymbolSlots.Count == 0 && looperRoot != null)
             {
-                looperSymbolViews = CollectOrderedViews(looperRoot);
+                looperSymbolSlots = CollectOrderedSlots(looperRoot);
             }
 
             if (symbolStepHeight <= 1f)
@@ -508,13 +542,29 @@ namespace SlotMachine.Reels.Runtime
             }
         }
 
-        private List<SymbolView> CollectOrderedViews(RectTransform root)
+        private List<Transform> CollectOrderedSlots(Transform root)
         {
-            List<SymbolView> results = new List<SymbolView>(root.GetComponentsInChildren<SymbolView>(true));
+            List<Transform> results = new List<Transform>();
+
+            if (root == null)
+            {
+                return results;
+            }
+
+            for (int i = 0; i < root.childCount; i++)
+            {
+                Transform child = root.GetChild(i);
+
+                if (child != null)
+                {
+                    results.Add(child);
+                }
+            }
+
             results.Sort((a, b) =>
             {
-                float ay = ((RectTransform)a.transform).anchoredPosition.y;
-                float by = ((RectTransform)b.transform).anchoredPosition.y;
+                float ay = a.localPosition.y;
+                float by = b.localPosition.y;
                 return by.CompareTo(ay);
             });
 
@@ -529,141 +579,139 @@ namespace SlotMachine.Reels.Runtime
 
         private void ApplyActualWindow(int topIndex)
         {
-            IReadOnlyList<SymbolView> actualViews = GetActualDisplayViews();
-            if (actualViews.Count == 0)
+            IReadOnlyList<Transform> actualSlots = GetActualDisplaySlots();
+
+            if (actualSlots.Count == 0)
             {
                 return;
             }
 
             int[] visible = ReelStrip != null
-                ? ReelStrip.GetVisibleWindow(topIndex, Mathf.Min(visibleRowCount, actualViews.Count))
+                ? ReelStrip.GetVisibleWindow(topIndex, Mathf.Min(visibleRowCount, actualSlots.Count))
                 : Array.Empty<int>();
 
-            ApplySymbols(actualViews, _pooledActualSymbols, visible);
+            ApplySymbols(actualSlots, _pooledActualSymbols, visible);
         }
 
         private void ApplyActualSymbols(IReadOnlyList<int> finalSymbols)
         {
-            IReadOnlyList<SymbolView> actualViews = GetActualDisplayViews();
-            if (actualViews.Count == 0 || finalSymbols == null)
+            IReadOnlyList<Transform> actualSlots = GetActualDisplaySlots();
+
+            if (actualSlots.Count == 0 || finalSymbols == null)
             {
                 return;
             }
 
-            ApplySymbols(actualViews, _pooledActualSymbols, finalSymbols);
+            ApplySymbols(actualSlots, _pooledActualSymbols, finalSymbols);
         }
 
         private void ApplyLooperWindow(int topIndex)
         {
-            if (looperSymbolViews.Count == 0 || ReelStrip == null || ReelStrip.Length == 0)
+            if (looperSymbolSlots.Count == 0 || ReelStrip == null || ReelStrip.Length == 0)
             {
                 return;
             }
 
-            int[] window = ReelStrip.GetVisibleWindow(topIndex, looperSymbolViews.Count);
-            ApplySymbols(looperSymbolViews, _pooledLooperSymbols, window);
+            int[] window = ReelStrip.GetVisibleWindow(topIndex, looperSymbolSlots.Count);
+
+            ApplySymbols(looperSymbolSlots, _pooledLooperSymbols, window);
         }
 
-        private IReadOnlyList<SymbolView> GetActualDisplayViews()
+        private IReadOnlyList<Transform> GetActualDisplaySlots()
         {
-            if (!HasSeparateLayers() && actualSymbolViews.Count > visibleRowCount)
+            if (!HasSeparateLayers() && actualSymbolSlots.Count > visibleRowCount)
             {
-                int offset = Mathf.Clamp(looperBufferRows, 0, actualSymbolViews.Count - visibleRowCount);
-                return actualSymbolViews.GetRange(offset, visibleRowCount);
+                int offset = Mathf.Clamp(looperBufferRows, 0, actualSymbolSlots.Count - visibleRowCount);
+                return actualSymbolSlots.GetRange(offset, visibleRowCount);
             }
 
-            return actualSymbolViews;
+            return actualSymbolSlots;
         }
 
-        private void ApplySymbols(IReadOnlyList<SymbolView> slotTemplates, List<SymbolView> pooledSymbols, IReadOnlyList<int> symbolIds)
+        private void ApplySymbols(
+            IReadOnlyList<Transform> slots,
+            List<SymbolView> pooledSymbols,
+            IReadOnlyList<int> symbolIds)
         {
-            if (slotTemplates == null)
+            if (slots == null || symbolIds == null)
             {
                 return;
             }
 
             if (symbolPoolManager == null)
             {
-                ApplySymbolsFallback(slotTemplates, symbolIds);
+                Debug.LogError($"[{name}] SymbolPoolManager is missing.");
                 return;
             }
 
-            EnsurePooledListSize(pooledSymbols, slotTemplates.Count);
+            EnsurePooledListSize(pooledSymbols, slots.Count);
 
-            for (int i = 0; i < slotTemplates.Count; i++)
+            for (int i = 0; i < slots.Count; i++)
             {
-                SymbolView slotTemplate = slotTemplates[i];
-                if (slotTemplate == null)
+                Transform slot = slots[i];
+
+                if (slot == null)
                 {
                     continue;
                 }
 
-                slotTemplate.gameObject.SetActive(false);
-
-                if (i < symbolIds.Count)
+                if (i >= symbolIds.Count)
                 {
-                    int targetId = symbolIds[i];
-                    SymbolView pooled = pooledSymbols[i];
-
-                    if (pooled == null || pooled.CurrentSymbolId != targetId)
-                    {
-                        if (pooled != null)
-                        {
-                            symbolPoolManager.Release(pooled);
-                        }
-
-                        pooled = symbolPoolManager.Acquire(targetId, slotTemplate.transform.parent);
-                        pooledSymbols[i] = pooled;
-                    }
-
-                    if (pooled != null)
-                    {
-                        SyncPooledSymbolToSlot(pooled, slotTemplate);
-                        pooled.gameObject.SetActive(true);
-                    }
+                    ReleasePooledAt(pooledSymbols, i);
+                    continue;
                 }
-                else
+
+                int targetId = symbolIds[i];
+                SymbolView pooled = pooledSymbols[i];
+
+                if (pooled == null || pooled.CurrentSymbolId != targetId)
                 {
-                    SymbolView pooled = pooledSymbols[i];
                     if (pooled != null)
                     {
                         symbolPoolManager.Release(pooled);
-                        pooledSymbols[i] = null;
                     }
+
+                    pooled = symbolPoolManager.Acquire(targetId, slot);
+                    pooledSymbols[i] = pooled;
+                }
+                else
+                {
+                    pooled.transform.SetParent(slot, false);
+                }
+
+                if (pooled != null)
+                {
+                    SyncSymbolToSlot(pooled, slot);
+                    pooled.gameObject.SetActive(true);
                 }
             }
         }
 
-        private static void ApplySymbolsFallback(IReadOnlyList<SymbolView> views, IReadOnlyList<int> symbolIds)
+        private void ReleasePooledAt(List<SymbolView> pooledSymbols, int index)
         {
-            for (int i = 0; i < views.Count; i++)
+            if (pooledSymbols == null || index < 0 || index >= pooledSymbols.Count)
             {
-                SymbolView view = views[i];
-                if (view == null)
-                {
-                    continue;
-                }
+                return;
+            }
 
-                if (i < symbolIds.Count)
-                {
-                    view.ApplySymbolId(symbolIds[i]);
-                    view.gameObject.SetActive(true);
-                }
-                else
-                {
-                    view.gameObject.SetActive(false);
-                }
+            SymbolView pooled = pooledSymbols[index];
+
+            if (pooled != null && symbolPoolManager != null)
+            {
+                symbolPoolManager.Release(pooled);
+                pooledSymbols[index] = null;
             }
         }
 
         private float ResolveSymbolStepHeight()
         {
-            List<SymbolView> source = actualSymbolViews.Count > 1 ? actualSymbolViews : looperSymbolViews;
+            List<Transform> source = actualSymbolSlots.Count > 1
+                ? actualSymbolSlots
+                : looperSymbolSlots;
+
             if (source.Count > 1)
             {
-                RectTransform first = source[0].transform as RectTransform;
-                RectTransform second = source[1].transform as RectTransform;
-                return Mathf.Abs(first.anchoredPosition.y - second.anchoredPosition.y);
+                return Mathf.Abs(source[0].localPosition.y - source[1].localPosition.y);
             }
 
             return 172f;
@@ -705,30 +753,6 @@ namespace SlotMachine.Reels.Runtime
             _activeTween = null;
         }
 
-        private static void SyncPooledSymbolToSlot(SymbolView pooled, SymbolView slotTemplate)
-        {
-            if (pooled == null || slotTemplate == null)
-            {
-                return;
-            }
-
-            RectTransform pooledRect = pooled.transform as RectTransform;
-            RectTransform slotRect = slotTemplate.transform as RectTransform;
-            if (pooledRect == null || slotRect == null)
-            {
-                return;
-            }
-
-            pooledRect.anchorMin = slotRect.anchorMin;
-            pooledRect.anchorMax = slotRect.anchorMax;
-            pooledRect.pivot = slotRect.pivot;
-            pooledRect.anchoredPosition = slotRect.anchoredPosition;
-            pooledRect.sizeDelta = slotRect.sizeDelta;
-            pooledRect.localScale = slotRect.localScale;
-            pooledRect.localRotation = slotRect.localRotation;
-            pooledRect.SetSiblingIndex(slotRect.GetSiblingIndex());
-        }
-
         private static void EnsurePooledListSize(List<SymbolView> list, int count)
         {
             while (list.Count < count)
@@ -747,12 +771,28 @@ namespace SlotMachine.Reels.Runtime
             for (int i = 0; i < pooledSymbols.Count; i++)
             {
                 SymbolView pooled = pooledSymbols[i];
+
                 if (pooled != null)
                 {
                     symbolPoolManager.Release(pooled);
                     pooledSymbols[i] = null;
                 }
             }
+        }
+
+        private static void SyncSymbolToSlot(SymbolView symbol, Transform slot)
+        {
+            if (symbol == null || slot == null)
+            {
+                return;
+            }
+
+            Transform symbolTransform = symbol.transform;
+
+            symbolTransform.SetParent(slot, false);
+            symbolTransform.localPosition = Vector3.zero;
+            symbolTransform.localRotation = Quaternion.identity;
+            symbolTransform.localScale = Vector3.one;
         }
 
         private T ApplyConfiguredEase<T>(T tween, AnimationCurve curve, Ease fallbackEase) where T : Tween
