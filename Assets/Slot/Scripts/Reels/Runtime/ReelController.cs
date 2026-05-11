@@ -240,6 +240,29 @@ namespace SlotMachine.Reels.Runtime
             ReleasePooledSymbols(_pooledLooperSymbols);
         }
 
+        // --- NEW HELPER METHODS FOR VISUALS & ANIMATIONS ---
+
+        public Transform GetSymbolSlot(int rowIndex)
+        {
+            if (rowIndex >= 0 && rowIndex < actualSymbolSlots.Count)
+            {
+                return actualSymbolSlots[rowIndex];
+            }
+            return null;
+        }
+
+        public SymbolView GetVisibleSymbol(int rowIndex)
+        {
+            Transform slot = GetSymbolSlot(rowIndex);
+            if (slot != null)
+            {
+                return slot.GetComponentInChildren<SymbolView>();
+            }
+            return null;
+        }
+
+        // ---------------------------------------------------
+
         public void PrepareStopResult(int stopIndex, IReadOnlyList<int> finalSymbols)
         {
             pendingStopIndex = stopIndex;
@@ -473,6 +496,18 @@ namespace SlotMachine.Reels.Runtime
                 stopRequested = false;
 
                 SetRootPosition(actualSymbolsRoot, Vector2.zero);
+
+                // --- TRIGGER LANDING ANIMATION ---
+                // Tell every visible symbol on this reel to play Sequence ID 1
+                for (int i = 0; i < visibleRowCount; i++)
+                {
+                    SymbolView symbol = GetVisibleSymbol(i);
+                    if (symbol != null)
+                    {
+                        symbol.PlayLanding();
+                    }
+                }
+                // ---------------------------------
 
                 _pendingFinalSymbols.Clear();
 
