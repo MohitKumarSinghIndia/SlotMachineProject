@@ -1,11 +1,17 @@
+using SlotMachine.Reels.Data;
 using System;
 using System.Collections.Generic;
-using SlotMachine.Reels.Data;
 using UnityEngine;
 using Random = System.Random;
 
 namespace SlotMachine.Reels.Runtime
 {
+    public class SpinRequest
+    {
+        public bool IsFeatureBuy;
+        public bool IsFreeSpin;
+    }
+
     public class SpinResultGenerator : MonoBehaviour
     {
         [Header("Result Shape")]
@@ -28,6 +34,9 @@ namespace SlotMachine.Reels.Runtime
 
         [Min(1)]
         [SerializeField] private int maxFreeSpinStopSearchAttempts = 200;
+
+        [Header("Feature Buy")]
+        [SerializeField] private bool guaranteeFeatureBuyScatters = true;
 
         [Header("Free Spin Awards")]
         [Min(0)]
@@ -63,11 +72,38 @@ namespace SlotMachine.Reels.Runtime
 
         public SpinOutcome GenerateOutcome(IReadOnlyList<ReelController> reels)
         {
+            SpinRequest request = new SpinRequest
+            {
+                IsFeatureBuy = false,
+                IsFreeSpin = freeSpinManager != null && freeSpinManager.CurrentSpinUsesFreeSpin
+            };
+
+            return GenerateOutcome(reels, request);
+        }
+
+        public SpinOutcome GenerateOutcome(
+            IReadOnlyList<ReelController> reels,
+            SpinRequest request)
+        {
             CacheLocalReferences();
             EnsureRandom();
 
-            bool isFreeSpinSpin = freeSpinManager != null && freeSpinManager.CurrentSpinUsesFreeSpin;
+            if (request != null && request.IsFeatureBuy)
+            {
+                return GenerateFeatureBuyOutcome(reels);
+            }
 
+            bool isFreeSpinSpin = request != null
+                ? request.IsFreeSpin
+                : freeSpinManager != null && freeSpinManager.CurrentSpinUsesFreeSpin;
+
+            return GenerateNormalOutcome(reels, isFreeSpinSpin);
+        }
+
+        private SpinOutcome GenerateNormalOutcome(
+            IReadOnlyList<ReelController> reels,
+            bool isFreeSpinSpin)
+        {
             string spinId = $"SPIN_{_nextSpinNumber:000000}";
             string timestampUtc = DateTime.UtcNow.ToString("O");
 
@@ -86,7 +122,11 @@ namespace SlotMachine.Reels.Runtime
                 }
 
                 int stopIndex = ResolveStopIndex(i, reel.ReelStrip, isFreeSpinSpin);
-                int[] visibleWindow = reel.ReelStrip.GetVisibleWindow(stopIndex, visibleRowCount);
+
+                int[] visibleWindow = reel.ReelStrip.GetVisibleWindow(
+                    stopIndex,
+                    visibleRowCount
+                );
 
                 List<int> visibleSymbolIds = new List<int>();
 
@@ -114,29 +154,161 @@ namespace SlotMachine.Reels.Runtime
             int awardedFreeSpinCount = awardsFreeSpins ? ResolveFreeSpinAwardCount(scatterCount) : 0;
             bool triggersFreeSpins = awardsFreeSpins;
 
-            // Normal wins are no longer generated here.
-            // PaylineEvaluator is now the only source of normal win amount.
-            bool hasWin = false;
-            bool isBigWin = false;
-            int totalWin = 0;
-
             return new SpinOutcome(
                 spinId: spinId,
                 timestampUtc: timestampUtc,
                 fromReplay: false,
                 isFreeSpinSpin: isFreeSpinSpin,
-                hasWin: hasWin,
+                hasWin: false,
                 triggersFreeSpins: triggersFreeSpins,
                 awardsFreeSpins: awardsFreeSpins,
                 awardedFreeSpinCount: awardedFreeSpinCount,
-                isBigWin: isBigWin,
-                totalWin: totalWin,
+                isBigWin: false,
+                totalWin: 0,
                 scatterCount: scatterCount,
                 reels: reelOutcomes
             );
         }
 
-        private int ResolveStopIndex(int reelListIndex, ReelStripDefinition strip, bool isFreeSpinSpin)
+        private SpinOutcome GenerateFeatureBuyOutcome(IReadOnlyList<ReelController> reels)
+        {
+            string spinId = $"BUY_{_nextSpinNumber:000000}";
+            string timestampUtc = DateTime.UtcNow.ToString("O");
+
+            _nextSpinNumber++;
+
+            List<ReelOutcome> reelOutcomes = new List<ReelOutcome>();
+
+            int targetScatterCount = ResolveFeatureBuyScatterCount();
+            int scatterCount = 0;
+
+            List<int> scatterReelIndexes = new List<int>();
+
+            for (int i = 0; i < reels.Count; i++)
+            {
+                scatterReelIndexes.Add(i);
+            }
+
+            // Shuffle reel indexes
+            for (int i = 0; i < scatterReelIndexes.Count; i++)
+            {
+                int randomIndex = _random.Next(i, scatterReelIndexes.Count);
+                int temp = scatterReelIndexes[i];
+                scatterReelIndexes[i] = scatterReelIndexes[randomIndex];
+                scatterReelIndexes[randomIndex] = temp;
+            }
+
+            HashSet<int> forcedScatterReels = new HashSet<int>();
+
+            for (int i = 0; i < targetScatterCount && i < scatterReelIndexes.Count; i++)
+            {
+                forcedScatterReels.Add(scatterReelIndexes[i]);
+            }
+
+            for (int i = 0; i < reels.Count; i++)
+            {
+                ReelController reel = reels[i];
+
+                if (reel == null || reel.ReelStrip == null || reel.ReelStrip.Length == 0)
+                {
+                    continue;
+                }
+
+                bool shouldForceScatter = forcedScatterReels.Contains(i);
+
+                int stopIndex = shouldForceScatter
+                    ? FindStopContainingScatter(reel.ReelStrip)
+                    : FindStopWithoutScatter(reel.ReelStrip);
+
+                int[] visibleWindow = reel.ReelStrip.GetVisibleWindow(
+                    stopIndex,
+                    visibleRowCount
+                );
+
+                List<int> visibleSymbolIds = new List<int>();
+
+                for (int row = 0; row < visibleWindow.Length; row++)
+                {
+                    int symbolId = visibleWindow[row];
+                    visibleSymbolIds.Add(symbolId);
+
+                    if (symbolId == scatterSymbolId)
+                    {
+                        scatterCount++;
+                    }
+                }
+
+                reelOutcomes.Add(
+                    new ReelOutcome(
+                        reel.ReelIndex,
+                        stopIndex,
+                        visibleSymbolIds
+                    )
+                );
+            }
+
+            int awardedFreeSpinCount = ResolveFreeSpinAwardCount(scatterCount);
+
+            return new SpinOutcome(
+                spinId: spinId,
+                timestampUtc: timestampUtc,
+                fromReplay: false,
+                isFreeSpinSpin: false,
+                hasWin: false,
+                triggersFreeSpins: true,
+                awardsFreeSpins: true,
+                awardedFreeSpinCount: awardedFreeSpinCount,
+                isBigWin: false,
+                totalWin: 0,
+                scatterCount: scatterCount,
+                reels: reelOutcomes
+            );
+        }
+
+        private int ResolveFeatureBuyScatterCount()
+        {
+            int roll = _random.Next(0, 100);
+
+            if (roll < 50)
+            {
+                return 3; // 50%
+            }
+
+            if (roll < 80)
+            {
+                return 4; // 30%
+            }
+
+            return 5; // 20%
+        }
+
+        private int FindStopWithoutScatter(ReelStripDefinition strip)
+        {
+            List<int> validStops = new List<int>();
+
+            for (int i = 0; i < strip.Length; i++)
+            {
+                int[] window = strip.GetVisibleWindow(i, visibleRowCount);
+
+                if (!WindowContainsSymbol(window, scatterSymbolId))
+                {
+                    validStops.Add(i);
+                }
+            }
+
+            if (validStops.Count == 0)
+            {
+                return _random.Next(0, strip.Length);
+            }
+
+            int randomIndex = _random.Next(0, validStops.Count);
+            return validStops[randomIndex];
+        }
+
+        private int ResolveStopIndex(
+            int reelListIndex,
+            ReelStripDefinition strip,
+            bool isFreeSpinSpin)
         {
             if (useForcedStops && reelListIndex < forcedStopIndices.Count)
             {
@@ -149,7 +321,9 @@ namespace SlotMachine.Reels.Runtime
                 {
                     int candidate = _random.Next(0, strip.Length);
 
-                    if (!WindowContainsSymbol(strip.GetVisibleWindow(candidate, visibleRowCount), scatterSymbolId))
+                    if (!WindowContainsSymbol(
+                            strip.GetVisibleWindow(candidate, visibleRowCount),
+                            scatterSymbolId))
                     {
                         return candidate;
                     }
@@ -157,7 +331,9 @@ namespace SlotMachine.Reels.Runtime
 
                 for (int candidate = 0; candidate < strip.Length; candidate++)
                 {
-                    if (!WindowContainsSymbol(strip.GetVisibleWindow(candidate, visibleRowCount), scatterSymbolId))
+                    if (!WindowContainsSymbol(
+                            strip.GetVisibleWindow(candidate, visibleRowCount),
+                            scatterSymbolId))
                     {
                         return candidate;
                     }
@@ -165,6 +341,29 @@ namespace SlotMachine.Reels.Runtime
             }
 
             return _random.Next(0, strip.Length);
+        }
+
+        private int FindStopContainingScatter(ReelStripDefinition strip)
+        {
+            List<int> validStops = new List<int>();
+
+            for (int i = 0; i < strip.Length; i++)
+            {
+                int[] window = strip.GetVisibleWindow(i, visibleRowCount);
+
+                if (WindowContainsSymbol(window, scatterSymbolId))
+                {
+                    validStops.Add(i);
+                }
+            }
+
+            if (validStops.Count == 0)
+            {
+                return _random.Next(0, strip.Length);
+            }
+
+            int randomIndex = _random.Next(0, validStops.Count);
+            return validStops[randomIndex];
         }
 
         private void EnsureRandom()
@@ -203,7 +402,9 @@ namespace SlotMachine.Reels.Runtime
             }
         }
 
-        private static bool WindowContainsSymbol(IReadOnlyList<int> window, int symbolId)
+        private static bool WindowContainsSymbol(
+            IReadOnlyList<int> window,
+            int symbolId)
         {
             if (window == null)
             {

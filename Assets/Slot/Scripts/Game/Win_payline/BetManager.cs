@@ -190,5 +190,17 @@ namespace SlotMachine.Reels.Runtime
                 minusButton.interactable = CanDecreaseBet;
             }
         }
+        public bool TrySpend(float amount)
+        {
+            if (credits < amount)
+            {
+                return false;
+            }
+
+            credits -= amount;
+            CreditsChanged?.Invoke(credits);
+            RefreshUI();
+            return true;
+        }
     }
 }

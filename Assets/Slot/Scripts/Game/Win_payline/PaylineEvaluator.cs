@@ -129,9 +129,21 @@ namespace SlotMachine.Reels.Runtime
                 return null;
             }
 
-            float winAmount = ResolveWinAmount(baseSymbolId, matchCount);
+            int bestMatchCount = 0;
+            float bestWinAmount = 0f;
 
-            if (winAmount <= 0f)
+            for (int count = minimumMatchCount; count <= matchCount; count++)
+            {
+                float winAmount = ResolveWinAmount(baseSymbolId, count);
+
+                if (winAmount > bestWinAmount)
+                {
+                    bestWinAmount = winAmount;
+                    bestMatchCount = count;
+                }
+            }
+
+            if (bestWinAmount <= 0f)
             {
                 return null;
             }
@@ -140,8 +152,8 @@ namespace SlotMachine.Reels.Runtime
                 line.LineId,
                 line.LineName,
                 baseSymbolId,
-                matchCount,
-                winAmount,
+                bestMatchCount,
+                bestWinAmount,
                 line.Rows
             );
         }

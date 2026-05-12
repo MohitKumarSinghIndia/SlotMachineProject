@@ -31,7 +31,7 @@ namespace SlotMachine.Reels.Runtime
 
         [Header("Debug State")]
         [SerializeField] private FreeSpinState state = new FreeSpinState();
-        [SerializeField] private bool currentSpinUsesFreeSpin;
+        private bool currentSpinUsesFreeSpin = false;
 
         private Coroutine autoSpinRoutine;
 
