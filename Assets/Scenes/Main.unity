@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 8
+  sequencePlayer: {fileID: 0}
 --- !u!114 &7017167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,6 +366,7 @@ GameObject:
   - component: {fileID: 35509404}
   - component: {fileID: 35509405}
   - component: {fileID: 35509408}
+  - component: {fileID: 35509409}
   m_Layer: 0
   m_Name: MV1
   m_TagString: Untagged
@@ -429,6 +431,136 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 5
+  sequencePlayer: {fileID: 35509409}
+--- !u!114 &35509409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35509402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3578be9d777bdb6419294ab425fcde20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventSequencePlayer
+  sequences:
+  - sequenceName: Normal
+    sequenceId: 0
+    events:
+    - isExpanded: 1
+      eventName: 
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 35509402}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0.2
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: Landing
+    sequenceId: 1
+    events:
+    - isExpanded: 0
+      eventName: 
+      eventType: 0
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOn
+    sequenceId: 2
+    events:
+    - isExpanded: 1
+      eventName: Win
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 1
+      target: {fileID: 35509402}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 35509409}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1.3, y: 1.3, z: 1.3}
+      tweenDuration: 0.5
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 6
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 35509409}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0
+      easeType: 6
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOff
+    sequenceId: 3
+    events: []
 --- !u!1 &45128781
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,6 +868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 10
+  sequencePlayer: {fileID: 0}
 --- !u!114 &123432483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1036,6 +1169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 12
+  sequencePlayer: {fileID: 0}
 --- !u!1 &151767446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,6 +1418,7 @@ GameObject:
   - component: {fileID: 178250456}
   - component: {fileID: 178250457}
   - component: {fileID: 178250460}
+  - component: {fileID: 178250461}
   m_Layer: 0
   m_Name: HV1
   m_TagString: Untagged
@@ -1348,6 +1483,136 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 2
+  sequencePlayer: {fileID: 178250461}
+--- !u!114 &178250461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178250454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3578be9d777bdb6419294ab425fcde20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventSequencePlayer
+  sequences:
+  - sequenceName: Normal
+    sequenceId: 0
+    events:
+    - isExpanded: 1
+      eventName: 
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 178250454}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0.2
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: Landing
+    sequenceId: 1
+    events:
+    - isExpanded: 0
+      eventName: 
+      eventType: 0
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOn
+    sequenceId: 2
+    events:
+    - isExpanded: 1
+      eventName: Win
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 1
+      target: {fileID: 178250454}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 178250461}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1.3, y: 1.3, z: 1.3}
+      tweenDuration: 0.5
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 6
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 178250461}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0
+      easeType: 6
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOff
+    sequenceId: 3
+    events: []
 --- !u!1 &186339435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,6 +1839,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 12
+  sequencePlayer: {fileID: 0}
 --- !u!114 &206780132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1692,6 +1958,7 @@ GameObject:
   - component: {fileID: 240676270}
   - component: {fileID: 240676271}
   - component: {fileID: 240676274}
+  - component: {fileID: 240676275}
   m_Layer: 0
   m_Name: HV1 (2)
   m_TagString: Untagged
@@ -1756,6 +2023,136 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 4
+  sequencePlayer: {fileID: 240676275}
+--- !u!114 &240676275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240676268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3578be9d777bdb6419294ab425fcde20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventSequencePlayer
+  sequences:
+  - sequenceName: Normal
+    sequenceId: 0
+    events:
+    - isExpanded: 1
+      eventName: 
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 240676268}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0.2
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: Landing
+    sequenceId: 1
+    events:
+    - isExpanded: 0
+      eventName: 
+      eventType: 0
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOn
+    sequenceId: 2
+    events:
+    - isExpanded: 1
+      eventName: Win
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 1
+      target: {fileID: 240676268}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 240676275}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1.3, y: 1.3, z: 1.3}
+      tweenDuration: 0.5
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 6
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 240676275}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0
+      easeType: 6
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOff
+    sequenceId: 3
+    events: []
 --- !u!1 &244138514
 GameObject:
   m_ObjectHideFlags: 0
@@ -2399,6 +2796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 8
+  sequencePlayer: {fileID: 0}
 --- !u!114 &402591836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2863,6 +3261,7 @@ GameObject:
   - component: {fileID: 451688903}
   - component: {fileID: 451688904}
   - component: {fileID: 451688907}
+  - component: {fileID: 451688908}
   m_Layer: 0
   m_Name: LV1 (4)
   m_TagString: Untagged
@@ -2927,6 +3326,136 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 12
+  sequencePlayer: {fileID: 451688908}
+--- !u!114 &451688908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451688902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3578be9d777bdb6419294ab425fcde20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventSequencePlayer
+  sequences:
+  - sequenceName: Normal
+    sequenceId: 0
+    events:
+    - isExpanded: 1
+      eventName: 
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 451688902}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0.2
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: Landing
+    sequenceId: 1
+    events:
+    - isExpanded: 0
+      eventName: 
+      eventType: 0
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOn
+    sequenceId: 2
+    events:
+    - isExpanded: 1
+      eventName: Win
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 1
+      target: {fileID: 451688902}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 451688908}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1.3, y: 1.3, z: 1.3}
+      tweenDuration: 0.5
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 6
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 451688908}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0
+      easeType: 6
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOff
+    sequenceId: 3
+    events: []
 --- !u!1 &482042732
 GameObject:
   m_ObjectHideFlags: 0
@@ -3075,6 +3604,7 @@ GameObject:
   - component: {fileID: 482855475}
   - component: {fileID: 482855476}
   - component: {fileID: 482855479}
+  - component: {fileID: 482855480}
   m_Layer: 0
   m_Name: LV1 (2)
   m_TagString: Untagged
@@ -3139,6 +3669,136 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 10
+  sequencePlayer: {fileID: 482855480}
+--- !u!114 &482855480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482855473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3578be9d777bdb6419294ab425fcde20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventSequencePlayer
+  sequences:
+  - sequenceName: Normal
+    sequenceId: 0
+    events:
+    - isExpanded: 1
+      eventName: 
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 482855473}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0.2
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: Landing
+    sequenceId: 1
+    events:
+    - isExpanded: 0
+      eventName: 
+      eventType: 0
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOn
+    sequenceId: 2
+    events:
+    - isExpanded: 1
+      eventName: Win
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 1
+      target: {fileID: 482855473}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 482855480}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1.3, y: 1.3, z: 1.3}
+      tweenDuration: 0.5
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 6
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 482855480}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0
+      easeType: 6
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOff
+    sequenceId: 3
+    events: []
 --- !u!1 &485004155
 GameObject:
   m_ObjectHideFlags: 0
@@ -3150,6 +3810,7 @@ GameObject:
   - component: {fileID: 485004157}
   - component: {fileID: 485004158}
   - component: {fileID: 485004161}
+  - component: {fileID: 485004162}
   m_Layer: 0
   m_Name: HV1 (1)
   m_TagString: Untagged
@@ -3214,6 +3875,136 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 3
+  sequencePlayer: {fileID: 485004162}
+--- !u!114 &485004162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485004155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3578be9d777bdb6419294ab425fcde20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventSequencePlayer
+  sequences:
+  - sequenceName: Normal
+    sequenceId: 0
+    events:
+    - isExpanded: 1
+      eventName: 
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 485004155}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0.2
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: Landing
+    sequenceId: 1
+    events:
+    - isExpanded: 0
+      eventName: 
+      eventType: 0
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOn
+    sequenceId: 2
+    events:
+    - isExpanded: 1
+      eventName: Win
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 1
+      target: {fileID: 485004155}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 485004162}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1.3, y: 1.3, z: 1.3}
+      tweenDuration: 0.5
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 6
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 485004162}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0
+      easeType: 6
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOff
+    sequenceId: 3
+    events: []
 --- !u!1 &485686504
 GameObject:
   m_ObjectHideFlags: 0
@@ -4095,6 +4886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 2
+  sequencePlayer: {fileID: 0}
 --- !u!224 &585950892
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4767,6 +5559,7 @@ GameObject:
   - component: {fileID: 680418482}
   - component: {fileID: 680418483}
   - component: {fileID: 680418486}
+  - component: {fileID: 680418487}
   m_Layer: 0
   m_Name: LV1 (3)
   m_TagString: Untagged
@@ -4831,6 +5624,136 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 11
+  sequencePlayer: {fileID: 680418487}
+--- !u!114 &680418487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680418481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3578be9d777bdb6419294ab425fcde20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventSequencePlayer
+  sequences:
+  - sequenceName: Normal
+    sequenceId: 0
+    events:
+    - isExpanded: 1
+      eventName: 
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 680418481}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0.2
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: Landing
+    sequenceId: 1
+    events:
+    - isExpanded: 0
+      eventName: 
+      eventType: 0
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOn
+    sequenceId: 2
+    events:
+    - isExpanded: 1
+      eventName: Win
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 1
+      target: {fileID: 680418481}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 680418487}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1.3, y: 1.3, z: 1.3}
+      tweenDuration: 0.5
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 6
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 680418487}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0
+      easeType: 6
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOff
+    sequenceId: 3
+    events: []
 --- !u!1 &680843293
 GameObject:
   m_ObjectHideFlags: 0
@@ -4863,6 +5786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 9
+  sequencePlayer: {fileID: 0}
 --- !u!224 &680843295
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5075,6 +5999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 8
+  sequencePlayer: {fileID: 0}
 --- !u!114 &694240854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5317,13 +6242,14 @@ GameObject:
   - component: {fileID: 724724341}
   - component: {fileID: 724724342}
   - component: {fileID: 724724344}
+  - component: {fileID: 724724345}
   m_Layer: 0
   m_Name: Scatter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &724724341
 Transform:
   m_ObjectHideFlags: 0
@@ -5381,6 +6307,136 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 0
+  sequencePlayer: {fileID: 724724345}
+--- !u!114 &724724345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724724339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3578be9d777bdb6419294ab425fcde20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventSequencePlayer
+  sequences:
+  - sequenceName: Normal
+    sequenceId: 0
+    events:
+    - isExpanded: 1
+      eventName: 
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 1
+      target: {fileID: 724724339}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0.5
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: Landing
+    sequenceId: 1
+    events:
+    - isExpanded: 0
+      eventName: 
+      eventType: 0
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOn
+    sequenceId: 2
+    events:
+    - isExpanded: 1
+      eventName: 
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 1
+      target: {fileID: 724724339}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 724724345}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1.2, y: 1.2, z: 1.2}
+      tweenDuration: 0.5
+      easeType: 6
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 6
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 724724345}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0
+      easeType: 6
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOff
+    sequenceId: 3
+    events: []
 --- !u!1 &727801536
 GameObject:
   m_ObjectHideFlags: 0
@@ -6762,8 +7818,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 970702516}
   - {fileID: 485686505}
+  - {fileID: 970702516}
   - {fileID: 1211056174}
   - {fileID: 487967811}
   - {fileID: 2056875954}
@@ -7279,6 +8335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 8
+  sequencePlayer: {fileID: 0}
 --- !u!224 &878343561
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7605,7 +8662,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.78}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 84, y: -27.998955}
+  m_AnchoredPosition: {x: 84, y: -27.998878}
   m_SizeDelta: {x: 140, y: 28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &931668391
@@ -8185,9 +9242,8 @@ GameObject:
   m_Component:
   - component: {fileID: 970702516}
   - component: {fileID: 970702519}
-  - component: {fileID: 970702518}
   - component: {fileID: 970702517}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TopBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8212,7 +9268,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 84}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 84}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!225 &970702517
@@ -8227,36 +9283,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &970702518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 970702515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.21, g: 0.07, b: 0.06, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &970702519
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9572,6 +10598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 12
+  sequencePlayer: {fileID: 0}
 --- !u!114 &1166847517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10193,6 +11220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 10
+  sequencePlayer: {fileID: 0}
 --- !u!224 &1213179230
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10361,6 +11389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 12
+  sequencePlayer: {fileID: 0}
 --- !u!114 &1236702839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10465,6 +11494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 10
+  sequencePlayer: {fileID: 0}
 --- !u!1 &1242687243
 GameObject:
   m_ObjectHideFlags: 0
@@ -10518,6 +11548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 2
+  sequencePlayer: {fileID: 0}
 --- !u!114 &1242687246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10859,6 +11890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 9
+  sequencePlayer: {fileID: 0}
 --- !u!114 &1262447888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11039,7 +12071,7 @@ GameObject:
   - component: {fileID: 1270442001}
   - component: {fileID: 1270442003}
   - component: {fileID: 1270442002}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MenuIcons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11347,6 +12379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 12
+  sequencePlayer: {fileID: 0}
 --- !u!114 &1292893878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11412,6 +12445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 2
+  sequencePlayer: {fileID: 0}
 --- !u!4 &1293281895
 Transform:
   m_ObjectHideFlags: 0
@@ -12167,6 +13201,7 @@ GameObject:
   - component: {fileID: 1418249555}
   - component: {fileID: 1418249556}
   - component: {fileID: 1418249559}
+  - component: {fileID: 1418249560}
   m_Layer: 0
   m_Name: MV1 (2)
   m_TagString: Untagged
@@ -12231,6 +13266,136 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 7
+  sequencePlayer: {fileID: 1418249560}
+--- !u!114 &1418249560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418249553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3578be9d777bdb6419294ab425fcde20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventSequencePlayer
+  sequences:
+  - sequenceName: Normal
+    sequenceId: 0
+    events:
+    - isExpanded: 1
+      eventName: 
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 1418249553}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0.2
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: Landing
+    sequenceId: 1
+    events:
+    - isExpanded: 0
+      eventName: 
+      eventType: 0
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOn
+    sequenceId: 2
+    events:
+    - isExpanded: 1
+      eventName: Win
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 1
+      target: {fileID: 1418249553}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 1418249560}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1.3, y: 1.3, z: 1.3}
+      tweenDuration: 0.5
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 6
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 1418249560}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0
+      easeType: 6
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOff
+    sequenceId: 3
+    events: []
 --- !u!1 &1424829242
 GameObject:
   m_ObjectHideFlags: 0
@@ -12284,6 +13449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 10
+  sequencePlayer: {fileID: 0}
 --- !u!114 &1424829245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12350,7 +13516,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.56, y: 0.78}
   m_AnchorMax: {x: 0.56, y: 1}
-  m_AnchoredPosition: {x: 12, y: -27.998955}
+  m_AnchoredPosition: {x: 12, y: -27.998878}
   m_SizeDelta: {x: 180, y: 28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1449980096
@@ -12837,8 +14003,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1543811362}
   - component: {fileID: 1543811364}
-  - component: {fileID: 1543811363}
-  m_Layer: 0
+  - component: {fileID: 1543811365}
+  m_Layer: 5
   m_Name: GameTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12859,103 +14025,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 970702516}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.7, y: 1}
-  m_AnchoredPosition: {x: 30, y: 0}
-  m_SizeDelta: {x: -30, y: 0}
-  m_Pivot: {x: 0, y: 0.5}
---- !u!114 &1543811363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543811361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: WISHING DRAGON
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 34
-  m_fontSizeBase: 34
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 1
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_characterHorizontalScale: 1
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_EmojiFallbackSupport: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 414, y: 220}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1543811364
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12964,6 +14038,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543811361}
   m_CullTransparentMesh: 1
+--- !u!114 &1543811365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543811361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -4320295261928297051, guid: d736eeae066b05548b8e011cdaa2becc, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1547976982
 GameObject:
   m_ObjectHideFlags: 0
@@ -13092,6 +14196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 2
+  sequencePlayer: {fileID: 0}
 --- !u!114 &1554355594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13352,6 +14457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 12
+  sequencePlayer: {fileID: 0}
 --- !u!224 &1585711696
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13804,6 +14910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 2
+  sequencePlayer: {fileID: 0}
 --- !u!114 &1629707405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13885,6 +14992,7 @@ GameObject:
   - component: {fileID: 1660077308}
   - component: {fileID: 1660077309}
   - component: {fileID: 1660077312}
+  - component: {fileID: 1660077313}
   m_Layer: 0
   m_Name: LV1 (1)
   m_TagString: Untagged
@@ -13949,6 +15057,136 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 9
+  sequencePlayer: {fileID: 1660077313}
+--- !u!114 &1660077313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660077306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3578be9d777bdb6419294ab425fcde20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventSequencePlayer
+  sequences:
+  - sequenceName: Normal
+    sequenceId: 0
+    events:
+    - isExpanded: 1
+      eventName: 
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 1660077306}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0.2
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: Landing
+    sequenceId: 1
+    events:
+    - isExpanded: 0
+      eventName: 
+      eventType: 0
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOn
+    sequenceId: 2
+    events:
+    - isExpanded: 1
+      eventName: Win
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 1
+      target: {fileID: 1660077306}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 1660077313}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1.3, y: 1.3, z: 1.3}
+      tweenDuration: 0.5
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 6
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 1660077313}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0
+      easeType: 6
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOff
+    sequenceId: 3
+    events: []
 --- !u!1 &1673463221
 GameObject:
   m_ObjectHideFlags: 0
@@ -14119,6 +15357,7 @@ GameObject:
   - component: {fileID: 1712146583}
   - component: {fileID: 1712146584}
   - component: {fileID: 1712146587}
+  - component: {fileID: 1712146588}
   m_Layer: 0
   m_Name: LV1
   m_TagString: Untagged
@@ -14183,6 +15422,136 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 8
+  sequencePlayer: {fileID: 1712146588}
+--- !u!114 &1712146588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712146581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3578be9d777bdb6419294ab425fcde20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventSequencePlayer
+  sequences:
+  - sequenceName: Normal
+    sequenceId: 0
+    events:
+    - isExpanded: 1
+      eventName: 
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 1712146581}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0.2
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: Landing
+    sequenceId: 1
+    events:
+    - isExpanded: 0
+      eventName: 
+      eventType: 0
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOn
+    sequenceId: 2
+    events:
+    - isExpanded: 1
+      eventName: Win
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 1
+      target: {fileID: 1712146581}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 1712146588}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1.3, y: 1.3, z: 1.3}
+      tweenDuration: 0.5
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 6
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 1712146588}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0
+      easeType: 6
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOff
+    sequenceId: 3
+    events: []
 --- !u!1 &1716149787
 GameObject:
   m_ObjectHideFlags: 0
@@ -14194,6 +15563,7 @@ GameObject:
   - component: {fileID: 1716149789}
   - component: {fileID: 1716149790}
   - component: {fileID: 1716149793}
+  - component: {fileID: 1716149794}
   m_Layer: 0
   m_Name: Wild
   m_TagString: Untagged
@@ -14258,6 +15628,136 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 1
+  sequencePlayer: {fileID: 1716149794}
+--- !u!114 &1716149794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716149787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3578be9d777bdb6419294ab425fcde20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventSequencePlayer
+  sequences:
+  - sequenceName: Normal
+    sequenceId: 0
+    events:
+    - isExpanded: 1
+      eventName: 
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 1716149787}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0.2
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: Landing
+    sequenceId: 1
+    events:
+    - isExpanded: 0
+      eventName: 
+      eventType: 0
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOn
+    sequenceId: 2
+    events:
+    - isExpanded: 1
+      eventName: Win
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 1
+      target: {fileID: 1716149787}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 1716149794}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1.3, y: 1.3, z: 1.3}
+      tweenDuration: 0.5
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 6
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 1716149794}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0
+      easeType: 6
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOff
+    sequenceId: 3
+    events: []
 --- !u!1 &1717125396
 GameObject:
   m_ObjectHideFlags: 0
@@ -14290,6 +15790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 12
+  sequencePlayer: {fileID: 0}
 --- !u!224 &1717125398
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14463,6 +15964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 2
+  sequencePlayer: {fileID: 0}
 --- !u!1 &1745351549
 GameObject:
   m_ObjectHideFlags: 0
@@ -15113,6 +16615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 9
+  sequencePlayer: {fileID: 0}
 --- !u!1 &1809065773
 GameObject:
   m_ObjectHideFlags: 0
@@ -15279,6 +16782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 12
+  sequencePlayer: {fileID: 0}
 --- !u!114 &1832304782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15320,6 +16824,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1835118685}
+  - component: {fileID: 1835118686}
   m_Layer: 0
   m_Name: SpinManager
   m_TagString: Untagged
@@ -15342,6 +16847,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 987303558}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1835118686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835118684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3209e5c24cc3b2142a50366914b34cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.PaylineVisualizer
+  reels:
+  - {fileID: 625389958}
+  - {fileID: 1673463228}
+  - {fileID: 402740962}
+  - {fileID: 2058848681}
+  - {fileID: 1859113247}
 --- !u!1 &1838875771
 GameObject:
   m_ObjectHideFlags: 0
@@ -15532,6 +17055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 10
+  sequencePlayer: {fileID: 0}
 --- !u!114 &1839344029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15701,6 +17225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 9
+  sequencePlayer: {fileID: 0}
 --- !u!114 &1870800154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16228,6 +17753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 8
+  sequencePlayer: {fileID: 0}
 --- !u!1 &1951566047
 GameObject:
   m_ObjectHideFlags: 0
@@ -16389,6 +17915,7 @@ GameObject:
   - component: {fileID: 1983650741}
   - component: {fileID: 1983650742}
   - component: {fileID: 1983650745}
+  - component: {fileID: 1983650746}
   m_Layer: 0
   m_Name: MV1 (1)
   m_TagString: Untagged
@@ -16453,6 +17980,136 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 6
+  sequencePlayer: {fileID: 1983650746}
+--- !u!114 &1983650746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983650739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3578be9d777bdb6419294ab425fcde20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventSequencePlayer
+  sequences:
+  - sequenceName: Normal
+    sequenceId: 0
+    events:
+    - isExpanded: 1
+      eventName: 
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 1983650739}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0.2
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: Landing
+    sequenceId: 1
+    events:
+    - isExpanded: 0
+      eventName: 
+      eventType: 0
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOn
+    sequenceId: 2
+    events:
+    - isExpanded: 1
+      eventName: Win
+      eventType: 7
+      eventDelay: 0
+      waitForCompletion: 1
+      target: {fileID: 1983650739}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 1983650746}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 1
+      targetScale: {x: 1.3, y: 1.3, z: 1.3}
+      tweenDuration: 0.5
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 6
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      playOnEnable: 0
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 1983650746}
+      targetSequenceId: 3
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 1, y: 1, z: 1}
+      tweenDuration: 0
+      easeType: 6
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: HighlightOff
+    sequenceId: 3
+    events: []
 --- !u!1 &1983755109
 GameObject:
   m_ObjectHideFlags: 0
@@ -16506,6 +18163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 9
+  sequencePlayer: {fileID: 0}
 --- !u!114 &1983755112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17062,6 +18720,7 @@ MonoBehaviour:
   freeSpinManager: {fileID: 2037349851}
   paylineEvaluator: {fileID: 2037349852}
   betManager: {fileID: 1737421989}
+  paylineVisualizer: {fileID: 1835118686}
   useSharedReelTimingProfile: 1
   sharedReelTimingProfile:
     anticipationLift: 40
@@ -17211,8 +18870,8 @@ MonoBehaviour:
   reelStartDelay: 0.08
   loopHoldDuration: 0.8
   reelStopDelay: 0.08
-  resultDisplayDuration: 0
-  paylineDisplayDuration: 0.45
+  resultDisplayDuration: 1
+  paylineDisplayDuration: 2
   freeGameDisplayDuration: 0
   bigWinDisplayDuration: 0
   bigWinThreshold: 80
@@ -17625,7 +19284,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.78}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 410, y: -27.998955}
+  m_AnchoredPosition: {x: 410, y: -27.998878}
   m_SizeDelta: {x: 180, y: 28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2116805143
@@ -17844,6 +19503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 12
+  sequencePlayer: {fileID: 0}
 --- !u!1 &2121633361
 GameObject:
   m_ObjectHideFlags: 0
@@ -18060,6 +19720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.SymbolView
   currentSymbolId: 12
+  sequencePlayer: {fileID: 0}
 --- !u!114 &2144582749
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -70,8 +70,8 @@ namespace SlotMachine.Reels.Runtime
                 return null;
             }
 
-            instance.SetSymbolIdOnly(symbolId);
             instance.gameObject.SetActive(true);
+            instance.SetSymbolIdOnly(symbolId);
 
             return instance;
         }
