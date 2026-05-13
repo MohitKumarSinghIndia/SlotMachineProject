@@ -14,10 +14,13 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private FreeSpinManager freeSpinManager;
         [SerializeField] private PaylineEvaluator paylineEvaluator;
         [SerializeField] private BetManager betManager;
-        [SerializeField] private DragonReactionController dragonReactionController;
-
-        // NEW: Added the reference to the Visualizer
         [SerializeField] private PaylineVisualizer paylineVisualizer;
+
+        [Header("Feature Buy")]
+        [Min(1f)]
+        [SerializeField] private float featureBuyMultiplier = 100f;
+
+        private bool pendingFeatureBuy;
 
         [Header("Shared Reel Settings")]
         [SerializeField] private bool useSharedReelTimingProfile = true;
@@ -76,6 +79,8 @@ namespace SlotMachine.Reels.Runtime
 
         private void OnValidate()
         {
+            featureBuyMultiplier = Mathf.Max(1f, featureBuyMultiplier);
+
             reelStartDelay = Mathf.Max(0f, reelStartDelay);
             loopHoldDuration = Mathf.Max(0f, loopHoldDuration);
             reelStopDelay = Mathf.Max(0f, reelStopDelay);
@@ -91,6 +96,47 @@ namespace SlotMachine.Reels.Runtime
             {
                 ApplySharedReelSettings();
             }
+        }
+
+        public void BuyFeature()
+        {
+            if (isSpinInProgress || (slotFlowController != null && slotFlowController.IsRunning))
+            {
+                return;
+            }
+
+            CacheLocalReferences();
+
+            if (betManager == null)
+            {
+                Debug.LogError($"[{name}] BetManager reference is missing.");
+                return;
+            }
+
+            if (spinResultGenerator == null)
+            {
+                Debug.LogError($"[{name}] SpinResultGenerator reference is missing.");
+                return;
+            }
+
+            bool isFreeSpinSpin = freeSpinManager != null && freeSpinManager.CurrentSpinUsesFreeSpin;
+
+            if (isFreeSpinSpin)
+            {
+                Debug.LogWarning($"[{name}] Cannot buy feature during free spins.");
+                return;
+            }
+
+            float buyCost = betManager.TotalBet * featureBuyMultiplier;
+
+            if (!betManager.TrySpend(buyCost))
+            {
+                Debug.LogWarning($"[{name}] Not enough balance to buy feature. Cost: {buyCost}");
+                return;
+            }
+
+            pendingFeatureBuy = true;
+            StartSpin();
         }
 
         [ContextMenu("Spin All Reels")]
@@ -109,22 +155,27 @@ namespace SlotMachine.Reels.Runtime
 
             bool isFreeSpinSpin = freeSpinManager != null && freeSpinManager.CurrentSpinUsesFreeSpin;
 
-            if (!isFreeSpinSpin && betManager != null && !betManager.TrySpendCurrentBet())
+            if (!pendingFeatureBuy && !isFreeSpinSpin && betManager != null && !betManager.TrySpendCurrentBet())
             {
                 isSpinInProgress = false;
                 return;
             }
 
-            SpinOutcome outcome = ResolveNextOutcome();
+            SpinRequest request = new SpinRequest
+            {
+                IsFeatureBuy = pendingFeatureBuy,
+                IsFreeSpin = isFreeSpinSpin
+            };
+
+            pendingFeatureBuy = false;
+
+            SpinOutcome outcome = ResolveNextOutcome(request);
+
             if (outcome == null)
             {
+                isSpinInProgress = false;
                 return;
             }
-
-            // DragonReactionController
-
-            dragonReactionController.ReactToSpin(outcome.TotalWin, outcome.ScatterCount, false, outcome.IsFreeSpinSpin);
-
 
             lastOutcome = outcome;
             ValidateOutcomeAgainstReels(outcome);
@@ -138,11 +189,15 @@ namespace SlotMachine.Reels.Runtime
 
         private void ValidateOutcomeAgainstReels(SpinOutcome outcome)
         {
-            if (outcome == null || outcome.Reels == null || outcome.Reels.Count == 0) return;
+            if (outcome == null || outcome.Reels == null || outcome.Reels.Count == 0)
+            {
+                return;
+            }
 
             foreach (ReelOutcome reelOutcome in outcome.Reels)
             {
-                if (reelOutcome != null && (reelOutcome.VisibleSymbolIds == null || reelOutcome.VisibleSymbolIds.Count == 0))
+                if (reelOutcome != null &&
+                    (reelOutcome.VisibleSymbolIds == null || reelOutcome.VisibleSymbolIds.Count == 0))
                 {
                     Debug.LogError($"[{name}] Reel {reelOutcome.ReelIndex} has no visible symbols.");
                 }
@@ -159,6 +214,7 @@ namespace SlotMachine.Reels.Runtime
             }
 
             List<SpinCommand> commands = BuildCommands(outcome);
+
             if (commands.Count == 0)
             {
                 isSpinInProgress = false;
@@ -175,8 +231,15 @@ namespace SlotMachine.Reels.Runtime
             slotFlowController.AddResultDisplayStep(RunResultDisplayPhase);
             slotFlowController.AddLineWinStep(RunPaylinePhase);
 
-            if (ShouldPlayBigWin(outcome)) slotFlowController.AddBigWinStep(RunBigWinPhase);
-            if (outcome.TriggersFreeSpins) slotFlowController.AddFreeGameStep(RunFreeGamePhase);
+            if (ShouldPlayBigWin(outcome))
+            {
+                slotFlowController.AddBigWinStep(RunBigWinPhase);
+            }
+
+            if (outcome.TriggersFreeSpins)
+            {
+                slotFlowController.AddFreeGameStep(RunFreeGamePhase);
+            }
 
             slotFlowController.AddCompleteStep(FinalizeSpinFlow);
             slotFlowController.StartSpinFlow();
@@ -186,14 +249,24 @@ namespace SlotMachine.Reels.Runtime
         {
             List<SpinCommand> commands = new List<SpinCommand>();
 
-            if (outcome == null) return commands;
+            if (outcome == null)
+            {
+                return commands;
+            }
 
             for (int i = 0; i < reels.Count; i++)
             {
                 ReelController reel = reels[i];
-                if (reel == null) continue;
 
-                if (!TryGetReelOutcome(outcome, reel.ReelIndex, out ReelOutcome reelOutcome)) continue;
+                if (reel == null)
+                {
+                    continue;
+                }
+
+                if (!TryGetReelOutcome(outcome, reel.ReelIndex, out ReelOutcome reelOutcome))
+                {
+                    continue;
+                }
 
                 commands.Add(new SpinCommand(reel, reelOutcome.StopIndex, reelOutcome.VisibleSymbolIds));
             }
@@ -208,76 +281,94 @@ namespace SlotMachine.Reels.Runtime
             for (int i = 0; i < commands.Count; i++)
             {
                 SpinCommand command = commands[i];
+
                 command.Reel.PrepareStopResult(command.StopIndex, command.VisibleSymbolIds);
                 command.Reel.StartSpin(command.Reel.ReelIndex, OnReelStopped);
+
                 _remainingReels++;
 
-                if (i < commands.Count - 1 && reelStartDelay > 0f) yield return new WaitForSeconds(reelStartDelay);
+                if (i < commands.Count - 1 && reelStartDelay > 0f)
+                {
+                    yield return new WaitForSeconds(reelStartDelay);
+                }
             }
 
-            while (!HaveAllReelsReachedLoopPhase(commands)) yield return null;
+            while (!HaveAllReelsReachedLoopPhase(commands))
+            {
+                yield return null;
+            }
         }
 
         private IEnumerator RunSpinStopPhase(IReadOnlyList<SpinCommand> commands)
         {
-            if (loopHoldDuration > 0f) yield return new WaitForSeconds(loopHoldDuration);
+            if (loopHoldDuration > 0f)
+            {
+                yield return new WaitForSeconds(loopHoldDuration);
+            }
 
             for (int i = 0; i < commands.Count; i++)
             {
                 SpinCommand command = commands[i];
-                command.Reel.StopSpin(command.Reel.ReelIndex, command.StopIndex, command.VisibleSymbolIds);
 
-                if (i < commands.Count - 1 && reelStopDelay > 0f) yield return new WaitForSeconds(reelStopDelay);
+                command.Reel.StopSpin(
+                    command.Reel.ReelIndex,
+                    command.StopIndex,
+                    command.VisibleSymbolIds
+                );
+
+                if (i < commands.Count - 1 && reelStopDelay > 0f)
+                {
+                    yield return new WaitForSeconds(reelStopDelay);
+                }
             }
 
-            while (_remainingReels > 0) yield return null;
+            while (_remainingReels > 0)
+            {
+                yield return null;
+            }
+
             onSpinStopPhase?.Invoke();
         }
 
         private IEnumerator RunResultDisplayPhase()
         {
             onResultDisplayPhase?.Invoke();
-            if (resultDisplayDuration > 0f) yield return new WaitForSeconds(resultDisplayDuration);
+
+            if (resultDisplayDuration > 0f)
+            {
+                yield return new WaitForSeconds(resultDisplayDuration);
+            }
         }
 
-        // =========================================================================
-        // UPDATED: This is where we call the Visualizer!
-        // =========================================================================
         private IEnumerator RunPaylinePhase()
         {
             if (lastPaylineEvaluation == null || !lastPaylineEvaluation.HasAnyWin)
             {
-                yield break; // Exit if no wins
+                yield break;
             }
 
             onPaylinePhase?.Invoke();
 
-            // 1. SHOW COMBINED WINS
             if (paylineVisualizer != null)
             {
                 paylineVisualizer.ShowCombinedWin(lastPaylineEvaluation);
             }
 
-            // Hold the combined win so the player can see all the symbols bounce
             if (paylineDisplayDuration > 0f)
             {
                 yield return new WaitForSeconds(paylineDisplayDuration);
             }
 
-            // 2. SHOW INDIVIDUAL LINES
-            // If there's more than 1 win line, cycle through them one by one
             if (lastPaylineEvaluation.PaylineWins.Count > 1)
             {
                 for (int i = 0; i < lastPaylineEvaluation.PaylineWins.Count; i++)
                 {
                     PaylineWinResult win = lastPaylineEvaluation.PaylineWins[i];
 
-                    // RESTORED DEBUG LOG: Prints the math to the console for every single win
                     Debug.Log(
                         $"PAYLINE WIN | Line {win.LineId} {win.LineName} | " +
                         $"Symbol {win.SymbolId} | Match {win.MatchCount} | Win {win.WinAmount}"
                     );
-
 
                     if (paylineVisualizer != null)
                     {
@@ -291,26 +382,32 @@ namespace SlotMachine.Reels.Runtime
                 }
             }
 
-            // 3. CLEAR VISUALS
-            // Reset everything back to normal before moving to Big Win / Finalize
             if (paylineVisualizer != null)
             {
                 paylineVisualizer.ClearVisuals();
             }
         }
-        // =========================================================================
 
         private IEnumerator RunBigWinPhase()
         {
             onBigWinPhase?.Invoke();
-            if (bigWinDisplayDuration > 0f) yield return new WaitForSeconds(bigWinDisplayDuration);
+
+            if (bigWinDisplayDuration > 0f)
+            {
+                yield return new WaitForSeconds(bigWinDisplayDuration);
+            }
         }
 
         private IEnumerator RunFreeGamePhase()
         {
             freeSpinManager?.HandleCompletedSpin(lastOutcome);
+
             onFreeGamePhase?.Invoke();
-            if (freeGameDisplayDuration > 0f) yield return new WaitForSeconds(freeGameDisplayDuration);
+
+            if (freeGameDisplayDuration > 0f)
+            {
+                yield return new WaitForSeconds(freeGameDisplayDuration);
+            }
         }
 
         private IEnumerator FinalizeSpinFlow()
@@ -328,7 +425,9 @@ namespace SlotMachine.Reels.Runtime
             }
 
             isSpinInProgress = false;
+
             onSpinFlowComplete?.Invoke();
+
             yield break;
         }
 
@@ -348,38 +447,83 @@ namespace SlotMachine.Reels.Runtime
             _remainingReels = Mathf.Max(0, _remainingReels - 1);
         }
 
-        private SpinOutcome ResolveNextOutcome()
+        private SpinOutcome ResolveNextOutcome(SpinRequest request)
         {
-            if (spinResultGenerator == null) return null;
-            return spinResultGenerator.GenerateOutcome(reels);
+            if (spinResultGenerator == null)
+            {
+                return null;
+            }
+
+            return spinResultGenerator.GenerateOutcome(reels, request);
         }
 
         private void CacheLocalReferences()
         {
-            if (betManager == null) betManager = GetComponent<BetManager>();
-            if (spinResultGenerator == null) spinResultGenerator = GetComponent<SpinResultGenerator>();
-            if (slotFlowController == null) slotFlowController = GetComponent<SlotFlowController>();
-            if (freeSpinManager == null) freeSpinManager = GetComponent<FreeSpinManager>();
-            if (paylineEvaluator == null) paylineEvaluator = GetComponent<PaylineEvaluator>();
+            if (betManager == null)
+            {
+                betManager = GetComponent<BetManager>();
+            }
 
-            // Auto-cache visualizer if it's on the same object
-            if (paylineVisualizer == null) paylineVisualizer = GetComponent<PaylineVisualizer>();
+            if (spinResultGenerator == null)
+            {
+                spinResultGenerator = GetComponent<SpinResultGenerator>();
+            }
+
+            if (slotFlowController == null)
+            {
+                slotFlowController = GetComponent<SlotFlowController>();
+            }
+
+            if (freeSpinManager == null)
+            {
+                freeSpinManager = GetComponent<FreeSpinManager>();
+            }
+
+            if (paylineEvaluator == null)
+            {
+                paylineEvaluator = GetComponent<PaylineEvaluator>();
+            }
+
+            if (paylineVisualizer == null)
+            {
+                paylineVisualizer = GetComponent<PaylineVisualizer>();
+            }
         }
 
         private void ApplySharedReelSettings()
         {
-            if (!useSharedReelTimingProfile || sharedReelTimingProfile == null) return;
-            for (int i = 0; i < reels.Count; i++) if (reels[i] != null) reels[i].ApplyTimingProfile(sharedReelTimingProfile);
+            if (!useSharedReelTimingProfile || sharedReelTimingProfile == null)
+            {
+                return;
+            }
+
+            for (int i = 0; i < reels.Count; i++)
+            {
+                if (reels[i] != null)
+                {
+                    reels[i].ApplyTimingProfile(sharedReelTimingProfile);
+                }
+            }
         }
 
         private void StopAllReels()
         {
             isSpinInProgress = false;
             _remainingReels = 0;
-            for (int i = 0; i < reels.Count; i++) if (reels[i] != null) reels[i].ResetReel(reels[i].ReelIndex);
+
+            for (int i = 0; i < reels.Count; i++)
+            {
+                if (reels[i] != null)
+                {
+                    reels[i].ResetReel(reels[i].ReelIndex);
+                }
+            }
         }
 
-        private static bool TryGetReelOutcome(SpinOutcome outcome, int reelIndex, out ReelOutcome reelOutcome)
+        private static bool TryGetReelOutcome(
+            SpinOutcome outcome,
+            int reelIndex,
+            out ReelOutcome reelOutcome)
         {
             if (outcome == null || outcome.Reels == null)
             {
@@ -390,12 +534,14 @@ namespace SlotMachine.Reels.Runtime
             for (int i = 0; i < outcome.Reels.Count; i++)
             {
                 ReelOutcome candidate = outcome.Reels[i];
+
                 if (candidate != null && candidate.ReelIndex == reelIndex)
                 {
                     reelOutcome = candidate;
                     return true;
                 }
             }
+
             reelOutcome = null;
             return false;
         }
@@ -405,19 +551,28 @@ namespace SlotMachine.Reels.Runtime
             for (int i = 0; i < commands.Count; i++)
             {
                 ReelController reel = commands[i].Reel;
-                if (reel == null || reel.CurrentPhase != ReelSpinPhase.Loop) return false;
+
+                if (reel == null || reel.CurrentPhase != ReelSpinPhase.Loop)
+                {
+                    return false;
+                }
             }
+
             return true;
         }
 
         private readonly struct SpinCommand
         {
-            public SpinCommand(ReelController reel, int stopIndex, IReadOnlyList<int> visibleSymbolIds)
+            public SpinCommand(
+                ReelController reel,
+                int stopIndex,
+                IReadOnlyList<int> visibleSymbolIds)
             {
                 Reel = reel;
                 StopIndex = stopIndex;
                 VisibleSymbolIds = visibleSymbolIds;
             }
+
             public ReelController Reel { get; }
             public int StopIndex { get; }
             public IReadOnlyList<int> VisibleSymbolIds { get; }
