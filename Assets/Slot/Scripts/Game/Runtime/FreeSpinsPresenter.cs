@@ -1,7 +1,7 @@
-using SlotMachine.Reels.Runtime;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using SlotMachine.Reels.Runtime;
 
 namespace SlotMachine.Game.Runtime
 {
@@ -9,35 +9,37 @@ namespace SlotMachine.Game.Runtime
     {
         [Header("References")]
         [SerializeField] private FreeSpinManager freeSpinManager;
-        [SerializeField] private CanvasGroup canvasGroup;
-        [SerializeField] private TextMeshProUGUI bannerTitleText;
-        [SerializeField] private TextMeshProUGUI bannerRemainingText;
-        [SerializeField] private TextMeshProUGUI bannerMultiplierText;
+
+        [Header("UI")]
+        [SerializeField] private GameObject freeSpinInfoPanel;
+        [SerializeField] private GameObject freeSpinStartBanner;
+        [SerializeField] private GameObject freeSpinEndBanner;
+
+        [Header("Texts")]
         [SerializeField] private TextMeshProUGUI modeText;
+        [SerializeField] private TextMeshProUGUI spinRemainingText;
+        [SerializeField] private TextMeshProUGUI spinMultiplierText;
 
         [Header("Inspector Visual Targets")]
-        [SerializeField] private List<GameObject> showWhileFreeSpins = new List<GameObject>();
-        [SerializeField] private List<GameObject> hideWhileFreeSpins = new List<GameObject>();
-        [SerializeField] private List<Behaviour> enableWhileFreeSpins = new List<Behaviour>();
-        [SerializeField] private List<Behaviour> disableWhileFreeSpins = new List<Behaviour>();
+        [SerializeField] private List<GameObject> showWhileFreeSpins = new();
+        [SerializeField] private List<GameObject> hideWhileFreeSpins = new();
+        [SerializeField] private List<Behaviour> enableWhileFreeSpins = new();
+        [SerializeField] private List<Behaviour> disableWhileFreeSpins = new();
 
         [Header("Labels")]
-        [SerializeField] private string baseGameLabel = "BASE GAME";
-        [SerializeField] private string freeSpinsTitle = "FREE SPINS";
-        [SerializeField] private string remainingFormat = "{0} LEFT";
-        [SerializeField] private string modeFormat = "FREE SPINS {0}";
-        [SerializeField] private string multiplierFormat = "x{0}";
+        [SerializeField] private string remainingFormat = "REMAING SPIN {0} LEFT";
+        [SerializeField] private string multiplierFormat = "MULTIPLIER x{0}";
+
+        private bool waitingForStartClick;
 
         private void Awake()
         {
-            CacheReferences();
-            HideBannerImmediate();
+            HideAllUI();
             RefreshModeLabel();
         }
 
         private void OnEnable()
         {
-            CacheReferences();
             Subscribe();
             RefreshFromState();
         }
@@ -47,15 +49,17 @@ namespace SlotMachine.Game.Runtime
             Unsubscribe();
         }
 
-        private void OnValidate()
-        {
-            CacheReferences();
-        }
-
         private void HandleFreeSpinsStarted(FreeSpinState state)
         {
             ApplyVisualTargets(true);
-            ShowBanner(state);
+
+            waitingForStartClick = true;
+
+            if (freeSpinStartBanner != null)
+            {
+                freeSpinStartBanner.SetActive(true);
+            }
+
             RefreshModeLabel(state);
         }
 
@@ -64,12 +68,16 @@ namespace SlotMachine.Game.Runtime
             if (state != null && state.IsActive)
             {
                 ApplyVisualTargets(true);
-                ShowBanner(state);
+
+                if (!waitingForStartClick)
+                {
+                    ShowFreeSpinPanel(state);
+                }
             }
             else
             {
                 ApplyVisualTargets(false);
-                HideBannerImmediate();
+                HideFreeSpinPanel();
             }
 
             RefreshModeLabel(state);
@@ -78,60 +86,117 @@ namespace SlotMachine.Game.Runtime
         private void HandleFreeSpinsEnded()
         {
             ApplyVisualTargets(false);
-            HideBannerImmediate();
+
+            HideFreeSpinPanel();
+
+            if (freeSpinEndBanner != null)
+            {
+                freeSpinEndBanner.SetActive(true);
+            }
+
+            RefreshModeLabel();
+        }
+
+        public void OnClickStartBanner()
+        {
+            if (!waitingForStartClick)
+            {
+                return;
+            }
+
+            waitingForStartClick = false;
+
+            if (freeSpinStartBanner != null)
+            {
+                freeSpinStartBanner.SetActive(false);
+            }
+
+            ShowFreeSpinPanel(freeSpinManager.State);
+
+            if (freeSpinManager != null)
+            {
+                freeSpinManager.StartFreeSpinGameplay();
+            }
+        }
+
+        public void OnClickEndBanner()
+        {
+            if (freeSpinEndBanner != null)
+            {
+                freeSpinEndBanner.SetActive(false);
+            }
+
             RefreshModeLabel();
         }
 
         private void RefreshFromState()
         {
-            if (freeSpinManager != null && freeSpinManager.IsFreeSpinActive)
+            if (freeSpinManager == null)
+            {
+                return;
+            }
+
+            if (freeSpinManager.IsFreeSpinActive)
             {
                 ApplyVisualTargets(true);
-                ShowBanner(freeSpinManager.State);
+
+                if (!waitingForStartClick)
+                {
+                    ShowFreeSpinPanel(freeSpinManager.State);
+                }
+
                 RefreshModeLabel(freeSpinManager.State);
             }
             else
             {
                 ApplyVisualTargets(false);
-                HideBannerImmediate();
+                HideFreeSpinPanel();
                 RefreshModeLabel();
             }
         }
 
-        private void ShowBanner(FreeSpinState state)
+        private void ShowFreeSpinPanel(FreeSpinState state)
         {
-            if (canvasGroup != null)
+            if (freeSpinInfoPanel != null)
             {
-                canvasGroup.alpha = 1f;
-                canvasGroup.interactable = false;
-                canvasGroup.blocksRaycasts = false;
+                freeSpinInfoPanel.SetActive(true);
             }
 
-            if (bannerTitleText != null)
-            {
-                bannerTitleText.text = freeSpinsTitle;
-            }
-
-            if (bannerRemainingText != null)
+            if (spinRemainingText != null)
             {
                 int remaining = state != null ? state.RemainingSpins : 0;
-                bannerRemainingText.text = string.Format(remainingFormat, remaining);
+
+                spinRemainingText.text = string.Format(remainingFormat, remaining);
             }
 
-            if (bannerMultiplierText != null)
+            if (spinMultiplierText != null)
             {
                 int multiplier = freeSpinManager != null ? freeSpinManager.CurrentMultiplier : 1;
-                bannerMultiplierText.text = string.Format(multiplierFormat, multiplier);
+
+                spinMultiplierText.text = string.Format(multiplierFormat, multiplier);
             }
         }
 
-        private void HideBannerImmediate()
+        private void HideFreeSpinPanel()
         {
-            if (canvasGroup != null)
+            if (freeSpinInfoPanel != null)
             {
-                canvasGroup.alpha = 0f;
-                canvasGroup.interactable = false;
-                canvasGroup.blocksRaycasts = false;
+                freeSpinInfoPanel.SetActive(false);
+            }
+        }
+
+        private void HideAllUI()
+        {
+            HideFreeSpinPanel();
+
+            if (freeSpinStartBanner != null)
+            {
+                freeSpinStartBanner.SetActive(false);
+            }
+
+            if (freeSpinEndBanner != null)
+            {
+                freeSpinEndBanner.SetActive(false);
             }
         }
 
@@ -147,20 +212,19 @@ namespace SlotMachine.Game.Runtime
                 return;
             }
 
-            if (state == null)
+            if (state == null && freeSpinManager != null)
             {
-                state = freeSpinManager != null ? freeSpinManager.State : null;
+                state = freeSpinManager.State;
             }
 
-            modeText.text = state != null && state.IsActive
-                ? string.Format(modeFormat, state.RemainingSpins)
-                : baseGameLabel;
+            modeText.text = state != null && state.IsActive ? "FREE SPIN MODE" : "BASE GAME MODE";
         }
 
         private void ApplyVisualTargets(bool freeSpinsActive)
         {
             SetGameObjectsActive(showWhileFreeSpins, freeSpinsActive);
             SetGameObjectsActive(hideWhileFreeSpins, !freeSpinsActive);
+
             SetBehavioursEnabled(enableWhileFreeSpins, freeSpinsActive);
             SetBehavioursEnabled(disableWhileFreeSpins, !freeSpinsActive);
         }
@@ -171,10 +235,6 @@ namespace SlotMachine.Game.Runtime
             {
                 return;
             }
-
-            freeSpinManager.FreeSpinsStarted -= HandleFreeSpinsStarted;
-            freeSpinManager.FreeSpinsUpdated -= HandleFreeSpinsUpdated;
-            freeSpinManager.FreeSpinsEnded -= HandleFreeSpinsEnded;
 
             freeSpinManager.FreeSpinsStarted += HandleFreeSpinsStarted;
             freeSpinManager.FreeSpinsUpdated += HandleFreeSpinsUpdated;
@@ -193,69 +253,15 @@ namespace SlotMachine.Game.Runtime
             freeSpinManager.FreeSpinsEnded -= HandleFreeSpinsEnded;
         }
 
-        private void CacheReferences()
-        {
-            if (freeSpinManager == null)
-            {
-                freeSpinManager = FindAnyObjectByType<FreeSpinManager>();
-            }
-
-            if (canvasGroup == null)
-            {
-                canvasGroup = GetComponent<CanvasGroup>();
-            }
-
-            if (bannerTitleText == null || bannerRemainingText == null || bannerMultiplierText == null)
-            {
-                TextMeshProUGUI[] texts = GetComponentsInChildren<TextMeshProUGUI>(true);
-                for (int i = 0; i < texts.Length; i++)
-                {
-                    TextMeshProUGUI text = texts[i];
-                    if (text == null)
-                    {
-                        continue;
-                    }
-
-                    if (bannerTitleText == null && text.gameObject.name == "BannerTitle")
-                    {
-                        bannerTitleText = text;
-                    }
-                    else if (bannerRemainingText == null && text.gameObject.name == "BannerRemaining")
-                    {
-                        bannerRemainingText = text;
-                    }
-                    else if (bannerMultiplierText == null && text.gameObject.name == "BannerMultiplier")
-                    {
-                        bannerMultiplierText = text;
-                    }
-                }
-            }
-
-            if (modeText == null)
-            {
-                TextMeshProUGUI[] sceneTexts = FindObjectsByType<TextMeshProUGUI>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-                for (int i = 0; i < sceneTexts.Length; i++)
-                {
-                    TextMeshProUGUI text = sceneTexts[i];
-                    if (text != null && text.gameObject.name == "ModeText")
-                    {
-                        modeText = text;
-                        break;
-                    }
-                }
-            }
-        }
-
-        private static void SetGameObjectsActive(IReadOnlyList<GameObject> targets, bool isActive)
+        private static void SetGameObjectsActive(IReadOnlyList<GameObject> targets,bool isActive)
         {
             if (targets == null)
             {
                 return;
             }
 
-            for (int i = 0; i < targets.Count; i++)
+            foreach (GameObject target in targets)
             {
-                GameObject target = targets[i];
                 if (target != null)
                 {
                     target.SetActive(isActive);
@@ -263,16 +269,15 @@ namespace SlotMachine.Game.Runtime
             }
         }
 
-        private static void SetBehavioursEnabled(IReadOnlyList<Behaviour> targets, bool isEnabled)
+        private static void SetBehavioursEnabled(IReadOnlyList<Behaviour> targets,bool isEnabled)
         {
             if (targets == null)
             {
                 return;
             }
 
-            for (int i = 0; i < targets.Count; i++)
+            foreach (Behaviour target in targets)
             {
-                Behaviour target = targets[i];
                 if (target != null)
                 {
                     target.enabled = isEnabled;

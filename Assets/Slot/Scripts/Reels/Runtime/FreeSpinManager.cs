@@ -29,8 +29,12 @@ namespace SlotMachine.Reels.Runtime
         [Tooltip("Assign your spin button event here")]
         [SerializeField] private UnityEvent onAutoFreeSpin;
 
+        [Header("Multiplier")]
+        [SerializeField] private int currentMultiplier = 1;
+
         [Header("Debug State")]
         [SerializeField] private FreeSpinState state = new FreeSpinState();
+
         private bool currentSpinUsesFreeSpin = false;
 
         private Coroutine autoSpinRoutine;
@@ -40,10 +44,11 @@ namespace SlotMachine.Reels.Runtime
         public event Action FreeSpinsEnded;
 
         public FreeSpinState State => state;
+
         public bool IsFreeSpinActive => state != null && state.IsActive;
         public bool CurrentSpinUsesFreeSpin => currentSpinUsesFreeSpin;
         public int RemainingSpins => state != null ? state.RemainingSpins : 0;
-        public int CurrentMultiplier => 1;
+        public int CurrentMultiplier => currentMultiplier;
 
         private void Awake()
         {
@@ -53,7 +58,9 @@ namespace SlotMachine.Reels.Runtime
         private void OnValidate()
         {
             freeSpinsForThreeScatters = Mathf.Max(0, freeSpinsForThreeScatters);
+
             freeSpinsForFourScatters = Mathf.Max(0, freeSpinsForFourScatters);
+
             freeSpinsForFiveOrMoreScatters = Mathf.Max(0, freeSpinsForFiveOrMoreScatters);
 
             EnsureState();
@@ -78,6 +85,8 @@ namespace SlotMachine.Reels.Runtime
 
             if (currentSpinUsesFreeSpin)
             {
+                currentMultiplier++;
+
                 state.ConsumeSpin();
 
                 onFreeSpinsUpdated?.Invoke();
@@ -85,6 +94,8 @@ namespace SlotMachine.Reels.Runtime
 
                 if (!state.IsActive)
                 {
+                    currentMultiplier = 1;
+
                     StopAutoFreeSpin();
 
                     onFreeSpinsEnded?.Invoke();
@@ -93,25 +104,28 @@ namespace SlotMachine.Reels.Runtime
             }
             else if (outcome.AwardsFreeSpins || outcome.TriggersFreeSpins)
             {
-                int awarded = outcome.AwardedFreeSpinCount > 0
-                    ? outcome.AwardedFreeSpinCount
-                    : ResolveAwardCount(outcome.ScatterCount);
+                int awarded = outcome.AwardedFreeSpinCount > 0 ? outcome.AwardedFreeSpinCount : ResolveAwardCount(outcome.ScatterCount);
 
                 if (awarded > 0)
                 {
                     state.BeginSession(awarded, outcome.ScatterCount);
+
+                    currentMultiplier = 1;
 
                     onFreeSpinsStarted?.Invoke();
                     onFreeSpinsUpdated?.Invoke();
 
                     FreeSpinsStarted?.Invoke(state);
                     FreeSpinsUpdated?.Invoke(state);
-
-                    StartAutoFreeSpin();
                 }
             }
 
             currentSpinUsesFreeSpin = false;
+        }
+
+        public void StartFreeSpinGameplay()
+        {
+            StartAutoFreeSpin();
         }
 
         [ContextMenu("Force Start 10 Free Spins")]
@@ -121,13 +135,13 @@ namespace SlotMachine.Reels.Runtime
 
             state.BeginSession(10, 3);
 
+            currentMultiplier = 1;
+
             onFreeSpinsStarted?.Invoke();
             onFreeSpinsUpdated?.Invoke();
 
             FreeSpinsStarted?.Invoke(state);
             FreeSpinsUpdated?.Invoke(state);
-
-            StartAutoFreeSpin();
         }
 
         [ContextMenu("End Free Spins")]
@@ -138,6 +152,8 @@ namespace SlotMachine.Reels.Runtime
             bool wasActive = state.IsActive;
 
             state.EndSession();
+
+            currentMultiplier = 1;
 
             currentSpinUsesFreeSpin = false;
 
