@@ -99,11 +99,6 @@ namespace SlotMachine.Reels.Runtime
 
         public IEnumerator TryPlayBigWin(float totalWin)
         {
-            Debug.Log(Time.time + "====");
-            yield return new WaitForSeconds(10f);
-            Debug.Log(Time.time + "++++++");
-
-
             CacheReferences();
 
             lastWinAmount = totalWin;
