@@ -1,0 +1,819 @@
+fileFormatVersion: 2
+guid: 6c2c234d9103a564d8b8732a0f45a406
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2629580476527590840
+    second: coine_bag_0
+  - first:
+      213: 2549365502761761214
+    second: coine_bag_1
+  - first:
+      213: 1604352430584122981
+    second: coine_bag_2
+  - first:
+      213: -1774725009199867248
+    second: coine_bag_3
+  - first:
+      213: -7218582215264406641
+    second: coine_bag_4
+  - first:
+      213: 6950759438386837343
+    second: coine_bag_5
+  - first:
+      213: -7937314129900978996
+    second: coine_bag_6
+  - first:
+      213: 4940155593785715721
+    second: coine_bag_7
+  - first:
+      213: -3391770597368247010
+    second: coine_bag_8
+  - first:
+      213: -6509768215289774163
+    second: coine_bag_9
+  - first:
+      213: -326907806182276360
+    second: coine_bag_10
+  - first:
+      213: 1552135171009117412
+    second: coine_bag_11
+  - first:
+      213: 6038260947560566286
+    second: coine_bag_12
+  - first:
+      213: -326183586221540558
+    second: coine_bag_13
+  - first:
+      213: -189492148464239603
+    second: coine_bag_14
+  - first:
+      213: 2673229229796155332
+    second: coine_bag_15
+  - first:
+      213: -3894418275887289359
+    second: coine_bag_16
+  - first:
+      213: 6812208198559860853
+    second: coine_bag_17
+  - first:
+      213: 3631072065062394877
+    second: coine_bag_18
+  - first:
+      213: 5390097832843711381
+    second: coine_bag_19
+  - first:
+      213: 1676452550464989764
+    second: coine_bag_20
+  - first:
+      213: -3380587415666268054
+    second: coine_bag_21
+  - first:
+      213: 3103764325464794565
+    second: coine_bag_22
+  - first:
+      213: -5169794855274166773
+    second: coine_bag_23
+  - first:
+      213: 1727827824014013105
+    second: coine_bag_24
+  - first:
+      213: 3567958876575676650
+    second: coine_bag_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 0
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: coine_bag_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 949
+        width: 134
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 842454c1d7ad18bd0800000000000000
+      internalID: -2629580476527590840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 770
+        width: 178
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb9ffbaea6a216320800000000000000
+      internalID: 2549365502761761214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_2
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 949
+        width: 132
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56e408f090ec34610800000000000000
+      internalID: 1604352430584122981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_3
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 934
+        width: 96
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09ad3acc109ee57e0800000000000000
+      internalID: -1774725009199867248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_4
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 909
+        width: 117
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f83763d88b172db90800000000000000
+      internalID: -7218582215264406641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_5
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 904
+        width: 117
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f57bd3ce1ee067060800000000000000
+      internalID: 6950759438386837343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 653
+        width: 195
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccc30904adef8d190800000000000000
+      internalID: -7937314129900978996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_7
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 770
+        width: 164
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90ca1c6a655fe8440800000000000000
+      internalID: 4940155593785715721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_8
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 747
+        width: 148
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1d4040bc920ee0d0800000000000000
+      internalID: -3391770597368247010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_9
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 751
+        width: 128
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daf36856c48a8a5a0800000000000000
+      internalID: -6509768215289774163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_10
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 451
+        width: 205
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f204321517967bf0800000000000000
+      internalID: -326907806182276360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_11
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 614
+        width: 199
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ec7367e6ba4a8510800000000000000
+      internalID: 1552135171009117412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_12
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 411
+        width: 206
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0e0678f6563cc350800000000000000
+      internalID: 6038260947560566286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_13
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 593
+        width: 202
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23bb3bba1c9297bf0800000000000000
+      internalID: -326183586221540558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_14
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 246
+        width: 209
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0c301b15e9ce5df0800000000000000
+      internalID: -189492148464239603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_15
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 206
+        width: 209
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cfd03532d7391520800000000000000
+      internalID: 2673229229796155332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_16
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 411
+        width: 205
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fbe2fa263f34f9c0800000000000000
+      internalID: -3894418275887289359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_17
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 206
+        width: 209
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5780a239343d98e50800000000000000
+      internalID: 6812208198559860853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_18
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 335
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfb53ef0ec8246230800000000000000
+      internalID: 3631072065062394877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_19
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 306
+        width: 25
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5939047cb697dca40800000000000000
+      internalID: 5390097832843711381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_20
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 316
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44a634166b4f34710800000000000000
+      internalID: 1676452550464989764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_21
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 281
+        width: 31
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a686e0518adb511d0800000000000000
+      internalID: -3380587415666268054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_22
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 246
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c5ebd5a539c21b20800000000000000
+      internalID: 3103764325464794565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_23
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 256
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b06cdb948f23148b0800000000000000
+      internalID: -5169794855274166773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_24
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 1
+        width: 209
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b23463604a7af710800000000000000
+      internalID: 1727827824014013105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coine_bag_25
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 1
+        width: 209
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae8be73c1bfe38130800000000000000
+      internalID: 3567958876575676650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      coine_bag_0: -2629580476527590840
+      coine_bag_1: 2549365502761761214
+      coine_bag_10: -326907806182276360
+      coine_bag_11: 1552135171009117412
+      coine_bag_12: 6038260947560566286
+      coine_bag_13: -326183586221540558
+      coine_bag_14: -189492148464239603
+      coine_bag_15: 2673229229796155332
+      coine_bag_16: -3894418275887289359
+      coine_bag_17: 6812208198559860853
+      coine_bag_18: 3631072065062394877
+      coine_bag_19: 5390097832843711381
+      coine_bag_2: 1604352430584122981
+      coine_bag_20: 1676452550464989764
+      coine_bag_21: -3380587415666268054
+      coine_bag_22: 3103764325464794565
+      coine_bag_23: -5169794855274166773
+      coine_bag_24: 1727827824014013105
+      coine_bag_25: 3567958876575676650
+      coine_bag_3: -1774725009199867248
+      coine_bag_4: -7218582215264406641
+      coine_bag_5: 6950759438386837343
+      coine_bag_6: -7937314129900978996
+      coine_bag_7: 4940155593785715721
+      coine_bag_8: -3391770597368247010
+      coine_bag_9: -6509768215289774163
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

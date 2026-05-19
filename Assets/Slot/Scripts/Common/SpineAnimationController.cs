@@ -12,13 +12,15 @@ public class SpineAnimationController : MonoBehaviour
     }
 
     [Header("Reference")]
-    [SerializeField] private SkeletonAnimation skeletonAnimation;
+    [SerializeField] private SkeletonGraphic skeletonGraphic;
 
     [Header("Animation")]
-    [SpineAnimation(dataField: nameof(skeletonAnimation))]
+    [SpineAnimation(dataField: nameof(skeletonGraphic))]
     [SerializeField] private string animationName;
+
     [SerializeField] private bool loop = true;
     [SerializeField, Min(0f)] private float playbackSpeed = 1f;
+
     [SerializeField, Tooltip("-1 keeps the source duration. Positive values rescale the animation to fit this duration.")]
     private float customDuration = -1f;
 
@@ -29,7 +31,7 @@ public class SpineAnimationController : MonoBehaviour
 
     private void Reset()
     {
-        skeletonAnimation = GetComponent<SkeletonAnimation>();
+        skeletonGraphic = GetComponent<SkeletonGraphic>();
     }
 
     private void OnEnable()
@@ -39,6 +41,7 @@ public class SpineAnimationController : MonoBehaviour
             case EnableBehaviour.Reset:
                 ResetAnimation();
                 break;
+
             case EnableBehaviour.Play:
                 PlayAnimation();
                 break;
@@ -47,13 +50,11 @@ public class SpineAnimationController : MonoBehaviour
 
     public void PlayAnimation()
     {
-        if (skeletonAnimation == null || string.IsNullOrWhiteSpace(animationName))
-        {
+        if (skeletonGraphic == null || string.IsNullOrWhiteSpace(animationName))
             return;
-        }
 
-        var state = skeletonAnimation.AnimationState;
-        var skeletonData = skeletonAnimation.Skeleton.Data;
+        var state = skeletonGraphic.AnimationState;
+        var skeletonData = skeletonGraphic.Skeleton.Data;
         var animation = skeletonData.FindAnimation(animationName);
 
         if (animation == null)
@@ -64,6 +65,8 @@ public class SpineAnimationController : MonoBehaviour
 
         TrackEntry entry = state.SetAnimation(0, animationName, loop);
         entry.TimeScale = ResolveTimeScale(animation);
+
+        skeletonGraphic.SetVerticesDirty();
     }
 
     public void Play(string targetAnimation, bool shouldLoop = false, float speed = 1f, float targetDuration = -1f)
@@ -72,27 +75,25 @@ public class SpineAnimationController : MonoBehaviour
         loop = shouldLoop;
         playbackSpeed = Mathf.Max(0f, speed);
         customDuration = targetDuration;
+
         PlayAnimation();
     }
 
     public void ResetAnimation()
     {
-        if (skeletonAnimation == null)
-        {
+        if (skeletonGraphic == null)
             return;
-        }
 
-        skeletonAnimation.AnimationState.ClearTracks();
-        skeletonAnimation.Skeleton.SetToSetupPose();
-        skeletonAnimation.Update(0f);
+        skeletonGraphic.AnimationState.ClearTracks();
+        skeletonGraphic.Skeleton.SetToSetupPose();
+        skeletonGraphic.Update(0f);
+        skeletonGraphic.SetVerticesDirty();
     }
 
     private float ResolveTimeScale(Spine.Animation animation)
     {
         if (customDuration > 0f && animation.Duration > 0f)
-        {
             return animation.Duration / customDuration;
-        }
 
         return Mathf.Max(0.01f, playbackSpeed);
     }

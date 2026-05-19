@@ -1,0 +1,1131 @@
+fileFormatVersion: 2
+guid: c48a2c634dd8815428c02966027270de
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -635104998577946106
+    second: thunder_pot_0
+  - first:
+      213: -3152331196034392860
+    second: thunder_pot_1
+  - first:
+      213: -911109019883807045
+    second: thunder_pot_2
+  - first:
+      213: -3419208871319725923
+    second: thunder_pot_3
+  - first:
+      213: -9120827301426183058
+    second: thunder_pot_4
+  - first:
+      213: -7319474824446115532
+    second: thunder_pot_5
+  - first:
+      213: -7325065528091424829
+    second: thunder_pot_6
+  - first:
+      213: -1249615347701611899
+    second: thunder_pot_7
+  - first:
+      213: 294176629708223896
+    second: thunder_pot_8
+  - first:
+      213: 1801531188767765697
+    second: thunder_pot_9
+  - first:
+      213: 8593057344095199780
+    second: thunder_pot_10
+  - first:
+      213: 7432322690295788203
+    second: thunder_pot_11
+  - first:
+      213: 9182662005350874323
+    second: thunder_pot_12
+  - first:
+      213: 74468788467957504
+    second: thunder_pot_13
+  - first:
+      213: -9173667565938707985
+    second: thunder_pot_14
+  - first:
+      213: -7681351927751751059
+    second: thunder_pot_15
+  - first:
+      213: 1427122066522486968
+    second: thunder_pot_16
+  - first:
+      213: 6347961362021560342
+    second: thunder_pot_17
+  - first:
+      213: -257543385838630876
+    second: thunder_pot_18
+  - first:
+      213: -7134228263083359883
+    second: thunder_pot_19
+  - first:
+      213: -1246714790091452666
+    second: thunder_pot_20
+  - first:
+      213: 6721924874296249875
+    second: thunder_pot_21
+  - first:
+      213: 6155474271663255750
+    second: thunder_pot_22
+  - first:
+      213: 330151258640236440
+    second: thunder_pot_23
+  - first:
+      213: 8833083622813533459
+    second: thunder_pot_24
+  - first:
+      213: 2874861958005803542
+    second: thunder_pot_25
+  - first:
+      213: -1416144007083805504
+    second: thunder_pot_26
+  - first:
+      213: -4990978413769347989
+    second: thunder_pot_27
+  - first:
+      213: 4483030928493834417
+    second: thunder_pot_28
+  - first:
+      213: 6632140663087646392
+    second: thunder_pot_29
+  - first:
+      213: 68818777773117603
+    second: thunder_pot_30
+  - first:
+      213: -3963449096868980839
+    second: thunder_pot_31
+  - first:
+      213: -6935426450834967430
+    second: thunder_pot_32
+  - first:
+      213: 882354283776537825
+    second: thunder_pot_33
+  - first:
+      213: 5164558100086988484
+    second: thunder_pot_34
+  - first:
+      213: 4039977204979770273
+    second: thunder_pot_35
+  - first:
+      213: 6165737350008899887
+    second: thunder_pot_36
+  - first:
+      213: -8771506474557056089
+    second: thunder_pot_37
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 0
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: thunder_pot_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 352
+        width: 113
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 602cfa46e57af27f0800000000000000
+      internalID: -635104998577946106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_1
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 352
+        width: 112
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ecdcfd9a7ba044d0800000000000000
+      internalID: -3152331196034392860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_2
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 352
+        width: 112
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbedb267c271b53f0800000000000000
+      internalID: -911109019883807045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_3
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 352
+        width: 104
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d989f14b5a78c80d0800000000000000
+      internalID: -3419208871319725923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_4
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 505
+        width: 99
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e64cec0c4ef4c6180800000000000000
+      internalID: -9120827301426183058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_5
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 505
+        width: 209
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 431897a6d600c6a90800000000000000
+      internalID: -7319474824446115532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_6
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 486
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c7c6a946b3285a90800000000000000
+      internalID: -7325065528091424829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_7
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 498
+        width: 107
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5828e56467978aee0800000000000000
+      internalID: -1249615347701611899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_8
+      rect:
+        serializedVersion: 2
+        x: 857
+        y: 484
+        width: 214
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 895fafa0610251400800000000000000
+      internalID: 294176629708223896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_9
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 293
+        width: 109
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c43a4e3213500910800000000000000
+      internalID: 1801531188767765697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_10
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 449
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4222b51602ca04770800000000000000
+      internalID: 8593057344095199780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_11
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 456
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba2f723db1ae42760800000000000000
+      internalID: 7432322690295788203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_12
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 352
+        width: 151
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dc3a69217e5f6f70800000000000000
+      internalID: 9182662005350874323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_13
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 463
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00f7c73f7f0980100800000000000000
+      internalID: 74468788467957504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_14
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 352
+        width: 96
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe173b4f3f590b080800000000000000
+      internalID: -9173667565938707985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_15
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 338
+        width: 78
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6a48978e1b566590800000000000000
+      internalID: -7681351927751751059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_16
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 275
+        width: 76
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b8b13255f72ec310800000000000000
+      internalID: 1427122066522486968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_17
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 379
+        width: 70
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 610333fc93d781850800000000000000
+      internalID: 6347961362021560342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_18
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 387
+        width: 104
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42846d4b7a50d6cf0800000000000000
+      internalID: -257543385838630876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_19
+      rect:
+        serializedVersion: 2
+        x: 1284
+        y: 387
+        width: 88
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5714d5881312efc90800000000000000
+      internalID: -7134228263083359883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_20
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 402
+        width: 83
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60f8f58f087c2bee0800000000000000
+      internalID: -1246714790091452666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_21
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 369
+        width: 28
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31e4a431f03194d50800000000000000
+      internalID: 6721924874296249875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_22
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 338
+        height: 351
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c07b8aac33ac6550800000000000000
+      internalID: 6155474271663255750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_23
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 334
+        width: 218
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89f366d02dee49400800000000000000
+      internalID: 330151258640236440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_24
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 339
+        width: 217
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3150f1951ca659a70800000000000000
+      internalID: 8833083622813533459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_25
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 323
+        width: 105
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61a483918bf85e720800000000000000
+      internalID: 2874861958005803542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_26
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 293
+        width: 71
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c4b8f25788d85ce0800000000000000
+      internalID: -1416144007083805504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_27
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 313
+        width: 108
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6ca2a5739b7cbab0800000000000000
+      internalID: -4990978413769347989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_28
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 1
+        width: 93
+        height: 333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b0f6f990ece63e30800000000000000
+      internalID: 4483030928493834417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_29
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 1
+        width: 90
+        height: 333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b643c36bc81a0c50800000000000000
+      internalID: 6632140663087646392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_30
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 1
+        width: 320
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a01b03505e74f000800000000000000
+      internalID: 68818777773117603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_31
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 323
+        width: 210
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99718cfab000ff8c0800000000000000
+      internalID: -3963449096868980839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_32
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 1
+        width: 77
+        height: 317
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a743220736a60cf90800000000000000
+      internalID: -6935426450834967430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_33
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 211
+        width: 125
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e47b82db80ce3c00800000000000000
+      internalID: 882354283776537825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_34
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 225
+        width: 317
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ce1d81aa323ca740800000000000000
+      internalID: 5164558100086988484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_35
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 1
+        width: 292
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a3ae7bfcd1e01830800000000000000
+      internalID: 4039977204979770273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_36
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 97
+        width: 139
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2983adc379119550800000000000000
+      internalID: 6165737350008899887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder_pot_37
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 1
+        width: 142
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7abdcf6b559554680800000000000000
+      internalID: -8771506474557056089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      thunder_pot_0: -635104998577946106
+      thunder_pot_1: -3152331196034392860
+      thunder_pot_10: 8593057344095199780
+      thunder_pot_11: 7432322690295788203
+      thunder_pot_12: 9182662005350874323
+      thunder_pot_13: 74468788467957504
+      thunder_pot_14: -9173667565938707985
+      thunder_pot_15: -7681351927751751059
+      thunder_pot_16: 1427122066522486968
+      thunder_pot_17: 6347961362021560342
+      thunder_pot_18: -257543385838630876
+      thunder_pot_19: -7134228263083359883
+      thunder_pot_2: -911109019883807045
+      thunder_pot_20: -1246714790091452666
+      thunder_pot_21: 6721924874296249875
+      thunder_pot_22: 6155474271663255750
+      thunder_pot_23: 330151258640236440
+      thunder_pot_24: 8833083622813533459
+      thunder_pot_25: 2874861958005803542
+      thunder_pot_26: -1416144007083805504
+      thunder_pot_27: -4990978413769347989
+      thunder_pot_28: 4483030928493834417
+      thunder_pot_29: 6632140663087646392
+      thunder_pot_3: -3419208871319725923
+      thunder_pot_30: 68818777773117603
+      thunder_pot_31: -3963449096868980839
+      thunder_pot_32: -6935426450834967430
+      thunder_pot_33: 882354283776537825
+      thunder_pot_34: 5164558100086988484
+      thunder_pot_35: 4039977204979770273
+      thunder_pot_36: 6165737350008899887
+      thunder_pot_37: -8771506474557056089
+      thunder_pot_4: -9120827301426183058
+      thunder_pot_5: -7319474824446115532
+      thunder_pot_6: -7325065528091424829
+      thunder_pot_7: -1249615347701611899
+      thunder_pot_8: 294176629708223896
+      thunder_pot_9: 1801531188767765697
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,1573 @@
+fileFormatVersion: 2
+guid: 39f19d236f0d1b94e85645c313cd4a2f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6204292584936857487
+    second: drum_0
+  - first:
+      213: -709315807465933582
+    second: drum_1
+  - first:
+      213: 2333403342108014925
+    second: drum_2
+  - first:
+      213: -1570364287511885089
+    second: drum_3
+  - first:
+      213: 8915735755563019511
+    second: drum_4
+  - first:
+      213: -9019790399057884386
+    second: drum_5
+  - first:
+      213: 1457370300495674261
+    second: drum_6
+  - first:
+      213: -6633882768459059719
+    second: drum_7
+  - first:
+      213: 8846936886032809746
+    second: drum_8
+  - first:
+      213: -8719118352007477761
+    second: drum_9
+  - first:
+      213: 764387027960180746
+    second: drum_10
+  - first:
+      213: 7223469205880621977
+    second: drum_11
+  - first:
+      213: -5407504218872822501
+    second: drum_12
+  - first:
+      213: -4381061713816603185
+    second: drum_13
+  - first:
+      213: -6984855801927244456
+    second: drum_14
+  - first:
+      213: 3452525445800976115
+    second: drum_15
+  - first:
+      213: -326023270531226905
+    second: drum_16
+  - first:
+      213: 2776244264567086906
+    second: drum_17
+  - first:
+      213: -1881853136028853814
+    second: drum_18
+  - first:
+      213: 844031801280488243
+    second: drum_19
+  - first:
+      213: -7791463430930275623
+    second: drum_20
+  - first:
+      213: -7265835640353871383
+    second: drum_21
+  - first:
+      213: -1430624141407373919
+    second: drum_22
+  - first:
+      213: -8135247484655605668
+    second: drum_23
+  - first:
+      213: 5022012124744813476
+    second: drum_24
+  - first:
+      213: 2539722279289687277
+    second: drum_25
+  - first:
+      213: 186753732354727082
+    second: drum_26
+  - first:
+      213: 2989633189995764058
+    second: drum_27
+  - first:
+      213: -471501937666896994
+    second: drum_28
+  - first:
+      213: -7682867194689216096
+    second: drum_29
+  - first:
+      213: 3079567263926871237
+    second: drum_30
+  - first:
+      213: 6981729083853685982
+    second: drum_31
+  - first:
+      213: 2075814910174511203
+    second: drum_32
+  - first:
+      213: -5409919117853853144
+    second: drum_33
+  - first:
+      213: 8249849216615068858
+    second: drum_34
+  - first:
+      213: 3624390437080722624
+    second: drum_35
+  - first:
+      213: -2635798468724487352
+    second: drum_36
+  - first:
+      213: 3557339920868172505
+    second: drum_37
+  - first:
+      213: 6792822749102746205
+    second: drum_38
+  - first:
+      213: 852802971879060374
+    second: drum_39
+  - first:
+      213: 6941155314711330887
+    second: drum_40
+  - first:
+      213: -4855714072681271377
+    second: drum_41
+  - first:
+      213: 4291409393291076861
+    second: drum_42
+  - first:
+      213: -2211449786623472195
+    second: drum_43
+  - first:
+      213: -6321568213843484377
+    second: drum_44
+  - first:
+      213: -5860016023065863098
+    second: drum_45
+  - first:
+      213: -6927305788732135790
+    second: drum_46
+  - first:
+      213: -412871700134095103
+    second: drum_47
+  - first:
+      213: -1616616469863662938
+    second: drum_48
+  - first:
+      213: -6339831029623724962
+    second: drum_49
+  - first:
+      213: 1523510787878337161
+    second: drum_50
+  - first:
+      213: -8545254313985481945
+    second: drum_51
+  - first:
+      213: -1821170384546680828
+    second: drum_52
+  - first:
+      213: 1136770341712106593
+    second: drum_53
+  - first:
+      213: 6692554044957012243
+    second: drum_54
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 0
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: drum_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1028
+        width: 229
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8f50c7fb331a1650800000000000000
+      internalID: 6204292584936857487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 906
+        width: 323
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f47c6ef7010826f0800000000000000
+      internalID: -709315807465933582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_2
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 981
+        width: 308
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d49be0c0af9e16020800000000000000
+      internalID: 2333403342108014925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_3
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 876
+        width: 164
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fda05ea2002f43ae0800000000000000
+      internalID: -1570364287511885089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_4
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 766
+        width: 293
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fc259d9e6e0bbb70800000000000000
+      internalID: 8915735755563019511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_5
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 904
+        width: 134
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1b0da3cb6443d280800000000000000
+      internalID: -9019790399057884386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_6
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 958
+        width: 66
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59bbf3b119e993410800000000000000
+      internalID: 1457370300495674261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_7
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 958
+        width: 186
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fda96815c6bfe3a0800000000000000
+      internalID: -6633882768459059719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_8
+      rect:
+        serializedVersion: 2
+        x: 1242
+        y: 870
+        width: 124
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21f394a8932a6ca70800000000000000
+      internalID: 8846936886032809746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_9
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 958
+        width: 184
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff541020e087ff680800000000000000
+      internalID: -8719118352007477761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_10
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 646
+        width: 122
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a00bb78b3f5ab9a00800000000000000
+      internalID: 764387027960180746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_11
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 896
+        width: 110
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99bcc7e98faee3460800000000000000
+      internalID: 7223469205880621977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_12
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 909
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b15c8a8209fa4f4b0800000000000000
+      internalID: -5407504218872822501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_13
+      rect:
+        serializedVersion: 2
+        x: 1127
+        y: 877
+        width: 39
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc5b5e845975333c0800000000000000
+      internalID: -4381061713816603185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_14
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 877
+        width: 35
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 855eccec7aec01f90800000000000000
+      internalID: -6984855801927244456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_15
+      rect:
+        serializedVersion: 2
+        x: 1210
+        y: 879
+        width: 67
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fed6f6c995d9ef20800000000000000
+      internalID: 3452525445800976115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_16
+      rect:
+        serializedVersion: 2
+        x: 1370
+        y: 901
+        width: 33
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e2a973109bb97bf0800000000000000
+      internalID: -326023270531226905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_17
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 864
+        width: 63
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3f9c3f0373378620800000000000000
+      internalID: 2776244264567086906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_18
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 648
+        width: 258
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac99b831b8052e5e0800000000000000
+      internalID: -1881853136028853814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_19
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 648
+        width: 26
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 333e47e837a96bb00800000000000000
+      internalID: 844031801280488243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_20
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 648
+        width: 29
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d264fe5a492fd390800000000000000
+      internalID: -7791463430930275623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_21
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 654
+        width: 116
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e9a55c2bf09a2b90800000000000000
+      internalID: -7265835640353871383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_22
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 791
+        width: 50
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a5b0545ce6652ce0800000000000000
+      internalID: -1430624141407373919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_23
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 853
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c58663dd38bc91f80800000000000000
+      internalID: -8135247484655605668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_24
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 737
+        width: 220
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ab8e117b65c1b540800000000000000
+      internalID: 5022012124744813476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_25
+      rect:
+        serializedVersion: 2
+        x: 1210
+        y: 734
+        width: 243
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dec053df4f7ee3320800000000000000
+      internalID: 2539722279289687277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_26
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 561
+        width: 293
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aac5b75b78b779200800000000000000
+      internalID: 186753732354727082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_27
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 690
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a595a6aeb8f4d7920800000000000000
+      internalID: 2989633189995764058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_28
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 724
+        width: 66
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9bc47e5c73e479f0800000000000000
+      internalID: -471501937666896994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_29
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 766
+        width: 75
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a12c04fdf8f06590800000000000000
+      internalID: -7682867194689216096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_30
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 732
+        width: 38
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c4684c3c12dcba20800000000000000
+      internalID: 3079567263926871237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_31
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 695
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed4cc196c9514e060800000000000000
+      internalID: 6981729083853685982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_32
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 509
+        width: 228
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3604964a9a6cecc10800000000000000
+      internalID: 2075814910174511203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_33
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 601
+        width: 241
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82af9bca93b1ce4b0800000000000000
+      internalID: -5409919117853853144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_34
+      rect:
+        serializedVersion: 2
+        x: 1449
+        y: 601
+        width: 58
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab430e6272a5d7270800000000000000
+      internalID: 8249849216615068858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_35
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 663
+        width: 32
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cce48156eb6c4230800000000000000
+      internalID: 3624390437080722624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_36
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 346
+        width: 70
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84b882cf143cb6bd0800000000000000
+      internalID: -2635798468724487352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_37
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 431
+        width: 293
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d2e9a87fc53e5130800000000000000
+      internalID: 3557339920868172505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_38
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 649
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5a2676ec44f44e50800000000000000
+      internalID: 6792822749102746205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_39
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 325
+        width: 323
+        height: 323
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 693bf3ad8c3c5db00800000000000000
+      internalID: 852802971879060374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_40
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 346
+        width: 293
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7400f20abffe35060800000000000000
+      internalID: 6941155314711330887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_41
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 216
+        width: 215
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fafa7fe07c90d9cb0800000000000000
+      internalID: -4855714072681271377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_42
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 259
+        width: 293
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df4a3e83b162e8b30800000000000000
+      internalID: 4291409393291076861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_43
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 472
+        width: 246
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbdc1b5c22a5f41e0800000000000000
+      internalID: -2211449786623472195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_44
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 1
+        width: 327
+        height: 324
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 721657ed3374548a0800000000000000
+      internalID: -6321568213843484377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_45
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 257
+        width: 323
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64cdf07897a0daea0800000000000000
+      internalID: -5860016023065863098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_46
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 1
+        width: 335
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2962d1c66144ddf90800000000000000
+      internalID: -6927305788732135790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_47
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 216
+        width: 293
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10712bf406f254af0800000000000000
+      internalID: -412871700134095103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_48
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 2
+        width: 230
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aafab7c2ef9099e0800000000000000
+      internalID: -1616616469863662938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_49
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 1
+        width: 293
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e546747b4456408a0800000000000000
+      internalID: -6339831029623724962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_50
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 1
+        width: 293
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98ab6fa5df8942510800000000000000
+      internalID: 1523510787878337161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_51
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 216
+        width: 63
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7236583e978296980800000000000000
+      internalID: -8545254313985481945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_52
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 46
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40032a92f27e9b6e0800000000000000
+      internalID: -1821170384546680828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_53
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 47
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16413f85a9e96cf00800000000000000
+      internalID: 1136770341712106593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: drum_54
+      rect:
+        serializedVersion: 2
+        x: 1492
+        y: 1
+        width: 12
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31134c9f17ab0ec50800000000000000
+      internalID: 6692554044957012243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      drum_0: 6204292584936857487
+      drum_1: -709315807465933582
+      drum_10: 764387027960180746
+      drum_11: 7223469205880621977
+      drum_12: -5407504218872822501
+      drum_13: -4381061713816603185
+      drum_14: -6984855801927244456
+      drum_15: 3452525445800976115
+      drum_16: -326023270531226905
+      drum_17: 2776244264567086906
+      drum_18: -1881853136028853814
+      drum_19: 844031801280488243
+      drum_2: 2333403342108014925
+      drum_20: -7791463430930275623
+      drum_21: -7265835640353871383
+      drum_22: -1430624141407373919
+      drum_23: -8135247484655605668
+      drum_24: 5022012124744813476
+      drum_25: 2539722279289687277
+      drum_26: 186753732354727082
+      drum_27: 2989633189995764058
+      drum_28: -471501937666896994
+      drum_29: -7682867194689216096
+      drum_3: -1570364287511885089
+      drum_30: 3079567263926871237
+      drum_31: 6981729083853685982
+      drum_32: 2075814910174511203
+      drum_33: -5409919117853853144
+      drum_34: 8249849216615068858
+      drum_35: 3624390437080722624
+      drum_36: -2635798468724487352
+      drum_37: 3557339920868172505
+      drum_38: 6792822749102746205
+      drum_39: 852802971879060374
+      drum_4: 8915735755563019511
+      drum_40: 6941155314711330887
+      drum_41: -4855714072681271377
+      drum_42: 4291409393291076861
+      drum_43: -2211449786623472195
+      drum_44: -6321568213843484377
+      drum_45: -5860016023065863098
+      drum_46: -6927305788732135790
+      drum_47: -412871700134095103
+      drum_48: -1616616469863662938
+      drum_49: -6339831029623724962
+      drum_5: -9019790399057884386
+      drum_50: 1523510787878337161
+      drum_51: -8545254313985481945
+      drum_52: -1821170384546680828
+      drum_53: 1136770341712106593
+      drum_54: 6692554044957012243
+      drum_6: 1457370300495674261
+      drum_7: -6633882768459059719
+      drum_8: 8846936886032809746
+      drum_9: -8719118352007477761
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
