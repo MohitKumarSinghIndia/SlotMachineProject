@@ -28,6 +28,7 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private ReelTimingProfile sharedReelTimingProfile = new ReelTimingProfile();
 
         [Header("Spin Flow")]
+        [SerializeField] private float scatterSymbolId = 0.08f;
         [Min(0f)]
         [SerializeField] private float reelStartDelay = 0.08f;
 
@@ -200,6 +201,10 @@ namespace SlotMachine.Reels.Runtime
             slotFlowController.AddSpinStopStep(() => RunSpinStopPhase(commands));
             slotFlowController.AddResultDisplayStep(() => RunResultDisplayPhase(outcome));
             slotFlowController.AddLineWinStep(RunPaylinePhase);
+            if (outcome.TriggersFreeSpins)
+            {
+                slotFlowController.AddLineWinStep(RunScatterHighlightPhase);
+            }
 
             // BigWinController decides internally whether to play or skip.
             slotFlowController.AddBigWinStep(RunBigWinPhase);
@@ -330,6 +335,25 @@ namespace SlotMachine.Reels.Runtime
             }
         }
 
+        private IEnumerator RunScatterHighlightPhase()
+        {
+            if (lastOutcome == null || !lastOutcome.TriggersFreeSpins)
+            {
+                yield break;
+            }
+
+            if (paylineVisualizer != null)
+            {
+                paylineVisualizer.ShowScatters(scatterSymbolId);
+            }
+
+            yield return new WaitForSeconds(paylineDisplayDuration);
+
+            if (paylineVisualizer != null)
+            {
+                paylineVisualizer.ClearVisuals();
+            }
+        }
         private IEnumerator RunBigWinPhase()
         {
             if (bigWinController == null)

@@ -8866,7 +8866,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &725677245
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19516,7 +19516,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 7
+  m_AdditionalShaderChannelsFlag: 31
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -27594,6 +27594,7 @@ MonoBehaviour:
     loopEase: 1
     stopEase: 9
     settleEase: 27
+  scatterSymbolId: 0
   reelStartDelay: 0.08
   loopHoldDuration: 0.8
   reelStopDelay: 0.08

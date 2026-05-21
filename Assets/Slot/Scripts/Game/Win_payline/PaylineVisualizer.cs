@@ -56,6 +56,25 @@ namespace SlotMachine.Reels.Runtime
             }
         }
 
+        // Phase 3: Scatter Highlight
+        public void ShowScatters(float scatterSymbolId)
+        {
+            ClearVisuals();
+            foreach (ReelController reelController in reels)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                   SymbolView symbol =  reelController.GetVisibleSymbol(i);
+                    if(symbol.CurrentSymbolId == scatterSymbolId)
+                    {
+                        symbol.PlayHighlight();
+                    }
+
+                }
+            }
+
+        }
+
         // Phase 3: Reset all symbols to normal
         public void ClearVisuals()
         {
