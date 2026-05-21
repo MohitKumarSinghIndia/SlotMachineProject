@@ -1,4 +1,6 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+
+using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 using System.Collections.Generic;
@@ -560,3 +562,4 @@ public class EventSequencePlayerEditor : Editor
         GUI.backgroundColor = previous;
     }
 }
+#endif

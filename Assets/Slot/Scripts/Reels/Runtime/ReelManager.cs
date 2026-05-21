@@ -198,7 +198,7 @@ namespace SlotMachine.Reels.Runtime
 
             slotFlowController.AddSpinStartStep(() => RunSpinStartPhase(commands));
             slotFlowController.AddSpinStopStep(() => RunSpinStopPhase(commands));
-            slotFlowController.AddResultDisplayStep(RunResultDisplayPhase);
+            slotFlowController.AddResultDisplayStep(() => RunResultDisplayPhase(outcome));
             slotFlowController.AddLineWinStep(RunPaylinePhase);
 
             // BigWinController decides internally whether to play or skip.
@@ -269,13 +269,16 @@ namespace SlotMachine.Reels.Runtime
             onSpinStopPhase?.Invoke();
         }
 
-        private IEnumerator RunResultDisplayPhase()
+        private IEnumerator RunResultDisplayPhase(SpinOutcome outcome)
         {
-            onResultDisplayPhase?.Invoke();
-
-            if (resultDisplayDuration > 0f)
+            if (outcome.HasWin)
             {
-                yield return new WaitForSeconds(resultDisplayDuration);
+                onResultDisplayPhase?.Invoke();
+
+                if (resultDisplayDuration > 0f)
+                {
+                    yield return new WaitForSeconds(resultDisplayDuration);
+                }
             }
         }
 
