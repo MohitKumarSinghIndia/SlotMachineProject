@@ -2314,105 +2314,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1871483218}
     m_Modifications:
-    - target: {fileID: 133968202071580544, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].eventDelay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 172818433363781173, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].eventDelay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 172818433363781173, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].isExpanded
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 958264573308206570, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].eventDelay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 958264573308206570, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].isExpanded
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 968572814773657600, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].eventDelay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 968572814773657600, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].isExpanded
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2208741378030220775, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].eventDelay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2208741378030220775, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].isExpanded
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670045130347173540, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].eventDelay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670045130347173540, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].isExpanded
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2886178530829273104, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].eventDelay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2886178530829273104, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].isExpanded
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5891702507309584775, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].eventDelay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5891702507309584775, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].isExpanded
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6568899237010162885, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
       propertyPath: m_Name
       value: SymbolLibrary
-      objectReference: {fileID: 0}
-    - target: {fileID: 7395453481862103878, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].eventDelay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7723816945096550441, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].eventDelay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7723816945096550441, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].isExpanded
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8705891026661334738, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].eventDelay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8705891026661334738, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].isExpanded
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8731232644199342749, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].eventDelay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8731232644199342749, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].isExpanded
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8867183381609308056, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].eventDelay
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8867183381609308056, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
-      propertyPath: sequences.Array.data[2].events.Array.data[1].isExpanded
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9128405111140455629, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7609,7 +7513,6 @@ MonoBehaviour:
   reelManager: {fileID: 2037349845}
   freeSpinsPresenter: {fileID: 933862916}
   freeSpinManager: {fileID: 881775903}
-  bannerManager: {fileID: 1891720665}
   isFreeSpinStarted: 0
   isFreeSpinEnded: 0
 --- !u!4 &640606548
@@ -19613,7 +19516,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 31
+  m_AdditionalShaderChannelsFlag: 7
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -20106,7 +20009,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 933862916}
         m_TargetAssemblyTypeName: SlotMachine.Game.Runtime.FreeSpinsPresenter, Assembly-CSharp
         m_MethodName: OnClickStartBanner
         m_Mode: 1
@@ -22545,7 +22448,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 933862916}
         m_TargetAssemblyTypeName: SlotMachine.Game.Runtime.FreeSpinsPresenter, Assembly-CSharp
         m_MethodName: OnClickEndBanner
         m_Mode: 1
