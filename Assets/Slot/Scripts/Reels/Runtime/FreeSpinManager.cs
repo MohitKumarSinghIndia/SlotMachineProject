@@ -1,7 +1,7 @@
-using UnityEngine;
-using UnityEngine.Events;
 using System;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.Events;
 
 namespace SlotMachine.Reels.Runtime
 {
@@ -85,7 +85,8 @@ namespace SlotMachine.Reels.Runtime
 
             if (currentSpinUsesFreeSpin)
             {
-                currentMultiplier++;
+                if (outcome.HasWin)
+                    currentMultiplier++;
 
                 state.ConsumeSpin();
 

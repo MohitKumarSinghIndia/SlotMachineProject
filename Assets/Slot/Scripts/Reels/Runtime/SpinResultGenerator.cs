@@ -81,9 +81,7 @@ namespace SlotMachine.Reels.Runtime
             return GenerateOutcome(reels, request);
         }
 
-        public SpinOutcome GenerateOutcome(
-            IReadOnlyList<ReelController> reels,
-            SpinRequest request)
+        public SpinOutcome GenerateOutcome(IReadOnlyList<ReelController> reels,SpinRequest request)
         {
             CacheLocalReferences();
             EnsureRandom();

@@ -27598,7 +27598,7 @@ MonoBehaviour:
   reelStartDelay: 0.08
   loopHoldDuration: 0.8
   reelStopDelay: 0.08
-  resultDisplayDuration: 3
+  resultDisplayDuration: 0
   paylineDisplayDuration: 3
   freeGameDisplayDuration: 0
   onSpinStartPhase:

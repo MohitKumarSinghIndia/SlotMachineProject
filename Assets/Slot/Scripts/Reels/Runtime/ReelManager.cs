@@ -168,9 +168,21 @@ namespace SlotMachine.Reels.Runtime
 
             ValidateOutcomeAgainstReels(outcome);
 
-            lastPaylineEvaluation = paylineEvaluator != null
-                ? paylineEvaluator.Evaluate(outcome)
-                : null;
+            lastPaylineEvaluation = paylineEvaluator != null ? paylineEvaluator.Evaluate(outcome) : null;
+
+            if (lastPaylineEvaluation != null)
+            {
+                float totalWin = lastPaylineEvaluation.TotalWin;
+
+                bool isBigWin = bigWinController != null &&
+                                bigWinController.ResolveBigWinType(totalWin) != BigWinType.None;
+
+                outcome.SetWinData(
+                    lastPaylineEvaluation.HasAnyWin,
+                    isBigWin,
+                    totalWin
+                );
+            }
 
             BuildAndRunSpinFlow(outcome);
         }

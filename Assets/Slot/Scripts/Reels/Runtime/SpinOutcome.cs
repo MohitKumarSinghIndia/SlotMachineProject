@@ -36,7 +36,7 @@ namespace SlotMachine.Reels.Runtime
         public bool AwardsFreeSpins => awardsFreeSpins;
         public int AwardedFreeSpinCount => awardedFreeSpinCount;
         public bool IsBigWin => isBigWin;
-        public int TotalWin => totalWin;
+        public float TotalWin => totalWin;
         public int ScatterCount => scatterCount;
         public IReadOnlyList<ReelOutcome> Reels => reels;
 
@@ -49,7 +49,7 @@ namespace SlotMachine.Reels.Runtime
         private bool awardsFreeSpins;
         private int awardedFreeSpinCount;
         private bool isBigWin;
-        private int totalWin;
+        private float totalWin;
         private int scatterCount;
         private List<ReelOutcome> reels = new List<ReelOutcome>();
 
@@ -113,6 +113,13 @@ namespace SlotMachine.Reels.Runtime
 
             reelOutcome = null;
             return false;
+        }
+
+        public void SetWinData(bool hasWin, bool isBigWin, float totalWin)
+        {
+            this.hasWin = hasWin;
+            this.isBigWin = isBigWin;
+            this.totalWin = totalWin;
         }
     }
 }
