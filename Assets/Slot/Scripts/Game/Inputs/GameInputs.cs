@@ -8,6 +8,7 @@ public class GameInputs : MonoBehaviour
     [SerializeField] private ReelManager reelManager;
     [SerializeField] private FreeSpinsPresenter freeSpinsPresenter;
     [SerializeField] private FreeSpinManager freeSpinManager;
+    [SerializeField] private BannerManager bannerManager;
 
     public bool isFreeSpinStarted;
     public bool isFreeSpinEnded;
@@ -18,6 +19,12 @@ public class GameInputs : MonoBehaviour
         {
             if (reelManager != null || freeSpinsPresenter != null || freeSpinManager != null)
             {
+                if (bannerManager.isIntroBannerActive)
+                {
+                    bannerManager.OnIntroBannerClick();
+                    return;
+                }
+
                 if (isFreeSpinStarted)
                 {
                     freeSpinsPresenter?.OnClickStartBanner();
