@@ -47,14 +47,6 @@ namespace SlotMachine.Reels.Runtime
         [Min(0f)]
         [SerializeField] private float freeGameDisplayDuration = 0f;
 
-        [Header("Phase Events")]
-        [SerializeField] private UnityEvent onSpinStartPhase;
-        [SerializeField] private UnityEvent onSpinStopPhase;
-        [SerializeField] private UnityEvent onResultDisplayPhase;
-        [SerializeField] private UnityEvent onPaylinePhase;
-        [SerializeField] private UnityEvent onFreeGamePhase;
-        [SerializeField] private UnityEvent onSpinFlowComplete;
-
         [Header("Debug State")]
         [SerializeField] private bool isSpinInProgress;
         [SerializeField] private SpinOutcome lastOutcome;
@@ -177,11 +169,7 @@ namespace SlotMachine.Reels.Runtime
                 bool isBigWin = bigWinController != null &&
                                 bigWinController.ResolveBigWinType(totalWin) != BigWinType.None;
 
-                outcome.SetWinData(
-                    lastPaylineEvaluation.HasAnyWin,
-                    isBigWin,
-                    totalWin
-                );
+                outcome.SetWinData(lastPaylineEvaluation.HasAnyWin,isBigWin,totalWin);
             }
 
             BuildAndRunSpinFlow(outcome);
@@ -228,11 +216,12 @@ namespace SlotMachine.Reels.Runtime
 
             slotFlowController.AddCompleteStep(FinalizeSpinFlow);
             slotFlowController.StartSpinFlow();
+
         }
 
         private IEnumerator RunSpinStartPhase(IReadOnlyList<SpinCommand> commands)
         {
-            onSpinStartPhase?.Invoke();
+            GameEvent.onSpinStartPhase?.Invoke();
 
             for (int i = 0; i < commands.Count; i++)
             {
@@ -257,6 +246,7 @@ namespace SlotMachine.Reels.Runtime
 
         private IEnumerator RunSpinStopPhase(IReadOnlyList<SpinCommand> commands)
         {
+            
             if (loopHoldDuration > 0f)
             {
                 yield return new WaitForSeconds(loopHoldDuration);
@@ -283,19 +273,24 @@ namespace SlotMachine.Reels.Runtime
                 yield return null;
             }
 
-            onSpinStopPhase?.Invoke();
+            GameEvent.onSpinStopPhase?.Invoke();
         }
 
         private IEnumerator RunResultDisplayPhase(SpinOutcome outcome)
         {
             if (outcome.HasWin)
             {
-                onResultDisplayPhase?.Invoke();
+                GameEvent.onResultDisplayPhase?.Invoke();
 
                 if (resultDisplayDuration > 0f)
                 {
                     yield return new WaitForSeconds(resultDisplayDuration);
                 }
+            }
+            else
+            {
+                GameEvent.onDragonLose?.Invoke();
+                yield return null;
             }
         }
 
@@ -306,7 +301,8 @@ namespace SlotMachine.Reels.Runtime
                 yield break;
             }
 
-            onPaylinePhase?.Invoke();
+            GameEvent.onPaylinePhase?.Invoke();
+            GameEvent.onDragonWin.Invoke();
 
             if (paylineVisualizer != null)
             {
@@ -345,6 +341,7 @@ namespace SlotMachine.Reels.Runtime
             {
                 paylineVisualizer.ClearVisuals();
             }
+            GameEvent.onDragonIdle?.Invoke();
         }
 
         private IEnumerator RunScatterHighlightPhase()
@@ -384,7 +381,7 @@ namespace SlotMachine.Reels.Runtime
         {
             freeSpinManager?.HandleCompletedSpin(lastOutcome);
 
-            onFreeGamePhase?.Invoke();
+            GameEvent.onFreeGamePhase?.Invoke();
 
             if (freeGameDisplayDuration > 0f)
             {
@@ -410,7 +407,7 @@ namespace SlotMachine.Reels.Runtime
 
             isSpinInProgress = false;
 
-            onSpinFlowComplete?.Invoke();
+            GameEvent.onSpinFlowComplete?.Invoke();
 
             yield break;
         }

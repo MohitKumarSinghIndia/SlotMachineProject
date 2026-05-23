@@ -9,6 +9,7 @@ namespace SlotMachine.Game.Runtime
     {
         [Header("References")]
         [SerializeField] private FreeSpinManager freeSpinManager;
+        [SerializeField] private EventSequencePlayer BannerSequencePlayer;
 
         [Header("UI")]
         [SerializeField] private GameObject freeSpinInfoPanel;
@@ -19,6 +20,9 @@ namespace SlotMachine.Game.Runtime
         [SerializeField] private TextMeshProUGUI modeText;
         [SerializeField] private TextMeshProUGUI spinRemainingText;
         [SerializeField] private TextMeshProUGUI spinMultiplierText;
+
+        [SerializeField] private TextMeshProUGUI freeSpinBoneText;
+        [SerializeField] private TextMeshProUGUI amountBoneText;
 
         [Header("Inspector Visual Targets")]
         [SerializeField] private List<GameObject> showWhileFreeSpins = new();
@@ -60,6 +64,12 @@ namespace SlotMachine.Game.Runtime
                 freeSpinStartBanner.SetActive(true);
             }
 
+            if (freeSpinBoneText != null)
+            {
+                freeSpinBoneText.text = state.TotalAwardedSpins.ToString();
+            }
+
+            BannerSequencePlayer.PlaySequenceById(1);
             RefreshModeLabel(state);
         }
 
@@ -108,7 +118,9 @@ namespace SlotMachine.Game.Runtime
 
             if (freeSpinStartBanner != null)
             {
-                freeSpinStartBanner.SetActive(false);
+                //freeSpinStartBanner.SetActive(false);
+                BannerSequencePlayer.PlaySequenceById(2);
+
             }
 
             ShowFreeSpinPanel(freeSpinManager.State);
@@ -123,7 +135,9 @@ namespace SlotMachine.Game.Runtime
         {
             if (freeSpinEndBanner != null)
             {
-                freeSpinEndBanner.SetActive(false);
+                //freeSpinEndBanner.SetActive(false);
+
+                BannerSequencePlayer.PlaySequenceById(2);
             }
 
             RefreshModeLabel();

@@ -54,6 +54,8 @@ namespace SlotMachine.Reels.Runtime
                     }
                 }
             }
+            GameEvent.onDragonIdle?.Invoke();
+
         }
 
         // Phase 3: Scatter Highlight
