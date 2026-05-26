@@ -9,20 +9,19 @@ namespace SlotMachine.Game.Runtime
     {
         [Header("References")]
         [SerializeField] private FreeSpinManager freeSpinManager;
-        [SerializeField] private EventSequencePlayer BannerSequencePlayer;
+        [SerializeField] private EventSequencePlayer bannerSequencePlayer;
 
         [Header("UI")]
         [SerializeField] private GameObject freeSpinInfoPanel;
-        [SerializeField] private GameObject freeSpinStartBanner;
-        [SerializeField] private GameObject freeSpinEndBanner;
+        [SerializeField] private GameObject freeSpinBanner;
 
         [Header("Texts")]
         [SerializeField] private TextMeshProUGUI modeText;
         [SerializeField] private TextMeshProUGUI spinRemainingText;
         [SerializeField] private TextMeshProUGUI spinMultiplierText;
 
-        [SerializeField] private TextMeshProUGUI freeSpinBoneText;
-        [SerializeField] private TextMeshProUGUI amountBoneText;
+        [SerializeField] private TextMeshProUGUI freeSpinBonusText;
+        [SerializeField] private TextMeshProUGUI amountBonusText;
 
         [Header("Inspector Visual Targets")]
         [SerializeField] private List<GameObject> showWhileFreeSpins = new();
@@ -31,10 +30,12 @@ namespace SlotMachine.Game.Runtime
         [SerializeField] private List<Behaviour> disableWhileFreeSpins = new();
 
         [Header("Labels")]
-        [SerializeField] private string remainingFormat = "REMAING SPIN {0} LEFT";
+        [SerializeField] private string remainingFormat = "REMAINING SPINS {0}";
         [SerializeField] private string multiplierFormat = "MULTIPLIER x{0}";
 
         private bool waitingForStartClick;
+
+        #region Unity
 
         private void Awake()
         {
@@ -53,29 +54,32 @@ namespace SlotMachine.Game.Runtime
             Unsubscribe();
         }
 
+        #endregion
+
+        #region Free Spin Events
+
         private void HandleFreeSpinsStarted(FreeSpinState state)
         {
             ApplyVisualTargets(true);
 
             waitingForStartClick = true;
 
-            if (freeSpinStartBanner != null)
+            ShowBanner();
+
+            if (freeSpinBonusText != null)
             {
-                freeSpinStartBanner.SetActive(true);
+                freeSpinBonusText.text = state.TotalAwardedSpins.ToString();
             }
 
-            if (freeSpinBoneText != null)
-            {
-                freeSpinBoneText.text = state.TotalAwardedSpins.ToString();
-            }
-
-            BannerSequencePlayer.PlaySequenceById(1);
             RefreshModeLabel(state);
         }
 
         private void HandleFreeSpinsUpdated(FreeSpinState state)
         {
-            if (state != null && state.IsActive)
+            if (state == null)
+                return;
+
+            if (state.IsActive)
             {
                 ApplyVisualTargets(true);
 
@@ -97,77 +101,78 @@ namespace SlotMachine.Game.Runtime
         {
             ApplyVisualTargets(false);
 
-            HideFreeSpinPanel();
+            waitingForStartClick = true;
 
-            if (freeSpinEndBanner != null)
+            // Show ending banner
+            if (freeSpinBanner != null)
             {
-                freeSpinEndBanner.SetActive(true);
+                freeSpinBanner.SetActive(true);
             }
+
+            // Play end animation
+            if (bannerSequencePlayer != null)
+            {
+                bannerSequencePlayer.PlaySequenceById(1);
+            }
+
+            HideFreeSpinPanel();
 
             RefreshModeLabel();
         }
 
-        public void OnClickStartBanner()
+        #endregion
+
+        #region Banner
+
+        private void ShowBanner()
+        {
+            if (freeSpinBanner != null)
+            {
+                freeSpinBanner.SetActive(true);
+            }
+
+            // Start animation
+            if (bannerSequencePlayer != null)
+            {
+                bannerSequencePlayer.PlaySequenceById(1);
+            }
+        }
+
+        private void HideBanner()
+        {
+            if (freeSpinBanner != null)
+            {
+                freeSpinBanner.SetActive(false);
+            }
+        }
+
+        public void OnFreeSpinBannerClick()
         {
             if (!waitingForStartClick)
-            {
                 return;
-            }
 
             waitingForStartClick = false;
 
-            if (freeSpinStartBanner != null)
+            // Click / close animation
+            if (bannerSequencePlayer != null)
             {
-                //freeSpinStartBanner.SetActive(false);
-                BannerSequencePlayer.PlaySequenceById(2);
-
+                bannerSequencePlayer.PlaySequenceById(2);
             }
 
-            ShowFreeSpinPanel(freeSpinManager.State);
+            HideBanner();
 
-            if (freeSpinManager != null)
+            // Only resume gameplay if still in free spins
+            if (freeSpinManager != null && freeSpinManager.IsFreeSpinActive)
             {
+                ShowFreeSpinPanel(freeSpinManager.State);
+
                 freeSpinManager.StartFreeSpinGameplay();
             }
         }
 
-        public void OnClickEndBanner()
-        {
-            if (freeSpinEndBanner != null)
-            {
-                //freeSpinEndBanner.SetActive(false);
+        #endregion
 
-                BannerSequencePlayer.PlaySequenceById(2);
-            }
-
-            RefreshModeLabel();
-        }
-
-        private void RefreshFromState()
-        {
-            if (freeSpinManager == null)
-            {
-                return;
-            }
-
-            if (freeSpinManager.IsFreeSpinActive)
-            {
-                ApplyVisualTargets(true);
-
-                if (!waitingForStartClick)
-                {
-                    ShowFreeSpinPanel(freeSpinManager.State);
-                }
-
-                RefreshModeLabel(freeSpinManager.State);
-            }
-            else
-            {
-                ApplyVisualTargets(false);
-                HideFreeSpinPanel();
-                RefreshModeLabel();
-            }
-        }
+        #region UI
 
         private void ShowFreeSpinPanel(FreeSpinState state)
         {
@@ -201,16 +206,35 @@ namespace SlotMachine.Game.Runtime
 
         private void HideAllUI()
         {
+            HideBanner();
             HideFreeSpinPanel();
+        }
 
-            if (freeSpinStartBanner != null)
+        #endregion
+
+        #region Refresh
+
+        private void RefreshFromState()
+        {
+            if (freeSpinManager == null)
+                return;
+
+            if (freeSpinManager.IsFreeSpinActive)
             {
-                freeSpinStartBanner.SetActive(false);
+                ApplyVisualTargets(true);
+
+                if (!waitingForStartClick)
+                {
+                    ShowFreeSpinPanel(freeSpinManager.State);
+                }
+
+                RefreshModeLabel(freeSpinManager.State);
             }
-
-            if (freeSpinEndBanner != null)
+            else
             {
-                freeSpinEndBanner.SetActive(false);
+                ApplyVisualTargets(false);
+                HideFreeSpinPanel();
+                RefreshModeLabel();
             }
         }
 
@@ -222,9 +246,7 @@ namespace SlotMachine.Game.Runtime
         private void RefreshModeLabel(FreeSpinState state)
         {
             if (modeText == null)
-            {
                 return;
-            }
 
             if (state == null && freeSpinManager != null)
             {
@@ -234,45 +256,25 @@ namespace SlotMachine.Game.Runtime
             modeText.text = state != null && state.IsActive ? "FREE SPIN MODE" : "BASE GAME MODE";
         }
 
+        #endregion
+
+        #region Visual Targets
+
         private void ApplyVisualTargets(bool freeSpinsActive)
         {
-            SetGameObjectsActive(showWhileFreeSpins, freeSpinsActive);
-            SetGameObjectsActive(hideWhileFreeSpins, !freeSpinsActive);
+            SetGameObjectsActive( showWhileFreeSpins, freeSpinsActive);
 
-            SetBehavioursEnabled(enableWhileFreeSpins, freeSpinsActive);
-            SetBehavioursEnabled(disableWhileFreeSpins, !freeSpinsActive);
+            SetGameObjectsActive( hideWhileFreeSpins, !freeSpinsActive);
+
+            SetBehavioursEnabled( enableWhileFreeSpins, freeSpinsActive);
+
+            SetBehavioursEnabled( disableWhileFreeSpins, !freeSpinsActive);
         }
 
-        private void Subscribe()
-        {
-            if (freeSpinManager == null)
-            {
-                return;
-            }
-
-            freeSpinManager.FreeSpinsStarted += HandleFreeSpinsStarted;
-            freeSpinManager.FreeSpinsUpdated += HandleFreeSpinsUpdated;
-            freeSpinManager.FreeSpinsEnded += HandleFreeSpinsEnded;
-        }
-
-        private void Unsubscribe()
-        {
-            if (freeSpinManager == null)
-            {
-                return;
-            }
-
-            freeSpinManager.FreeSpinsStarted -= HandleFreeSpinsStarted;
-            freeSpinManager.FreeSpinsUpdated -= HandleFreeSpinsUpdated;
-            freeSpinManager.FreeSpinsEnded -= HandleFreeSpinsEnded;
-        }
-
-        private static void SetGameObjectsActive(IReadOnlyList<GameObject> targets,bool isActive)
+        private static void SetGameObjectsActive( IReadOnlyList<GameObject> targets, bool isActive)
         {
             if (targets == null)
-            {
                 return;
-            }
 
             foreach (GameObject target in targets)
             {
@@ -283,12 +285,10 @@ namespace SlotMachine.Game.Runtime
             }
         }
 
-        private static void SetBehavioursEnabled(IReadOnlyList<Behaviour> targets,bool isEnabled)
+        private static void SetBehavioursEnabled( IReadOnlyList<Behaviour> targets, bool isEnabled)
         {
             if (targets == null)
-            {
                 return;
-            }
 
             foreach (Behaviour target in targets)
             {
@@ -298,5 +298,35 @@ namespace SlotMachine.Game.Runtime
                 }
             }
         }
+
+        #endregion
+
+        #region Events
+
+        private void Subscribe()
+        {
+            if (freeSpinManager == null)
+                return;
+
+            freeSpinManager.FreeSpinsStarted += HandleFreeSpinsStarted;
+
+            freeSpinManager.FreeSpinsUpdated += HandleFreeSpinsUpdated;
+
+            freeSpinManager.FreeSpinsEnded += HandleFreeSpinsEnded;
+        }
+
+        private void Unsubscribe()
+        {
+            if (freeSpinManager == null)
+                return;
+
+            freeSpinManager.FreeSpinsStarted -= HandleFreeSpinsStarted;
+
+            freeSpinManager.FreeSpinsUpdated -= HandleFreeSpinsUpdated;
+
+            freeSpinManager.FreeSpinsEnded -= HandleFreeSpinsEnded;
+        }
+
+        #endregion
     }
 }

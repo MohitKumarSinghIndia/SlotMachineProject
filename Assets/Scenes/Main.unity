@@ -1548,7 +1548,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &259974251
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6291,42 +6291,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914074077}
   m_CullTransparentMesh: 1
---- !u!1 &918401060
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 918401061}
-  m_Layer: 0
-  m_Name: Spine
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &918401061
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 918401060}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1999090930}
-  m_Father: {fileID: 1677593550}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &933862914
 GameObject:
   m_ObjectHideFlags: 0
@@ -6337,6 +6301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 933862915}
   - component: {fileID: 933862916}
+  - component: {fileID: 933862917}
   m_Layer: 0
   m_Name: FreeSpinsPresenter
   m_TagString: Untagged
@@ -6372,15 +6337,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Game.Runtime.FreeSpinsPresenter
   freeSpinManager: {fileID: 881775903}
-  BannerSequencePlayer: {fileID: 1358606054}
+  bannerSequencePlayer: {fileID: 933862917}
   freeSpinInfoPanel: {fileID: 153857357}
-  freeSpinStartBanner: {fileID: 1491759685}
-  freeSpinEndBanner: {fileID: 1677593549}
+  freeSpinBanner: {fileID: 1491759685}
   modeText: {fileID: 1528316722}
   spinRemainingText: {fileID: 1054765048}
   spinMultiplierText: {fileID: 489632382}
-  freeSpinBoneText: {fileID: 259974252}
-  amountBoneText: {fileID: 1723444598}
+  freeSpinBonusText: {fileID: 259974252}
+  amountBonusText: {fileID: 1723444598}
   showWhileFreeSpins:
   - {fileID: 246900966}
   hideWhileFreeSpins:
@@ -6389,6 +6353,162 @@ MonoBehaviour:
   disableWhileFreeSpins: []
   remainingFormat: REMAING SPIN {0} LEFT
   multiplierFormat: MULTIPLIER x{0}
+--- !u!114 &933862917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933862914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3578be9d777bdb6419294ab425fcde20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventSequencePlayer
+  sequences:
+  - sequenceName: InBanner
+    sequenceId: 1
+    events:
+    - isExpanded: 1
+      eventName: 
+      eventType: 3
+      eventDelay: 1
+      waitForCompletion: 0
+      target: {fileID: 290523177}
+      animationName: loop
+      loop: 1
+      objectsToEnable:
+      - {fileID: 1190141837}
+      objectsToDisable: []
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 2
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 290523177}
+      animationName: start
+      loop: 0
+      objectsToEnable: []
+      objectsToDisable: []
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 2
+      eventDelay: 1
+      waitForCompletion: 0
+      target: {fileID: 290523177}
+      animationName: loop
+      loop: 1
+      objectsToEnable: []
+      objectsToDisable: []
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+  - sequenceName: OutBanner
+    sequenceId: 2
+    events:
+    - isExpanded: 1
+      eventName: 
+      eventType: 2
+      eventDelay: 0
+      waitForCompletion: 0
+      target: {fileID: 290523177}
+      animationName: end
+      loop: 0
+      objectsToEnable: []
+      objectsToDisable: []
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 3
+      eventDelay: 1
+      waitForCompletion: 0
+      target: {fileID: 290523177}
+      animationName: end
+      loop: 0
+      objectsToEnable: []
+      objectsToDisable:
+      - {fileID: 1190141837}
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 0}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls: []
+      conditionType: 0
+      conditionValue: 0
 --- !u!1 &953424794
 GameObject:
   m_ObjectHideFlags: 0
@@ -6864,7 +6984,6 @@ RectTransform:
   m_Children:
   - {fileID: 153857358}
   - {fileID: 1491759686}
-  - {fileID: 1677593550}
   m_Father: {fileID: 139708919}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -9580,194 +9699,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d58843c495151d4dbb00853e68de770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Game.Runtime.ReelSymbolView
---- !u!1 &1358606052
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1358606053}
-  - component: {fileID: 1358606054}
-  m_Layer: 0
-  m_Name: BannerSequencePlayer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1358606053
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358606052}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1871483218}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1358606054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358606052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3578be9d777bdb6419294ab425fcde20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EventSequencePlayer
-  sequences:
-  - sequenceName: InBanner
-    sequenceId: 1
-    events:
-    - isExpanded: 1
-      eventName: 
-      eventType: 3
-      eventDelay: 1
-      waitForCompletion: 0
-      target: {fileID: 290523177}
-      animationName: loop
-      loop: 1
-      objectsToEnable:
-      - {fileID: 1190141837}
-      objectsToDisable: []
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 0}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 2
-      eventDelay: 0
-      waitForCompletion: 0
-      target: {fileID: 290523177}
-      animationName: start
-      loop: 0
-      objectsToEnable: []
-      objectsToDisable: []
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 0}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 2
-      eventDelay: 1
-      waitForCompletion: 0
-      target: {fileID: 290523177}
-      animationName: loop
-      loop: 1
-      objectsToEnable: []
-      objectsToDisable: []
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 0}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-  - sequenceName: OutBanner
-    sequenceId: 2
-    events:
-    - isExpanded: 0
-      eventName: 
-      eventType: 2
-      eventDelay: 0
-      waitForCompletion: 0
-      target: {fileID: 290523177}
-      animationName: end
-      loop: 0
-      objectsToEnable: []
-      objectsToDisable: []
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 0}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-    - isExpanded: 0
-      eventName: 
-      eventType: 3
-      eventDelay: 1.5
-      waitForCompletion: 0
-      target: {fileID: 290523177}
-      animationName: end
-      loop: 0
-      objectsToEnable: []
-      objectsToDisable:
-      - {fileID: 1190141837}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 0}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      conditionType: 0
-      conditionValue: 0
 --- !u!1 &1380271677
 GameObject:
   m_ObjectHideFlags: 0
@@ -10307,7 +10238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1479839812
 Transform:
   m_ObjectHideFlags: 0
@@ -10370,12 +10301,12 @@ GameObject:
   - component: {fileID: 1491759687}
   - component: {fileID: 1491759689}
   m_Layer: 0
-  m_Name: StartBanner
+  m_Name: FreeSpinBanner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1491759686
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10481,7 +10412,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 933862916}
         m_TargetAssemblyTypeName: SlotMachine.Game.Runtime.FreeSpinsPresenter, Assembly-CSharp
-        m_MethodName: OnClickStartBanner
+        m_MethodName: OnFreeSpinBannerClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11629,139 +11560,6 @@ Transform:
   - {fileID: 1946250318}
   m_Father: {fileID: 1490076378}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1677593549
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1677593550}
-  - component: {fileID: 1677593552}
-  - component: {fileID: 1677593551}
-  - component: {fileID: 1677593553}
-  m_Layer: 0
-  m_Name: 'EndBanner '
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1677593550
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1677593549}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 918401061}
-  m_Father: {fileID: 1041999101}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1677593551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1677593549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1677593552
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1677593549}
-  m_CullTransparentMesh: 1
---- !u!114 &1677593553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1677593549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1677593551}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 933862916}
-        m_TargetAssemblyTypeName: SlotMachine.Game.Runtime.FreeSpinsPresenter, Assembly-CSharp
-        m_MethodName: OnClickEndBanner
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1678618645
 GameObject:
   m_ObjectHideFlags: 0
@@ -12107,7 +11905,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1723444597
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12846,7 +12644,6 @@ Transform:
   - {fileID: 933862915}
   - {fileID: 1891720664}
   - {fileID: 1085650020}
-  - {fileID: 1358606053}
   - {fileID: 229587055}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13637,192 +13434,6 @@ RectTransform:
   m_AnchoredPosition: {x: -302.3, y: 0}
   m_SizeDelta: {x: 604.6, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1999090929
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1999090930}
-  - component: {fileID: 1999090935}
-  - component: {fileID: 1999090934}
-  - component: {fileID: 1999090933}
-  - component: {fileID: 1999090932}
-  - component: {fileID: 1999090931}
-  m_Layer: 0
-  m_Name: Spine GameObject (banner)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1999090930
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999090929}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 918401061}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1999090931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999090929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ef7b844b1898c7498ea207c1496ae1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpineAnimationController
-  skeletonGraphic: {fileID: 1999090932}
-  animationName: end
-  loop: 1
-  playbackSpeed: 1
-  customDuration: -1
-  onEnableBehaviour: 2
---- !u!114 &1999090932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999090929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d85b887af7e6c3f45a2e2d2920d641bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: spine-unity::Spine.Unity.SkeletonGraphic
-  m_Material: {fileID: 2100000, guid: b66cf7a186d13054989b33a5c90044e4, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  skeletonDataAsset: {fileID: 11400000, guid: ef2681c661ea8364aafcb6bf3484fbe0, type: 2}
-  additiveMaterial: {fileID: 0}
-  multiplyMaterial: {fileID: 0}
-  screenMaterial: {fileID: 0}
-  m_SkeletonColor: {r: 1, g: 1, b: 1, a: 1}
-  initialSkinName: 
-  initialFlipX: 0
-  initialFlipY: 0
-  startingAnimation: 
-  startingLoop: 0
-  timeScale: 1
-  freeze: 0
-  layoutScaleMode: 0
-  referenceSize: {x: 100, y: 100}
-  pivotOffset: {x: 0, y: 0}
-  referenceScale: 1
-  layoutScale: 1
-  rectTransformSize: {x: 100, y: 100}
-  editReferenceRect: 0
-  updateWhenInvisible: 3
-  allowMultipleCanvasRenderers: 0
-  canvasRenderers: []
-  separatorSlotNames: []
-  enableSeparatorSlots: 0
-  separatorParts: []
-  updateSeparatorPartLocation: 1
-  updateSeparatorPartScale: 0
-  disableMeshAssignmentOnOverride: 1
-  physicsPositionInheritanceFactor: {x: 1, y: 1}
-  physicsRotationInheritanceFactor: 1
-  physicsMovementRelativeTo: {fileID: 0}
-  meshGenerator:
-    settings:
-      useClipping: 1
-      zSpacing: 0
-      tintBlack: 0
-      canvasGroupCompatible: 0
-      pmaVertexColors: 1
-      addNormals: 0
-      calculateTangents: 0
-      immutableTriangles: 0
-  updateTiming: 1
-  unscaledTime: 0
---- !u!222 &1999090933
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999090929}
-  m_CullTransparentMesh: 1
---- !u!23 &1999090934
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999090929}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 88405121ddf69ee458de052d19c51a4f, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1999090935
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999090929}
-  m_Mesh: {fileID: 0}
 --- !u!1 &2005667498
 GameObject:
   m_ObjectHideFlags: 0
