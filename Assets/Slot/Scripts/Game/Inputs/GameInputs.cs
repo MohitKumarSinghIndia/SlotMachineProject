@@ -27,14 +27,14 @@ public class GameInputs : MonoBehaviour
 
                 if (isFreeSpinStarted)
                 {
-                    freeSpinsPresenter?.OnClickStartBanner();
+                    freeSpinsPresenter?.OnBannerClicked();
                     isFreeSpinStarted = false;
                     return;
                 }
 
                 if (isFreeSpinEnded)
                 {
-                    freeSpinsPresenter?.OnClickEndBanner();
+                    freeSpinsPresenter?.OnBannerClicked();
                     isFreeSpinEnded = false;
                     return;
                 }

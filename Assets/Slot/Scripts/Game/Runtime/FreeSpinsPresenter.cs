@@ -1,302 +1,257 @@
-using System.Collections.Generic;
+﻿using System.Collections;
 using TMPro;
 using UnityEngine;
-using SlotMachine.Reels.Runtime;
+using UnityEngine.UI;
 
-namespace SlotMachine.Game.Runtime
+namespace SlotMachine.Reels.Runtime
 {
     public class FreeSpinsPresenter : MonoBehaviour
     {
+        private enum BannerMode
+        {
+            None,
+            Start,
+            End
+        }
+
         [Header("References")]
         [SerializeField] private FreeSpinManager freeSpinManager;
-        [SerializeField] private EventSequencePlayer BannerSequencePlayer;
+        [SerializeField] private EventSequencePlayer bannerSequencePlayer;
+        [SerializeField] private EventSequencePlayer transitionSequencePlayer;
 
-        [Header("UI")]
-        [SerializeField] private GameObject freeSpinInfoPanel;
-        [SerializeField] private GameObject freeSpinStartBanner;
-        [SerializeField] private GameObject freeSpinEndBanner;
+        [Header("Banner UI")]
+        [SerializeField] private GameObject bannerRoot;
+        [SerializeField] private Button bannerButton;
 
-        [Header("Texts")]
-        [SerializeField] private TextMeshProUGUI modeText;
-        [SerializeField] private TextMeshProUGUI spinRemainingText;
-        [SerializeField] private TextMeshProUGUI spinMultiplierText;
+        [Header("Free Spin State UI")]
+        [SerializeField] private TMP_Text freeSpinsLeftText;
+        [SerializeField] private TMP_Text freeSpinWonText;
+        [SerializeField] private TMP_Text totalFreeSpinWinText;
 
-        [SerializeField] private TextMeshProUGUI freeSpinBoneText;
-        [SerializeField] private TextMeshProUGUI amountBoneText;
+        [Header("Sequence IDs")]
+        [SerializeField] private int startTransitionSequenceId = 0;
+        [SerializeField] private int showBannerId = 0;
+        [SerializeField] private int hideBannerId = 0;
+        [SerializeField] private int startBannerId = 1;
+        [SerializeField] private int endBannerSequenceId = 2;
+        [SerializeField] private int transitToBaseId = 2;
+        [SerializeField] private int transitToFreeId = 3;
 
-        [Header("Inspector Visual Targets")]
-        [SerializeField] private List<GameObject> showWhileFreeSpins = new();
-        [SerializeField] private List<GameObject> hideWhileFreeSpins = new();
-        [SerializeField] private List<Behaviour> enableWhileFreeSpins = new();
-        [SerializeField] private List<Behaviour> disableWhileFreeSpins = new();
+        [Header("Sequence Wait Times")]
+        [SerializeField] private float startTransitionDuration = 1f;
+        [SerializeField] private float endBannerSequenceDuration = 1f;
+        [SerializeField] private float bannerHideDuration = 1f;
+        [SerializeField] private float exitTransitionDuration = 1f;
 
-        [Header("Labels")]
-        [SerializeField] private string remainingFormat = "REMAING SPIN {0} LEFT";
-        [SerializeField] private string multiplierFormat = "MULTIPLIER x{0}";
+        [Header("Delays")]
+        [SerializeField] private float delayBeforeFirstFreeSpin = 1f;
 
-        private bool waitingForStartClick;
+        [Header("Text")]
+        [SerializeField] private string startDescriptionFormat = "{0}";
+        [SerializeField] private string freeSpinsLeftFormat = "FREE SPINS LEFT {0}";
+        [SerializeField] private string totalWinFormat = "₹{0:0.00}";
+
+        private BannerMode currentBannerMode = BannerMode.None;
+        private Coroutine currentRoutine;
+        private bool waitingForClick;
 
         private void Awake()
         {
-            HideAllUI();
-            RefreshModeLabel();
+            if (bannerButton != null)
+            {
+                bannerButton.onClick.AddListener(OnBannerClicked);
+            }
+
+            //HideBanner();
+            UpdateStateUI();
         }
 
         private void OnEnable()
         {
-            Subscribe();
-            RefreshFromState();
+            if (freeSpinManager != null)
+            {
+                freeSpinManager.FreeSpinsStarted += OnFreeSpinsStarted;
+                freeSpinManager.FreeSpinsUpdated += OnFreeSpinsUpdated;
+                freeSpinManager.FreeSpinsEnded += OnFreeSpinsEnded;
+            }
         }
 
         private void OnDisable()
         {
-            Unsubscribe();
-        }
-
-        private void HandleFreeSpinsStarted(FreeSpinState state)
-        {
-            ApplyVisualTargets(true);
-
-            waitingForStartClick = true;
-
-            if (freeSpinStartBanner != null)
-            {
-                freeSpinStartBanner.SetActive(true);
-            }
-
-            if (freeSpinBoneText != null)
-            {
-                freeSpinBoneText.text = state.TotalAwardedSpins.ToString();
-            }
-
-            BannerSequencePlayer.PlaySequenceById(1);
-            RefreshModeLabel(state);
-        }
-
-        private void HandleFreeSpinsUpdated(FreeSpinState state)
-        {
-            if (state != null && state.IsActive)
-            {
-                ApplyVisualTargets(true);
-
-                if (!waitingForStartClick)
-                {
-                    ShowFreeSpinPanel(state);
-                }
-            }
-            else
-            {
-                ApplyVisualTargets(false);
-                HideFreeSpinPanel();
-            }
-
-            RefreshModeLabel(state);
-        }
-
-        private void HandleFreeSpinsEnded()
-        {
-            ApplyVisualTargets(false);
-
-            HideFreeSpinPanel();
-
-            if (freeSpinEndBanner != null)
-            {
-                freeSpinEndBanner.SetActive(true);
-            }
-
-            RefreshModeLabel();
-        }
-
-        public void OnClickStartBanner()
-        {
-            if (!waitingForStartClick)
-            {
-                return;
-            }
-
-            waitingForStartClick = false;
-
-            if (freeSpinStartBanner != null)
-            {
-                //freeSpinStartBanner.SetActive(false);
-                BannerSequencePlayer.PlaySequenceById(2);
-
-            }
-
-            ShowFreeSpinPanel(freeSpinManager.State);
-
             if (freeSpinManager != null)
             {
-                freeSpinManager.StartFreeSpinGameplay();
+                freeSpinManager.FreeSpinsStarted -= OnFreeSpinsStarted;
+                freeSpinManager.FreeSpinsUpdated -= OnFreeSpinsUpdated;
+                freeSpinManager.FreeSpinsEnded -= OnFreeSpinsEnded;
             }
-        }
 
-        public void OnClickEndBanner()
-        {
-            if (freeSpinEndBanner != null)
+            if (currentRoutine != null)
             {
-                //freeSpinEndBanner.SetActive(false);
-
-                BannerSequencePlayer.PlaySequenceById(2);
+                StopCoroutine(currentRoutine);
+                currentRoutine = null;
             }
-
-            RefreshModeLabel();
         }
 
-        private void RefreshFromState()
+        private void OnFreeSpinsStarted(FreeSpinState state)
+        {
+            UpdateStateUI();
+
+            if (currentRoutine != null)
+            {
+                StopCoroutine(currentRoutine);
+            }
+
+            currentRoutine = StartCoroutine(StartFreeSpinIntroRoutine(state));
+        }
+
+        private void OnFreeSpinsUpdated(FreeSpinState state)
+        {
+            UpdateStateUI();
+        }
+
+        private void OnFreeSpinsEnded()
+        {
+            UpdateStateUI();
+
+            if (currentRoutine != null)
+            {
+                StopCoroutine(currentRoutine);
+            }
+
+            currentRoutine = StartCoroutine(EndFreeSpinRoutine());
+        }
+
+        private IEnumerator StartFreeSpinIntroRoutine(FreeSpinState state)
+        {
+            currentBannerMode = BannerMode.Start;
+
+            int totalSpins = state != null ? state.TotalAwardedSpins : 0;
+
+            if(bannerSequencePlayer != null)
+            {
+                bannerSequencePlayer.PlaySequenceById(startBannerId);
+            }
+
+            waitingForClick = true;
+
+            while (waitingForClick)
+            {
+                yield return null;
+            }
+
+            HideBanner();
+
+            if(bannerHideDuration > 0)
+            {
+                yield return new WaitForSeconds(bannerHideDuration);
+            }
+
+            transitionSequencePlayer.PlaySequenceById(transitToFreeId);
+
+            if (startTransitionDuration > 0f)
+            {
+                yield return new WaitForSeconds(startTransitionDuration);
+            }
+
+
+            if (delayBeforeFirstFreeSpin > 0f)
+            {
+                yield return new WaitForSeconds(delayBeforeFirstFreeSpin);
+            }
+
+            freeSpinManager?.StartFreeSpinGameplay();
+
+            currentBannerMode = BannerMode.None;
+            currentRoutine = null;
+        }
+
+        private IEnumerator EndFreeSpinRoutine()
+        {
+            currentBannerMode = BannerMode.End;
+            float totalWin = freeSpinManager != null ? freeSpinManager.TotalFreeSpinWin : 0f;
+
+            if (bannerSequencePlayer != null)
+            {
+                bannerSequencePlayer.PlaySequenceById(endBannerSequenceId);
+            }
+
+            if (endBannerSequenceDuration > 0f)
+            {
+                yield return new WaitForSeconds(endBannerSequenceDuration);
+            }
+            
+            waitingForClick = true;
+
+            while (waitingForClick)
+            {
+                yield return null;
+            }
+
+
+            HideBanner();
+
+            if (bannerHideDuration > 0f)
+            {
+                yield return new WaitForSeconds(bannerHideDuration);
+            }
+            
+            if (transitionSequencePlayer != null)
+            {
+                transitionSequencePlayer.PlaySequenceById(transitToBaseId);
+            }
+
+            if (exitTransitionDuration > 0f)
+            {
+                yield return new WaitForSeconds(exitTransitionDuration);
+            }
+
+            currentBannerMode = BannerMode.None;
+            currentRoutine = null;
+        }
+
+        public void OnBannerClicked()
+        {
+            if (currentBannerMode == BannerMode.None)
+            {
+                return;
+            }
+
+            waitingForClick = false;
+        }
+
+        private void HideBanner()
+        {
+            if (bannerSequencePlayer != null)
+            {
+                bannerSequencePlayer.PlaySequenceById(hideBannerId);
+            }
+        }
+
+        private void UpdateStateUI()
         {
             if (freeSpinManager == null)
             {
                 return;
             }
 
-            if (freeSpinManager.IsFreeSpinActive)
+            if (freeSpinsLeftText != null)
             {
-                ApplyVisualTargets(true);
-
-                if (!waitingForStartClick)
-                {
-                    ShowFreeSpinPanel(freeSpinManager.State);
-                }
-
-                RefreshModeLabel(freeSpinManager.State);
-            }
-            else
-            {
-                ApplyVisualTargets(false);
-                HideFreeSpinPanel();
-                RefreshModeLabel();
-            }
-        }
-
-        private void ShowFreeSpinPanel(FreeSpinState state)
-        {
-            if (freeSpinInfoPanel != null)
-            {
-                freeSpinInfoPanel.SetActive(true);
+                freeSpinsLeftText.text = string.Format(freeSpinsLeftFormat,freeSpinManager.RemainingSpins
+                );
             }
 
-            if (spinRemainingText != null)
+            if (totalFreeSpinWinText != null)
             {
-                int remaining = state != null ? state.RemainingSpins : 0;
-
-                spinRemainingText.text = string.Format(remainingFormat, remaining);
+                totalFreeSpinWinText.text = string.Format(totalWinFormat,freeSpinManager.TotalFreeSpinWin
+                );
             }
 
-            if (spinMultiplierText != null)
+            if(freeSpinWonText != null)
             {
-                int multiplier = freeSpinManager != null ? freeSpinManager.CurrentMultiplier : 1;
+                freeSpinWonText.text = freeSpinManager.TotalFreeSpinWin.ToString();
 
-                spinMultiplierText.text = string.Format(multiplierFormat, multiplier);
             }
         }
 
-        private void HideFreeSpinPanel()
-        {
-            if (freeSpinInfoPanel != null)
-            {
-                freeSpinInfoPanel.SetActive(false);
-            }
-        }
-
-        private void HideAllUI()
-        {
-            HideFreeSpinPanel();
-
-            if (freeSpinStartBanner != null)
-            {
-                freeSpinStartBanner.SetActive(false);
-            }
-
-            if (freeSpinEndBanner != null)
-            {
-                freeSpinEndBanner.SetActive(false);
-            }
-        }
-
-        private void RefreshModeLabel()
-        {
-            RefreshModeLabel(null);
-        }
-
-        private void RefreshModeLabel(FreeSpinState state)
-        {
-            if (modeText == null)
-            {
-                return;
-            }
-
-            if (state == null && freeSpinManager != null)
-            {
-                state = freeSpinManager.State;
-            }
-
-            modeText.text = state != null && state.IsActive ? "FREE SPIN MODE" : "BASE GAME MODE";
-        }
-
-        private void ApplyVisualTargets(bool freeSpinsActive)
-        {
-            SetGameObjectsActive(showWhileFreeSpins, freeSpinsActive);
-            SetGameObjectsActive(hideWhileFreeSpins, !freeSpinsActive);
-
-            SetBehavioursEnabled(enableWhileFreeSpins, freeSpinsActive);
-            SetBehavioursEnabled(disableWhileFreeSpins, !freeSpinsActive);
-        }
-
-        private void Subscribe()
-        {
-            if (freeSpinManager == null)
-            {
-                return;
-            }
-
-            freeSpinManager.FreeSpinsStarted += HandleFreeSpinsStarted;
-            freeSpinManager.FreeSpinsUpdated += HandleFreeSpinsUpdated;
-            freeSpinManager.FreeSpinsEnded += HandleFreeSpinsEnded;
-        }
-
-        private void Unsubscribe()
-        {
-            if (freeSpinManager == null)
-            {
-                return;
-            }
-
-            freeSpinManager.FreeSpinsStarted -= HandleFreeSpinsStarted;
-            freeSpinManager.FreeSpinsUpdated -= HandleFreeSpinsUpdated;
-            freeSpinManager.FreeSpinsEnded -= HandleFreeSpinsEnded;
-        }
-
-        private static void SetGameObjectsActive(IReadOnlyList<GameObject> targets,bool isActive)
-        {
-            if (targets == null)
-            {
-                return;
-            }
-
-            foreach (GameObject target in targets)
-            {
-                if (target != null)
-                {
-                    target.SetActive(isActive);
-                }
-            }
-        }
-
-        private static void SetBehavioursEnabled(IReadOnlyList<Behaviour> targets,bool isEnabled)
-        {
-            if (targets == null)
-            {
-                return;
-            }
-
-            foreach (Behaviour target in targets)
-            {
-                if (target != null)
-                {
-                    target.enabled = isEnabled;
-                }
-            }
-        }
     }
 }

@@ -197,18 +197,6 @@ TextureImporter:
   - first:
       213: 7454998600799757512
     second: banner_64
-  - first:
-      213: -316355423683433705
-    second: banner_65
-  - first:
-      213: 8497025605221420535
-    second: banner_66
-  - first:
-      213: 3656047797866016659
-    second: banner_67
-  - first:
-      213: -4369813474490622406
-    second: banner_68
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -313,6 +301,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -321,9 +322,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 1685
-        width: 12
-        height: 12
+        y: 1649
+        width: 15
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,10 +343,10 @@ TextureImporter:
       name: banner_1
       rect:
         serializedVersion: 2
-        x: 133
-        y: 1622
-        width: 167
-        height: 63
+        x: 1
+        y: 1485
+        width: 164
+        height: 164
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -364,10 +365,10 @@ TextureImporter:
       name: banner_2
       rect:
         serializedVersion: 2
-        x: 442
-        y: 1671
-        width: 39
-        height: 21
+        x: 16
+        y: 1649
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -386,10 +387,10 @@ TextureImporter:
       name: banner_3
       rect:
         serializedVersion: 2
-        x: 1270
-        y: 1553
-        width: 495
-        height: 142
+        x: 165
+        y: 1636
+        width: 42
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -408,10 +409,10 @@ TextureImporter:
       name: banner_4
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1623
-        width: 125
-        height: 60
+        x: 207
+        y: 1636
+        width: 42
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -430,10 +431,10 @@ TextureImporter:
       name: banner_5
       rect:
         serializedVersion: 2
-        x: 306
-        y: 1622
-        width: 136
-        height: 61
+        x: 249
+        y: 1636
+        width: 42
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -452,10 +453,10 @@ TextureImporter:
       name: banner_6
       rect:
         serializedVersion: 2
-        x: 442
-        y: 1622
-        width: 30
-        height: 49
+        x: 291
+        y: 1636
+        width: 42
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -474,10 +475,10 @@ TextureImporter:
       name: banner_7
       rect:
         serializedVersion: 2
-        x: 481
-        y: 735
-        width: 99
-        height: 945
+        x: 333
+        y: 1636
+        width: 35
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -496,10 +497,10 @@ TextureImporter:
       name: banner_8
       rect:
         serializedVersion: 2
-        x: 580
-        y: 735
-        width: 96
-        height: 942
+        x: 368
+        y: 1636
+        width: 35
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -518,9 +519,9 @@ TextureImporter:
       name: banner_9
       rect:
         serializedVersion: 2
-        x: 681
-        y: 1647
-        width: 56
+        x: 403
+        y: 1636
+        width: 39
         height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -540,10 +541,10 @@ TextureImporter:
       name: banner_10
       rect:
         serializedVersion: 2
-        x: 739
-        y: 1647
-        width: 17
-        height: 16
+        x: 442
+        y: 1636
+        width: 39
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -562,10 +563,10 @@ TextureImporter:
       name: banner_11
       rect:
         serializedVersion: 2
-        x: 763
-        y: 1647
-        width: 82
-        height: 25
+        x: 481
+        y: 1636
+        width: 21
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -584,10 +585,10 @@ TextureImporter:
       name: banner_12
       rect:
         serializedVersion: 2
-        x: 848
-        y: 1646
-        width: 137
-        height: 27
+        x: 502
+        y: 1636
+        width: 18
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -606,10 +607,10 @@ TextureImporter:
       name: banner_13
       rect:
         serializedVersion: 2
-        x: 989
-        y: 1647
-        width: 35
-        height: 25
+        x: 165
+        y: 1485
+        width: 507
+        height: 151
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -628,10 +629,10 @@ TextureImporter:
       name: banner_14
       rect:
         serializedVersion: 2
-        x: 1028
-        y: 1647
-        width: 127
-        height: 25
+        x: 672
+        y: 1485
+        width: 495
+        height: 142
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -650,10 +651,10 @@ TextureImporter:
       name: banner_15
       rect:
         serializedVersion: 2
-        x: 1765
-        y: 1553
-        width: 98
-        height: 96
+        x: 1168
+        y: 1534
+        width: 255
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -672,10 +673,10 @@ TextureImporter:
       name: banner_16
       rect:
         serializedVersion: 2
-        x: 1863
-        y: 1639
-        width: 67
-        height: 44
+        x: 1605
+        y: 1416
+        width: 222
+        height: 222
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -694,10 +695,10 @@ TextureImporter:
       name: banner_17
       rect:
         serializedVersion: 2
-        x: 1
-        y: 735
-        width: 480
-        height: 887
+        x: 1925
+        y: 1483
+        width: 98
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -716,10 +717,10 @@ TextureImporter:
       name: banner_18
       rect:
         serializedVersion: 2
-        x: 681
-        y: 1585
-        width: 75
-        height: 57
+        x: 1
+        y: 975
+        width: 768
+        height: 510
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -738,10 +739,10 @@ TextureImporter:
       name: banner_19
       rect:
         serializedVersion: 2
-        x: 763
-        y: 1619
-        width: 82
-        height: 26
+        x: 1167
+        y: 1475
+        width: 120
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -760,10 +761,10 @@ TextureImporter:
       name: banner_20
       rect:
         serializedVersion: 2
-        x: 848
-        y: 1617
-        width: 138
-        height: 29
+        x: 1300
+        y: 1474
+        width: 161
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -782,10 +783,10 @@ TextureImporter:
       name: banner_21
       rect:
         serializedVersion: 2
-        x: 988
-        y: 1618
-        width: 37
-        height: 27
+        x: 1473
+        y: 1474
+        width: 130
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -804,10 +805,10 @@ TextureImporter:
       name: banner_22
       rect:
         serializedVersion: 2
-        x: 1027
-        y: 1618
-        width: 129
-        height: 27
+        x: 1827
+        y: 1416
+        width: 98
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -826,10 +827,10 @@ TextureImporter:
       name: banner_23
       rect:
         serializedVersion: 2
-        x: 1863
-        y: 1553
-        width: 60
-        height: 86
+        x: 1942
+        y: 1347
+        width: 61
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -848,10 +849,10 @@ TextureImporter:
       name: banner_24
       rect:
         serializedVersion: 2
-        x: 1923
-        y: 1553
-        width: 44
-        height: 67
+        x: 769
+        y: 968
+        width: 836
+        height: 506
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -870,10 +871,10 @@ TextureImporter:
       name: banner_25
       rect:
         serializedVersion: 2
-        x: 682
-        y: 1523
-        width: 74
-        height: 61
+        x: 1605
+        y: 922
+        width: 335
+        height: 494
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -892,10 +893,10 @@ TextureImporter:
       name: banner_26
       rect:
         serializedVersion: 2
-        x: 763
-        y: 1466
-        width: 507
-        height: 151
+        x: 1940
+        y: 1174
+        width: 63
+        height: 167
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -914,10 +915,10 @@ TextureImporter:
       name: banner_27
       rect:
         serializedVersion: 2
-        x: 1610
-        y: 1059
-        width: 335
-        height: 494
+        x: 1940
+        y: 982
+        width: 86
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -936,10 +937,10 @@ TextureImporter:
       name: banner_28
       rect:
         serializedVersion: 2
-        x: 681
-        y: 1457
-        width: 75
-        height: 64
+        x: 1942
+        y: 1042
+        width: 60
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -958,10 +959,10 @@ TextureImporter:
       name: banner_29
       rect:
         serializedVersion: 2
-        x: 1270
-        y: 1466
-        width: 145
-        height: 53
+        x: 1
+        y: 1
+        width: 126
+        height: 974
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -980,10 +981,10 @@ TextureImporter:
       name: banner_30
       rect:
         serializedVersion: 2
-        x: 1428
-        y: 1467
-        width: 173
-        height: 52
+        x: 127
+        y: 948
+        width: 82
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1002,10 +1003,10 @@ TextureImporter:
       name: banner_31
       rect:
         serializedVersion: 2
-        x: 681
-        y: 1421
-        width: 75
-        height: 33
+        x: 212
+        y: 946
+        width: 138
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1024,10 +1025,10 @@ TextureImporter:
       name: banner_32
       rect:
         serializedVersion: 2
-        x: 763
-        y: 1025
-        width: 847
-        height: 441
+        x: 352
+        y: 947
+        width: 37
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1046,10 +1047,10 @@ TextureImporter:
       name: banner_33
       rect:
         serializedVersion: 2
-        x: 676
-        y: 1297
-        width: 82
-        height: 70
+        x: 391
+        y: 947
+        width: 129
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1068,10 +1069,10 @@ TextureImporter:
       name: banner_34
       rect:
         serializedVersion: 2
-        x: 681
-        y: 1367
-        width: 78
-        height: 52
+        x: 520
+        y: 941
+        width: 49
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1090,10 +1091,10 @@ TextureImporter:
       name: banner_35
       rect:
         serializedVersion: 2
-        x: 681
-        y: 1244
-        width: 75
-        height: 53
+        x: 569
+        y: 941
+        width: 49
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1112,10 +1113,10 @@ TextureImporter:
       name: banner_36
       rect:
         serializedVersion: 2
-        x: 680
-        y: 1179
-        width: 77
-        height: 64
+        x: 618
+        y: 942
+        width: 82
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1134,10 +1135,10 @@ TextureImporter:
       name: banner_37
       rect:
         serializedVersion: 2
-        x: 1945
-        y: 1168
-        width: 21
-        height: 21
+        x: 703
+        y: 941
+        width: 137
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1156,10 +1157,10 @@ TextureImporter:
       name: banner_38
       rect:
         serializedVersion: 2
-        x: 681
-        y: 1126
-        width: 78
-        height: 52
+        x: 844
+        y: 942
+        width: 35
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1178,10 +1179,10 @@ TextureImporter:
       name: banner_39
       rect:
         serializedVersion: 2
-        x: 1945
-        y: 1129
-        width: 21
-        height: 39
+        x: 883
+        y: 942
+        width: 127
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1200,10 +1201,10 @@ TextureImporter:
       name: banner_40
       rect:
         serializedVersion: 2
-        x: 1945
-        y: 1094
-        width: 22
-        height: 35
+        x: 1143
+        y: 922
+        width: 67
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1222,10 +1223,10 @@ TextureImporter:
       name: banner_41
       rect:
         serializedVersion: 2
-        x: 676
-        y: 1056
-        width: 82
-        height: 70
+        x: 1210
+        y: 922
+        width: 67
+        height: 44
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1244,10 +1245,10 @@ TextureImporter:
       name: banner_42
       rect:
         serializedVersion: 2
-        x: 1737
-        y: 837
-        width: 222
-        height: 222
+        x: 1940
+        y: 922
+        width: 86
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1266,10 +1267,10 @@ TextureImporter:
       name: banner_43
       rect:
         serializedVersion: 2
-        x: 1945
-        y: 1059
-        width: 22
-        height: 35
+        x: 127
+        y: 1
+        width: 99
+        height: 945
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1288,10 +1289,10 @@ TextureImporter:
       name: banner_44
       rect:
         serializedVersion: 2
-        x: 681
-        y: 994
-        width: 78
-        height: 63
+        x: 226
+        y: 1
+        width: 96
+        height: 942
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1310,10 +1311,10 @@ TextureImporter:
       name: banner_45
       rect:
         serializedVersion: 2
-        x: 763
-        y: 899
-        width: 974
-        height: 126
+        x: 322
+        y: 1
+        width: 734
+        height: 940
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1332,10 +1333,10 @@ TextureImporter:
       name: banner_46
       rect:
         serializedVersion: 2
-        x: 1610
-        y: 1025
-        width: 42
-        height: 23
+        x: 1061
+        y: 913
+        width: 56
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1354,10 +1355,10 @@ TextureImporter:
       name: banner_47
       rect:
         serializedVersion: 2
-        x: 1652
-        y: 1025
-        width: 42
-        height: 22
+        x: 1119
+        y: 913
+        width: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1376,10 +1377,10 @@ TextureImporter:
       name: banner_48
       rect:
         serializedVersion: 2
-        x: 1694
-        y: 1025
-        width: 42
-        height: 22
+        x: 1143
+        y: 481
+        width: 847
+        height: 441
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1398,10 +1399,10 @@ TextureImporter:
       name: banner_49
       rect:
         serializedVersion: 2
-        x: 682
-        y: 928
-        width: 81
-        height: 66
+        x: 1061
+        y: 851
+        width: 75
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1420,8 +1421,8 @@ TextureImporter:
       name: banner_50
       rect:
         serializedVersion: 2
-        x: 682
-        y: 865
+        x: 1062
+        y: 789
         width: 74
         height: 61
       alignment: 0
@@ -1442,10 +1443,10 @@ TextureImporter:
       name: banner_51
       rect:
         serializedVersion: 2
-        x: 763
-        y: 735
-        width: 164
-        height: 164
+        x: 1061
+        y: 723
+        width: 75
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1464,10 +1465,10 @@ TextureImporter:
       name: banner_52
       rect:
         serializedVersion: 2
-        x: 927
-        y: 865
-        width: 49
-        height: 30
+        x: 1061
+        y: 687
+        width: 75
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1486,10 +1487,10 @@ TextureImporter:
       name: banner_53
       rect:
         serializedVersion: 2
-        x: 927
-        y: 769
-        width: 98
-        height: 96
+        x: 1056
+        y: 563
+        width: 82
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1508,10 +1509,10 @@ TextureImporter:
       name: banner_54
       rect:
         serializedVersion: 2
-        x: 976
-        y: 865
-        width: 42
-        height: 23
+        x: 1061
+        y: 633
+        width: 78
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1530,10 +1531,10 @@ TextureImporter:
       name: banner_55
       rect:
         serializedVersion: 2
-        x: 1025
-        y: 838
-        width: 120
-        height: 56
+        x: 1061
+        y: 510
+        width: 75
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1552,10 +1553,10 @@ TextureImporter:
       name: banner_56
       rect:
         serializedVersion: 2
-        x: 1158
-        y: 837
-        width: 161
-        height: 59
+        x: 1060
+        y: 445
+        width: 77
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1574,10 +1575,10 @@ TextureImporter:
       name: banner_57
       rect:
         serializedVersion: 2
-        x: 1331
-        y: 837
-        width: 130
-        height: 56
+        x: 1143
+        y: 1
+        width: 887
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1596,10 +1597,10 @@ TextureImporter:
       name: banner_58
       rect:
         serializedVersion: 2
-        x: 1462
-        y: 838
-        width: 255
-        height: 60
+        x: 1056
+        y: 322
+        width: 82
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1618,10 +1619,10 @@ TextureImporter:
       name: banner_59
       rect:
         serializedVersion: 2
-        x: 1718
-        y: 856
-        width: 15
-        height: 15
+        x: 1061
+        y: 392
+        width: 78
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1640,10 +1641,10 @@ TextureImporter:
       name: banner_60
       rect:
         serializedVersion: 2
-        x: 681
-        y: 799
-        width: 75
-        height: 64
+        x: 1061
+        y: 260
+        width: 78
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1662,10 +1663,10 @@ TextureImporter:
       name: banner_61
       rect:
         serializedVersion: 2
-        x: 1451
-        y: 1
-        width: 506
-        height: 836
+        x: 1062
+        y: 194
+        width: 81
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1684,10 +1685,10 @@ TextureImporter:
       name: banner_62
       rect:
         serializedVersion: 2
-        x: 1718
-        y: 837
-        width: 18
-        height: 19
+        x: 1062
+        y: 131
+        width: 74
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1706,10 +1707,10 @@ TextureImporter:
       name: banner_63
       rect:
         serializedVersion: 2
-        x: 682
-        y: 735
+        x: 1061
+        y: 65
         width: 75
-        height: 63
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1728,10 +1729,10 @@ TextureImporter:
       name: banner_64
       rect:
         serializedVersion: 2
-        x: 941
+        x: 1062
         y: 1
-        width: 510
-        height: 768
+        width: 75
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1742,94 +1743,6 @@ TextureImporter:
       bones: []
       spriteID: 8c424b9aab9757760800000000000000
       internalID: 7454998600799757512
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: banner_65
-      rect:
-        serializedVersion: 2
-        x: 1025
-        y: 769
-        width: 86
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 71ba4941b641c9bf0800000000000000
-      internalID: -316355423683433705
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: banner_66
-      rect:
-        serializedVersion: 2
-        x: 1111
-        y: 769
-        width: 150
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7fd0f9ec4cf7be570800000000000000
-      internalID: 8497025605221420535
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: banner_67
-      rect:
-        serializedVersion: 2
-        x: 1269
-        y: 769
-        width: 177
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 39f27a10a14ecb230800000000000000
-      internalID: 3656047797866016659
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: banner_68
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 1
-        width: 940
-        height: 734
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a3e55461ccd4b53c0800000000000000
-      internalID: -4369813474490622406
       vertices: []
       indices: 
       edges: []
@@ -1910,10 +1823,6 @@ TextureImporter:
       banner_62: -7831645711616993351
       banner_63: 4632546327959674141
       banner_64: 7454998600799757512
-      banner_65: -316355423683433705
-      banner_66: 8497025605221420535
-      banner_67: 3656047797866016659
-      banner_68: -4369813474490622406
       banner_7: 3884778734334592212
       banner_8: 3902974895832207972
       banner_9: -8090362764002550514
