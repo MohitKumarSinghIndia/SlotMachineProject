@@ -300,8 +300,9 @@ namespace SlotMachine.Reels.Runtime
             }
 
             GameEvent.onPaylinePhase?.Invoke();
-            GameEvent.onDragonWin.Invoke();
+            GameEvent.onDragonWin?.Invoke();
 
+            // Show combined win first
             if (paylineVisualizer != null)
             {
                 paylineVisualizer.ShowCombinedWin(lastPaylineEvaluation);
@@ -312,26 +313,27 @@ namespace SlotMachine.Reels.Runtime
                 yield return new WaitForSeconds(paylineDisplayDuration);
             }
 
-            if (lastPaylineEvaluation.PaylineWins.Count > 1)
+            // Show every single payline win
+            for (int i = 0; i < lastPaylineEvaluation.PaylineWins.Count; i++)
             {
-                for (int i = 0; i < lastPaylineEvaluation.PaylineWins.Count; i++)
+                PaylineWinResult win = lastPaylineEvaluation.PaylineWins[i];
+
+                Debug.Log(
+                    $"PAYLINE WIN | " +
+                    $"Line {win.LineId} {win.LineName} | " +
+                    $"Symbol {win.SymbolId} | " +
+                    $"Match {win.MatchCount} | " +
+                    $"Win {win.WinAmount}"
+                );
+
+                if (paylineVisualizer != null)
                 {
-                    PaylineWinResult win = lastPaylineEvaluation.PaylineWins[i];
+                    paylineVisualizer.ShowSingleLine(win);
+                }
 
-                    Debug.Log(
-                        $"PAYLINE WIN | Line {win.LineId} {win.LineName} | " +
-                        $"Symbol {win.SymbolId} | Match {win.MatchCount} | Win {win.WinAmount}"
-                    );
-
-                    if (paylineVisualizer != null)
-                    {
-                        paylineVisualizer.ShowSingleLine(win);
-                    }
-
-                    if (paylineDisplayDuration > 0f)
-                    {
-                        yield return new WaitForSeconds(paylineDisplayDuration);
-                    }
+                if (paylineDisplayDuration > 0f)
+                {
+                    yield return new WaitForSeconds(paylineDisplayDuration);
                 }
             }
 
@@ -339,6 +341,7 @@ namespace SlotMachine.Reels.Runtime
             {
                 paylineVisualizer.ClearVisuals();
             }
+
             GameEvent.onDragonIdle?.Invoke();
         }
 
