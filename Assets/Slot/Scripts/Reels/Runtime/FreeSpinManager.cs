@@ -250,6 +250,7 @@ namespace SlotMachine.Reels.Runtime
             }
 
             totalFreeSpinWin += amount;
+            Debug.Log("AddFreeSpinWin" + totalFreeSpinWin);
         }
     }
 }

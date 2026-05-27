@@ -165,8 +165,7 @@ namespace SlotMachine.Reels.Runtime
             {
                 float totalWin = lastPaylineEvaluation.TotalWin;
 
-                bool isBigWin = bigWinController != null &&
-                                bigWinController.ResolveBigWinType(totalWin) != BigWinType.None;
+                bool isBigWin = bigWinController != null && bigWinController.ResolveBigWinType(totalWin) != BigWinType.None;
 
                 outcome.SetWinData(lastPaylineEvaluation.HasAnyWin, isBigWin, totalWin);
             }
@@ -369,9 +368,12 @@ namespace SlotMachine.Reels.Runtime
                 yield break;
             }
 
-            float totalWin = lastPaylineEvaluation != null
-                ? lastPaylineEvaluation.TotalWin
-                : 0f;
+            float totalWin = 0f;
+
+            if (lastPaylineEvaluation != null)
+            {
+                totalWin = lastPaylineEvaluation.TotalWin;
+            }
 
             yield return bigWinController.TryPlayBigWin(totalWin);
         }
@@ -395,7 +397,12 @@ namespace SlotMachine.Reels.Runtime
                 freeSpinManager?.HandleCompletedSpin(lastOutcome);
             }
 
-            float totalWin = lastPaylineEvaluation != null ? lastPaylineEvaluation.TotalWin : 0f;
+            float totalWin = 0f;
+
+            if (lastPaylineEvaluation != null)
+            {
+                totalWin = lastPaylineEvaluation.TotalWin;
+            }
 
             bool isFreeSpinSpin = freeSpinManager != null && freeSpinManager.CurrentSpinUsesFreeSpin;
 
@@ -405,8 +412,11 @@ namespace SlotMachine.Reels.Runtime
                 {
                     freeSpinManager.AddFreeSpinWin(totalWin);
                 }
+
                 if (betManager != null)
+                {
                     betManager.AddWin(totalWin);
+                }
             }
 
             isSpinInProgress = false;

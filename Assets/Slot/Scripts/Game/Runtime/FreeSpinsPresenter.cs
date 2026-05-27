@@ -25,8 +25,8 @@ namespace SlotMachine.Reels.Runtime
 
         [Header("Free Spin State UI")]
         [SerializeField] private TMP_Text freeSpinsLeftText;
-        [SerializeField] private TMP_Text freeSpinWonText;
-        [SerializeField] private TMP_Text totalFreeSpinWinText;
+        [SerializeField] private TMP_Text freeSpinWinText;
+        [SerializeField] private TMP_Text freeSpinWinAmountText;
 
         [Header("Sequence IDs")]
         [SerializeField] private int startTransitionSequenceId = 0;
@@ -46,10 +46,10 @@ namespace SlotMachine.Reels.Runtime
         [Header("Delays")]
         [SerializeField] private float delayBeforeFirstFreeSpin = 1f;
 
-        [Header("Text")]
-        [SerializeField] private string startDescriptionFormat = "{0}";
-        [SerializeField] private string freeSpinsLeftFormat = "FREE SPINS LEFT {0}";
-        [SerializeField] private string totalWinFormat = "₹{0:0.00}";
+        [Header("Text Format")]
+        [SerializeField] private string freeSpinsLeftFormat = "Spins Left {0}";
+        [SerializeField] private string freeSpinWinFormat = "{0} Free Spins";
+        [SerializeField] private string freeSpinWinAmountFormat = "Win Amount {0}";
 
         private BannerMode currentBannerMode = BannerMode.None;
         private Coroutine currentRoutine;
@@ -236,22 +236,18 @@ namespace SlotMachine.Reels.Runtime
 
             if (freeSpinsLeftText != null)
             {
-                freeSpinsLeftText.text = string.Format(freeSpinsLeftFormat,freeSpinManager.RemainingSpins
-                );
+                freeSpinsLeftText.text = string.Format(freeSpinsLeftFormat,freeSpinManager.RemainingSpins);
             }
 
-            if (totalFreeSpinWinText != null)
+            if (freeSpinWinText != null)
             {
-                totalFreeSpinWinText.text = string.Format(totalWinFormat,freeSpinManager.TotalFreeSpinWin
-                );
+                freeSpinWinText.text = string.Format(freeSpinWinFormat,freeSpinManager.State.TotalAwardedSpins);
             }
 
-            if(freeSpinWonText != null)
+            if(freeSpinWinAmountText != null)
             {
-                freeSpinWonText.text = freeSpinManager.TotalFreeSpinWin.ToString();
-
+                freeSpinWinAmountText.text = string.Format(freeSpinWinAmountFormat,freeSpinManager.TotalFreeSpinWin);
             }
         }
-
     }
 }

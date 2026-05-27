@@ -36,7 +36,9 @@ namespace SlotMachine.Reels.Runtime
     public class PaylineEvaluationResult
     {
         public bool HasAnyWin => paylineWins.Count > 0;
-        public float TotalWin { get; }
+
+        public float TotalWin;
+
         public IReadOnlyList<PaylineWinResult> PaylineWins => paylineWins;
 
         private readonly List<PaylineWinResult> paylineWins = new List<PaylineWinResult>();
