@@ -392,6 +392,8 @@ namespace SlotMachine.Reels.Runtime
 
         private IEnumerator FinalizeSpinFlow()
         {
+            bool isFreeSpinSpin = freeSpinManager != null && freeSpinManager.CurrentSpinUsesFreeSpin;
+
             if (lastOutcome == null || !lastOutcome.TriggersFreeSpins)
             {
                 freeSpinManager?.HandleCompletedSpin(lastOutcome);
@@ -403,8 +405,6 @@ namespace SlotMachine.Reels.Runtime
             {
                 totalWin = lastPaylineEvaluation.TotalWin;
             }
-
-            bool isFreeSpinSpin = freeSpinManager != null && freeSpinManager.CurrentSpinUsesFreeSpin;
 
             if (totalWin > 0f)
             {
