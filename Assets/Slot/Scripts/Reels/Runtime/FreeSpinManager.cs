@@ -35,6 +35,9 @@ namespace SlotMachine.Reels.Runtime
         [Header("Debug State")]
         [SerializeField] private FreeSpinState state = new FreeSpinState();
 
+        [Header("Free Spin Win Tracking")]
+        [SerializeField] private float totalFreeSpinWin;
+
         private bool currentSpinUsesFreeSpin = false;
 
         private Coroutine autoSpinRoutine;
@@ -44,6 +47,7 @@ namespace SlotMachine.Reels.Runtime
         public event Action FreeSpinsEnded;
 
         public FreeSpinState State => state;
+        public float TotalFreeSpinWin => totalFreeSpinWin;
 
         public bool IsFreeSpinActive => state != null && state.IsActive;
         public bool CurrentSpinUsesFreeSpin => currentSpinUsesFreeSpin;
@@ -112,6 +116,7 @@ namespace SlotMachine.Reels.Runtime
                     state.BeginSession(awarded, outcome.ScatterCount);
 
                     currentMultiplier = 1;
+                    totalFreeSpinWin = 0f;
 
                     onFreeSpinsStarted?.Invoke();
                     onFreeSpinsUpdated?.Invoke();
@@ -231,6 +236,20 @@ namespace SlotMachine.Reels.Runtime
             }
 
             autoSpinRoutine = null;
+        }
+        public void ResetFreeSpinWin()
+        {
+            totalFreeSpinWin = 0f;
+        }
+
+        public void AddFreeSpinWin(float amount)
+        {
+            if (amount <= 0f)
+            {
+                return;
+            }
+
+            totalFreeSpinWin += amount;
         }
     }
 }

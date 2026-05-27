@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace SlotMachine.Reels.Runtime
 {
@@ -169,7 +168,7 @@ namespace SlotMachine.Reels.Runtime
                 bool isBigWin = bigWinController != null &&
                                 bigWinController.ResolveBigWinType(totalWin) != BigWinType.None;
 
-                outcome.SetWinData(lastPaylineEvaluation.HasAnyWin,isBigWin,totalWin);
+                outcome.SetWinData(lastPaylineEvaluation.HasAnyWin, isBigWin, totalWin);
             }
 
             BuildAndRunSpinFlow(outcome);
@@ -246,7 +245,7 @@ namespace SlotMachine.Reels.Runtime
 
         private IEnumerator RunSpinStopPhase(IReadOnlyList<SpinCommand> commands)
         {
-            
+
             if (loopHoldDuration > 0f)
             {
                 yield return new WaitForSeconds(loopHoldDuration);
@@ -396,13 +395,18 @@ namespace SlotMachine.Reels.Runtime
                 freeSpinManager?.HandleCompletedSpin(lastOutcome);
             }
 
-            float totalWin = lastPaylineEvaluation != null
-                ? lastPaylineEvaluation.TotalWin
-                : 0f;
+            float totalWin = lastPaylineEvaluation != null ? lastPaylineEvaluation.TotalWin : 0f;
 
-            if (betManager != null && totalWin > 0f)
+            bool isFreeSpinSpin = freeSpinManager != null && freeSpinManager.CurrentSpinUsesFreeSpin;
+
+            if (totalWin > 0f)
             {
-                betManager.AddWin(totalWin);
+                if (isFreeSpinSpin)
+                {
+                    freeSpinManager.AddFreeSpinWin(totalWin);
+                }
+                if (betManager != null)
+                    betManager.AddWin(totalWin);
             }
 
             isSpinInProgress = false;
