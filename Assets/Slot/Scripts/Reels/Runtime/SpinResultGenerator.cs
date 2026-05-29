@@ -21,6 +21,10 @@ namespace SlotMachine.Reels.Runtime
         [Header("References")]
         [SerializeField] private FreeSpinManager freeSpinManager;
 
+        [Header("Reel Sets")]
+        [SerializeField] private List<ReelStripDefinition> baseGameReelStrips = new List<ReelStripDefinition>();
+        [SerializeField] private List<ReelStripDefinition> freeGameReelStrips = new List<ReelStripDefinition>();
+
         [Header("Deterministic Testing")]
         [SerializeField] private bool useFixedSeed;
         [SerializeField] private int fixedSeed = 12345;
@@ -263,6 +267,31 @@ namespace SlotMachine.Reels.Runtime
             );
         }
 
+        public void ApplyReelSetToReels(IReadOnlyList<ReelController> reels,bool isFreeSpinSpin)
+        {
+            if (reels == null)
+            {
+                return;
+            }
+
+            List<ReelStripDefinition> selectedSet = isFreeSpinSpin
+                ? freeGameReelStrips
+                : baseGameReelStrips;
+
+            for (int i = 0; i < reels.Count; i++)
+            {
+                if (reels[i] == null)
+                {
+                    continue;
+                }
+
+                if (selectedSet != null && i < selectedSet.Count && selectedSet[i] != null)
+                {
+                    reels[i].SetReelStrip(selectedSet[i]);
+                }
+            }
+        }
+
         private int ResolveFeatureBuyScatterCount()
         {
             int roll = _random.Next(0, 100);
@@ -303,10 +332,7 @@ namespace SlotMachine.Reels.Runtime
             return validStops[randomIndex];
         }
 
-        private int ResolveStopIndex(
-            int reelListIndex,
-            ReelStripDefinition strip,
-            bool isFreeSpinSpin)
+        private int ResolveStopIndex(int reelListIndex,ReelStripDefinition strip,bool isFreeSpinSpin)
         {
             if (useForcedStops && reelListIndex < forcedStopIndices.Count)
             {

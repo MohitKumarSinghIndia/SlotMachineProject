@@ -1024,7 +1024,7 @@ MonoBehaviour:
   - matchCount: 3
     multiplier: 2
   - matchCount: 3
-    multiplier: 3
+    multiplier: 6
 --- !u!114 &3820981981572138021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1101,9 +1101,10 @@ MonoBehaviour:
       loop: 0
       objectsToEnable:
       - {fileID: 2764986968411812488}
+      - {fileID: 253055017985509359}
       objectsToDisable:
       - {fileID: 6236121044260864452}
-      - {fileID: 253055017985509359}
+      - {fileID: 6236121044260864452}
       audioClip: {fileID: 0}
       audioSource: {fileID: 0}
       sequencePlayerTarget: {fileID: 0}
@@ -1211,11 +1212,11 @@ MonoBehaviour:
   initialPoolCount: 18
   paytable:
   - matchCount: 3
-    multiplier: 1
+    multiplier: 7
   - matchCount: 3
-    multiplier: 2
+    multiplier: 18
   - matchCount: 3
-    multiplier: 3
+    multiplier: 50
 --- !u!114 &9090548347930669896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1402,11 +1403,11 @@ MonoBehaviour:
   initialPoolCount: 18
   paytable:
   - matchCount: 3
-    multiplier: 1
-  - matchCount: 3
     multiplier: 2
   - matchCount: 3
-    multiplier: 3
+    multiplier: 4
+  - matchCount: 3
+    multiplier: 12
 --- !u!114 &5540496677215955352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1593,11 +1594,11 @@ MonoBehaviour:
   initialPoolCount: 18
   paytable:
   - matchCount: 3
-    multiplier: 1
+    multiplier: 5
   - matchCount: 3
-    multiplier: 2
+    multiplier: 12
   - matchCount: 3
-    multiplier: 3
+    multiplier: 30
 --- !u!114 &6856818302229926142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1784,11 +1785,11 @@ MonoBehaviour:
   initialPoolCount: 18
   paytable:
   - matchCount: 3
-    multiplier: 1
+    multiplier: 15
   - matchCount: 3
-    multiplier: 2
+    multiplier: 40
   - matchCount: 3
-    multiplier: 3
+    multiplier: 100
 --- !u!114 &2763487713994699480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3191,11 +3192,11 @@ MonoBehaviour:
   initialPoolCount: 18
   paytable:
   - matchCount: 3
-    multiplier: 1
-  - matchCount: 3
     multiplier: 2
   - matchCount: 3
-    multiplier: 3
+    multiplier: 4
+  - matchCount: 3
+    multiplier: 10
 --- !u!114 &7217316267258537547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3788,11 +3789,11 @@ MonoBehaviour:
   initialPoolCount: 18
   paytable:
   - matchCount: 3
-    multiplier: 1
+    multiplier: 4
   - matchCount: 3
-    multiplier: 2
+    multiplier: 10
   - matchCount: 3
-    multiplier: 3
+    multiplier: 25
 --- !u!114 &2525146131596198146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4762,11 +4763,11 @@ MonoBehaviour:
   initialPoolCount: 18
   paytable:
   - matchCount: 3
-    multiplier: 1
+    multiplier: 10
   - matchCount: 3
-    multiplier: 2
+    multiplier: 25
   - matchCount: 3
-    multiplier: 3
+    multiplier: 75
 --- !u!114 &7912670984315437780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5028,11 +5029,11 @@ MonoBehaviour:
   initialPoolCount: 18
   paytable:
   - matchCount: 3
-    multiplier: 1
-  - matchCount: 3
-    multiplier: 2
-  - matchCount: 3
     multiplier: 3
+  - matchCount: 3
+    multiplier: 8
+  - matchCount: 3
+    multiplier: 20
 --- !u!114 &4548743054861482312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6029,9 +6030,9 @@ MonoBehaviour:
   - matchCount: 3
     multiplier: 1
   - matchCount: 3
-    multiplier: 2
-  - matchCount: 3
     multiplier: 3
+  - matchCount: 3
+    multiplier: 8
 --- !u!114 &8768640635117183366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6849,11 +6850,11 @@ MonoBehaviour:
   initialPoolCount: 18
   paytable:
   - matchCount: 3
-    multiplier: 1
+    multiplier: 0.5
   - matchCount: 3
-    multiplier: 2
+    multiplier: 1.5
   - matchCount: 3
-    multiplier: 3
+    multiplier: 4
 --- !u!114 &3680834677572222135
 MonoBehaviour:
   m_ObjectHideFlags: 0

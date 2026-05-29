@@ -241,6 +241,16 @@ namespace SlotMachine.Reels.Runtime
         }
 
         // --- NEW HELPER METHODS FOR VISUALS & ANIMATIONS ---
+        public void SetReelStrip(ReelStripDefinition reelStrip)
+        {
+            if (reelStrip == null)
+            {
+                return;
+            }
+
+            ReelStrip = reelStrip;
+            currentTopIndex = Wrap(currentTopIndex, ReelStrip.Length);
+        }
 
         public Transform GetSymbolSlot(int rowIndex)
         {

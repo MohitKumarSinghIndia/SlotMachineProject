@@ -1,5 +1,5 @@
-using Spine;
 using Spine.Unity;
+using Spine;
 using UnityEngine;
 
 public class SpineAnimationController : MonoBehaviour
@@ -12,7 +12,7 @@ public class SpineAnimationController : MonoBehaviour
     }
 
     [Header("Reference")]
-    [SerializeField] private SkeletonGraphic skeletonGraphic;
+    [SerializeField] private SkeletonAnimation skeletonGraphic;
 
     [Header("Animation")]
     [SpineAnimation(dataField: nameof(skeletonGraphic))]
@@ -31,7 +31,7 @@ public class SpineAnimationController : MonoBehaviour
 
     private void Reset()
     {
-        skeletonGraphic = GetComponent<SkeletonGraphic>();
+        skeletonGraphic = GetComponent<SkeletonAnimation>();
     }
 
     private void OnEnable()
@@ -66,7 +66,6 @@ public class SpineAnimationController : MonoBehaviour
         TrackEntry entry = state.SetAnimation(0, animationName, loop);
         entry.TimeScale = ResolveTimeScale(animation);
 
-        skeletonGraphic.SetVerticesDirty();
     }
 
     public void Play(string targetAnimation, bool shouldLoop = false, float speed = 1f, float targetDuration = -1f)
@@ -87,7 +86,6 @@ public class SpineAnimationController : MonoBehaviour
         skeletonGraphic.AnimationState.ClearTracks();
         skeletonGraphic.Skeleton.SetToSetupPose();
         skeletonGraphic.Update(0f);
-        skeletonGraphic.SetVerticesDirty();
     }
 
     private float ResolveTimeScale(Spine.Animation animation)

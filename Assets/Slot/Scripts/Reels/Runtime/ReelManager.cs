@@ -147,6 +147,11 @@ namespace SlotMachine.Reels.Runtime
 
             pendingFeatureBuy = false;
 
+            if (spinResultGenerator != null)
+            {
+                spinResultGenerator.ApplyReelSetToReels(reels, request.IsFreeSpin);
+            }
+
             SpinOutcome outcome = ResolveNextOutcome(request);
 
             if (outcome == null)

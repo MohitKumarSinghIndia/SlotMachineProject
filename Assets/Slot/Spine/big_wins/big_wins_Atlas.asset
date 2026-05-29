@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
+  m_Name: big_wins_Atlas
+  m_EditorClassIdentifier: spine-unity::Spine.Unity.SpineAtlasAsset
+  textureLoadingMode: 0
+  onDemandTextureLoader: {fileID: 0}
+  atlasFile: {fileID: 4900000, guid: 694a332fe7554fb4ea61bf3f7a7fb398, type: 3}
+  materials:
+  - {fileID: 2100000, guid: cb6ed626644daca49ba1949b37fa1432, type: 2}
+  - {fileID: 2100000, guid: 50fb94cfa6d5acc4da77002fe492da47, type: 2}
