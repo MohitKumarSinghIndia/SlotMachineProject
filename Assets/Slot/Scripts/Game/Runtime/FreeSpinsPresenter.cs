@@ -168,6 +168,7 @@ namespace SlotMachine.Reels.Runtime
         private IEnumerator EndFreeSpinRoutine()
         {
             currentBannerMode = BannerMode.End;
+
             float totalWin = freeSpinManager != null ? freeSpinManager.TotalFreeSpinWin : 0f;
 
             if (bannerSequencePlayer != null)
@@ -224,6 +225,16 @@ namespace SlotMachine.Reels.Runtime
             if (bannerSequencePlayer != null)
             {
                 bannerSequencePlayer.PlaySequenceById(hideBannerId);
+            }
+
+            if (freeSpinWinText != null)
+            {
+                freeSpinWinText.gameObject.SetActive(false);
+            }
+
+            if(freeSpinWinAmountText != null)
+            {
+                freeSpinWinAmountText.gameObject.SetActive(false);
             }
         }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SlotMachine.Reels.Runtime
 {
@@ -57,10 +58,28 @@ namespace SlotMachine.Reels.Runtime
         public SpinOutcome LastOutcome => lastOutcome;
         public PaylineEvaluationResult LastPaylineEvaluation => lastPaylineEvaluation;
 
+        [Header("Auto Spin")]
+        [SerializeField] private Button autoSpinButton;
+        [SerializeField] private Button stopAutoSpinButton;
+        [SerializeField] private bool isAutoSpinEnabled;
+        private Coroutine autoSpinCoroutine;
+
         private void Awake()
         {
             CacheLocalReferences();
             ApplySharedReelSettings();
+
+            SetAutoSpinUI(false);
+        }
+
+        private void OnEnable()
+        {
+            SubscribeButtons();
+        }
+
+        private void OnDisable()
+        {
+            UnSubscribeButtons();
         }
 
         private void OnValidate()
@@ -135,6 +154,12 @@ namespace SlotMachine.Reels.Runtime
 
             if (!pendingFeatureBuy && !isFreeSpinSpin && betManager != null && !betManager.TrySpendCurrentBet())
             {
+                if (isAutoSpinEnabled)
+                {
+                    Debug.Log("AUTO SPIN STOPPED - INSUFFICIENT BALANCE");
+
+                    StopAutoSpin();
+                }
                 isSpinInProgress = false;
                 return;
             }
@@ -388,6 +413,13 @@ namespace SlotMachine.Reels.Runtime
 
         private IEnumerator RunFreeGamePhase()
         {
+            if (isAutoSpinEnabled)
+            {
+                Debug.Log("AUTO SPIN STOPPED - FREE SPIN STARTED");
+
+                StopAutoSpin();
+            }
+
             freeSpinManager?.HandleCompletedSpin(lastOutcome);
 
             GameEvent.onFreeGamePhase?.Invoke();
@@ -552,6 +584,17 @@ namespace SlotMachine.Reels.Runtime
                 }
             }
         }
+        private void SubscribeButtons()
+        {
+            autoSpinButton.onClick.AddListener(OnAutoSpinButtonClick);
+            stopAutoSpinButton.onClick.AddListener(OnStopAutoSpinButtonClick);
+        }
+
+        private void UnSubscribeButtons()
+        {
+            autoSpinButton.onClick.RemoveListener(OnAutoSpinButtonClick);
+            stopAutoSpinButton.onClick.RemoveListener(OnStopAutoSpinButtonClick);
+        }
 
         private void StopAllReels()
         {
@@ -624,5 +667,94 @@ namespace SlotMachine.Reels.Runtime
             public int StopIndex { get; }
             public IReadOnlyList<int> VisibleSymbolIds { get; }
         }
+
+        #region AutoSpin
+
+        public void OnAutoSpinButtonClick()
+        {
+            StartAutoSpin();
+        }
+
+        public void OnStopAutoSpinButtonClick()
+        {
+            StopAutoSpin();
+        }
+
+        private void SetAutoSpinUI(bool isAutoSpinRunning)
+        {
+            if (autoSpinButton != null)
+                autoSpinButton.gameObject.SetActive(!isAutoSpinRunning);
+
+            if (stopAutoSpinButton != null)
+                stopAutoSpinButton.gameObject.SetActive(isAutoSpinRunning);
+        }
+
+        private void StartAutoSpin()
+        {
+            if (freeSpinManager != null && freeSpinManager.IsFreeSpinActive)
+            {
+                Debug.Log("AUTO SPIN NOT ALLOWED - FREE SPINS ACTIVE");
+
+                return;
+            }
+
+            if (isAutoSpinEnabled)
+                return;
+
+            Debug.Log("AUTO SPIN STARTED");
+
+            isAutoSpinEnabled = true;
+
+            SetAutoSpinUI(true);
+
+            autoSpinCoroutine = StartCoroutine(AutoSpinRoutine());
+        }
+
+        private void StopAutoSpin()
+        {
+            if (!isAutoSpinEnabled)
+            {
+                SetAutoSpinUI(false);
+                return;
+            }
+
+            Debug.Log("AUTO SPIN STOPPED");
+
+            isAutoSpinEnabled = false;
+
+            if (autoSpinCoroutine != null)
+            {
+                StopCoroutine(autoSpinCoroutine);
+                autoSpinCoroutine = null;
+            }
+
+            SetAutoSpinUI(false);
+        }
+
+        private IEnumerator AutoSpinRoutine()
+        {
+            while (isAutoSpinEnabled)
+            {
+                while (isSpinInProgress)
+                {
+                    yield return null;
+                }
+
+                StartSpin();
+
+                yield return null;
+
+                while (isSpinInProgress)
+                {
+                    yield return null;
+                }
+
+                yield return new WaitForSeconds(0.2f);
+            }
+
+            autoSpinCoroutine = null;
+        }
+
+        #endregion
     }
 }
