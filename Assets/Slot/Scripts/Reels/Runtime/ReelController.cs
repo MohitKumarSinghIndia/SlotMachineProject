@@ -193,6 +193,11 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private int looperBufferRows = 2;
         [SerializeField] private float symbolStepHeight = 172f;
 
+        [Header("Anticipation")]
+        [SerializeField] private bool isAnticipating;
+        [SerializeField] private float anticipationLoopStepDurationMultiplier = 1.8f;
+        [SerializeField] private GameObject anticipationFx;
+
         [Header("Debug State")]
         [SerializeField] private ReelSpinPhase currentPhase = ReelSpinPhase.Idle;
         [SerializeField] private int currentTopIndex;
@@ -211,6 +216,7 @@ namespace SlotMachine.Reels.Runtime
         public ReelSpinPhase CurrentPhase => currentPhase;
         public bool IsSpinning => currentPhase != ReelSpinPhase.Idle;
         public ReelTimingProfile TimingProfile => timingProfile;
+        public bool IsAnticipating => isAnticipating;
 
         private void Awake()
         {
@@ -417,6 +423,31 @@ namespace SlotMachine.Reels.Runtime
             RestoreIdlePresentation();
         }
 
+        public void EnterAnticipation()
+        {
+            if (isAnticipating)
+            {
+                return;
+            }
+
+            isAnticipating = true;
+
+            if (anticipationFx != null)
+            {
+                anticipationFx.SetActive(true);
+            }
+        }
+
+        public void ExitAnticipation()
+        {
+            isAnticipating = false;
+
+            if (anticipationFx != null)
+            {
+                anticipationFx.SetActive(false);
+            }
+        }
+
         public void ApplyTimingProfile(ReelTimingProfile sharedProfile)
         {
             EnsureTimingProfile();
@@ -439,7 +470,7 @@ namespace SlotMachine.Reels.Runtime
             SetRootPosition(looperRoot, Vector2.zero);
 
             _activeTween = ApplyConfiguredEase(
-                looperRoot.DOAnchorPosY(-symbolStepHeight, timingProfile.LoopStepDuration),
+                looperRoot.DOAnchorPosY(-symbolStepHeight, GetCurrentLoopStepDuration()),
                 timingProfile.LoopCurve,
                 timingProfile.LoopEase)
                 .OnComplete(() =>
@@ -457,6 +488,16 @@ namespace SlotMachine.Reels.Runtime
 
                     PlayLoopStep();
                 });
+        }
+
+        private float GetCurrentLoopStepDuration()
+        {
+            if (!isAnticipating)
+            {
+                return timingProfile.LoopStepDuration;
+            }
+
+            return timingProfile.LoopStepDuration * anticipationLoopStepDurationMultiplier;
         }
 
         private void PlayStopPhase()
@@ -519,6 +560,7 @@ namespace SlotMachine.Reels.Runtime
                 }
                 // ---------------------------------
 
+                ExitAnticipation();
                 _pendingFinalSymbols.Clear();
 
                 _onStopped?.Invoke(this);

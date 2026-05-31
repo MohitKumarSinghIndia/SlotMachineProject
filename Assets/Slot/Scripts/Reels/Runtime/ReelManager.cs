@@ -64,6 +64,14 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private bool isAutoSpinEnabled;
         private Coroutine autoSpinCoroutine;
 
+        [Header("Scatter Anticipation")]
+        [SerializeField] private int anticipationTriggerScatterCount = 2;
+        [SerializeField] private float anticipationExtraDelay = 1.5f;
+        [SerializeField] private bool enableFakeAnticipation = true;
+
+        private readonly HashSet<int> anticipationReelIndexes = new HashSet<int>();
+        private bool anticipationPrepared;
+
         private void Awake()
         {
             CacheLocalReferences();
@@ -179,6 +187,8 @@ namespace SlotMachine.Reels.Runtime
 
             SpinOutcome outcome = ResolveNextOutcome(request);
 
+            PrepareScatterAnticipation(outcome);
+
             if (outcome == null)
             {
                 isSpinInProgress = false;
@@ -274,7 +284,6 @@ namespace SlotMachine.Reels.Runtime
 
         private IEnumerator RunSpinStopPhase(IReadOnlyList<SpinCommand> commands)
         {
-
             if (loopHoldDuration > 0f)
             {
                 yield return new WaitForSeconds(loopHoldDuration);
@@ -284,10 +293,19 @@ namespace SlotMachine.Reels.Runtime
             {
                 SpinCommand command = commands[i];
 
-                command.Reel.StopSpin(
-                    command.Reel.ReelIndex,
-                    command.StopIndex,
-                    command.VisibleSymbolIds
+                bool shouldAnticipateThisReel = anticipationPrepared && command.Reel != null && anticipationReelIndexes.Contains(command.Reel.ReelIndex);
+
+                if (shouldAnticipateThisReel)
+                {
+                    command.Reel.EnterAnticipation();
+
+                    if (anticipationExtraDelay > 0f)
+                    {
+                        yield return new WaitForSeconds(anticipationExtraDelay);
+                    }
+                }
+
+                command.Reel.StopSpin(command.Reel.ReelIndex, command.StopIndex, command.VisibleSymbolIds
                 );
 
                 if (i < commands.Count - 1 && reelStopDelay > 0f)
@@ -529,6 +547,100 @@ namespace SlotMachine.Reels.Runtime
             }
 
             return spinResultGenerator.GenerateOutcome(reels, request);
+        }
+
+        private void PrepareScatterAnticipation(SpinOutcome outcome)
+        {
+            anticipationReelIndexes.Clear();
+            anticipationPrepared = false;
+
+            if (outcome == null || outcome.Reels == null)
+            {
+                return;
+            }
+
+            int scatterCountSoFar = 0;
+            List<int> fakeAnticipationCandidates = new List<int>();
+
+            for (int i = 0; i < outcome.Reels.Count; i++)
+            {
+                ReelOutcome reelOutcome = outcome.Reels[i];
+
+                if (reelOutcome == null)
+                {
+                    continue;
+                }
+
+                bool reelHasScatter = ReelHasScatter(reelOutcome);
+
+                // If already 2 scatters appeared before this reel,
+                // then every upcoming scatter reel should anticipate.
+                if (scatterCountSoFar >= anticipationTriggerScatterCount)
+                {
+                    if (reelHasScatter)
+                    {
+                        anticipationReelIndexes.Add(reelOutcome.ReelIndex);
+                    }
+                    else
+                    {
+                        fakeAnticipationCandidates.Add(reelOutcome.ReelIndex);
+                    }
+                }
+
+                if (reelHasScatter)
+                {
+                    scatterCountSoFar += CountScatter(reelOutcome.VisibleSymbolIds);
+                }
+            }
+
+            // Fake anticipation only if no real anticipation reel was found
+            // but 2 scatters appeared already.
+            if (anticipationReelIndexes.Count == 0 &&
+                enableFakeAnticipation &&
+                scatterCountSoFar >= anticipationTriggerScatterCount &&
+                fakeAnticipationCandidates.Count > 0)
+            {
+                int randomIndex = Random.Range(0, fakeAnticipationCandidates.Count);
+                anticipationReelIndexes.Add(fakeAnticipationCandidates[randomIndex]);
+            }
+
+            anticipationPrepared = anticipationReelIndexes.Count > 0;
+        }
+        private bool ReelHasScatter(ReelOutcome reelOutcome)
+        {
+            if (reelOutcome == null || reelOutcome.VisibleSymbolIds == null)
+            {
+                return false;
+            }
+
+            for (int i = 0; i < reelOutcome.VisibleSymbolIds.Count; i++)
+            {
+                if (reelOutcome.VisibleSymbolIds[i] == scatterSymbolId)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        private int CountScatter(IReadOnlyList<int> symbols)
+        {
+            if (symbols == null)
+            {
+                return 0;
+            }
+
+            int count = 0;
+
+            for (int i = 0; i < symbols.Count; i++)
+            {
+                if (symbols[i] == scatterSymbolId)
+                {
+                    count++;
+                }
+            }
+
+            return count;
         }
 
         private void CacheLocalReferences()

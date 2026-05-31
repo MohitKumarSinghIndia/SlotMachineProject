@@ -1,0 +1,12 @@
+tail.png
+size:220,137
+filter:Linear,Linear
+pma:true
+finger_1
+bounds:153,23,54,36
+finger_2
+bounds:153,61,64,36
+finger_3
+bounds:153,99,65,36
+tale
+bounds:2,2,149,133

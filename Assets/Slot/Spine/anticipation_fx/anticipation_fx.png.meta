@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: b1f06651bda298248bca0315d03159dc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4010558691322592253
+    second: anticipation_fx_0
+  - first:
+      213: 9221182364992887881
+    second: anticipation_fx_1
+  - first:
+      213: 4324106533292281107
+    second: anticipation_fx_2
+  - first:
+      213: 7974390416226812804
+    second: anticipation_fx_3
+  - first:
+      213: -2127266950185918151
+    second: anticipation_fx_4
+  - first:
+      213: -6945860188249385390
+    second: anticipation_fx_5
+  - first:
+      213: -5546018177293777532
+    second: anticipation_fx_6
+  - first:
+      213: 1251847025318536293
+    second: anticipation_fx_7
+  - first:
+      213: -6696583416702423343
+    second: anticipation_fx_8
+  - first:
+      213: -472720776210997400
+    second: anticipation_fx_9
+  - first:
+      213: 3309457506529544800
+    second: anticipation_fx_10
+  - first:
+      213: 5288562663351796312
+    second: anticipation_fx_11
+  - first:
+      213: 2556435672721396294
+    second: anticipation_fx_12
+  - first:
+      213: 6360272663288455585
+    second: anticipation_fx_13
+  - first:
+      213: -6628461915323603038
+    second: anticipation_fx_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 0
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: anticipation_fx_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1257
+        width: 656
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3048cdc7e12a758c0800000000000000
+      internalID: -4010558691322592253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anticipation_fx_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 943
+        width: 656
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94c5f7a418838ff70800000000000000
+      internalID: 9221182364992887881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anticipation_fx_2
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 1257
+        width: 656
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31d05df5bff420c30800000000000000
+      internalID: 4324106533292281107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anticipation_fx_3
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 943
+        width: 656
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4838a7b55d9baae60800000000000000
+      internalID: 7974390416226812804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anticipation_fx_4
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 1257
+        width: 656
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9316db3cafd6a72e0800000000000000
+      internalID: -2127266950185918151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anticipation_fx_5
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 943
+        width: 656
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2561ed3a5f85b9f90800000000000000
+      internalID: -6945860188249385390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anticipation_fx_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 629
+        width: 656
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4858b801ad59803b0800000000000000
+      internalID: -5546018177293777532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anticipation_fx_7
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 315
+        width: 656
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 564ad39ac347f5110800000000000000
+      internalID: 1251847025318536293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anticipation_fx_8
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 629
+        width: 656
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1de2eaeccd4f013a0800000000000000
+      internalID: -6696583416702423343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anticipation_fx_9
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 315
+        width: 656
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86f1ff765fe8079f0800000000000000
+      internalID: -472720776210997400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anticipation_fx_10
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 629
+        width: 651
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06a81f3611e8ded20800000000000000
+      internalID: 3309457506529544800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anticipation_fx_11
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 315
+        width: 656
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8524a79e8bfb46940800000000000000
+      internalID: 5288562663351796312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anticipation_fx_12
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 654
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64212b323b84a7320800000000000000
+      internalID: 2556435672721396294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anticipation_fx_13
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1
+        width: 655
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a1afe10a4a344850800000000000000
+      internalID: 6360272663288455585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anticipation_fx_14
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 1
+        width: 656
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a76ee1d109f204a0800000000000000
+      internalID: -6628461915323603038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      anticipation_fx_0: -4010558691322592253
+      anticipation_fx_1: 9221182364992887881
+      anticipation_fx_10: 3309457506529544800
+      anticipation_fx_11: 5288562663351796312
+      anticipation_fx_12: 2556435672721396294
+      anticipation_fx_13: 6360272663288455585
+      anticipation_fx_14: -6628461915323603038
+      anticipation_fx_2: 4324106533292281107
+      anticipation_fx_3: 7974390416226812804
+      anticipation_fx_4: -2127266950185918151
+      anticipation_fx_5: -6945860188249385390
+      anticipation_fx_6: -5546018177293777532
+      anticipation_fx_7: 1251847025318536293
+      anticipation_fx_8: -6696583416702423343
+      anticipation_fx_9: -472720776210997400
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
