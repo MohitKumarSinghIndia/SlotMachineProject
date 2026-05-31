@@ -25,6 +25,7 @@ namespace SlotMachine.Reels.Runtime
 
         [Header("Free Spin State UI")]
         [SerializeField] private TMP_Text freeSpinsLeftText;
+        [SerializeField] private TMP_Text freeSpinsMultiplierText;
         [SerializeField] private TMP_Text freeSpinWinText;
         [SerializeField] private TMP_Text freeSpinWinAmountText;
 
@@ -48,6 +49,7 @@ namespace SlotMachine.Reels.Runtime
 
         [Header("Text Format")]
         [SerializeField] private string freeSpinsLeftFormat = "Spins Left {0}";
+        [SerializeField] private string freeSpinsMultiplierFormat = "{0}x";
         [SerializeField] private string freeSpinWinFormat = "{0} Free Spins";
         [SerializeField] private string freeSpinWinAmountFormat = "Win Amount {0}";
 
@@ -248,6 +250,11 @@ namespace SlotMachine.Reels.Runtime
             if (freeSpinsLeftText != null)
             {
                 freeSpinsLeftText.text = string.Format(freeSpinsLeftFormat,freeSpinManager.RemainingSpins);
+            }
+
+            if (freeSpinsMultiplierText != null)
+            {
+                freeSpinsMultiplierText.text = string.Format(freeSpinsMultiplierFormat,freeSpinManager.CurrentMultiplier);
             }
 
             if (freeSpinWinText != null)
