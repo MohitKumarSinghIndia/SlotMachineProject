@@ -1,0 +1,1885 @@
+fileFormatVersion: 2
+guid: 52c8904f041624e4fa779005d02647ce
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -490368748050060589
+    second: wishing_dragon_0
+  - first:
+      213: 961725027329016043
+    second: wishing_dragon_1
+  - first:
+      213: -8772160392702261013
+    second: wishing_dragon_2
+  - first:
+      213: -76842749425541830
+    second: wishing_dragon_3
+  - first:
+      213: 8399028673076936081
+    second: wishing_dragon_4
+  - first:
+      213: -2142742252925231002
+    second: wishing_dragon_5
+  - first:
+      213: -5877890268083350968
+    second: wishing_dragon_6
+  - first:
+      213: -7500251666176112721
+    second: wishing_dragon_7
+  - first:
+      213: -704611831104513788
+    second: wishing_dragon_8
+  - first:
+      213: -8763080641927024862
+    second: wishing_dragon_9
+  - first:
+      213: 4221131132369118847
+    second: wishing_dragon_10
+  - first:
+      213: -260777513551501760
+    second: wishing_dragon_11
+  - first:
+      213: -2370198647024484786
+    second: wishing_dragon_12
+  - first:
+      213: -5187305140542018855
+    second: wishing_dragon_13
+  - first:
+      213: -1798485618182261473
+    second: wishing_dragon_14
+  - first:
+      213: 2490331657582327372
+    second: wishing_dragon_15
+  - first:
+      213: 8121343671186918614
+    second: wishing_dragon_16
+  - first:
+      213: -4697651479232759593
+    second: wishing_dragon_17
+  - first:
+      213: 9110544285600949096
+    second: wishing_dragon_18
+  - first:
+      213: -5302624220745837030
+    second: wishing_dragon_19
+  - first:
+      213: 2805510778921851115
+    second: wishing_dragon_20
+  - first:
+      213: 4839352863167736900
+    second: wishing_dragon_21
+  - first:
+      213: -1662543576737485267
+    second: wishing_dragon_22
+  - first:
+      213: -378117604096345194
+    second: wishing_dragon_23
+  - first:
+      213: -3484476317743337971
+    second: wishing_dragon_24
+  - first:
+      213: 5911504897890986294
+    second: wishing_dragon_25
+  - first:
+      213: 6356874808609694211
+    second: wishing_dragon_26
+  - first:
+      213: 5422861815831549829
+    second: wishing_dragon_27
+  - first:
+      213: -7568493376268916479
+    second: wishing_dragon_28
+  - first:
+      213: -4982169477188265556
+    second: wishing_dragon_29
+  - first:
+      213: -790187788541746551
+    second: wishing_dragon_30
+  - first:
+      213: 5881975912377060611
+    second: wishing_dragon_31
+  - first:
+      213: -8101040236968784354
+    second: wishing_dragon_32
+  - first:
+      213: 2294969912042044986
+    second: wishing_dragon_33
+  - first:
+      213: 8643415372281629689
+    second: wishing_dragon_34
+  - first:
+      213: 2774830768918233866
+    second: wishing_dragon_35
+  - first:
+      213: 4017647253335738977
+    second: wishing_dragon_36
+  - first:
+      213: 5697840629937705407
+    second: wishing_dragon_37
+  - first:
+      213: -7160921734774339616
+    second: wishing_dragon_38
+  - first:
+      213: -7607940091666133361
+    second: wishing_dragon_39
+  - first:
+      213: 3253765752578510752
+    second: wishing_dragon_40
+  - first:
+      213: -2214869135603034497
+    second: wishing_dragon_41
+  - first:
+      213: 3477983759148744428
+    second: wishing_dragon_42
+  - first:
+      213: 2230984089501294465
+    second: wishing_dragon_43
+  - first:
+      213: -4275427723079136370
+    second: wishing_dragon_44
+  - first:
+      213: 7518793185681162350
+    second: wishing_dragon_45
+  - first:
+      213: -3264847684636437506
+    second: wishing_dragon_46
+  - first:
+      213: -7611195236656361259
+    second: wishing_dragon_47
+  - first:
+      213: -7307467265622390223
+    second: wishing_dragon_48
+  - first:
+      213: 7500870834549581515
+    second: wishing_dragon_49
+  - first:
+      213: -6873916082803400509
+    second: wishing_dragon_50
+  - first:
+      213: 1599726278618667346
+    second: wishing_dragon_51
+  - first:
+      213: -2876480584736472432
+    second: wishing_dragon_52
+  - first:
+      213: -5004862178816119619
+    second: wishing_dragon_53
+  - first:
+      213: -8674878525273512782
+    second: wishing_dragon_54
+  - first:
+      213: -2226745641279030296
+    second: wishing_dragon_55
+  - first:
+      213: -1443746844146032944
+    second: wishing_dragon_56
+  - first:
+      213: 5098856341477011013
+    second: wishing_dragon_57
+  - first:
+      213: -4926605758321545718
+    second: wishing_dragon_58
+  - first:
+      213: 4022097811384310487
+    second: wishing_dragon_59
+  - first:
+      213: 5125924912037511714
+    second: wishing_dragon_60
+  - first:
+      213: -8463327025146238794
+    second: wishing_dragon_61
+  - first:
+      213: -6155466453888934050
+    second: wishing_dragon_62
+  - first:
+      213: -182729261450866411
+    second: wishing_dragon_63
+  - first:
+      213: -8068914713696516779
+    second: wishing_dragon_64
+  - first:
+      213: 3893505150835997992
+    second: wishing_dragon_65
+  - first:
+      213: -1147501403597291397
+    second: wishing_dragon_66
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 0
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wishing_dragon_0
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 1572
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dae583c83cd139f0800000000000000
+      internalID: -490368748050060589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_1
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 1546
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be08c8121dbb85d00800000000000000
+      internalID: 961725027329016043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_2
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 1551
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be80b388996034680800000000000000
+      internalID: -8772160392702261013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_3
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 1522
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3d1de03deffeeef0800000000000000
+      internalID: -76842749425541830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_4
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 1524
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19d321504185f8470800000000000000
+      internalID: 8399028673076936081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_5
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 1506
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 660eb2116437342e0800000000000000
+      internalID: -2142742252925231002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_6
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 1500
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8429a2e81f98d6ea0800000000000000
+      internalID: -5877890268083350968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_7
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 1499
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa78a8ff8d0c9e790800000000000000
+      internalID: -7500251666176112721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_8
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 1508
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4095a76d547b836f0800000000000000
+      internalID: -704611831104513788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_9
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 1489
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22f66dfb598436680800000000000000
+      internalID: -8763080641927024862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_10
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 1466
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f76243f7668749a30800000000000000
+      internalID: 4221131132369118847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_11
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 1467
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0466a5bab38816cf0800000000000000
+      internalID: -260777513551501760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_12
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 1477
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4e7efc63ec5b1fd0800000000000000
+      internalID: -2370198647024484786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_13
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 1459
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9da6f6c457df208b0800000000000000
+      internalID: -5187305140542018855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_14
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 1439
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f15f89aebde7a07e0800000000000000
+      internalID: -1798485618182261473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_15
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 1413
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c46ba1fb27f6f8220800000000000000
+      internalID: 2490331657582327372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_16
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 1416
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dc86fb4a0fc4b070800000000000000
+      internalID: 8121343671186918614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_17
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 1341
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d83ebd6ed69eceb0800000000000000
+      internalID: -4697651479232759593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_18
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1296
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 863a5bd02c72f6e70800000000000000
+      internalID: 9110544285600949096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_19
+      rect:
+        serializedVersion: 2
+        x: 1057
+        y: 1298
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a16df01ad5b4966b0800000000000000
+      internalID: -5302624220745837030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_20
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 1292
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be89a2f603d2fe620800000000000000
+      internalID: 2805510778921851115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_21
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 1233
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44ce1eff9c5d82340800000000000000
+      internalID: 4839352863167736900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_22
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1184
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2e64fcec657de8e0800000000000000
+      internalID: -1662543576737485267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_23
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 1156
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69bf38cda08a0caf0800000000000000
+      internalID: -378117604096345194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_24
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 1162
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0ea5a42047a4afc0800000000000000
+      internalID: -3484476317743337971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_25
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 1140
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63926c65262e90250800000000000000
+      internalID: 5911504897890986294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_26
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 1068
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3026fc055f7283850800000000000000
+      internalID: 6356874808609694211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_27
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 1077
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5875ba60710e14b40800000000000000
+      internalID: 5422861815831549829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_28
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 1082
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1092896bf5f47f690800000000000000
+      internalID: -7568493376268916479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_29
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1050
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca95665d147cbdab0800000000000000
+      internalID: -4982169477188265556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_30
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 1051
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9822e169460b805f0800000000000000
+      internalID: -790187788541746551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_31
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 1066
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30d83a2ade9f0a150800000000000000
+      internalID: 5881975912377060611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_32
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 1046
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1e445c53d2539f80800000000000000
+      internalID: -8101040236968784354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_33
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 1034
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3eb979c9fe59df10800000000000000
+      internalID: 2294969912042044986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_34
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 1031
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fb4ffe7c7493f770800000000000000
+      internalID: 8643415372281629689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_35
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 1034
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a030235f1ed228620800000000000000
+      internalID: 2774830768918233866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_36
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 1014
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16a86e7f3ec81c730800000000000000
+      internalID: 4017647253335738977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_37
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 1022
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb1993e4ddbc21f40800000000000000
+      internalID: 5697840629937705407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_38
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 1021
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e7c6665f9b4f9c90800000000000000
+      internalID: -7160921734774339616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_39
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 1021
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8e89c39bca2b6690800000000000000
+      internalID: -7607940091666133361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_40
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 1019
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0af06c876b2b72d20800000000000000
+      internalID: 3253765752578510752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_41
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 999
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f76976c81443341e0800000000000000
+      internalID: -2214869135603034497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_42
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 988
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cee73a24dc7444030800000000000000
+      internalID: 3477983759148744428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_43
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 1001
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18fd54a853c06fe10800000000000000
+      internalID: 2230984089501294465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_44
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 355
+        width: 853
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8bc2075321aaa4c0800000000000000
+      internalID: -4275427723079136370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_45
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 399
+        width: 1093
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e60472ce09e185860800000000000000
+      internalID: 7518793185681162350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_46
+      rect:
+        serializedVersion: 2
+        x: 1804
+        y: 179
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef31d77245ee0b2d0800000000000000
+      internalID: -3264847684636437506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_47
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 76
+        width: 192
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d0d3f2124a9f5690800000000000000
+      internalID: -7611195236656361259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_48
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 105
+        width: 224
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13a48c01d39a69a90800000000000000
+      internalID: -7307467265622390223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_49
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 150
+        width: 193
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc66a6f5842781860800000000000000
+      internalID: 7500870834549581515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_50
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 162
+        width: 196
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c0a8a40eb1fa90a0800000000000000
+      internalID: -6873916082803400509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_51
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 165
+        width: 196
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2595cee139e533610800000000000000
+      internalID: 1599726278618667346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_52
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 169
+        width: 198
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 092897ff520b418d0800000000000000
+      internalID: -2876480584736472432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_53
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 169
+        width: 202
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbca0e18d582b8ab0800000000000000
+      internalID: -5004862178816119619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_54
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 170
+        width: 200
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b4686751f3ac9780800000000000000
+      internalID: -8674878525273512782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_55
+      rect:
+        serializedVersion: 2
+        x: 1602
+        y: 179
+        width: 202
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ebf96613a20911e0800000000000000
+      internalID: -2226745641279030296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_56
+      rect:
+        serializedVersion: 2
+        x: 1766
+        y: 1
+        width: 188
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0de951105e7c6fbe0800000000000000
+      internalID: -1443746844146032944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_57
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 77
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54e2c72e3d6c2c640800000000000000
+      internalID: 5098856341477011013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_58
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 1
+        width: 75
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0ea9d24a2e21abb0800000000000000
+      internalID: -4926605758321545718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_59
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 1
+        width: 167
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7da107346ac51d730800000000000000
+      internalID: 4022097811384310487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_60
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1
+        width: 105
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22242579c81f22740800000000000000
+      internalID: 5125924912037511714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_61
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 1
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b8e13849e83c8a80800000000000000
+      internalID: -8463327025146238794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_62
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 1
+        width: 150
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5fdd1d8fd3639aa0800000000000000
+      internalID: -6155466453888934050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_63
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 1
+        width: 164
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 511d62174b0d67df0800000000000000
+      internalID: -182729261450866411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_64
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 1
+        width: 164
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 555423f91d4750090800000000000000
+      internalID: -8068914713696516779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_65
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 1
+        width: 557
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82dbbb65e42880630800000000000000
+      internalID: 3893505150835997992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wishing_dragon_66
+      rect:
+        serializedVersion: 2
+        x: 1588
+        y: 1
+        width: 178
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b70425b9d814310f0800000000000000
+      internalID: -1147501403597291397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      wishing_dragon_0: -490368748050060589
+      wishing_dragon_1: 961725027329016043
+      wishing_dragon_10: 4221131132369118847
+      wishing_dragon_11: -260777513551501760
+      wishing_dragon_12: -2370198647024484786
+      wishing_dragon_13: -5187305140542018855
+      wishing_dragon_14: -1798485618182261473
+      wishing_dragon_15: 2490331657582327372
+      wishing_dragon_16: 8121343671186918614
+      wishing_dragon_17: -4697651479232759593
+      wishing_dragon_18: 9110544285600949096
+      wishing_dragon_19: -5302624220745837030
+      wishing_dragon_2: -8772160392702261013
+      wishing_dragon_20: 2805510778921851115
+      wishing_dragon_21: 4839352863167736900
+      wishing_dragon_22: -1662543576737485267
+      wishing_dragon_23: -378117604096345194
+      wishing_dragon_24: -3484476317743337971
+      wishing_dragon_25: 5911504897890986294
+      wishing_dragon_26: 6356874808609694211
+      wishing_dragon_27: 5422861815831549829
+      wishing_dragon_28: -7568493376268916479
+      wishing_dragon_29: -4982169477188265556
+      wishing_dragon_3: -76842749425541830
+      wishing_dragon_30: -790187788541746551
+      wishing_dragon_31: 5881975912377060611
+      wishing_dragon_32: -8101040236968784354
+      wishing_dragon_33: 2294969912042044986
+      wishing_dragon_34: 8643415372281629689
+      wishing_dragon_35: 2774830768918233866
+      wishing_dragon_36: 4017647253335738977
+      wishing_dragon_37: 5697840629937705407
+      wishing_dragon_38: -7160921734774339616
+      wishing_dragon_39: -7607940091666133361
+      wishing_dragon_4: 8399028673076936081
+      wishing_dragon_40: 3253765752578510752
+      wishing_dragon_41: -2214869135603034497
+      wishing_dragon_42: 3477983759148744428
+      wishing_dragon_43: 2230984089501294465
+      wishing_dragon_44: -4275427723079136370
+      wishing_dragon_45: 7518793185681162350
+      wishing_dragon_46: -3264847684636437506
+      wishing_dragon_47: -7611195236656361259
+      wishing_dragon_48: -7307467265622390223
+      wishing_dragon_49: 7500870834549581515
+      wishing_dragon_5: -2142742252925231002
+      wishing_dragon_50: -6873916082803400509
+      wishing_dragon_51: 1599726278618667346
+      wishing_dragon_52: -2876480584736472432
+      wishing_dragon_53: -5004862178816119619
+      wishing_dragon_54: -8674878525273512782
+      wishing_dragon_55: -2226745641279030296
+      wishing_dragon_56: -1443746844146032944
+      wishing_dragon_57: 5098856341477011013
+      wishing_dragon_58: -4926605758321545718
+      wishing_dragon_59: 4022097811384310487
+      wishing_dragon_6: -5877890268083350968
+      wishing_dragon_60: 5125924912037511714
+      wishing_dragon_61: -8463327025146238794
+      wishing_dragon_62: -6155466453888934050
+      wishing_dragon_63: -182729261450866411
+      wishing_dragon_64: -8068914713696516779
+      wishing_dragon_65: 3893505150835997992
+      wishing_dragon_66: -1147501403597291397
+      wishing_dragon_7: -7500251666176112721
+      wishing_dragon_8: -704611831104513788
+      wishing_dragon_9: -8763080641927024862
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
