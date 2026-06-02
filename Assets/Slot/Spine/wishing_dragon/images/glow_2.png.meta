@@ -1,0 +1,1287 @@
+fileFormatVersion: 2
+guid: d0081304278fd574793cb3f2ec51b5c6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8632255838157183491
+    second: glow_2_0
+  - first:
+      213: -3134654616901693571
+    second: glow_2_1
+  - first:
+      213: 3715482916837997640
+    second: glow_2_2
+  - first:
+      213: 8138281408248143261
+    second: glow_2_3
+  - first:
+      213: 6212534420723516504
+    second: glow_2_4
+  - first:
+      213: 4983008828940129078
+    second: glow_2_5
+  - first:
+      213: 7980060570864125828
+    second: glow_2_6
+  - first:
+      213: -1383013265967233317
+    second: glow_2_7
+  - first:
+      213: 8336553419332175
+    second: glow_2_8
+  - first:
+      213: 6076032930536277862
+    second: glow_2_9
+  - first:
+      213: -2609077905000150961
+    second: glow_2_10
+  - first:
+      213: 1522891437658510382
+    second: glow_2_11
+  - first:
+      213: 2111106923512066222
+    second: glow_2_12
+  - first:
+      213: 2816505676202587611
+    second: glow_2_13
+  - first:
+      213: -7258865307011479604
+    second: glow_2_14
+  - first:
+      213: -4872342757968474495
+    second: glow_2_15
+  - first:
+      213: 7945786571315971285
+    second: glow_2_16
+  - first:
+      213: -2030228844966212599
+    second: glow_2_17
+  - first:
+      213: -1412738929564112026
+    second: glow_2_18
+  - first:
+      213: -869660290160602814
+    second: glow_2_19
+  - first:
+      213: -8242336133205276168
+    second: glow_2_20
+  - first:
+      213: 1076067431530121824
+    second: glow_2_21
+  - first:
+      213: 8877631007789523674
+    second: glow_2_22
+  - first:
+      213: -5212320808952721148
+    second: glow_2_23
+  - first:
+      213: 4458265550651782903
+    second: glow_2_24
+  - first:
+      213: 4907938170270758523
+    second: glow_2_25
+  - first:
+      213: 7370024112157060131
+    second: glow_2_26
+  - first:
+      213: -4637000236878415958
+    second: glow_2_27
+  - first:
+      213: 759885430350433970
+    second: glow_2_28
+  - first:
+      213: -533578931398555663
+    second: glow_2_29
+  - first:
+      213: 4122491072260443669
+    second: glow_2_30
+  - first:
+      213: -1812994488765268735
+    second: glow_2_31
+  - first:
+      213: 9164284380326554009
+    second: glow_2_32
+  - first:
+      213: -3671696588446617759
+    second: glow_2_33
+  - first:
+      213: -6228811142619379320
+    second: glow_2_34
+  - first:
+      213: 8480781189116428154
+    second: glow_2_35
+  - first:
+      213: -6627751533518330643
+    second: glow_2_36
+  - first:
+      213: 8791036565607081198
+    second: glow_2_37
+  - first:
+      213: 8029206573985934892
+    second: glow_2_38
+  - first:
+      213: 4953851280700165688
+    second: glow_2_39
+  - first:
+      213: 8657076904195782910
+    second: glow_2_40
+  - first:
+      213: -5256472824291933278
+    second: glow_2_41
+  - first:
+      213: 7552372320055045871
+    second: glow_2_42
+  - first:
+      213: 8417113184564126229
+    second: glow_2_43
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: glow_2_0
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 585
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30a96abf2feebc770800000000000000
+      internalID: 8632255838157183491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_1
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 559
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7f490aeb387f74d0800000000000000
+      internalID: -3134654616901693571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_2
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 564
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84c3923070c009330800000000000000
+      internalID: 3715482916837997640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_3
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 535
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9ddbc482dbf0f070800000000000000
+      internalID: 8138281408248143261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_4
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 537
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 854cc16e32b573650800000000000000
+      internalID: 6212534420723516504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_5
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 519
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6339c99f024372540800000000000000
+      internalID: 4983008828940129078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_6
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 513
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 487057c1fcedebe60800000000000000
+      internalID: 7980060570864125828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_7
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 512
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd6ce5a13cc8ecce0800000000000000
+      internalID: -1383013265967233317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_8
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 521
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4ad5391d0e9d1000800000000000000
+      internalID: 8336553419332175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_9
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 502
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 667c03412c7625450800000000000000
+      internalID: 6076032930536277862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_10
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 479
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4845290871bacbd0800000000000000
+      internalID: -2609077905000150961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_11
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 480
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e249e15a1b5622510800000000000000
+      internalID: 1522891437658510382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_12
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 490
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea0fdc2df882c4d10800000000000000
+      internalID: 2111106923512066222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_13
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 472
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd53de17dfc361720800000000000000
+      internalID: 2816505676202587611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_14
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 452
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc78c2f5674534b90800000000000000
+      internalID: -7258865307011479604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_15
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 426
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18e875f8316f16cb0800000000000000
+      internalID: -4872342757968474495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_16
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 429
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d48b5cb9ca154e60800000000000000
+      internalID: 7945786571315971285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_17
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 354
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90c89034f9d23d3e0800000000000000
+      internalID: -2030228844966212599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 309
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66b27f6bd61f46ce0800000000000000
+      internalID: -1412738929564112026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_19
+      rect:
+        serializedVersion: 2
+        x: 1057
+        y: 311
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 241d6b1e2985ee3f0800000000000000
+      internalID: -869660290160602814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_20
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 305
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f9cee4e4f65d9d80800000000000000
+      internalID: -8242336133205276168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_21
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 246
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06a48b2b0a5feee00800000000000000
+      internalID: 1076067431530121824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_22
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 197
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad2a94aad5ea33b70800000000000000
+      internalID: 8877631007789523674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_23
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 169
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4011ffe17dd1aa7b0800000000000000
+      internalID: -5212320808952721148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_24
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 175
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f6f5fcb5e0fedd30800000000000000
+      internalID: 4458265550651782903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_25
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 153
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b76b19233cf7c1440800000000000000
+      internalID: 4907938170270758523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_26
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 81
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32c6f27c1e5974660800000000000000
+      internalID: 7370024112157060131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_27
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 90
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa7b5793ad016afb0800000000000000
+      internalID: -4637000236878415958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_28
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 95
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2be480ad5c7ab8a00800000000000000
+      internalID: 759885430350433970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_29
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 63
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f74b56f9c85898f0800000000000000
+      internalID: -533578931398555663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_30
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 64
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51e8dcfc9c7063930800000000000000
+      internalID: 4122491072260443669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_31
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 79
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10db76d3e13f6d6e0800000000000000
+      internalID: -1812994488765268735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_32
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 59
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9996606e6141e2f70800000000000000
+      internalID: 9164284380326554009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_33
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 47
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16f20a208638b0dc0800000000000000
+      internalID: -3671696588446617759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_34
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 44
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8894d277441de89a0800000000000000
+      internalID: -6228811142619379320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_35
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 47
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7f7913fe89c1b570800000000000000
+      internalID: 8480781189116428154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_36
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 27
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de4e619781f7504a0800000000000000
+      internalID: -6627751533518330643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_37
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 35
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee4ea74fd29000a70800000000000000
+      internalID: 8791036565607081198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_38
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 34
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2ea9a6a6d87d6f60800000000000000
+      internalID: 8029206573985934892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_39
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 34
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83e4f304e7d9fb440800000000000000
+      internalID: 4953851280700165688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_40
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 32
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef8f3d3c39d142870800000000000000
+      internalID: 8657076904195782910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_41
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 12
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a3c598f0d14d07b0800000000000000
+      internalID: -5256472824291933278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_42
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 0
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feeaf546c9a6fc860800000000000000
+      internalID: 7552372320055045871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glow_2_43
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 14
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 512a33878d79fc470800000000000000
+      internalID: 8417113184564126229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      glow_2_0: 8632255838157183491
+      glow_2_1: -3134654616901693571
+      glow_2_10: -2609077905000150961
+      glow_2_11: 1522891437658510382
+      glow_2_12: 2111106923512066222
+      glow_2_13: 2816505676202587611
+      glow_2_14: -7258865307011479604
+      glow_2_15: -4872342757968474495
+      glow_2_16: 7945786571315971285
+      glow_2_17: -2030228844966212599
+      glow_2_18: -1412738929564112026
+      glow_2_19: -869660290160602814
+      glow_2_2: 3715482916837997640
+      glow_2_20: -8242336133205276168
+      glow_2_21: 1076067431530121824
+      glow_2_22: 8877631007789523674
+      glow_2_23: -5212320808952721148
+      glow_2_24: 4458265550651782903
+      glow_2_25: 4907938170270758523
+      glow_2_26: 7370024112157060131
+      glow_2_27: -4637000236878415958
+      glow_2_28: 759885430350433970
+      glow_2_29: -533578931398555663
+      glow_2_3: 8138281408248143261
+      glow_2_30: 4122491072260443669
+      glow_2_31: -1812994488765268735
+      glow_2_32: 9164284380326554009
+      glow_2_33: -3671696588446617759
+      glow_2_34: -6228811142619379320
+      glow_2_35: 8480781189116428154
+      glow_2_36: -6627751533518330643
+      glow_2_37: 8791036565607081198
+      glow_2_38: 8029206573985934892
+      glow_2_39: 4953851280700165688
+      glow_2_4: 6212534420723516504
+      glow_2_40: 8657076904195782910
+      glow_2_41: -5256472824291933278
+      glow_2_42: 7552372320055045871
+      glow_2_43: 8417113184564126229
+      glow_2_5: 4983008828940129078
+      glow_2_6: 7980060570864125828
+      glow_2_7: -1383013265967233317
+      glow_2_8: 8336553419332175
+      glow_2_9: 6076032930536277862
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
