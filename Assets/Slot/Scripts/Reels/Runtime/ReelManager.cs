@@ -475,8 +475,6 @@ namespace SlotMachine.Reels.Runtime
                 {
                     betManager.AddWin(totalWin);
                 }
-
-                freeSpinManager.UpdateMultiplier(lastOutcome.HasWin);
             }
 
             isSpinInProgress = false;

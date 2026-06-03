@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -31,6 +32,8 @@ namespace SlotMachine.Reels.Runtime
 
         [Header("Multiplier")]
         [SerializeField] private int currentMultiplier = 1;
+        [SerializeField] private List<int> possibleMultiplierValue = new List<int>();
+        private int currentMulIndex = 1;
 
         [Header("Debug State")]
         [SerializeField] private FreeSpinState state = new FreeSpinState();
@@ -75,6 +78,13 @@ namespace SlotMachine.Reels.Runtime
             EnsureState();
 
             currentSpinUsesFreeSpin = state.IsActive;
+            if (currentSpinUsesFreeSpin)
+            {
+                state.ConsumeSpin();
+
+                onFreeSpinsUpdated?.Invoke();
+                FreeSpinsUpdated?.Invoke(state);
+            }
         }
 
         public void HandleCompletedSpin(SpinOutcome outcome)
@@ -92,15 +102,12 @@ namespace SlotMachine.Reels.Runtime
                 //if (outcome.HasWin)
                 //    currentMultiplier++;
 
-                state.ConsumeSpin();
 
                 onFreeSpinsUpdated?.Invoke();
                 FreeSpinsUpdated?.Invoke(state);
 
                 if (!state.IsActive)
                 {
-                    currentMultiplier = 1;
-
                     StopAutoFreeSpin();
 
                     onFreeSpinsEnded?.Invoke();
@@ -115,7 +122,7 @@ namespace SlotMachine.Reels.Runtime
                 {
                     state.BeginSession(awarded, outcome.ScatterCount);
 
-                    currentMultiplier = 1;
+                    ResetMultiplier();
                     totalFreeSpinWin = 0f;
 
                     onFreeSpinsStarted?.Invoke();
@@ -131,7 +138,16 @@ namespace SlotMachine.Reels.Runtime
         public void UpdateMultiplier(bool hasWin)
         {
             if (hasWin)
-                currentMultiplier++;
+            {
+                if (currentMulIndex < possibleMultiplierValue.Count)
+                    currentMulIndex++;
+                currentMultiplier = possibleMultiplierValue[currentMulIndex];
+            }
+        }
+        public void ResetMultiplier()
+        {
+            currentMultiplier = 1;
+            currentMulIndex = 0;
         }
         public void StartFreeSpinGameplay()
         {
@@ -257,6 +273,7 @@ namespace SlotMachine.Reels.Runtime
 
             onFreeSpinsUpdated?.Invoke();
             FreeSpinsUpdated?.Invoke(state);
+            UpdateMultiplier(true);
 
             Debug.Log("AddFreeSpinWin " + totalFreeSpinWin);
         }
