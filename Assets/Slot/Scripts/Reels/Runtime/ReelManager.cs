@@ -461,7 +461,7 @@ namespace SlotMachine.Reels.Runtime
 
             if (lastPaylineEvaluation != null)
             {
-                totalWin = lastPaylineEvaluation.TotalWin;
+                totalWin = lastPaylineEvaluation.TotalWin * freeSpinManager.CurrentMultiplier;
             }
 
             if (totalWin > 0f)
@@ -475,6 +475,8 @@ namespace SlotMachine.Reels.Runtime
                 {
                     betManager.AddWin(totalWin);
                 }
+
+                freeSpinManager.UpdateMultiplier(lastOutcome.HasWin);
             }
 
             isSpinInProgress = false;
