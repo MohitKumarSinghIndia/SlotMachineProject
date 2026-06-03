@@ -77,46 +77,81 @@ public class EventSequencePlayer : MonoBehaviour
 {
     public List<EventSequence> sequences = new List<EventSequence>();
 
-    private Coroutine runningCoroutine;
+    private readonly List<Coroutine> runningCoroutines = new List<Coroutine>();
 
-    public bool IsPlaying => runningCoroutine != null;
+    public bool IsPlaying => runningCoroutines.Count > 0;
 
     public void Play()
     {
-        if (sequences.Count == 0) return;
+        if (sequences.Count == 0)
+            return;
+
         PlaySequence(sequences[0]);
     }
 
     public void Stop()
     {
-        if (runningCoroutine != null)
+        for (int i = 0; i < runningCoroutines.Count; i++)
         {
-            StopCoroutine(runningCoroutine);
-            runningCoroutine = null;
+            if (runningCoroutines[i] != null)
+            {
+                StopCoroutine(runningCoroutines[i]);
+            }
         }
+
+        runningCoroutines.Clear();
     }
 
     public void PlaySequence(string sequenceName)
     {
         EventSequence sequence = sequences.Find(x => x.sequenceName == sequenceName);
-        if (sequence != null) PlaySequence(sequence);
+
+        if (sequence != null)
+        {
+            PlaySequence(sequence);
+        }
     }
 
     public void PlaySequenceById(int id)
     {
-        EventSequence sequence = sequences.Find(x => x.sequenceId == id);
-        if (sequence != null) PlaySequence(sequence);
+        PlaySequenceByIdRoutine(id);
     }
 
-    private void PlaySequence(EventSequence sequence)
+    public Coroutine PlaySequenceByIdRoutine(int id)
     {
-        if (!gameObject.activeInHierarchy)
-            return;
+        EventSequence sequence = sequences.Find(x => x.sequenceId == id);
 
-        if (runningCoroutine != null)
-            StopCoroutine(runningCoroutine);
+        if (sequence == null)
+        {
+            return null;
+        }
 
-        runningCoroutine = StartCoroutine(RunSequence(sequence));
+        return PlaySequence(sequence);
+    }
+
+    private Coroutine PlaySequence(EventSequence sequence)
+    {
+        if (!gameObject.activeInHierarchy || sequence == null)
+        {
+            return null;
+        }
+
+        Coroutine coroutine = null;
+
+        IEnumerator Wrapper()
+        {
+            yield return RunSequence(sequence);
+
+            if (coroutine != null)
+            {
+                runningCoroutines.Remove(coroutine);
+            }
+        }
+
+        coroutine = StartCoroutine(Wrapper());
+        runningCoroutines.Add(coroutine);
+
+        return coroutine;
     }
 
     private IEnumerator RunSequence(EventSequence sequence)
@@ -124,18 +159,20 @@ public class EventSequencePlayer : MonoBehaviour
         foreach (SequenceEvent e in sequence.events)
         {
             if (!CheckCondition(e))
+            {
                 continue;
+            }
 
             yield return ExecuteEvent(e);
         }
-
-        runningCoroutine = null;
     }
 
     private IEnumerator ExecuteEvent(SequenceEvent e)
     {
-        if (e.eventDelay > 0)
+        if (e.eventDelay > 0f)
+        {
             yield return new WaitForSeconds(e.eventDelay);
+        }
 
         Coroutine waitCoroutine = null;
 
@@ -171,7 +208,9 @@ public class EventSequencePlayer : MonoBehaviour
         }
 
         if (e.waitForCompletion && waitCoroutine != null)
+        {
             yield return waitCoroutine;
+        }
     }
 
     private void ToggleObjects(SequenceEvent e)
@@ -179,20 +218,26 @@ public class EventSequencePlayer : MonoBehaviour
         foreach (GameObject obj in e.objectsToEnable)
         {
             if (obj != null)
+            {
                 obj.SetActive(true);
+            }
         }
 
         foreach (GameObject obj in e.objectsToDisable)
         {
             if (obj != null)
+            {
                 obj.SetActive(false);
+            }
         }
     }
 
     private IEnumerator ModifyTransformCoroutine(SequenceEvent e)
     {
         if (e.target == null)
+        {
             yield break;
+        }
 
         Transform t = e.target.transform;
 
@@ -201,66 +246,80 @@ public class EventSequencePlayer : MonoBehaviour
             Sequence seq = DOTween.Sequence();
 
             if (e.modifyPosition)
+            {
                 seq.Join(t.DOLocalMove(e.targetPosition, e.tweenDuration).SetEase(e.easeType));
+            }
 
             if (e.modifyRotation)
+            {
                 seq.Join(t.DOLocalRotate(e.targetRotation, e.tweenDuration).SetEase(e.easeType));
+            }
 
             if (e.modifyScale)
+            {
                 seq.Join(t.DOScale(e.targetScale, e.tweenDuration).SetEase(e.easeType));
+            }
 
-            if (e.waitForCompletion)
-                yield return seq.WaitForCompletion();
+            yield return seq.WaitForCompletion();
         }
         else
         {
             if (e.modifyPosition)
+            {
                 t.localPosition = e.targetPosition;
+            }
 
             if (e.modifyRotation)
+            {
                 t.localEulerAngles = e.targetRotation;
+            }
 
             if (e.modifyScale)
+            {
                 t.localScale = e.targetScale;
+            }
         }
     }
 
     private IEnumerator PlayExternalSequence(SequenceEvent e)
     {
         if (e.sequencePlayerTarget == null)
-            yield break;
-
-        e.sequencePlayerTarget.PlaySequenceById(e.targetSequenceId);
-
-        if (e.waitForCompletion)
         {
-            yield return null;
+            yield break;
+        }
 
-            while (e.sequencePlayerTarget.IsPlaying)
-                yield return null;
+        Coroutine coroutine = e.sequencePlayerTarget.PlaySequenceByIdRoutine(e.targetSequenceId);
+
+        if (e.waitForCompletion && coroutine != null)
+        {
+            yield return coroutine;
         }
     }
 
     private IEnumerator PlayAnimator(SequenceEvent e)
     {
         if (e.target == null)
+        {
             yield break;
+        }
 
         Animator anim = e.target.GetComponent<Animator>();
 
-        if (anim != null && !string.IsNullOrEmpty(e.animationName))
+        if (anim == null || string.IsNullOrEmpty(e.animationName))
         {
-            anim.Play(e.animationName);
+            yield break;
+        }
 
-            yield return null;
+        anim.Play(e.animationName);
 
-            if (e.waitForCompletion && !e.loop)
+        yield return null;
+
+        if (e.waitForCompletion && !e.loop)
+        {
+            while (anim.GetCurrentAnimatorStateInfo(0).IsName(e.animationName) &&
+                   anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
             {
-                while (anim.GetCurrentAnimatorStateInfo(0).IsName(e.animationName) &&
-                       anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
-                {
-                    yield return null;
-                }
+                yield return null;
             }
         }
     }
@@ -268,7 +327,9 @@ public class EventSequencePlayer : MonoBehaviour
     private IEnumerator PlaySpine(SequenceEvent e)
     {
         if (e.target == null)
+        {
             yield break;
+        }
 
         Spine.AnimationState animState = null;
 
@@ -283,35 +344,47 @@ public class EventSequencePlayer : MonoBehaviour
             SkeletonGraphic uiSpine = e.target.GetComponent<SkeletonGraphic>();
 
             if (uiSpine != null)
+            {
                 animState = uiSpine.AnimationState;
+            }
         }
 
-        if (animState != null && !string.IsNullOrEmpty(e.animationName))
+        if (animState == null || string.IsNullOrEmpty(e.animationName))
         {
-            Spine.TrackEntry track = animState.SetAnimation(0, e.animationName, e.loop);
+            yield break;
+        }
 
-            if (e.waitForCompletion && !e.loop && track != null)
-                yield return new WaitForSeconds(track.Animation.Duration);
+        Spine.TrackEntry track = animState.SetAnimation(0, e.animationName, e.loop);
+
+        if (e.waitForCompletion && !e.loop && track != null)
+        {
+            yield return new WaitForSeconds(track.Animation.Duration);
         }
     }
 
     private IEnumerator PlayAudio(SequenceEvent e)
     {
-        if (e.audioSource != null && e.audioClip != null)
+        if (e.audioSource == null || e.audioClip == null)
         {
-            e.audioSource.clip = e.audioClip;
-            e.audioSource.loop = e.loop;
-            e.audioSource.Play();
+            yield break;
+        }
 
-            if (e.waitForCompletion && !e.loop)
-                yield return new WaitForSeconds(e.audioClip.length);
+        e.audioSource.clip = e.audioClip;
+        e.audioSource.loop = e.loop;
+        e.audioSource.Play();
+
+        if (e.waitForCompletion && !e.loop)
+        {
+            yield return new WaitForSeconds(e.audioClip.length);
         }
     }
 
     private bool CheckCondition(SequenceEvent e)
     {
         if (e.conditionType == ConditionType.Custom)
+        {
             return e.conditionValue;
+        }
 
         return true;
     }

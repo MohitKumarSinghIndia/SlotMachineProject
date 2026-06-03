@@ -210,6 +210,7 @@ namespace SlotMachine.Reels.Runtime
 
             currentBannerMode = BannerMode.None;
             currentRoutine = null;
+            freeSpinManager.ResetMultiplier();
         }
 
         public void OnBannerClicked()
