@@ -955,7 +955,7 @@ MonoBehaviour:
           m_Calls: []
       conditionType: 0
       conditionValue: 0
-    - isExpanded: 0
+    - isExpanded: 1
       eventName: 
       eventType: 5
       eventDelay: 0.333
@@ -1016,7 +1016,7 @@ MonoBehaviour:
       eventName: 
       eventType: 5
       eventDelay: 0.333
-      waitForCompletion: 0
+      waitForCompletion: 1
       target: {fileID: 3818201870278457646}
       animationName: select
       loop: 0
@@ -1042,8 +1042,8 @@ MonoBehaviour:
     - isExpanded: 1
       eventName: 
       eventType: 0
-      eventDelay: 1.2
-      waitForCompletion: 0
+      eventDelay: 0
+      waitForCompletion: 1
       target: {fileID: 3818201870278457646}
       animationName: select
       loop: 0
