@@ -89,8 +89,8 @@ namespace SlotMachine.Reels.Runtime
 
             if (currentSpinUsesFreeSpin)
             {
-                if (outcome.HasWin)
-                    currentMultiplier++;
+                //if (outcome.HasWin)
+                //    currentMultiplier++;
 
                 state.ConsumeSpin();
 
@@ -128,7 +128,11 @@ namespace SlotMachine.Reels.Runtime
 
             currentSpinUsesFreeSpin = false;
         }
-
+        public void UpdateMultiplier(bool hasWin)
+        {
+            if (hasWin)
+                currentMultiplier++;
+        }
         public void StartFreeSpinGameplay()
         {
             StartAutoFreeSpin();
