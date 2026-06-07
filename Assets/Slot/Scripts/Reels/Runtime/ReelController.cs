@@ -327,7 +327,7 @@ namespace SlotMachine.Reels.Runtime
             stopRequested = false;
             currentPhase = ReelSpinPhase.Start;
 
-            ApplyActualWindow(currentTopIndex);
+            
             SetRootPosition(actualSymbolsRoot, Vector2.zero);
             SetLayerVisibility(actualSymbolsRoot, true);
 
@@ -363,6 +363,7 @@ namespace SlotMachine.Reels.Runtime
                 {
                     SetLayerVisibility(actualSymbolsRoot, false);
                     SetLayerVisibility(looperRoot, true);
+                    ApplyActualWindow(currentTopIndex);
                 }
                 else
                 {
