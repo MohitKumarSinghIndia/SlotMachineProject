@@ -38,6 +38,7 @@ namespace SlotMachine.Reels.Runtime
         public bool IsBigWin => isBigWin;
         public float TotalWin => totalWin;
         public int ScatterCount => scatterCount;
+        public int AppliedMultiplier { get; private set; } = 1;
         public IReadOnlyList<ReelOutcome> Reels => reels;
 
         private string spinId;
@@ -115,11 +116,12 @@ namespace SlotMachine.Reels.Runtime
             return false;
         }
 
-        public void SetWinData(bool hasWin, bool isBigWin, float totalWin)
+        public void SetWinData(bool hasWin, bool isBigWin, float totalWin, int multiplier = 1)
         {
             this.hasWin = hasWin;
             this.isBigWin = isBigWin;
             this.totalWin = totalWin;
+            this.AppliedMultiplier = multiplier;
         }
     }
 }
