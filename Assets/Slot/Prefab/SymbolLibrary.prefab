@@ -1151,48 +1151,6 @@ MonoBehaviour:
           m_Calls: []
       conditionType: 0
       conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 0
-      eventDelay: 1.5
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 7376610132031978298}
-      objectsToDisable:
-      - {fileID: 4739391349157445326}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 8731232644199342749}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 0}
-            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
-              Assembly-CSharp
-            m_MethodName: StopSFX
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      conditionType: 0
-      conditionValue: 0
   - sequenceName: HighlightOff
     sequenceId: 3
     events: []
@@ -1382,48 +1340,6 @@ MonoBehaviour:
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 0
-      eventDelay: 1.5
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 7376610132031978298}
-      objectsToDisable:
-      - {fileID: 4739391349157445326}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 958264573308206570}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 0}
-            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
-              Assembly-CSharp
-            m_MethodName: StopSFX
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
       conditionType: 0
       conditionValue: 0
   - sequenceName: HighlightOff
@@ -1617,48 +1533,6 @@ MonoBehaviour:
           m_Calls: []
       conditionType: 0
       conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 0
-      eventDelay: 1.5
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 7376610132031978298}
-      objectsToDisable:
-      - {fileID: 4739391349157445326}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 7723816945096550441}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 0}
-            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
-              Assembly-CSharp
-            m_MethodName: StopSFX
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      conditionType: 0
-      conditionValue: 0
   - sequenceName: HighlightOff
     sequenceId: 3
     events: []
@@ -1850,48 +1724,6 @@ MonoBehaviour:
           m_Calls: []
       conditionType: 0
       conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 0
-      eventDelay: 1.5
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 7376610132031978298}
-      objectsToDisable:
-      - {fileID: 4739391349157445326}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 2886178530829273104}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 0}
-            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
-              Assembly-CSharp
-            m_MethodName: StopSFX
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      conditionType: 0
-      conditionValue: 0
   - sequenceName: HighlightOff
     sequenceId: 3
     events: []
@@ -2081,48 +1913,6 @@ MonoBehaviour:
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 0
-      eventDelay: 1.5
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 7376610132031978298}
-      objectsToDisable:
-      - {fileID: 4739391349157445326}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 7395453481862103878}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 0}
-            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
-              Assembly-CSharp
-            m_MethodName: StopSFX
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
       conditionType: 0
       conditionValue: 0
   - sequenceName: HighlightOff
@@ -3532,48 +3322,6 @@ MonoBehaviour:
           m_Calls: []
       conditionType: 0
       conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 0
-      eventDelay: 1.5
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 7376610132031978298}
-      objectsToDisable:
-      - {fileID: 4739391349157445326}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 2670045130347173540}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 0}
-            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
-              Assembly-CSharp
-            m_MethodName: StopSFX
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      conditionType: 0
-      conditionValue: 0
   - sequenceName: HighlightOff
     sequenceId: 3
     events: []
@@ -4169,48 +3917,6 @@ MonoBehaviour:
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 0
-      eventDelay: 1.5
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 7376610132031978298}
-      objectsToDisable:
-      - {fileID: 4739391349157445326}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 2208741378030220775}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 0}
-            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
-              Assembly-CSharp
-            m_MethodName: StopSFX
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
       conditionType: 0
       conditionValue: 0
   - sequenceName: HighlightOff
@@ -5187,48 +4893,6 @@ MonoBehaviour:
           m_Calls: []
       conditionType: 0
       conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 0
-      eventDelay: 1.5
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 7376610132031978298}
-      objectsToDisable:
-      - {fileID: 4739391349157445326}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 968572814773657600}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 0}
-            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
-              Assembly-CSharp
-            m_MethodName: StopSFX
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      conditionType: 0
-      conditionValue: 0
   - sequenceName: HighlightOff
     sequenceId: 3
     events: []
@@ -5493,48 +5157,6 @@ MonoBehaviour:
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 0
-      eventDelay: 1.5
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 7376610132031978298}
-      objectsToDisable:
-      - {fileID: 4739391349157445326}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 8867183381609308056}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 0}
-            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
-              Assembly-CSharp
-            m_MethodName: StopSFX
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
       conditionType: 0
       conditionValue: 0
   - sequenceName: HighlightOff
@@ -6536,48 +6158,6 @@ MonoBehaviour:
           m_Calls: []
       conditionType: 0
       conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 0
-      eventDelay: 1.5
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 7376610132031978298}
-      objectsToDisable:
-      - {fileID: 4739391349157445326}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 5891702507309584775}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 0}
-            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
-              Assembly-CSharp
-            m_MethodName: StopSFX
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      conditionType: 0
-      conditionValue: 0
   - sequenceName: HighlightOff
     sequenceId: 3
     events: []
@@ -7400,48 +6980,6 @@ MonoBehaviour:
           m_Calls: []
       conditionType: 0
       conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 0
-      eventDelay: 1.5
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 7376610132031978298}
-      objectsToDisable:
-      - {fileID: 4739391349157445326}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 8705891026661334738}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 0}
-            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
-              Assembly-CSharp
-            m_MethodName: StopSFX
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      conditionType: 0
-      conditionValue: 0
   - sequenceName: HighlightOff
     sequenceId: 3
     events: []
@@ -7631,48 +7169,6 @@ MonoBehaviour:
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 0
-      eventDelay: 1.5
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 7376610132031978298}
-      objectsToDisable:
-      - {fileID: 4739391349157445326}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 133968202071580544}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 0}
-            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
-              Assembly-CSharp
-            m_MethodName: StopSFX
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
       conditionType: 0
       conditionValue: 0
   - sequenceName: HighlightOff

@@ -161,8 +161,8 @@ namespace SlotMachine.Reels.Runtime
 
         private IEnumerator PlayBigWinRoutine(float totalWin, BigWinType winType)
         {
-            
             onBigWinStarted?.Invoke();
+            SoundController.Instance.PlaySound(SoundType.BigWin);
 
             if (bigWinPanel != null)
             {
@@ -283,6 +283,7 @@ namespace SlotMachine.Reels.Runtime
 
         public void Hide()
         {
+            SoundController.Instance.StopSFX();
             if (bigWinPanel != null)
             {
                 bigWinPanel.SetActive(false);

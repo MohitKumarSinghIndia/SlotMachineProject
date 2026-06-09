@@ -64,6 +64,7 @@ namespace SlotMachine.Reels.Runtime
         public void ShowScatters(float scatterSymbolId)
         {
             ClearVisuals();
+            SoundController.Instance.PlaySound(SoundType.Scatter);
             foreach (ReelController reelController in reels)
             {
                 for (int i = 0; i < 3; i++)

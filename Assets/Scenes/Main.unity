@@ -1662,29 +1662,57 @@ PrefabInstance:
     m_TransformParent: {fileID: 1871483218}
     m_Modifications:
     - target: {fileID: 133968202071580544, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
+      propertyPath: sequences.Array.data[2].events.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 133968202071580544, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
       propertyPath: sequences.Array.data[2].events.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1281300683}
+    - target: {fileID: 958264573308206570, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
+      propertyPath: sequences.Array.data[2].events.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 958264573308206570, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
       propertyPath: sequences.Array.data[2].events.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1281300683}
     - target: {fileID: 968572814773657600, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
+      propertyPath: sequences.Array.data[2].events.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 968572814773657600, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
       propertyPath: sequences.Array.data[2].events.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1281300683}
+    - target: {fileID: 2208741378030220775, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
+      propertyPath: sequences.Array.data[2].events.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2208741378030220775, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
       propertyPath: sequences.Array.data[2].events.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1281300683}
     - target: {fileID: 2670045130347173540, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
+      propertyPath: sequences.Array.data[2].events.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670045130347173540, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
       propertyPath: sequences.Array.data[2].events.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1281300683}
     - target: {fileID: 2886178530829273104, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
+      propertyPath: sequences.Array.data[2].events.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2886178530829273104, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
       propertyPath: sequences.Array.data[2].events.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1281300683}
+    - target: {fileID: 5891702507309584775, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
+      propertyPath: sequences.Array.data[2].events.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5891702507309584775, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
       propertyPath: sequences.Array.data[2].events.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1694,21 +1722,41 @@ PrefabInstance:
       value: SymbolLibrary
       objectReference: {fileID: 0}
     - target: {fileID: 7395453481862103878, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
+      propertyPath: sequences.Array.data[2].events.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395453481862103878, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
       propertyPath: sequences.Array.data[2].events.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1281300683}
+    - target: {fileID: 7723816945096550441, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
+      propertyPath: sequences.Array.data[2].events.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7723816945096550441, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
       propertyPath: sequences.Array.data[2].events.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1281300683}
     - target: {fileID: 8705891026661334738, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
+      propertyPath: sequences.Array.data[2].events.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705891026661334738, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
       propertyPath: sequences.Array.data[2].events.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1281300683}
     - target: {fileID: 8731232644199342749, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
+      propertyPath: sequences.Array.data[2].events.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731232644199342749, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
       propertyPath: sequences.Array.data[2].events.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1281300683}
+    - target: {fileID: 8867183381609308056, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
+      propertyPath: sequences.Array.data[2].events.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8867183381609308056, guid: a151f0e5c9c996f49a4d12202a42d09d, type: 3}
       propertyPath: sequences.Array.data[2].events.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7495,7 +7543,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -7759,19 +7807,7 @@ MonoBehaviour:
   amountFormat: '{0:0.00}'
   onBigWinStarted:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1281300683}
-        m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController, Assembly-CSharp
-        m_MethodName: PlaySFX
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 4a82d8c26af1729499927b85b4c7d511, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onNiceWin:
     m_PersistentCalls:
       m_Calls:
@@ -7834,19 +7870,7 @@ MonoBehaviour:
         m_CallState: 2
   onBigWinCompleted:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1281300683}
-        m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController, Assembly-CSharp
-        m_MethodName: StopSFX
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   lastBigWinType: 0
   lastWinMultiplier: 0
   lastWinAmount: 0
@@ -8536,7 +8560,7 @@ MonoBehaviour:
         m_MethodName: PlaySFX
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 9779746d44b7e0a49be19730dd2675cd, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: 613bbe22416e27640998c8fe07fb737e, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -11935,7 +11959,7 @@ MonoBehaviour:
   buttonClickClip: {fileID: 8300000, guid: 3d0b6e897085a3d4c977ec3738e744eb, type: 3}
   spinStartClip: {fileID: 8300000, guid: 56dbce332df86fa449c3e1f1b4e42464, type: 3}
   reelStopClip: {fileID: 8300000, guid: 22539d26dc6c5644f864e7807ed77e98, type: 3}
-  scatterClip: {fileID: 8300000, guid: ce7b03ea6ec313f4391cff1cb35f80cd, type: 3}
+  scatterClip: {fileID: 8300000, guid: df655ec8bdd949c4bb1cb17610f80776, type: 3}
   anticipationClip: {fileID: 8300000, guid: fe60d255d55c2d54494e534334eba60d, type: 3}
   freeSpinStartClip: {fileID: 8300000, guid: 3e54976530260d641b6e347d543a4119, type: 3}
   freeSpinEndClip: {fileID: 8300000, guid: 3e54976530260d641b6e347d543a4119, type: 3}
