@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using SlotMachine.Reels.Data;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SlotMachine.Reels.Runtime
 {
@@ -198,6 +199,10 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private float anticipationLoopStepDurationMultiplier = 1.8f;
         [SerializeField] private GameObject anticipationFx;
 
+        [Header("Events")]
+        [SerializeField] private UnityEvent onSpinStart;
+        [SerializeField] private UnityEvent onSpinStop;
+
         [Header("Debug State")]
         [SerializeField] private ReelSpinPhase currentPhase = ReelSpinPhase.Idle;
         [SerializeField] private int currentTopIndex;
@@ -307,6 +312,7 @@ namespace SlotMachine.Reels.Runtime
                 return;
             }
 
+            
             EnsureTimingProfile();
             CacheLayerReferences();
             KillActiveTween();
@@ -342,6 +348,8 @@ namespace SlotMachine.Reels.Runtime
                 ApplyLooperWindow(currentTopIndex - looperBufferRows);
                 SetRootPosition(looperRoot, Vector2.zero);
             }
+
+            onSpinStart.Invoke();
 
             Sequence sequence = DOTween.Sequence();
 
@@ -431,6 +439,7 @@ namespace SlotMachine.Reels.Runtime
                 return;
             }
 
+            SoundController.Instance.PlaySound(SoundType.Anticipation);
             isAnticipating = true;
 
             if (anticipationFx != null)
@@ -503,8 +512,8 @@ namespace SlotMachine.Reels.Runtime
 
         private void PlayStopPhase()
         {
+            onSpinStop.Invoke();
             KillActiveTween();
-
             currentPhase = ReelSpinPhase.Stop;
             currentTopIndex = Wrap(pendingStopIndex, ReelStrip.Length);
 

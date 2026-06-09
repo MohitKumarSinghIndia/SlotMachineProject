@@ -1021,9 +1021,9 @@ MonoBehaviour:
   paytable:
   - matchCount: 3
     multiplier: 1
-  - matchCount: 3
+  - matchCount: 4
     multiplier: 2
-  - matchCount: 3
+  - matchCount: 5
     multiplier: 6
 --- !u!114 &3820981981572138021
 MonoBehaviour:
@@ -1125,7 +1125,7 @@ MonoBehaviour:
     - isExpanded: 1
       eventName: 
       eventType: 5
-      eventDelay: 3
+      eventDelay: 1.5
       waitForCompletion: 0
       target: {fileID: 0}
       animationName: 
@@ -1149,6 +1149,48 @@ MonoBehaviour:
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 0
+      eventDelay: 1.5
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      objectsToEnable:
+      - {fileID: 7376610132031978298}
+      objectsToDisable:
+      - {fileID: 4739391349157445326}
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 8731232644199342749}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
+              Assembly-CSharp
+            m_MethodName: StopSFX
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       conditionType: 0
       conditionValue: 0
   - sequenceName: HighlightOff
@@ -1213,9 +1255,9 @@ MonoBehaviour:
   paytable:
   - matchCount: 3
     multiplier: 7
-  - matchCount: 3
+  - matchCount: 4
     multiplier: 18
-  - matchCount: 3
+  - matchCount: 5
     multiplier: 50
 --- !u!114 &9090548347930669896
 MonoBehaviour:
@@ -1316,7 +1358,7 @@ MonoBehaviour:
     - isExpanded: 1
       eventName: 
       eventType: 5
-      eventDelay: 3
+      eventDelay: 1.5
       waitForCompletion: 0
       target: {fileID: 0}
       animationName: 
@@ -1340,6 +1382,48 @@ MonoBehaviour:
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 0
+      eventDelay: 1.5
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      objectsToEnable:
+      - {fileID: 7376610132031978298}
+      objectsToDisable:
+      - {fileID: 4739391349157445326}
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 958264573308206570}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
+              Assembly-CSharp
+            m_MethodName: StopSFX
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       conditionType: 0
       conditionValue: 0
   - sequenceName: HighlightOff
@@ -1404,9 +1488,9 @@ MonoBehaviour:
   paytable:
   - matchCount: 3
     multiplier: 2
-  - matchCount: 3
+  - matchCount: 4
     multiplier: 4
-  - matchCount: 3
+  - matchCount: 5
     multiplier: 12
 --- !u!114 &5540496677215955352
 MonoBehaviour:
@@ -1507,7 +1591,7 @@ MonoBehaviour:
     - isExpanded: 1
       eventName: 
       eventType: 5
-      eventDelay: 3
+      eventDelay: 1.5
       waitForCompletion: 0
       target: {fileID: 0}
       animationName: 
@@ -1531,6 +1615,48 @@ MonoBehaviour:
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 0
+      eventDelay: 1.5
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      objectsToEnable:
+      - {fileID: 7376610132031978298}
+      objectsToDisable:
+      - {fileID: 4739391349157445326}
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 7723816945096550441}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
+              Assembly-CSharp
+            m_MethodName: StopSFX
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       conditionType: 0
       conditionValue: 0
   - sequenceName: HighlightOff
@@ -1595,9 +1721,9 @@ MonoBehaviour:
   paytable:
   - matchCount: 3
     multiplier: 5
-  - matchCount: 3
+  - matchCount: 4
     multiplier: 12
-  - matchCount: 3
+  - matchCount: 5
     multiplier: 30
 --- !u!114 &6856818302229926142
 MonoBehaviour:
@@ -1698,7 +1824,7 @@ MonoBehaviour:
     - isExpanded: 1
       eventName: 
       eventType: 5
-      eventDelay: 3
+      eventDelay: 1.5
       waitForCompletion: 0
       target: {fileID: 0}
       animationName: 
@@ -1722,6 +1848,48 @@ MonoBehaviour:
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 0
+      eventDelay: 1.5
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      objectsToEnable:
+      - {fileID: 7376610132031978298}
+      objectsToDisable:
+      - {fileID: 4739391349157445326}
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 2886178530829273104}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
+              Assembly-CSharp
+            m_MethodName: StopSFX
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       conditionType: 0
       conditionValue: 0
   - sequenceName: HighlightOff
@@ -1786,9 +1954,9 @@ MonoBehaviour:
   paytable:
   - matchCount: 3
     multiplier: 15
-  - matchCount: 3
+  - matchCount: 4
     multiplier: 40
-  - matchCount: 3
+  - matchCount: 5
     multiplier: 100
 --- !u!114 &2763487713994699480
 MonoBehaviour:
@@ -1889,7 +2057,7 @@ MonoBehaviour:
     - isExpanded: 1
       eventName: 
       eventType: 5
-      eventDelay: 3
+      eventDelay: 1.5
       waitForCompletion: 0
       target: {fileID: 0}
       animationName: 
@@ -1913,6 +2081,48 @@ MonoBehaviour:
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 0
+      eventDelay: 1.5
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      objectsToEnable:
+      - {fileID: 7376610132031978298}
+      objectsToDisable:
+      - {fileID: 4739391349157445326}
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 7395453481862103878}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
+              Assembly-CSharp
+            m_MethodName: StopSFX
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       conditionType: 0
       conditionValue: 0
   - sequenceName: HighlightOff
@@ -3193,9 +3403,9 @@ MonoBehaviour:
   paytable:
   - matchCount: 3
     multiplier: 2
-  - matchCount: 3
+  - matchCount: 4
     multiplier: 4
-  - matchCount: 3
+  - matchCount: 5
     multiplier: 10
 --- !u!114 &7217316267258537547
 MonoBehaviour:
@@ -3296,7 +3506,7 @@ MonoBehaviour:
     - isExpanded: 1
       eventName: 
       eventType: 5
-      eventDelay: 3
+      eventDelay: 1.5
       waitForCompletion: 0
       target: {fileID: 0}
       animationName: 
@@ -3320,6 +3530,48 @@ MonoBehaviour:
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 0
+      eventDelay: 1.5
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      objectsToEnable:
+      - {fileID: 7376610132031978298}
+      objectsToDisable:
+      - {fileID: 4739391349157445326}
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 2670045130347173540}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
+              Assembly-CSharp
+            m_MethodName: StopSFX
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       conditionType: 0
       conditionValue: 0
   - sequenceName: HighlightOff
@@ -3790,9 +4042,9 @@ MonoBehaviour:
   paytable:
   - matchCount: 3
     multiplier: 4
-  - matchCount: 3
+  - matchCount: 4
     multiplier: 10
-  - matchCount: 3
+  - matchCount: 5
     multiplier: 25
 --- !u!114 &2525146131596198146
 MonoBehaviour:
@@ -3893,7 +4145,7 @@ MonoBehaviour:
     - isExpanded: 1
       eventName: 
       eventType: 5
-      eventDelay: 3
+      eventDelay: 1.5
       waitForCompletion: 0
       target: {fileID: 0}
       animationName: 
@@ -3917,6 +4169,48 @@ MonoBehaviour:
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 0
+      eventDelay: 1.5
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      objectsToEnable:
+      - {fileID: 7376610132031978298}
+      objectsToDisable:
+      - {fileID: 4739391349157445326}
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 2208741378030220775}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
+              Assembly-CSharp
+            m_MethodName: StopSFX
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       conditionType: 0
       conditionValue: 0
   - sequenceName: HighlightOff
@@ -4764,9 +5058,9 @@ MonoBehaviour:
   paytable:
   - matchCount: 3
     multiplier: 10
-  - matchCount: 3
+  - matchCount: 4
     multiplier: 25
-  - matchCount: 3
+  - matchCount: 5
     multiplier: 75
 --- !u!114 &7912670984315437780
 MonoBehaviour:
@@ -4867,7 +5161,7 @@ MonoBehaviour:
     - isExpanded: 1
       eventName: 
       eventType: 5
-      eventDelay: 3
+      eventDelay: 1.5
       waitForCompletion: 0
       target: {fileID: 0}
       animationName: 
@@ -4891,6 +5185,48 @@ MonoBehaviour:
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 0
+      eventDelay: 1.5
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      objectsToEnable:
+      - {fileID: 7376610132031978298}
+      objectsToDisable:
+      - {fileID: 4739391349157445326}
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 968572814773657600}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
+              Assembly-CSharp
+            m_MethodName: StopSFX
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       conditionType: 0
       conditionValue: 0
   - sequenceName: HighlightOff
@@ -5030,9 +5366,9 @@ MonoBehaviour:
   paytable:
   - matchCount: 3
     multiplier: 3
-  - matchCount: 3
+  - matchCount: 4
     multiplier: 8
-  - matchCount: 3
+  - matchCount: 5
     multiplier: 20
 --- !u!114 &4548743054861482312
 MonoBehaviour:
@@ -5133,7 +5469,7 @@ MonoBehaviour:
     - isExpanded: 1
       eventName: 
       eventType: 5
-      eventDelay: 3
+      eventDelay: 1.5
       waitForCompletion: 0
       target: {fileID: 0}
       animationName: 
@@ -5157,6 +5493,48 @@ MonoBehaviour:
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 0
+      eventDelay: 1.5
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      objectsToEnable:
+      - {fileID: 7376610132031978298}
+      objectsToDisable:
+      - {fileID: 4739391349157445326}
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 8867183381609308056}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
+              Assembly-CSharp
+            m_MethodName: StopSFX
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       conditionType: 0
       conditionValue: 0
   - sequenceName: HighlightOff
@@ -6029,9 +6407,9 @@ MonoBehaviour:
   paytable:
   - matchCount: 3
     multiplier: 1
-  - matchCount: 3
+  - matchCount: 4
     multiplier: 3
-  - matchCount: 3
+  - matchCount: 5
     multiplier: 8
 --- !u!114 &8768640635117183366
 MonoBehaviour:
@@ -6132,7 +6510,7 @@ MonoBehaviour:
     - isExpanded: 1
       eventName: 
       eventType: 5
-      eventDelay: 3
+      eventDelay: 1.5
       waitForCompletion: 0
       target: {fileID: 0}
       animationName: 
@@ -6156,6 +6534,48 @@ MonoBehaviour:
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 0
+      eventDelay: 1.5
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      objectsToEnable:
+      - {fileID: 7376610132031978298}
+      objectsToDisable:
+      - {fileID: 4739391349157445326}
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 5891702507309584775}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
+              Assembly-CSharp
+            m_MethodName: StopSFX
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       conditionType: 0
       conditionValue: 0
   - sequenceName: HighlightOff
@@ -6851,9 +7271,9 @@ MonoBehaviour:
   paytable:
   - matchCount: 3
     multiplier: 0.5
-  - matchCount: 3
+  - matchCount: 4
     multiplier: 1.5
-  - matchCount: 3
+  - matchCount: 5
     multiplier: 4
 --- !u!114 &3680834677572222135
 MonoBehaviour:
@@ -6954,7 +7374,7 @@ MonoBehaviour:
     - isExpanded: 1
       eventName: 
       eventType: 5
-      eventDelay: 3
+      eventDelay: 1.5
       waitForCompletion: 0
       target: {fileID: 0}
       animationName: 
@@ -6978,6 +7398,48 @@ MonoBehaviour:
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 0
+      eventDelay: 1.5
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      objectsToEnable:
+      - {fileID: 7376610132031978298}
+      objectsToDisable:
+      - {fileID: 4739391349157445326}
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 8705891026661334738}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
+              Assembly-CSharp
+            m_MethodName: StopSFX
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       conditionType: 0
       conditionValue: 0
   - sequenceName: HighlightOff
@@ -7042,9 +7504,9 @@ MonoBehaviour:
   paytable:
   - matchCount: 3
     multiplier: 1
-  - matchCount: 3
+  - matchCount: 4
     multiplier: 2
-  - matchCount: 3
+  - matchCount: 5
     multiplier: 3
 --- !u!114 &6190816414913771041
 MonoBehaviour:
@@ -7145,7 +7607,7 @@ MonoBehaviour:
     - isExpanded: 1
       eventName: 
       eventType: 5
-      eventDelay: 3
+      eventDelay: 1.5
       waitForCompletion: 0
       target: {fileID: 0}
       animationName: 
@@ -7169,6 +7631,48 @@ MonoBehaviour:
       unityEvent:
         m_PersistentCalls:
           m_Calls: []
+      conditionType: 0
+      conditionValue: 0
+    - isExpanded: 1
+      eventName: 
+      eventType: 0
+      eventDelay: 1.5
+      waitForCompletion: 0
+      target: {fileID: 0}
+      animationName: 
+      loop: 0
+      objectsToEnable:
+      - {fileID: 7376610132031978298}
+      objectsToDisable:
+      - {fileID: 4739391349157445326}
+      audioClip: {fileID: 0}
+      audioSource: {fileID: 0}
+      sequencePlayerTarget: {fileID: 133968202071580544}
+      targetSequenceId: 0
+      modifyPosition: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+      modifyRotation: 0
+      targetRotation: {x: 0, y: 0, z: 0}
+      modifyScale: 0
+      targetScale: {x: 0, y: 0, z: 0}
+      tweenDuration: 0
+      easeType: 0
+      unityEvent:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 0}
+            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
+              Assembly-CSharp
+            m_MethodName: StopSFX
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       conditionType: 0
       conditionValue: 0
   - sequenceName: HighlightOff
@@ -7934,9 +8438,9 @@ MonoBehaviour:
   paytable:
   - matchCount: 3
     multiplier: 1
-  - matchCount: 3
+  - matchCount: 4
     multiplier: 2
-  - matchCount: 3
+  - matchCount: 5
     multiplier: 3
 --- !u!114 &8880333672712808322
 MonoBehaviour:
@@ -8037,7 +8541,7 @@ MonoBehaviour:
     - isExpanded: 1
       eventName: 
       eventType: 5
-      eventDelay: 3
+      eventDelay: 1.5
       waitForCompletion: 0
       target: {fileID: 0}
       animationName: 

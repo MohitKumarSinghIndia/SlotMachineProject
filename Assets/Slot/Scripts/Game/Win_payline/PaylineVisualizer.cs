@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SlotMachine.Reels.Runtime
 {
@@ -8,6 +9,7 @@ namespace SlotMachine.Reels.Runtime
         [Header("References")]
         [Tooltip("Assign all your ReelControllers here in order (Left to Right)")]
         [SerializeField] private List<ReelController> reels = new List<ReelController>();
+        [SerializeField] private UnityEvent onWinLineShow;
 
         // The LineRenderer reference has been completely removed!
 
@@ -17,7 +19,7 @@ namespace SlotMachine.Reels.Runtime
         public void ShowCombinedWin(PaylineEvaluationResult result)
         {
             ClearVisuals();
-
+            onWinLineShow.Invoke();
             foreach (PaylineWinResult win in result.PaylineWins)
             {
                 for (int i = 0; i < win.MatchCount; i++)
@@ -38,7 +40,7 @@ namespace SlotMachine.Reels.Runtime
         public void ShowSingleLine(PaylineWinResult win)
         {
             ClearVisuals();
-
+            onWinLineShow.Invoke();
             for (int i = 0; i < reels.Count; i++)
             {
                 int rowIndex = win.Rows[i];

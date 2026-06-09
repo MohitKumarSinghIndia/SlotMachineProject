@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace SlotMachine.Reels.Runtime
@@ -68,6 +69,7 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private int anticipationTriggerScatterCount = 2;
         [SerializeField] private float anticipationExtraDelay = 1.5f;
         [SerializeField] private bool enableFakeAnticipation = true;
+
 
         private readonly HashSet<int> anticipationReelIndexes = new HashSet<int>();
         private bool anticipationPrepared;
@@ -218,6 +220,7 @@ namespace SlotMachine.Reels.Runtime
                 outcome.SetWinData(lastPaylineEvaluation.HasAnyWin, isBigWin, totalWin, multiplier);
             }
             BuildAndRunSpinFlow(outcome);
+            SoundController.Instance.PlaySound(SoundType.SpinStart);
         }
 
         private void BuildAndRunSpinFlow(SpinOutcome outcome)
