@@ -62,6 +62,8 @@ namespace SlotMachine.Reels.Data
             new SymbolPayEntry()
         };
 
+        public List<SymbolPayEntry> Paytable => paytable;
+
         public int SymbolId => symbolId;
         public string SymbolName => symbolName;
         public string ShortCode => shortCode;

@@ -31,6 +31,7 @@ namespace SlotMachine.Reels.Runtime
         public event Action<float> CreditsChanged;
 
         public int ActiveLineCount => activeLineCount;
+        public int CurrentBetIndex => currentBetIndex;
 
         public float TotalBet
         {
@@ -41,8 +42,8 @@ namespace SlotMachine.Reels.Runtime
                     return 0f;
                 }
 
-                currentBetIndex = Mathf.Clamp(currentBetIndex, 0, betSteps.Length - 1);
-                return betSteps[currentBetIndex];
+                currentBetIndex = Mathf.Clamp(currentBetIndex, 1, betSteps.Length);
+                return betSteps[currentBetIndex - 1];
             }
         }
 

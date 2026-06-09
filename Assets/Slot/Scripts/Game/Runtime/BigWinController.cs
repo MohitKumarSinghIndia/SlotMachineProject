@@ -283,7 +283,11 @@ namespace SlotMachine.Reels.Runtime
 
         public void Hide()
         {
-            SoundController.Instance.StopSFX();
+            if (SoundController.Instance != null)
+            {
+                SoundController.Instance.StopSFX();
+            }
+
             if (bigWinPanel != null)
             {
                 bigWinPanel.SetActive(false);
