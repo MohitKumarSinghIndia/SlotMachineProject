@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SlotMachine.Reels.Runtime
 {
@@ -27,6 +28,10 @@ namespace SlotMachine.Reels.Runtime
         [Header("Audio Sources")]
         [SerializeField] private AudioSource sfxSource;
         [SerializeField] private AudioSource musicSource;
+
+        [Header("ON OFF Toggle")]
+        [SerializeField] private Toggle onOfftoggle;
+        private const string SoundPrefKey = "SoundEnabled";
 
         [Header("SFX Clips")]
         [SerializeField] private AudioClip buttonClickClip;
@@ -68,6 +73,47 @@ namespace SlotMachine.Reels.Runtime
 
             ApplyVolumes();
             PlayBaseGameMusic();
+        }
+        private void Start()
+        {
+            bool soundEnabled = PlayerPrefs.GetInt(SoundPrefKey, 1) == 1;
+
+            if (onOfftoggle != null)
+            {
+                onOfftoggle.isOn = soundEnabled;
+                onOfftoggle.onValueChanged.AddListener(OnSoundToggleChanged);
+            }
+
+            SetSoundEnabled(soundEnabled);
+        }
+
+        private void OnDestroy()
+        {
+            if (onOfftoggle != null)
+            {
+                onOfftoggle.onValueChanged.RemoveListener(OnSoundToggleChanged);
+            }
+        }
+
+        public void OnSoundToggleChanged(bool isOn)
+        {
+            SetSoundEnabled(isOn);
+
+            PlayerPrefs.SetInt(SoundPrefKey, isOn ? 1 : 0);
+            PlayerPrefs.Save();
+        }
+
+        private void SetSoundEnabled(bool enabled)
+        {
+            if (sfxSource != null)
+            {
+                sfxSource.mute = !enabled;
+            }
+
+            if (musicSource != null)
+            {
+                musicSource.mute = !enabled;
+            }
         }
 
         private void ApplyVolumes()
