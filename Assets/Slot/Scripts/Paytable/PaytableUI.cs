@@ -41,7 +41,7 @@ public class PaytableUI : MonoBehaviour
 
     private void GetCurrentBet()
     {
-        currentBet = betManager.CurrentBetIndex;
+        currentBet = betManager.BetPerLine;
     }
 
     private void SetSymbolsPay()

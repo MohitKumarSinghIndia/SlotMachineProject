@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +11,10 @@ namespace SlotMachine.Reels.Runtime
         [Tooltip("Assign all your ReelControllers here in order (Left to Right)")]
         [SerializeField] private List<ReelController> reels = new List<ReelController>();
         [SerializeField] private UnityEvent onWinLineShow;
+
+        [SerializeField] private TMP_Text symbolWinAmountText;
+        [SerializeField] private EventSequencePlayer paylineSymbolSequence;
+
 
         // The LineRenderer reference has been completely removed!
 
@@ -53,6 +58,9 @@ namespace SlotMachine.Reels.Runtime
                     {
                         activeWinSymbols.Add(symbol);
                         symbol.PlayHighlight();
+
+                        symbolWinAmountText.text = $"Pays : {win.WinAmount.ToString()}";
+                        paylineSymbolSequence.PlaySequenceById(win.SymbolId);
                     }
                 }
             }
