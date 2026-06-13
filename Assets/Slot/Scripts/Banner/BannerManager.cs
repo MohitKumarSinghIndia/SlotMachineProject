@@ -1,16 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BannerManager : MonoBehaviour
+namespace SlotMachine.Reels.Runtime
 {
-    [SerializeField] private GameObject introBanner;
-
-    public bool isIntroBannerActive = true;
-
-    public void OnIntroBannerClick()
+    public class BannerManager : MonoBehaviour
     {
-        introBanner.SetActive(false);
-        isIntroBannerActive = false;
-    }
+        [SerializeField] private GameObject introBanner;
 
+        public bool isIntroBannerActive = true;
+
+        public void OnIntroBannerClick()
+        {
+            introBanner.SetActive(false);
+            isIntroBannerActive = false;
+            SoundController.Instance.PlayBaseGameMusic();
+        }
+
+    }
 }
