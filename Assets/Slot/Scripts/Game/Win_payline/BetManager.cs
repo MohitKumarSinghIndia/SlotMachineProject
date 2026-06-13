@@ -31,6 +31,7 @@ namespace SlotMachine.Reels.Runtime
         public event Action<float> CreditsChanged;
 
         public int ActiveLineCount => activeLineCount;
+        public int CurrentBetIndex => currentBetIndex;
 
         public float TotalBet
         {
@@ -41,8 +42,8 @@ namespace SlotMachine.Reels.Runtime
                     return 0f;
                 }
 
-                currentBetIndex = Mathf.Clamp(currentBetIndex, 0, betSteps.Length - 1);
-                return betSteps[currentBetIndex];
+                currentBetIndex = Mathf.Clamp(currentBetIndex, 1, betSteps.Length);
+                return betSteps[currentBetIndex - 1];
             }
         }
 
@@ -61,8 +62,8 @@ namespace SlotMachine.Reels.Runtime
 
         public float Credits => credits;
         public bool CanAffordCurrentBet => credits >= TotalBet;
-        public bool CanIncreaseBet => betSteps != null && currentBetIndex < betSteps.Length - 1;
-        public bool CanDecreaseBet => betSteps != null && currentBetIndex > 0;
+        public bool CanIncreaseBet => betSteps != null && currentBetIndex < betSteps.Length;
+        public bool CanDecreaseBet => betSteps != null && currentBetIndex > 1;
 
         private void Awake()
         {
@@ -76,7 +77,7 @@ namespace SlotMachine.Reels.Runtime
 
             if (betSteps != null && betSteps.Length > 0)
             {
-                currentBetIndex = Mathf.Clamp(currentBetIndex, 0, betSteps.Length - 1);
+                currentBetIndex = Mathf.Clamp(currentBetIndex, 1, betSteps.Length);
 
                 for (int i = 0; i < betSteps.Length; i++)
                 {

@@ -188,5 +188,15 @@ namespace SlotMachine.Reels.Runtime
                 poolRoot = transform;
             }
         }
+
+        public SymbolDefinition GetDefinition(int symbolId)
+        {
+            if (definitionById.TryGetValue(symbolId, out SymbolDefinition definition))
+            {
+                return definition;
+            }
+
+            return null;
+        }
     }
 }

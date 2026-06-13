@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SlotMachine.Reels.Runtime
 {
@@ -8,6 +10,11 @@ namespace SlotMachine.Reels.Runtime
         [Header("References")]
         [Tooltip("Assign all your ReelControllers here in order (Left to Right)")]
         [SerializeField] private List<ReelController> reels = new List<ReelController>();
+        [SerializeField] private UnityEvent onWinLineShow;
+
+        [SerializeField] private TMP_Text symbolWinAmountText;
+        [SerializeField] private EventSequencePlayer paylineSymbolSequence;
+
 
         // The LineRenderer reference has been completely removed!
 
@@ -17,7 +24,7 @@ namespace SlotMachine.Reels.Runtime
         public void ShowCombinedWin(PaylineEvaluationResult result)
         {
             ClearVisuals();
-
+            onWinLineShow.Invoke();
             foreach (PaylineWinResult win in result.PaylineWins)
             {
                 for (int i = 0; i < win.MatchCount; i++)
@@ -38,7 +45,7 @@ namespace SlotMachine.Reels.Runtime
         public void ShowSingleLine(PaylineWinResult win)
         {
             ClearVisuals();
-
+            onWinLineShow.Invoke();
             for (int i = 0; i < reels.Count; i++)
             {
                 int rowIndex = win.Rows[i];
@@ -51,6 +58,9 @@ namespace SlotMachine.Reels.Runtime
                     {
                         activeWinSymbols.Add(symbol);
                         symbol.PlayHighlight();
+
+                        symbolWinAmountText.text = $"Pays : {win.WinAmount.ToString()}";
+                        paylineSymbolSequence.PlaySequenceById(win.SymbolId);
                     }
                 }
             }
@@ -62,6 +72,7 @@ namespace SlotMachine.Reels.Runtime
         public void ShowScatters(float scatterSymbolId)
         {
             ClearVisuals();
+            SoundController.Instance.PlaySound(SoundType.Scatter);
             foreach (ReelController reelController in reels)
             {
                 for (int i = 0; i < 3; i++)

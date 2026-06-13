@@ -15,13 +15,7 @@ namespace SlotMachine.Reels.Runtime
 
         private readonly List<int> rows;
 
-        public PaylineWinResult(
-            int lineId,
-            string lineName,
-            int symbolId,
-            int matchCount,
-            float winAmount,
-            IReadOnlyList<int> rows)
+        public PaylineWinResult(int lineId,string lineName,int symbolId,int matchCount,float winAmount,IReadOnlyList<int> rows)
         {
             LineId = lineId;
             LineName = lineName;

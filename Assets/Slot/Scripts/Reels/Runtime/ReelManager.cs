@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace SlotMachine.Reels.Runtime
@@ -68,6 +69,7 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private int anticipationTriggerScatterCount = 2;
         [SerializeField] private float anticipationExtraDelay = 1.5f;
         [SerializeField] private bool enableFakeAnticipation = true;
+
 
         private readonly HashSet<int> anticipationReelIndexes = new HashSet<int>();
         private bool anticipationPrepared;
@@ -205,12 +207,20 @@ namespace SlotMachine.Reels.Runtime
             {
                 float totalWin = lastPaylineEvaluation.TotalWin;
 
-                bool isBigWin = bigWinController != null && bigWinController.ResolveBigWinType(totalWin) != BigWinType.None;
+                if (isFreeSpinSpin && freeSpinManager != null)
+                {
+                    totalWin *= freeSpinManager.CurrentMultiplier;
+                }
 
-                outcome.SetWinData(lastPaylineEvaluation.HasAnyWin, isBigWin, totalWin);
+                bool isBigWin = bigWinController != null &&
+                                bigWinController.ResolveBigWinType(totalWin) != BigWinType.None;
+
+                int multiplier = isFreeSpinSpin ? freeSpinManager.CurrentMultiplier : 1;
+
+                outcome.SetWinData(lastPaylineEvaluation.HasAnyWin, isBigWin, totalWin, multiplier);
             }
-
             BuildAndRunSpinFlow(outcome);
+            SoundController.Instance.PlaySound(SoundType.SpinStart);
         }
 
         private void BuildAndRunSpinFlow(SpinOutcome outcome)
@@ -412,19 +422,20 @@ namespace SlotMachine.Reels.Runtime
                 paylineVisualizer.ClearVisuals();
             }
         }
+
         private IEnumerator RunBigWinPhase()
         {
+            if (freeSpinManager != null && lastOutcome != null)
+            {
+                yield return freeSpinManager.TryPlayWishGranted(lastOutcome);
+            }
+
             if (bigWinController == null)
             {
                 yield break;
             }
 
-            float totalWin = 0f;
-
-            if (lastPaylineEvaluation != null)
-            {
-                totalWin = lastPaylineEvaluation.TotalWin;
-            }
+            float totalWin = lastOutcome != null ? lastOutcome.TotalWin : 0f;
 
             yield return bigWinController.TryPlayBigWin(totalWin);
         }
@@ -457,26 +468,20 @@ namespace SlotMachine.Reels.Runtime
                 freeSpinManager?.HandleCompletedSpin(lastOutcome);
             }
 
-            float totalWin = 0f;
-
-            if (lastPaylineEvaluation != null)
-            {
-                totalWin = lastPaylineEvaluation.TotalWin * freeSpinManager.CurrentMultiplier;
-            }
+            float totalWin = lastOutcome != null ? lastOutcome.TotalWin : 0f;
 
             if (totalWin > 0f)
             {
                 if (isFreeSpinSpin)
                 {
                     freeSpinManager.AddFreeSpinWin(totalWin);
+                    freeSpinManager.UpdateMultiplier(true);
                 }
 
                 if (betManager != null)
                 {
                     betManager.AddWin(totalWin);
                 }
-
-                freeSpinManager.UpdateMultiplier(lastOutcome.HasWin);
             }
 
             isSpinInProgress = false;

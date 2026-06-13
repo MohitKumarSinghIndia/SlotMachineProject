@@ -210,6 +210,7 @@ namespace SlotMachine.Reels.Runtime
 
             currentBannerMode = BannerMode.None;
             currentRoutine = null;
+            freeSpinManager.ResetMultiplier();
         }
 
         public void OnBannerClicked()
@@ -229,15 +230,15 @@ namespace SlotMachine.Reels.Runtime
                 bannerSequencePlayer.PlaySequenceById(hideBannerId);
             }
 
-            if (freeSpinWinText != null)
-            {
-                freeSpinWinText.gameObject.SetActive(false);
-            }
+            //if (freeSpinWinText != null)
+            //{
+            //    freeSpinWinText.gameObject.SetActive(false);
+            //}
 
-            if(freeSpinWinAmountText != null)
-            {
-                freeSpinWinAmountText.gameObject.SetActive(false);
-            }
+            //if(freeSpinWinAmountText != null)
+            //{
+            //    freeSpinWinAmountText.gameObject.SetActive(false);
+            //}
         }
 
         private void UpdateStateUI()
