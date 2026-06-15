@@ -52,6 +52,7 @@ namespace SlotMachine.Reels.Runtime
         [Header("Music Clips")]
         [SerializeField] private AudioClip baseGameMusic;
         [SerializeField] private AudioClip freeSpinMusic;
+        [SerializeField] private AudioClip introMusic;
 
         [Header("Volumes")]
         [Range(0f, 1f)]
@@ -72,7 +73,7 @@ namespace SlotMachine.Reels.Runtime
             DontDestroyOnLoad(gameObject);
 
             ApplyVolumes();
-            PlayBaseGameMusic();
+            PlayIntroMusic();
         }
         private void Start()
         {
@@ -190,6 +191,11 @@ namespace SlotMachine.Reels.Runtime
         public void PlayFreeSpinMusic()
         {
             PlayMusic(freeSpinMusic, true);
+        }
+
+        public void PlayIntroMusic()
+        {
+            PlayMusic(introMusic, true);
         }
 
         public void PlayMusic(AudioClip clip, bool loop = true)
