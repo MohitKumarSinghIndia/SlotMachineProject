@@ -57,4 +57,10 @@ public class GameInputs : MonoBehaviour
     {
         isFreeSpinEnded = value;
     }
+
+    public void CloseGameClicked()
+    {
+
+        bannerManager.isIntroBannerActive = true;
+    }
 }
