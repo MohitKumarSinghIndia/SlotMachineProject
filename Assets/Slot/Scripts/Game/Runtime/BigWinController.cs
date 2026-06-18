@@ -196,7 +196,7 @@ namespace SlotMachine.Reels.Runtime
 
             onBigWinCompleted?.Invoke();
 
-            Hide();
+            //Hide();
         }
 
         private void SetTitle(BigWinType winType)

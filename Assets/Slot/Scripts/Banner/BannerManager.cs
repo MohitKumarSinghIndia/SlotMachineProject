@@ -9,6 +9,14 @@ namespace SlotMachine.Reels.Runtime
  
         public bool isIntroBannerActive = true;
 
+        private void Awake()
+        {
+            introBanner.SetActive(true);
+            gameScreen.SetActive(false);
+            isIntroBannerActive = true;
+
+        }
+
         public void OnIntroBannerClick()
         {
                 introBanner.SetActive(false);

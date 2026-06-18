@@ -37,6 +37,8 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private int endBannerSequenceId = 2;
         [SerializeField] private int transitToBaseId = 2;
         [SerializeField] private int transitToFreeId = 3;
+        [SerializeField] private int hideFreespinUI = 4;
+        [SerializeField] private int showFreeSpinUI = 5;
 
         [Header("Sequence Wait Times")]
         [SerializeField] private float startTransitionDuration = 1f;
@@ -75,6 +77,7 @@ namespace SlotMachine.Reels.Runtime
                 freeSpinManager.FreeSpinsStarted += OnFreeSpinsStarted;
                 freeSpinManager.FreeSpinsUpdated += OnFreeSpinsUpdated;
                 freeSpinManager.FreeSpinsEnded += OnFreeSpinsEnded;
+                freeSpinManager.onForceStopFreeSpin += HideMultiplier;
             }
         }
 
@@ -266,6 +269,14 @@ namespace SlotMachine.Reels.Runtime
             if(freeSpinWinAmountText != null)
             {
                 freeSpinWinAmountText.text = string.Format(freeSpinWinAmountFormat,freeSpinManager.TotalFreeSpinWin);
+            }
+        }
+
+        public void HideMultiplier()
+        {
+            if (transitionSequencePlayer != null)
+            {
+                transitionSequencePlayer.PlaySequenceById(hideFreespinUI);
             }
         }
     }

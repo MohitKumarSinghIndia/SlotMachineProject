@@ -50,6 +50,7 @@ namespace SlotMachine.Reels.Runtime
         public event Action<FreeSpinState> FreeSpinsStarted;
         public event Action<FreeSpinState> FreeSpinsUpdated;
         public event Action FreeSpinsEnded;
+        public event Action onForceStopFreeSpin;
 
         public FreeSpinState State => state;
         public float TotalFreeSpinWin => totalFreeSpinWin;
@@ -332,6 +333,22 @@ namespace SlotMachine.Reels.Runtime
             FreeSpinsUpdated?.Invoke(state);
 
             Debug.Log("AddFreeSpinWin " + totalFreeSpinWin);
+        }
+
+        public void ResetFreeSpinsSilently()
+        {
+            EnsureState();
+
+            state.EndSession();
+
+            ResetMultiplier();
+            ResetFreeSpinWin();
+
+            currentSpinUsesFreeSpin = false;
+
+            StopAutoFreeSpin();
+
+            onForceStopFreeSpin?.Invoke();
         }
     }
 }
