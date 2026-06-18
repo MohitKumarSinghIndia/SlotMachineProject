@@ -3513,351 +3513,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296939804}
   m_CullTransparentMesh: 1
---- !u!1 &299298965
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 299298967}
-  - component: {fileID: 299298966}
-  m_Layer: 0
-  m_Name: TransitionSequence
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &299298966
+--- !u!114 &299298966 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+  m_PrefabInstance: {fileID: 1929515858262880833}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 299298965}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3578be9d777bdb6419294ab425fcde20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventSequencePlayer
-  sequences:
-  - sequenceName: Play
-    sequenceId: 0
-    events:
-    - isExpanded: 1
-      eventName: 
-      eventType: 3
-      eventDelay: 0
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 1671151756}
-      objectsToDisable: []
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 0}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 0
-      eventDelay: 0
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable: []
-      objectsToDisable:
-      - {fileID: 1671151756}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 0}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 1281300683}
-            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
-              Assembly-CSharp
-            m_MethodName: PlaySFX
-            m_Mode: 2
-            m_Arguments:
-              m_ObjectArgument: {fileID: 8300000, guid: 35fc9aade3642e746a0717c844370e0a, type: 3}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      conditionType: 0
-      conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 3
-      eventDelay: 2.5
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable: []
-      objectsToDisable:
-      - {fileID: 1671151756}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 0}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-  - sequenceName: Tobase
-    sequenceId: 1
-    events:
-    - isExpanded: 1
-      eventName: 
-      eventType: 5
-      eventDelay: 0
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 1522781585}
-      - {fileID: 1169112199}
-      objectsToDisable:
-      - {fileID: 246900966}
-      - {fileID: 1133687065}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 299298966}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 5
-      eventDelay: 0
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 1522781585}
-      - {fileID: 1169112199}
-      objectsToDisable:
-      - {fileID: 246900966}
-      - {fileID: 1133687065}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 299298966}
-      targetSequenceId: 3
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-  - sequenceName: ToFree
-    sequenceId: 2
-    events:
-    - isExpanded: 1
-      eventName: 
-      eventType: 5
-      eventDelay: 0
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 246900966}
-      - {fileID: 1133687065}
-      objectsToDisable:
-      - {fileID: 1522781585}
-      - {fileID: 1169112199}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 299298966}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 5
-      eventDelay: 1
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 246900966}
-      - {fileID: 1133687065}
-      - {fileID: 163263901}
-      objectsToDisable:
-      - {fileID: 1522781585}
-      - {fileID: 1169112199}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 299298966}
-      targetSequenceId: 4
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-  - sequenceName: HideFreeSpinUI
-    sequenceId: 3
-    events:
-    - isExpanded: 1
-      eventName: 
-      eventType: 3
-      eventDelay: 0
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 1169112199}
-      - {fileID: 1522781585}
-      objectsToDisable:
-      - {fileID: 246900966}
-      - {fileID: 1133687065}
-      - {fileID: 163263901}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 0}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-  - sequenceName: ShowFreeSpinUI
-    sequenceId: 4
-    events:
-    - isExpanded: 1
-      eventName: 
-      eventType: 3
-      eventDelay: 0
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 163263901}
-      - {fileID: 1133687065}
-      objectsToDisable:
-      - {fileID: 163263901}
-      - {fileID: 1169112199}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 0}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      conditionType: 0
-      conditionValue: 0
---- !u!4 &299298967
+--- !u!4 &299298967 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+  m_PrefabInstance: {fileID: 1929515858262880833}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 299298965}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1871483218}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &300267353
 GameObject:
   m_ObjectHideFlags: 0
@@ -24404,6 +24075,183 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5588724555450102466}
   m_CullTransparentMesh: 1
+--- !u!1001 &1929515858262880833
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1871483218}
+    m_Modifications:
+    - target: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504422301290759010, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_Name
+      value: TransitionSequence
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[0].events.Array.data[0].objectsToEnable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1671151756}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[1].events.Array.data[0].objectsToEnable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1522781585}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[1].events.Array.data[0].objectsToEnable.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1169112199}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[1].events.Array.data[1].objectsToEnable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1522781585}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[1].events.Array.data[1].objectsToEnable.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1169112199}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[2].events.Array.data[0].objectsToEnable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 246900966}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[2].events.Array.data[0].objectsToEnable.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1133687065}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[2].events.Array.data[1].objectsToEnable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 246900966}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[2].events.Array.data[1].objectsToEnable.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1133687065}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[2].events.Array.data[1].objectsToEnable.Array.data[2]'
+      value: 
+      objectReference: {fileID: 163263901}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[3].events.Array.data[0].objectsToEnable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1169112199}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[3].events.Array.data[0].objectsToEnable.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1522781585}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[4].events.Array.data[0].objectsToEnable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 163263901}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[4].events.Array.data[0].objectsToEnable.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1133687065}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[0].events.Array.data[1].objectsToDisable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1671151756}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[0].events.Array.data[2].objectsToDisable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1671151756}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[1].events.Array.data[0].objectsToDisable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 246900966}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[1].events.Array.data[0].objectsToDisable.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1133687065}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[1].events.Array.data[1].objectsToDisable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 246900966}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[1].events.Array.data[1].objectsToDisable.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1133687065}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[2].events.Array.data[0].objectsToDisable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1522781585}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[2].events.Array.data[0].objectsToDisable.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1169112199}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[2].events.Array.data[1].objectsToDisable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1522781585}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[2].events.Array.data[1].objectsToDisable.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1169112199}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[3].events.Array.data[0].objectsToDisable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 246900966}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[3].events.Array.data[0].objectsToDisable.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1133687065}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[3].events.Array.data[0].objectsToDisable.Array.data[2]'
+      value: 
+      objectReference: {fileID: 163263901}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[4].events.Array.data[0].objectsToDisable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 163263901}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[4].events.Array.data[0].objectsToDisable.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1169112199}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: sequences.Array.data[0].events.Array.data[1].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1281300683}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
 --- !u!1 &1930004451576605395
 GameObject:
   m_ObjectHideFlags: 0

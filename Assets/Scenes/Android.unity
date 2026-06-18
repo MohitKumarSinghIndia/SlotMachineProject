@@ -3473,283 +3473,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 180, y: 525}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &299298965
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 299298967}
-  - component: {fileID: 299298966}
-  m_Layer: 0
-  m_Name: TransitionSequence
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &299298966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 299298965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3578be9d777bdb6419294ab425fcde20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EventSequencePlayer
-  sequences:
-  - sequenceName: Play
-    sequenceId: 0
-    events:
-    - isExpanded: 1
-      eventName: 
-      eventType: 3
-      eventDelay: 0
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 1671151756}
-      objectsToDisable: []
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 0}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 0
-      eventDelay: 0
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable: []
-      objectsToDisable:
-      - {fileID: 1671151756}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 0}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 1281300683}
-            m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.SoundController,
-              Assembly-CSharp
-            m_MethodName: PlaySFX
-            m_Mode: 2
-            m_Arguments:
-              m_ObjectArgument: {fileID: 8300000, guid: 35fc9aade3642e746a0717c844370e0a, type: 3}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      conditionType: 0
-      conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 3
-      eventDelay: 2.5
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable: []
-      objectsToDisable:
-      - {fileID: 1671151756}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 0}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-  - sequenceName: Tobase
-    sequenceId: 1
-    events:
-    - isExpanded: 1
-      eventName: 
-      eventType: 5
-      eventDelay: 0
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 1522781585}
-      - {fileID: 1169112199}
-      objectsToDisable:
-      - {fileID: 246900966}
-      - {fileID: 1133687065}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 299298966}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 3
-      eventDelay: 1
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 1522781585}
-      - {fileID: 1169112199}
-      objectsToDisable:
-      - {fileID: 246900966}
-      - {fileID: 1133687065}
-      - {fileID: 163263901}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 0}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-  - sequenceName: ToFree
-    sequenceId: 2
-    events:
-    - isExpanded: 1
-      eventName: 
-      eventType: 5
-      eventDelay: 0
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 246900966}
-      - {fileID: 1133687065}
-      objectsToDisable:
-      - {fileID: 1522781585}
-      - {fileID: 1169112199}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 299298966}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      conditionType: 0
-      conditionValue: 0
-    - isExpanded: 1
-      eventName: 
-      eventType: 3
-      eventDelay: 1
-      waitForCompletion: 0
-      target: {fileID: 0}
-      animationName: 
-      loop: 0
-      objectsToEnable:
-      - {fileID: 246900966}
-      - {fileID: 1133687065}
-      - {fileID: 163263901}
-      objectsToDisable:
-      - {fileID: 1522781585}
-      - {fileID: 1169112199}
-      audioClip: {fileID: 0}
-      audioSource: {fileID: 0}
-      sequencePlayerTarget: {fileID: 0}
-      targetSequenceId: 0
-      modifyPosition: 0
-      targetPosition: {x: 0, y: 0, z: 0}
-      modifyRotation: 0
-      targetRotation: {x: 0, y: 0, z: 0}
-      modifyScale: 0
-      targetScale: {x: 0, y: 0, z: 0}
-      tweenDuration: 0
-      easeType: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-      conditionType: 0
-      conditionValue: 0
---- !u!4 &299298967
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 299298965}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1871483218}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &300267353
 GameObject:
   m_ObjectHideFlags: 0
@@ -3907,7 +3630,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17.1
+  m_fontSize: 17.9
   m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5583,6 +5306,135 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &524379272
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1871483218}
+    m_Modifications:
+    - target: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 981.43066
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 360.5326
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504422301290759010, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: m_Name
+      value: TransitionSequence
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: sequences.Array.data[4].events.Array.data[0].objectsToEnable.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: sequences.Array.data[3].events.Array.data[0].objectsToDisable.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[0].events.Array.data[0].objectsToEnable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1671151756}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[3].events.Array.data[0].objectsToEnable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1522781585}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[3].events.Array.data[0].objectsToEnable.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1169112199}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[4].events.Array.data[0].objectsToEnable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1133687065}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[4].events.Array.data[0].objectsToEnable.Array.data[1]'
+      value: 
+      objectReference: {fileID: 163263901}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[4].events.Array.data[0].objectsToEnable.Array.data[2]'
+      value: 
+      objectReference: {fileID: 246900966}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[0].events.Array.data[2].objectsToDisable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1671151756}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[3].events.Array.data[0].objectsToDisable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 246900966}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[3].events.Array.data[0].objectsToDisable.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1133687065}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[3].events.Array.data[0].objectsToDisable.Array.data[2]'
+      value: 
+      objectReference: {fileID: 163263901}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[3].events.Array.data[0].objectsToDisable.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1133687065}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[3].events.Array.data[0].objectsToDisable.Array.data[4]'
+      value: 
+      objectReference: {fileID: 163263901}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[4].events.Array.data[0].objectsToDisable.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1169112199}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: 'sequences.Array.data[4].events.Array.data[0].objectsToDisable.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1522781585}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: sequences.Array.data[0].events.Array.data[1].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1281300683}
+    - target: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+      propertyPath: sequences.Array.data[0].events.Array.data[1].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlaySFX
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
 --- !u!1 &531306630
 GameObject:
   m_ObjectHideFlags: 0
@@ -6550,9 +6402,9 @@ RectTransform:
   m_Father: {fileID: 924721872}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.268}
-  m_AnchoredPosition: {x: 0, y: -468.11685}
-  m_SizeDelta: {x: 1936.4675, y: 256.08667}
+  m_AnchorMax: {x: 1, y: 0.25355557}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0.16000366}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &614073555
 MonoBehaviour:
@@ -6576,7 +6428,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 5880284041343685652, guid: 1f2ace09861a10d4c99ffc4c83750507, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -6922,6 +6774,7 @@ MonoBehaviour:
   freeSpinsPresenter: {fileID: 933862916}
   freeSpinManager: {fileID: 881775903}
   bannerManager: {fileID: 1891720665}
+  closeButton: {fileID: 344352960}
   isFreeSpinStarted: 0
   isFreeSpinEnded: 0
 --- !u!4 &640606548
@@ -9502,7 +9355,19 @@ MonoBehaviour:
         m_CallState: 2
   onBigWinCompleted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 804473779}
+        m_TargetAssemblyTypeName: SlotMachine.Reels.Runtime.BigWinController, Assembly-CSharp
+        m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   lastBigWinType: 0
   lastWinMultiplier: 0
   lastWinAmount: 0
@@ -10381,10 +10246,10 @@ RectTransform:
   - {fileID: 614073554}
   m_Father: {fileID: 725677245}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &933862914
 GameObject:
@@ -10432,7 +10297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Game.Runtime.FreeSpinsPresenter
   freeSpinManager: {fileID: 881775903}
   bannerSequencePlayer: {fileID: 1358606054}
-  transitionSequencePlayer: {fileID: 299298966}
+  transitionSequencePlayer: {fileID: 1534880518}
   bannerRoot: {fileID: 1491759685}
   bannerButton: {fileID: 1491759689}
   freeSpinsLeftText: {fileID: 1995674403}
@@ -10446,6 +10311,8 @@ MonoBehaviour:
   endBannerSequenceId: 2
   transitToBaseId: 1
   transitToFreeId: 2
+  hideFreespinUI: 3
+  showFreeSpinUI: 4
   startTransitionDuration: 2.5
   endBannerSequenceDuration: 1
   bannerHideDuration: 0.8
@@ -13234,7 +13101,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1936.4675, y: 918.23376}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1201544788
 MonoBehaviour:
@@ -14596,10 +14463,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 924721872}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.89900005}
+  m_AnchorMin: {x: 0, y: 0.90766686}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 459.11685}
-  m_SizeDelta: {x: 1936.4675, y: 89.741554}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0.099998474}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1357310353
 MonoBehaviour:
@@ -16561,6 +16428,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d58843c495151d4dbb00853e68de770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Game.Runtime.ReelSymbolView
+--- !u!114 &1534880518 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9044200172129925986, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+  m_PrefabInstance: {fileID: 524379272}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3578be9d777bdb6419294ab425fcde20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventSequencePlayer
+--- !u!4 &1534880519 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8259304327255337582, guid: 5ba80686c7a2c594b82c75ebb1dadf25, type: 3}
+  m_PrefabInstance: {fileID: 524379272}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1536370981
 GameObject:
   m_ObjectHideFlags: 0
@@ -19256,9 +19139,9 @@ Transform:
   - {fileID: 1891720664}
   - {fileID: 933862915}
   - {fileID: 1358606053}
+  - {fileID: 1534880519}
   - {fileID: 804473778}
   - {fileID: 774445886}
-  - {fileID: 299298967}
   - {fileID: 1281300682}
   - {fileID: 229587055}
   - {fileID: 1414335085}
@@ -19656,10 +19539,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 924721872}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.344}
-  m_AnchorMax: {x: 1, y: 0.75500005}
-  m_AnchoredPosition: {x: 0, y: 44.952583}
-  m_SizeDelta: {x: 1936.4675, y: 375.3941}
+  m_AnchorMin: {x: 0.055302475, y: 0.31}
+  m_AnchorMax: {x: 0.943395, y: 0.7945327}
+  m_AnchoredPosition: {x: 1.5001221, y: 0}
+  m_SizeDelta: {x: -3.0000305, y: -6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1947174962
 MonoBehaviour:
@@ -19979,7 +19862,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42
+  m_fontSize: 41.05
   m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -26532,10 +26415,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 139708919}
     m_Modifications:
-    - target: {fileID: 2747658185000054400, guid: 2b52b286d2f72e5409adc9098c9adb2c, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 5f143eeebf4b65a4a94165abb3d645b0, type: 3}
     - target: {fileID: 6275051812763589599, guid: 2b52b286d2f72e5409adc9098c9adb2c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -26546,27 +26425,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6275051812763589599, guid: 2b52b286d2f72e5409adc9098c9adb2c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6275051812763589599, guid: 2b52b286d2f72e5409adc9098c9adb2c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6275051812763589599, guid: 2b52b286d2f72e5409adc9098c9adb2c, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6275051812763589599, guid: 2b52b286d2f72e5409adc9098c9adb2c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6275051812763589599, guid: 2b52b286d2f72e5409adc9098c9adb2c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6275051812763589599, guid: 2b52b286d2f72e5409adc9098c9adb2c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6275051812763589599, guid: 2b52b286d2f72e5409adc9098c9adb2c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26619,14 +26498,6 @@ PrefabInstance:
     - target: {fileID: 6608176950138733117, guid: 2b52b286d2f72e5409adc9098c9adb2c, type: 3}
       propertyPath: m_Name
       value: Buy_Feature
-      objectReference: {fileID: 0}
-    - target: {fileID: 7484751700468616890, guid: 2b52b286d2f72e5409adc9098c9adb2c, type: 3}
-      propertyPath: sequences.Array.data[3].events.Array.data[2].isExpanded
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7484751700468616890, guid: 2b52b286d2f72e5409adc9098c9adb2c, type: 3}
-      propertyPath: sequences.Array.data[3].events.Array.data[3].isExpanded
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7484751700468616890, guid: 2b52b286d2f72e5409adc9098c9adb2c, type: 3}
       propertyPath: sequences.Array.data[3].events.Array.data[0].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
