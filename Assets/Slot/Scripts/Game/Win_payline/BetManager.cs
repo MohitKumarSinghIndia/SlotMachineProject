@@ -7,8 +7,11 @@ namespace SlotMachine.Reels.Runtime
 {
     public class BetManager : MonoBehaviour
     {
+        private const string CreditsKey = "PLAYER_CREDITS";
+
         [Header("Bet Settings")]
         [SerializeField] private int activeLineCount = 20;
+
         [SerializeField]
         private float[] betSteps =
         {
@@ -18,7 +21,8 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private int currentBetIndex = 4;
 
         [Header("Credits")]
-        [SerializeField] private float credits = 10000f;
+        [SerializeField] private float defaultCredits = 10000f;
+        [SerializeField] private float credits;
 
         [Header("UI References")]
         [SerializeField] private TMP_Text betText;
@@ -38,9 +42,7 @@ namespace SlotMachine.Reels.Runtime
             get
             {
                 if (betSteps == null || betSteps.Length == 0)
-                {
                     return 0f;
-                }
 
                 currentBetIndex = Mathf.Clamp(currentBetIndex, 1, betSteps.Length);
                 return betSteps[currentBetIndex - 1];
@@ -52,9 +54,7 @@ namespace SlotMachine.Reels.Runtime
             get
             {
                 if (activeLineCount <= 0)
-                {
                     return 0f;
-                }
 
                 return TotalBet / activeLineCount;
             }
@@ -67,8 +67,26 @@ namespace SlotMachine.Reels.Runtime
 
         private void Awake()
         {
+            LoadCredits();
             HookButtons();
             RefreshUI();
+        }
+
+        private void OnApplicationQuit()
+        {
+            SaveCredits();
+        }
+
+        private void OnApplicationPause(bool pause)
+        {
+            if (pause)
+                SaveCredits();
+        }
+
+        private void OnApplicationFocus(bool hasFocus)
+        {
+            if (!hasFocus)
+                SaveCredits();
         }
 
         private void OnValidate()
@@ -85,7 +103,6 @@ namespace SlotMachine.Reels.Runtime
                 }
             }
 
-            credits = Mathf.Max(0f, credits);
             RefreshUI();
         }
 
@@ -102,6 +119,17 @@ namespace SlotMachine.Reels.Runtime
                 minusButton.onClick.RemoveListener(DecreaseBet);
                 minusButton.onClick.AddListener(DecreaseBet);
             }
+        }
+
+        private void SaveCredits()
+        {
+            PlayerPrefs.SetFloat(CreditsKey, credits);
+            PlayerPrefs.Save();
+        }
+
+        private void LoadCredits()
+        {
+            credits = PlayerPrefs.GetFloat(CreditsKey, defaultCredits);
         }
 
         public void IncreaseBet()
@@ -140,6 +168,23 @@ namespace SlotMachine.Reels.Runtime
             }
 
             credits -= TotalBet;
+
+            SaveCredits();
+
+            CreditsChanged?.Invoke(credits);
+            RefreshUI();
+            return true;
+        }
+
+        public bool TrySpend(float amount)
+        {
+            if (credits < amount)
+                return false;
+
+            credits -= amount;
+
+            SaveCredits();
+
             CreditsChanged?.Invoke(credits);
             RefreshUI();
             return true;
@@ -148,11 +193,12 @@ namespace SlotMachine.Reels.Runtime
         public void AddWin(float winAmount)
         {
             if (winAmount <= 0f)
-            {
                 return;
-            }
 
             credits += winAmount;
+
+            SaveCredits();
+
             CreditsChanged?.Invoke(credits);
             RefreshUI();
         }
@@ -160,6 +206,9 @@ namespace SlotMachine.Reels.Runtime
         public void SetCredits(float value)
         {
             credits = Mathf.Max(0f, value);
+
+            SaveCredits();
+
             CreditsChanged?.Invoke(credits);
             RefreshUI();
         }
@@ -167,41 +216,27 @@ namespace SlotMachine.Reels.Runtime
         public void RefreshUI()
         {
             if (betText != null)
-            {
                 betText.text = TotalBet.ToString("0.##");
-            }
 
             if (betPerLineText != null)
-            {
                 betPerLineText.text = BetPerLine.ToString("0.##");
-            }
 
             if (creditsText != null)
-            {
                 creditsText.text = credits.ToString("0.##");
-            }
 
             if (plusButton != null)
-            {
                 plusButton.interactable = CanIncreaseBet;
-            }
 
             if (minusButton != null)
-            {
                 minusButton.interactable = CanDecreaseBet;
-            }
         }
-        public bool TrySpend(float amount)
-        {
-            if (credits < amount)
-            {
-                return false;
-            }
 
-            credits -= amount;
-            CreditsChanged?.Invoke(credits);
+        [ContextMenu("Reset Credits")]
+        public void ResetCredits()
+        {
+            credits = defaultCredits;
+            SaveCredits();
             RefreshUI();
-            return true;
         }
     }
 }
