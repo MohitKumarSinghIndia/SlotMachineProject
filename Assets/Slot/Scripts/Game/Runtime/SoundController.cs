@@ -29,9 +29,13 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private AudioSource sfxSource;
         [SerializeField] private AudioSource musicSource;
 
-        [Header("ON OFF Toggle")]
+        [Header("Master Sound Toggle")]
         [SerializeField] private Toggle onOfftoggle;
         private const string SoundPrefKey = "SoundEnabled";
+
+        [Header("SFX Toggle")]
+        [SerializeField] private Toggle sfxToggle;
+        private const string SFXPrefKey = "SFXEnabled";
 
         [Header("SFX Clips")]
         [SerializeField] private AudioClip buttonClickClip;
@@ -75,9 +79,11 @@ namespace SlotMachine.Reels.Runtime
             ApplyVolumes();
             PlayIntroMusic();
         }
+
         private void Start()
         {
             bool soundEnabled = PlayerPrefs.GetInt(SoundPrefKey, 1) == 1;
+            bool sfxEnabled = PlayerPrefs.GetInt(SFXPrefKey, 1) == 1;
 
             if (onOfftoggle != null)
             {
@@ -85,7 +91,14 @@ namespace SlotMachine.Reels.Runtime
                 onOfftoggle.onValueChanged.AddListener(OnSoundToggleChanged);
             }
 
+            if (sfxToggle != null)
+            {
+                sfxToggle.isOn = sfxEnabled;
+                sfxToggle.onValueChanged.AddListener(OnSFXToggleChanged);
+            }
+
             SetSoundEnabled(soundEnabled);
+            SetSFXEnabled(sfxEnabled);
         }
 
         private void OnDestroy()
@@ -93,6 +106,11 @@ namespace SlotMachine.Reels.Runtime
             if (onOfftoggle != null)
             {
                 onOfftoggle.onValueChanged.RemoveListener(OnSoundToggleChanged);
+            }
+
+            if (sfxToggle != null)
+            {
+                sfxToggle.onValueChanged.RemoveListener(OnSFXToggleChanged);
             }
         }
 
@@ -104,16 +122,27 @@ namespace SlotMachine.Reels.Runtime
             PlayerPrefs.Save();
         }
 
+        public void OnSFXToggleChanged(bool isOn)
+        {
+            SetSFXEnabled(isOn);
+
+            PlayerPrefs.SetInt(SFXPrefKey, isOn ? 1 : 0);
+            PlayerPrefs.Save();
+        }
+
         private void SetSoundEnabled(bool enabled)
+        {
+            if (musicSource != null)
+            {
+                musicSource.mute = !enabled;
+            }
+        }
+
+        private void SetSFXEnabled(bool enabled)
         {
             if (sfxSource != null)
             {
                 sfxSource.mute = !enabled;
-            }
-
-            if (musicSource != null)
-            {
-                musicSource.mute = !enabled;
             }
         }
 
@@ -251,50 +280,21 @@ namespace SlotMachine.Reels.Runtime
         {
             switch (soundType)
             {
-                case SoundType.ButtonClick:
-                    return buttonClickClip;
-
-                case SoundType.SpinStart:
-                    return spinStartClip;
-
-                case SoundType.ReelStop:
-                    return reelStopClip;
-
-                case SoundType.Scatter:
-                    return scatterClip;
-
-                case SoundType.Anticipation:
-                    return anticipationClip;
-
-                case SoundType.FreeSpinStart:
-                    return freeSpinStartClip;
-
-                case SoundType.FreeSpinEnd:
-                    return freeSpinEndClip;
-
-                case SoundType.BigWin:
-                    return bigWinClip;
-
-                case SoundType.MegaWin:
-                    return megaWinClip;
-
-                case SoundType.SuperWin:
-                    return superWinClip;
-
-                case SoundType.SensationalWin:
-                    return sensationalWinClip;
-
-                case SoundType.WishGranted:
-                    return wishGrantedClip;
-
-                case SoundType.CoinCount:
-                    return coinCountClip;
-
-                case SoundType.Transition:
-                    return transitionClip;
-
-                default:
-                    return null;
+                case SoundType.ButtonClick: return buttonClickClip;
+                case SoundType.SpinStart: return spinStartClip;
+                case SoundType.ReelStop: return reelStopClip;
+                case SoundType.Scatter: return scatterClip;
+                case SoundType.Anticipation: return anticipationClip;
+                case SoundType.FreeSpinStart: return freeSpinStartClip;
+                case SoundType.FreeSpinEnd: return freeSpinEndClip;
+                case SoundType.BigWin: return bigWinClip;
+                case SoundType.MegaWin: return megaWinClip;
+                case SoundType.SuperWin: return superWinClip;
+                case SoundType.SensationalWin: return sensationalWinClip;
+                case SoundType.WishGranted: return wishGrantedClip;
+                case SoundType.CoinCount: return coinCountClip;
+                case SoundType.Transition: return transitionClip;
+                default: return null;
             }
         }
     }
