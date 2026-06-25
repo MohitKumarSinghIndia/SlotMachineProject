@@ -6,6 +6,8 @@ namespace SlotMachine.Reels.Runtime
 {
     public class Settings : MonoBehaviour
     {
+        public bool isSettingOn = false;
+
         private const string MUSIC_KEY = "SoundEnabled";
         private const string SFX_KEY = "SFXEnabled";
 
@@ -71,11 +73,13 @@ namespace SlotMachine.Reels.Runtime
 
             RefreshBetText();
             settingsPanel.SetActive(true);
+            isSettingOn = true;
         }
 
         public void CloseSettings()
         {
             settingsPanel.SetActive(false);
+            isSettingOn = false;
         }
 
         public void ToggleMusic()
