@@ -25,17 +25,12 @@ namespace SlotMachine.Reels.Runtime
     {
         public static SoundController Instance { get; private set; }
 
+        private const string SoundPrefKey = "SoundEnabled";
+        private const string SFXPrefKey = "SFXEnabled";
+
         [Header("Audio Sources")]
         [SerializeField] private AudioSource sfxSource;
         [SerializeField] private AudioSource musicSource;
-
-        [Header("Master Sound Toggle")]
-        [SerializeField] private Toggle onOfftoggle;
-        private const string SoundPrefKey = "SoundEnabled";
-
-        [Header("SFX Toggle")]
-        [SerializeField] private Toggle sfxToggle;
-        private const string SFXPrefKey = "SFXEnabled";
 
         [Header("SFX Clips")]
         [SerializeField] private AudioClip buttonClickClip;
@@ -82,54 +77,28 @@ namespace SlotMachine.Reels.Runtime
 
         private void Start()
         {
-            bool soundEnabled = PlayerPrefs.GetInt(SoundPrefKey, 1) == 1;
+            bool musicEnabled = PlayerPrefs.GetInt(SoundPrefKey, 1) == 1;
             bool sfxEnabled = PlayerPrefs.GetInt(SFXPrefKey, 1) == 1;
 
-            if (onOfftoggle != null)
-            {
-                onOfftoggle.isOn = soundEnabled;
-                onOfftoggle.onValueChanged.AddListener(OnSoundToggleChanged);
-            }
-
-            if (sfxToggle != null)
-            {
-                sfxToggle.isOn = sfxEnabled;
-                sfxToggle.onValueChanged.AddListener(OnSFXToggleChanged);
-            }
-
-            SetSoundEnabled(soundEnabled);
+            SetSoundEnabled(musicEnabled);
             SetSFXEnabled(sfxEnabled);
         }
 
-        private void OnDestroy()
+        public void SetMusicEnabled(bool enabled)
         {
-            if (onOfftoggle != null)
-            {
-                onOfftoggle.onValueChanged.RemoveListener(OnSoundToggleChanged);
-            }
+            SetSoundEnabled(enabled);
 
-            if (sfxToggle != null)
-            {
-                sfxToggle.onValueChanged.RemoveListener(OnSFXToggleChanged);
-            }
-        }
-
-        public void OnSoundToggleChanged(bool isOn)
-        {
-            SetSoundEnabled(isOn);
-
-            PlayerPrefs.SetInt(SoundPrefKey, isOn ? 1 : 0);
+            PlayerPrefs.SetInt(SoundPrefKey, enabled ? 1 : 0);
             PlayerPrefs.Save();
         }
 
-        public void OnSFXToggleChanged(bool isOn)
+        public void SetSfxEnabled(bool enabled)
         {
-            SetSFXEnabled(isOn);
+            SetSFXEnabled(enabled);
 
-            PlayerPrefs.SetInt(SFXPrefKey, isOn ? 1 : 0);
+            PlayerPrefs.SetInt(SFXPrefKey, enabled ? 1 : 0);
             PlayerPrefs.Save();
         }
-
         private void SetSoundEnabled(bool enabled)
         {
             if (musicSource != null)
