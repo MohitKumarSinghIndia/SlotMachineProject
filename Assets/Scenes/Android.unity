@@ -22434,7 +22434,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.060460582}
   m_AnchorMax: {x: 0.60755587, y: 0.93953943}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 72, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1742957531
@@ -23799,7 +23799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1920760362
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24050,6 +24050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1503e31f535bf74ba731af3e2f0d28a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine.Reels.Runtime.Settings
+  isSettingOn: 0
   settingsPanel: {fileID: 2004536320}
   reelManager: {fileID: 2037349845}
   betManager: {fileID: 1319481033}
