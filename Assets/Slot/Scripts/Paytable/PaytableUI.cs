@@ -15,12 +15,13 @@ public class PaytableUI : MonoBehaviour
     [SerializeField] private GameObject paytableUI;
 
     [Header("Pages")]
-    [SerializeField] private GameObject page1;
-    [SerializeField] private GameObject page2;
+    [SerializeField] private GameObject[] pages;
+
+    private int currentPageIndex = 0;
 
     [Header("Buttons")]
     [SerializeField] private Button nextButton;
-    [SerializeField] private Button backButton;
+    [SerializeField] private Button previousButton;
 
     [Header("Paytable Texts")]
     [SerializeField] private List<TMP_Text> symbolsValueText;
@@ -30,13 +31,13 @@ public class PaytableUI : MonoBehaviour
     private void OnEnable()
     {
         nextButton.onClick.AddListener(OpenNextPage);
-        backButton.onClick.AddListener(OpenPreviousPage);
+        previousButton.onClick.AddListener(OpenPreviousPage);
     }
 
     private void OnDisable()
     {
         nextButton.onClick.RemoveListener(OpenNextPage);
-        backButton.onClick.RemoveListener(OpenPreviousPage);
+        previousButton.onClick.RemoveListener(OpenPreviousPage);
     }
 
     private void GetCurrentBet()
@@ -78,7 +79,12 @@ public class PaytableUI : MonoBehaviour
     public void ShowPaytable()
     {
         paytableUI.SetActive(true);
-        ShowPage1();
+
+        if (pages == null || pages.Length == 0)
+            return;
+
+        currentPageIndex = 0;
+        ShowPage(currentPageIndex);
         SetSymbolsPay();
     }
 
@@ -89,30 +95,35 @@ public class PaytableUI : MonoBehaviour
 
     private void OpenNextPage()
     {
-        ShowPage2();
+        if (currentPageIndex < pages.Length - 1)
+        {
+            currentPageIndex++;
+            ShowPage(currentPageIndex);
+        }
     }
 
     private void OpenPreviousPage()
     {
-        ShowPage1();
+        if (currentPageIndex > 0)
+        {
+            currentPageIndex--;
+            ShowPage(currentPageIndex);
+        }
     }
 
-    private void ShowPage1()
+    private void ShowPage(int index)
     {
-        page1.SetActive(true);
-        page2.SetActive(false);
+        if (pages == null || pages.Length == 0)
+            return;
 
-        nextButton.gameObject.SetActive(true);
-        backButton.gameObject.SetActive(false);
-    }
+        for (int i = 0; i < pages.Length; i++)
+        {
+            if (pages[i] != null)
+                pages[i].SetActive(i == index);
+        }
 
-    private void ShowPage2()
-    {
-        page1.SetActive(false);
-        page2.SetActive(true);
-
-        nextButton.gameObject.SetActive(false);
-        backButton.gameObject.SetActive(true);
+        previousButton.interactable = index > 0;
+        nextButton.interactable = index < pages.Length - 1;
     }
 
     #endregion
