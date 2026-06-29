@@ -47,12 +47,12 @@ namespace SlotMachine.Reels.Runtime
 
         private void UpdateCloseButtonState()
         {
-            if (closeButton == null || reelManager == null)
-            {
+            if (closeButton == null || reelManager == null || freeSpinManager == null)
                 return;
-            }
 
-            closeButton.interactable = !reelManager.IsSpinInProgress;
+            bool canClose = !reelManager.IsSpinInProgress && !freeSpinManager.State.IsActive;
+
+            closeButton.interactable = canClose;
         }
 
         private void HandleSpaceInput()
