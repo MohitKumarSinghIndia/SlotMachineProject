@@ -45,12 +45,12 @@ namespace SlotMachine.Reels.Runtime
             sfxEnabled = PlayerPrefs.GetInt(SFX_KEY, 1) == 1;
 
             UpdateToggleVisuals();
-
             if (betManager != null)
             {
                 betManager.BetChanged += OnBetChanged;
                 RefreshBetText();
             }
+
         }
 
         private void OnDestroy()
@@ -68,22 +68,26 @@ namespace SlotMachine.Reels.Runtime
 
         public void OpenSettings()
         {
+            SoundController.Instance.PlaySound(SoundType.ButtonClick);
             if (reelManager != null && reelManager.IsSpinInProgress)
                 return;
 
             RefreshBetText();
             settingsPanel.SetActive(true);
+            UpdateToggleVisuals();
             isSettingOn = true;
         }
 
         public void CloseSettings()
         {
+            SoundController.Instance.PlaySound(SoundType.ButtonClick);
             settingsPanel.SetActive(false);
             isSettingOn = false;
         }
 
         public void ToggleMusic()
         {
+            SoundController.Instance.PlaySound(SoundType.ButtonClick);
             musicEnabled = !musicEnabled;
 
             PlayerPrefs.SetInt(MUSIC_KEY, musicEnabled ? 1 : 0);
@@ -107,6 +111,7 @@ namespace SlotMachine.Reels.Runtime
 
         public void ToggleSfx()
         {
+            SoundController.Instance.PlaySound(SoundType.ButtonClick);
             sfxEnabled = !sfxEnabled;
 
             PlayerPrefs.SetInt(SFX_KEY, sfxEnabled ? 1 : 0);

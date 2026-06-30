@@ -97,6 +97,7 @@ public class PaytableUI : MonoBehaviour
     {
         if (currentPageIndex < pages.Length - 1)
         {
+            SoundController.Instance.PlaySound(SoundType.ButtonClick);
             currentPageIndex++;
             ShowPage(currentPageIndex);
         }
@@ -106,6 +107,7 @@ public class PaytableUI : MonoBehaviour
     {
         if (currentPageIndex > 0)
         {
+            SoundController.Instance.PlaySound(SoundType.ButtonClick);
             currentPageIndex--;
             ShowPage(currentPageIndex);
         }
