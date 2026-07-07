@@ -64,6 +64,10 @@ namespace SlotMachine.Reels.Runtime
         [SerializeField] private UnityEvent onMegaWin;
         [SerializeField] private UnityEvent onSuperWin;
         [SerializeField] private UnityEvent onSensationalWin;
+        [SerializeField] private UnityEvent onNiceEnd;
+        [SerializeField] private UnityEvent onMegaEnd;
+        [SerializeField] private UnityEvent onSuperEnd;
+        [SerializeField] private UnityEvent onSensationalEnd;
         [SerializeField] private UnityEvent onBigWinCompleted;
 
         [Header("Debug")]
@@ -80,7 +84,7 @@ namespace SlotMachine.Reels.Runtime
         private void Awake()
         {
             CacheReferences();
-            Hide();
+            Hide(BigWinType.None);
         }
 
         private void OnValidate()
@@ -106,7 +110,7 @@ namespace SlotMachine.Reels.Runtime
 
             if (lastBigWinType == BigWinType.None)
             {
-                Hide();
+                Hide(BigWinType.None);
                 yield break;
             }
 
@@ -194,9 +198,9 @@ namespace SlotMachine.Reels.Runtime
                 yield return new WaitForSeconds(holdAfterCountDuration);
             }
 
-            onBigWinCompleted?.Invoke();
+            //onBigWinCompleted?.Invoke();
 
-            //Hide();
+            Hide(winType);
         }
 
         private void SetTitle(BigWinType winType)
@@ -281,16 +285,12 @@ namespace SlotMachine.Reels.Runtime
             }
         }
 
-        public void Hide()
+        public void Hide(BigWinType winType)
         {
+            StopTypeEvent(winType);
             if (SoundController.Instance != null)
             {
                 SoundController.Instance.StopSFX();
-            }
-
-            if (bigWinPanel != null)
-            {
-                bigWinPanel.SetActive(false);
             }
 
             if (titleText != null)
@@ -298,7 +298,28 @@ namespace SlotMachine.Reels.Runtime
                 titleText.text = string.Empty;
             }
 
-            SetAmount(0f);
+        }
+
+        private void StopTypeEvent(BigWinType winType)
+        {
+            switch (winType)
+            {
+                case BigWinType.Nice:
+                    onNiceEnd?.Invoke();
+                    break;
+
+                case BigWinType.Mega:
+                    onMegaEnd?.Invoke();
+                    break;
+
+                case BigWinType.Super:
+                    onSuperEnd?.Invoke();
+                    break;
+
+                case BigWinType.Sensational:
+                    onSensationalEnd?.Invoke();
+                    break;
+            }
         }
 
         private void CacheReferences()
